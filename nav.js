@@ -9,8 +9,39 @@
     burger.setAttribute('aria-expanded', menu.classList.contains('open'));
   });
 
+  // Close mobile menu when plain nav links are clicked
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => menu.classList.remove('open'));
+  });
+
+  // Dropdown toggle (click — works on both mobile and keyboard users)
+  document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+    const dropdown = trigger.closest('.nav-dropdown');
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(d => {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dropdown.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Close dropdowns when a panel link is clicked
+  document.querySelectorAll('.nav-dropdown-panel a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      menu?.classList.remove('open');
+    });
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
   });
 
   window.addEventListener('scroll', () => {
