@@ -615,15 +615,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--bg-dark2);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius-lg);
-  padding: 24px;
-  max-width: 420px;
+  padding: 18px;
+  max-width: 380px;
 }
 .chat-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .chat-avatar {
@@ -640,11 +640,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .chat-status::before { content: ''; width: 6px; height: 6px; background: #00D4C8; border-radius: 50%; }
 
 .chat-bubble {
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 14px;
-  font-size: 14px;
-  line-height: 1.55;
-  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 8px;
   max-width: 85%;
 }
 .bubble-sam {
