@@ -8,6 +8,189 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Pricing page extras */
+    .billing-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-soft);
+      border: 1.5px solid var(--card-border);
+      border-radius: 100px;
+      padding: 6px 20px;
+      margin-top: 24px;
+    }
+    .billing-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      transition: color .2s;
+    }
+    .billing-label.active { color: var(--text-dark); }
+    .toggle-switch {
+      width: 44px; height: 26px;
+      background: var(--card-border);
+      border-radius: 100px;
+      position: relative;
+      cursor: pointer;
+      transition: background .2s;
+      border: none;
+      flex-shrink: 0;
+    }
+    .toggle-switch.on { background: var(--indigo); }
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      top: 3px; left: 3px;
+      transition: transform .2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    }
+    .toggle-switch.on::after { transform: translateX(18px); }
+    .save-badge {
+      font-size: 11px; font-weight: 700;
+      background: #ECFDF5; color: #065F46;
+      padding: 2px 8px; border-radius: 100px;
+    }
+
+    /* Plan cards 4-column grid */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 1100px) { .plans-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .plans-grid { grid-template-columns: 1fr; } }
+
+    .plan-card {
+      background: #fff;
+      border: 1.5px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .plan-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-3px); }
+    .plan-card.featured {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 1px var(--indigo), 0 16px 48px rgba(91,78,232,.12);
+    }
+    .plan-card.dark-card {
+      background: linear-gradient(145deg, #0D0B1F, #1A1030);
+      border-color: #5B4EE8;
+      box-shadow: 0 0 0 1px #5B4EE8, 0 16px 48px rgba(91,78,232,.25);
+    }
+
+    .plan-top-badge {
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px; font-weight: 700;
+      padding: 3px 14px; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .plan-top-badge.popular { background: var(--gold); color: #6B3D00; }
+    .plan-top-badge.samai   { background: linear-gradient(90deg,#5B4EE8,#00D4C8); color: #fff; }
+
+    .plan-icon { font-size: 32px; margin-bottom: 12px; }
+    .plan-name {
+      font-size: 17px; font-weight: 800;
+      color: var(--text-dark); margin-bottom: 3px;
+    }
+    .plan-card.dark-card .plan-name { color: #fff; }
+    .plan-tagline { font-size: 12px; color: var(--text-light); margin-bottom: 18px; }
+    .plan-card.dark-card .plan-tagline { color: rgba(255,255,255,.5); }
+
+    .plan-price { font-size: 38px; font-weight: 900; letter-spacing: -.03em; color: var(--text-dark); line-height: 1; }
+    .plan-price sup { font-size: 18px; font-weight: 600; vertical-align: super; }
+    .plan-price span { font-size: 16px; font-weight: 500; color: var(--text-light); }
+    .plan-card.dark-card .plan-price { color: #00D4C8; }
+    .plan-card.dark-card .plan-price span { color: rgba(255,255,255,.4); }
+
+    .plan-billing { font-size: 11px; color: var(--text-light); margin-top: 3px; margin-bottom: 20px; min-height: 16px; }
+    .plan-card.dark-card .plan-billing { color: rgba(255,255,255,.4); }
+
+    .plan-divider { height: 1px; background: var(--card-border); margin-bottom: 18px; }
+    .plan-card.dark-card .plan-divider { background: rgba(255,255,255,.08); }
+
+    .plan-features { display: flex; flex-direction: column; gap: 9px; flex: 1; margin-bottom: 22px; }
+    .plan-feature {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; color: var(--text-mid);
+    }
+    .plan-card.dark-card .plan-feature { color: rgba(255,255,255,.8); }
+    .plan-feature .fi {
+      width: 18px; height: 18px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800; flex-shrink: 0; margin-top: 1px;
+    }
+    .fi-yes   { background: #ECFDF5; color: #065F46; }
+    .fi-no    { background: #FEF2F2; color: #DC2626; }
+    .fi-cyan  { background: #00D4C8; color: #0F0F1A; }
+    .fi-game  { background: var(--gold); color: #6B3D00; }
+
+    .plan-cta {
+      display: block; width: 100%; padding: 12px 0;
+      text-align: center; border-radius: 12px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none !important;
+      transition: all .2s; cursor: pointer; border: none;
+    }
+    .cta-disabled { background: #F3F4F6; color: var(--text-light); pointer-events: none; }
+    .cta-outline  { background: transparent; border: 2px solid var(--indigo); color: var(--indigo); }
+    .cta-outline:hover { background: var(--indigo); color: #fff; }
+    .cta-filled   { background: var(--indigo); color: #fff; box-shadow: 0 4px 14px rgba(91,78,232,.3); }
+    .cta-filled:hover { background: var(--indigo-dark); transform: translateY(-1px); color: #fff; }
+    .cta-gold     { background: linear-gradient(90deg,#F59E0B,#D97706); color: #fff; }
+    .cta-gold:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(245,158,11,.4); }
+    .cta-cyan     { background: linear-gradient(90deg,#00D4C8,#5B4EE8); color: #fff; }
+    .cta-cyan:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(91,78,232,.4); }
+
+    /* Gamification tab */
+    .tabs-bar {
+      display: flex; gap: 8px; justify-content: center;
+      background: var(--bg-soft); border: 1px solid var(--card-border);
+      border-radius: 14px; padding: 6px; width: fit-content; margin: 0 auto 40px;
+    }
+    .tab-btn {
+      padding: 8px 24px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      color: var(--text-light); transition: all .15s;
+    }
+    .tab-btn.active { background: #fff; color: var(--indigo); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Gamification comparison table */
+    .gami-table {
+      width: 100%; border-collapse: collapse;
+      background: #fff; border-radius: 16px; overflow: hidden;
+      border: 1.5px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+    }
+    .gami-table th {
+      padding: 14px 12px; font-size: 13px; font-weight: 700;
+      background: var(--bg-soft);
+      border-bottom: 1.5px solid var(--card-border);
+      text-align: center;
+    }
+    .gami-table th:first-child { text-align: left; }
+    .gami-table td {
+      padding: 13px 12px; font-size: 13px;
+      color: var(--text-mid); border-bottom: 1px solid var(--card-border);
+      text-align: center;
+    }
+    .gami-table td:first-child { text-align: left; font-weight: 500; color: var(--text-dark); }
+    .gami-table tr:last-child td { border-bottom: none; }
+    .gami-table .g-yes { color: #10B981; font-weight: 700; }
+    .gami-table .g-no  { color: #D1D5DB; }
+    .gami-table .sam-col { background: rgba(91,78,232,.04); }
+  </style>
 </head>
 <body>
 
@@ -35,175 +218,226 @@
   </div>
 </nav>
 
-<section class="page-hero">
+<!-- Hero -->
+<section class="page-hero" style="text-align:center">
   <div class="container">
-    <div class="section-label" data-en="Simple, honest pricing" data-es="Precio simple y honesto">Simple, honest pricing</div>
-    <h1 data-en="Start free. Grow at your pace." data-es="Empieza gratis. Crece a tu ritmo.">Start free. Grow at your pace.</h1>
-    <p data-en="Finiverse is free to download. The Sam AI plan unlocks your full AI-powered financial companion. No hidden fees. Cancel anytime." data-es="Finiverse es gratis para descargar. El plan Sam IA desbloquea tu compañero financiero con IA. Sin cargos ocultos. Cancela cuando quieras.">Finiverse is free to download. The Sam AI plan unlocks your full AI-powered financial companion. No hidden fees. Cancel anytime.</p>
+    <div class="section-label" data-en="Plans" data-es="Planes">Plans</div>
+    <h1 data-en="Find your plan." data-es="Encuentra tu plan.">Find your plan.</h1>
+    <p data-en="Finiverse is free to download. Upgrade to unlock Sam AI and premium features — at your own pace." data-es="Finiverse es gratis para descargar. Actualiza para desbloquear Sam IA y funciones premium — a tu ritmo.">Finiverse is free to download. Upgrade to unlock Sam AI and premium features — at your own pace.</p>
+
+    <!-- Monthly / Yearly toggle -->
+    <div class="billing-toggle" id="billingToggle">
+      <span class="billing-label active" id="lblMonthly" data-en="Monthly" data-es="Mensual">Monthly</span>
+      <button class="toggle-switch" id="billingSwitch" aria-label="Toggle billing period" aria-checked="false"></button>
+      <span class="billing-label" id="lblYearly" data-en="Yearly" data-es="Anual">Yearly</span>
+      <span class="save-badge" id="saveBadge" data-en="Save ~20%" data-es="Ahorra ~20%">Save ~20%</span>
+    </div>
+    <p style="font-size:12px;color:var(--text-light);margin-top:10px" data-en="Prices shown are approximate. Exact pricing in your currency is shown in the App Store." data-es="Los precios mostrados son aproximados. El precio exacto en tu moneda se muestra en el App Store.">Prices shown are approximate. Exact pricing in your currency is shown in the App Store.</p>
   </div>
 </section>
 
+<!-- Plans grid -->
 <section class="section">
   <div class="container">
 
-    <!-- Main pricing cards -->
-    <div class="pricing-grid" style="max-width:840px;margin:0 auto 64px">
-      <div class="pricing-card">
-        <div class="pricing-name" data-en="Free Forever" data-es="Gratis Siempre">Free Forever</div>
-        <div class="pricing-price">$0</div>
-        <div class="pricing-cycle" data-en="No credit card · No expiry" data-es="Sin tarjeta · Sin vencimiento">No credit card · No expiry</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Unlimited income & expense records" data-es="Registros ilimitados de ingresos y gastos">Unlimited income & expense records</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Emotional check-ins with every entry" data-es="Registros emocionales con cada entrada">Emotional check-ins with every entry</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Card & account management" data-es="Gestión de tarjetas y cuentas">Card & account management</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Multi-currency support" data-es="Soporte multi-moneda">Multi-currency support</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Basic financial categories" data-es="Categorías financieras básicas">Basic financial categories</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Basic charts & spending overview" data-es="Gráficos básicos y resumen de gastos">Basic charts & spending overview</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Savings goals (up to 3)" data-es="Metas de ahorro (hasta 3)">Savings goals (up to 3)</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Document storage (5 docs)" data-es="Almacenamiento de documentos (5 docs)">Document storage (5 docs)</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Sam AI — 10 messages/month" data-es="Sam IA — 10 mensajes/mes">Sam AI — 10 messages/month</span></li>
-          <li class="pricing-feature"><span class="check no">—</span><span style="color:var(--text-light)" data-en="Unlimited Sam AI conversations" data-es="Sam IA ilimitado">Unlimited Sam AI conversations</span></li>
-          <li class="pricing-feature"><span class="check no">—</span><span style="color:var(--text-light)" data-en="Emotion × Finance AI insights" data-es="Insights IA Emoción × Finanzas">Emotion × Finance AI insights</span></li>
-          <li class="pricing-feature"><span class="check no">—</span><span style="color:var(--text-light)" data-en="Advanced analytics & forecasting" data-es="Análisis avanzado y pronósticos">Advanced analytics & forecasting</span></li>
-          <li class="pricing-feature"><span class="check no">—</span><span style="color:var(--text-light)" data-en="Gamification & XP system" data-es="Gamificación y sistema de XP">Gamification & XP system</span></li>
+    <!-- Tab selector -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="showTab('pricing')" data-en="💰 Plans" data-es="💰 Planes">💰 Plans</button>
+      <button class="tab-btn" onclick="showTab('gamification')" data-en="🎮 Gamification" data-es="🎮 Gamificación">🎮 Gamification</button>
+    </div>
+
+    <!-- PRICING TAB -->
+    <div class="tab-panel active" id="tab-pricing">
+      <div class="plans-grid">
+
+        <!-- FREE -->
+        <div class="plan-card">
+          <div class="plan-icon">🌱</div>
+          <div class="plan-name">Free</div>
+          <div class="plan-tagline" data-en="Start your financial journey" data-es="Comienza tu viaje financiero">Start your financial journey</div>
+          <div class="plan-price">$0</div>
+          <div class="plan-billing" data-en="Forever free · No card needed" data-es="Gratis para siempre · Sin tarjeta">Forever free · No card needed</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Unlimited income & expenses" data-es="Ingresos y gastos ilimitados">Unlimited income & expenses</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Basic financial dashboard" data-es="Dashboard financiero básico">Basic financial dashboard</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="5 mood check-ins / month" data-es="5 registros de ánimo / mes">5 mood check-ins / month</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Up to 3 wish list items" data-es="Hasta 3 deseos en lista">Up to 3 wish list items</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Silver medals 🥈" data-es="Medallas de Plata 🥈">Silver medals 🥈</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Seasonal events 🌟" data-es="Eventos estacionales 🌟">Seasonal events 🌟</span></li>
+            <li class="plan-feature"><span class="fi fi-no">✕</span><span style="color:var(--text-light)" data-en="Sam AI" data-es="Sam IA">Sam AI</span></li>
+            <li class="plan-feature"><span class="fi fi-no">✕</span><span style="color:var(--text-light)" data-en="ML recommendations" data-es="Recomendaciones ML">ML recommendations</span></li>
+          </ul>
+          <button class="plan-cta cta-disabled" disabled data-en="Your free plan" data-es="Tu plan gratuito">Your free plan</button>
+        </div>
+
+        <!-- EARLY BIRD -->
+        <div class="plan-card">
+          <div class="plan-icon">⭐</div>
+          <div class="plan-name">Early Bird</div>
+          <div class="plan-tagline" data-en="For early adopters & power users" data-es="Para usuarios tempranos y avanzados">For early adopters & power users</div>
+          <div class="plan-price" id="eb-price"><sup>$</sup>1<span data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="eb-billing" data-en="~$19.99 billed yearly" data-es="~$19.99 al año"></div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Everything in Free" data-es="Todo lo de Gratis">Everything in Free</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Unlimited mood check-ins" data-es="Registros de ánimo ilimitados">Unlimited mood check-ins</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="ML-powered recommendations" data-es="Recomendaciones ML">ML-powered recommendations</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="10 wish list items" data-es="10 deseos en lista">10 wish list items</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Priority support" data-es="Soporte prioritario">Priority support</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Gold medals 🥇 + 2 avatars 🎮" data-es="Medallas Oro 🥇 + 2 avatares 🎮">Gold medals 🥇 + 2 avatars 🎮</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Sam AI — 30 chats/month" data-es="Sam IA — 30 chats/mes">Sam AI — 30 chats/month</span></li>
+            <li class="plan-feature"><span class="fi fi-no">✕</span><span style="color:var(--text-light)" data-en="Multi-currency · PDF export" data-es="Multi-moneda · Exportar PDF">Multi-currency · PDF export</span></li>
+          </ul>
+          <a href="https://apps.apple.com/app/finiverse/id6648789225" class="plan-cta cta-outline" target="_blank" rel="noopener" data-en="Get Early Bird →" data-es="Obtener Early Bird →">Get Early Bird →</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="plan-card featured">
+          <div class="plan-top-badge popular" data-en="⭐ Most Popular" data-es="⭐ Más Popular">⭐ Most Popular</div>
+          <div class="plan-icon">💜</div>
+          <div class="plan-name">Premium</div>
+          <div class="plan-tagline" data-en="Full power, your way" data-es="Todo el poder, a tu manera">Full power, your way</div>
+          <div class="plan-price" id="pr-price"><sup>$</sup>3<span data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="pr-billing" data-en="~$39.99 billed yearly" data-es="~$39.99 al año"></div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Everything in Early Bird" data-es="Todo lo de Early Bird">Everything in Early Bird</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Sam AI — 100 chats/month" data-es="Sam IA — 100 chats/mes">Sam AI — 100 chats/month</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Multi-currency support" data-es="Soporte multi-moneda">Multi-currency support</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Export PDF reports" data-es="Exportar reportes PDF">Export PDF reports</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="SOS button 🆘" data-es="Botón SOS 🆘">SOS button 🆘</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Social leaderboard 🏆" data-es="Leaderboard social 🏆">Social leaderboard 🏆</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Diamond medals 💎 + 4 avatars 🎮" data-es="Medallas Diamante 💎 + 4 avatares 🎮">Diamond medals 💎 + 4 avatars 🎮</span></li>
+            <li class="plan-feature"><span class="fi fi-no">✕</span><span style="color:var(--text-light)" data-en="Unlimited Sam AI" data-es="Sam IA ilimitado">Unlimited Sam AI</span></li>
+          </ul>
+          <a href="https://apps.apple.com/app/finiverse/id6648789225" class="plan-cta cta-gold" target="_blank" rel="noopener" data-en="Upgrade to Premium →" data-es="Actualizar a Premium →">Upgrade to Premium →</a>
+        </div>
+
+        <!-- SAM AI (dark card) -->
+        <div class="plan-card dark-card">
+          <div class="plan-top-badge samai" data-en="✦ Ultimate" data-es="✦ Máximo">✦ Ultimate</div>
+          <div class="plan-icon">
+            <img src="images/sam-robot.png" alt="Sam" style="width:36px;height:36px;object-fit:contain" onerror="this.parentElement.textContent='🤖'" />
+          </div>
+          <div class="plan-name">Sam AI</div>
+          <div class="plan-tagline" style="color:rgba(255,255,255,.5)" data-en="Your full AI financial companion" data-es="Tu compañero financiero IA completo">Your full AI financial companion</div>
+          <div class="plan-price" id="sa-price" style="color:#00D4C8"><sup style="color:#00D4C8">$</sup>5<span style="color:rgba(255,255,255,.4)" data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="sa-billing" data-en="~$59.99 billed yearly" data-es="~$59.99 al año"></div>
+          <div class="plan-divider" style="background:rgba(255,255,255,.08)"></div>
+          <ul class="plan-features">
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Everything in Premium" data-es="Todo lo de Premium">Everything in Premium</span></li>
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Unlimited Sam AI conversations" data-es="Conversaciones Sam IA ilimitadas">Unlimited Sam AI conversations</span></li>
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Personalized financial context" data-es="Contexto financiero personalizado">Personalized financial context</span></li>
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="What-if simulations" data-es="Simulaciones hipotéticas">What-if simulations</span></li>
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Early access to new features" data-es="Acceso anticipado a nuevas funciones">Early access to new features</span></li>
+            <li class="plan-feature"><span class="fi fi-game">🎮</span><span data-en="6+ avatars with voice" data-es="6+ avatares con voz">6+ avatars with voice</span></li>
+            <li class="plan-feature"><span class="fi fi-game">🎮</span><span data-en="Exclusive Sam AI events" data-es="Eventos exclusivos Sam IA">Exclusive Sam AI events</span></li>
+            <li class="plan-feature"><span class="fi fi-game">🎮</span><span data-en='"Sam Insider" badge' data-es='Badge "Sam Insider"'>"Sam Insider" badge</span></li>
+          </ul>
+          <a href="https://apps.apple.com/app/finiverse/id6648789225" class="plan-cta cta-cyan" target="_blank" rel="noopener" data-en="Get Sam AI →" data-es="Obtener Sam IA →">Get Sam AI →</a>
+        </div>
+
+      </div><!-- /plans-grid -->
+
+      <!-- Free Trial callout -->
+      <div style="max-width:560px;margin:32px auto 0;background:linear-gradient(135deg,var(--indigo-light),#F0FFF4);border:1.5px dashed var(--indigo);border-radius:20px;padding:28px 32px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">🎉</div>
+        <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="Try it free first" data-es="Pruébalo gratis primero">Try it free first</h3>
+        <p style="font-size:14px;color:var(--text-mid);margin-bottom:20px" data-en="Finiverse offers a free trial of the full Sam AI plan. No credit card required — start in the app." data-es="Finiverse ofrece una prueba gratuita del plan Sam IA completo. Sin tarjeta de crédito — empieza en la app.">Finiverse offers a free trial of the full Sam AI plan. No credit card required — start in the app.</p>
+        <ul style="text-align:left;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;max-width:300px;margin-left:auto;margin-right:auto">
+          <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Full Sam AI access" data-es="Acceso completo Sam IA">Full Sam AI access</span></li>
+          <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Unlimited mood check-ins" data-es="Registros de ánimo ilimitados">Unlimited mood check-ins</span></li>
+          <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="PDF export & multi-currency" data-es="Exportar PDF y multi-moneda">PDF export & multi-currency</span></li>
+          <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Priority support" data-es="Soporte prioritario">Priority support</span></li>
         </ul>
-        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:8px" target="_blank" rel="noopener" data-en="Download Free" data-es="Descargar Gratis">Download Free</a>
+        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary" target="_blank" rel="noopener" style="display:inline-block" data-en="Start Free Trial in App →" data-es="Iniciar Prueba Gratuita en App →">Start Free Trial in App →</a>
       </div>
 
-      <div class="pricing-card featured">
-        <div class="pricing-badge" data-en="✦ Most Popular" data-es="✦ Más Popular">✦ Most Popular</div>
-        <div class="pricing-name premium" data-en="Sam AI" data-es="Sam IA">Sam AI</div>
-        <div class="pricing-price" style="background:linear-gradient(135deg,#5B4EE8,#00D4C8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">$4<span style="-webkit-text-fill-color:var(--text-light)">/mo</span></div>
-        <div class="pricing-cycle" data-en="Billed monthly via Apple App Store" data-es="Cobro mensual vía App Store de Apple">Billed monthly via Apple App Store</div>
-        <ul class="pricing-features">
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Everything in Free, unlimited" data-es="Todo en Gratis, ilimitado">Everything in Free, unlimited</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Unlimited Sam AI conversations" data-es="Conversaciones ilimitadas con Sam IA">Unlimited Sam AI conversations</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Emotion × Finance AI analysis" data-es="Análisis IA Emoción × Finanzas">Emotion × Finance AI analysis</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Advanced charts, trends & forecasting" data-es="Gráficos avanzados, tendencias y pronósticos">Advanced charts, trends & forecasting</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Gamification — XP, levels & achievements" data-es="Gamificación — XP, niveles y logros">Gamification — XP, levels & achievements</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Unlimited savings goals" data-es="Metas de ahorro ilimitadas">Unlimited savings goals</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Unlimited document storage" data-es="Almacenamiento de documentos ilimitado">Unlimited document storage</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Personalized financial health score" data-es="Puntuación personalizada de salud financiera">Personalized financial health score</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Priority support" data-es="Soporte prioritario">Priority support</span></li>
-          <li class="pricing-feature"><span class="check">✓</span><span data-en="Early access to new features" data-es="Acceso anticipado a nuevas funciones">Early access to new features</span></li>
-        </ul>
-        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" target="_blank" rel="noopener" data-en="Try Sam AI Free" data-es="Prueba Sam IA Gratis">Try Sam AI Free</a>
-        <p style="text-align:center;font-size:12px;color:var(--text-light);margin-top:8px" data-en="Managed in your Apple ID settings. Cancel anytime." data-es="Gestionado en tu Apple ID. Cancela cuando quieras.">Managed in your Apple ID settings. Cancel anytime.</p>
+      <!-- Footer notes -->
+      <div style="text-align:center;margin-top:28px">
+        <p style="font-size:13px;color:var(--text-light);margin-bottom:8px" data-en="All subscriptions are billed through Apple App Store. Cancel anytime in your Apple ID settings." data-es="Todas las suscripciones se cobran a través del App Store de Apple. Cancela cuando quieras en tu Apple ID.">All subscriptions are billed through Apple App Store. Cancel anytime in your Apple ID settings.</p>
+        <p style="font-size:13px;color:var(--text-light)" data-en="Prices vary by region and are displayed in your local currency in the App Store." data-es="Los precios varían por región y se muestran en tu moneda local en el App Store.">Prices vary by region and are displayed in your local currency in the App Store.</p>
       </div>
     </div>
 
-    <!-- Comparison table -->
-    <div style="max-width:840px;margin:0 auto">
-      <h2 style="font-size:24px;font-weight:800;color:var(--text-dark);margin-bottom:32px;text-align:center" data-en="Full comparison" data-es="Comparación completa">Full comparison</h2>
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;font-size:15px">
-          <thead>
-            <tr style="border-bottom:2px solid var(--card-border)">
-              <th style="text-align:left;padding:12px 16px;color:var(--text-mid);font-weight:600" data-en="Feature" data-es="Función">Feature</th>
-              <th style="padding:12px 16px;color:var(--text-mid);font-weight:600;text-align:center" data-en="Free" data-es="Gratis">Free</th>
-              <th style="padding:12px 16px;color:var(--indigo);font-weight:700;text-align:center" data-en="Sam AI" data-es="Sam IA">Sam AI</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:14px 16px;font-weight:500;color:var(--text-dark)" colspan="3" data-en="📊 Tracking" data-es="📊 Seguimiento">📊 Tracking</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Income & expense records" data-es="Registros de ingresos y gastos">Income & expense records</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint)">✓ <span data-en="Unlimited" data-es="Ilimitado">Unlimited</span></td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓ <span data-en="Unlimited" data-es="Ilimitado">Unlimited</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Emotional check-ins" data-es="Registros emocionales">Emotional check-ins</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint)">✓</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Cards & accounts" data-es="Tarjetas y cuentas">Cards & accounts</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint)">✓</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Multi-currency" data-es="Multi-moneda">Multi-currency</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint)">✓</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Savings goals" data-es="Metas de ahorro">Savings goals</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-mid)" data-en="Up to 3" data-es="Hasta 3">Up to 3</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600" data-en="Unlimited" data-es="Ilimitadas">Unlimited</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Document storage" data-es="Almacenamiento de documentos">Document storage</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-mid)">5</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600" data-en="Unlimited" data-es="Ilimitado">Unlimited</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:14px 16px;font-weight:500;color:var(--text-dark)" colspan="3" data-en="🤖 Sam AI" data-es="🤖 Sam IA">🤖 Sam AI</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Sam AI conversations" data-es="Conversaciones Sam IA">Sam AI conversations</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-mid)" data-en="10/month" data-es="10/mes">10/month</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600" data-en="Unlimited" data-es="Ilimitadas">Unlimited</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Emotion × Finance AI insights" data-es="Insights IA Emoción × Finanzas">Emotion × Finance AI insights</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-light)">—</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Personalized financial health score" data-es="Puntuación de salud financiera personalizada">Personalized financial health score</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-light)">—</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:14px 16px;font-weight:500;color:var(--text-dark)" colspan="3" data-en="📈 Analytics" data-es="📈 Análisis">📈 Analytics</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Basic spending charts" data-es="Gráficos básicos de gastos">Basic spending charts</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint)">✓</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Advanced trends & forecasting" data-es="Tendencias avanzadas y pronósticos">Advanced trends & forecasting</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-light)">—</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Gamification — XP & levels" data-es="Gamificación — XP y niveles">Gamification — XP & levels</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-light)">—</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--card-border);background:var(--bg-soft)">
-              <td style="padding:12px 16px;color:var(--text-mid)" data-en="Priority support" data-es="Soporte prioritario">Priority support</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--text-light)">—</td>
-              <td style="padding:12px 16px;text-align:center;color:var(--mint);font-weight:600">✓</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- GAMIFICATION TAB -->
+    <div class="tab-panel" id="tab-gamification">
+      <div style="max-width:740px;margin:0 auto">
+        <div class="text-center mb-48" style="margin-bottom:32px">
+          <h2 class="section-title" data-en="Level up your <span>financial game</span>." data-es="Sube de nivel en tu <span>juego financiero</span>.">Level up your <span>financial game</span>.</h2>
+          <p class="section-sub" style="margin:12px auto 0" data-en="Finiverse uses XP, levels, medals, and achievements to turn financial habits into something you actually want to do." data-es="Finiverse usa XP, niveles, medallas y logros para convertir los hábitos financieros en algo que realmente quieres hacer.">Finiverse uses XP, levels, medals, and achievements to turn financial habits into something you actually want to do.</p>
+        </div>
+
+        <div style="overflow-x:auto">
+          <table class="gami-table">
+            <thead>
+              <tr>
+                <th style="text-align:left" data-en="🎮 Feature" data-es="🎮 Función">🎮 Feature</th>
+                <th data-en="Free" data-es="Gratis">Free 🌱</th>
+                <th data-en="Early Bird" data-es="Early Bird">Early Bird ⭐</th>
+                <th data-en="Premium" data-es="Premium">Premium 💜</th>
+                <th class="sam-col" style="color:var(--indigo);font-weight:700">Sam AI 🤖</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-en="🏅 Medals" data-es="🏅 Medallas">🏅 Medals</td>
+                <td>🥈</td><td>🥇</td><td>💎</td><td class="sam-col">💎</td>
+              </tr>
+              <tr>
+                <td data-en="🌟 Seasonal events" data-es="🌟 Eventos estacionales">🌟 Seasonal events</td>
+                <td class="g-yes">✓</td><td class="g-yes">✓</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🏆 Social leaderboard" data-es="🏆 Leaderboard social">🏆 Social leaderboard</td>
+                <td class="g-no">—</td><td class="g-no">—</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🎭 Animated avatars" data-es="🎭 Avatares animados">🎭 Animated avatars</td>
+                <td>1</td><td>2</td><td>4</td><td class="sam-col" style="color:var(--indigo);font-weight:700">6+</td>
+              </tr>
+              <tr>
+                <td data-en="⭐ Exclusive Sam AI events" data-es="⭐ Eventos exclusivos Sam IA">⭐ Exclusive Sam AI events</td>
+                <td class="g-no">—</td><td class="g-no">—</td><td class="g-no">—</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🔊 Avatar with voice" data-es="🔊 Avatar con voz">🔊 Avatar with voice</td>
+                <td class="g-no">—</td><td class="g-no">—</td><td class="g-no">—</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en='🏷️ "Sam Insider" badge' data-es='🏷️ Badge "Sam Insider"'>🏷️ "Sam Insider" badge</td>
+                <td class="g-no">—</td><td class="g-no">—</td><td class="g-no">—</td><td class="sam-col g-yes">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="text-align:center;margin-top:32px">
+          <button onclick="showTab('pricing')" class="btn btn-primary" data-en="See all plans →" data-es="Ver todos los planes →">See all plans →</button>
+        </div>
       </div>
     </div>
 
     <!-- FAQ -->
-    <div style="max-width:640px;margin:80px auto 0">
-      <h2 style="font-size:24px;font-weight:800;color:var(--text-dark);margin-bottom:32px;text-align:center" data-en="Frequently asked questions" data-es="Preguntas frecuentes">Frequently asked questions</h2>
-
-      <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="max-width:640px;margin:72px auto 0">
+      <h2 style="font-size:24px;font-weight:800;color:var(--text-dark);margin-bottom:28px;text-align:center" data-en="Questions" data-es="Preguntas">Questions</h2>
+      <div style="display:flex;flex-direction:column;gap:16px">
         <div class="card">
-          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px" data-en="How do I cancel the Sam AI subscription?" data-es="¿Cómo cancelo la suscripción de Sam IA?">How do I cancel the Sam AI subscription?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="The Sam AI subscription is managed through your Apple ID. Go to Settings → Apple ID → Subscriptions and cancel there. No cancellation fees." data-es="La suscripción de Sam IA se gestiona a través de tu Apple ID. Ve a Ajustes → Apple ID → Suscripciones y cancela ahí. Sin cargos por cancelación.">The Sam AI subscription is managed through your Apple ID. Go to Settings → Apple ID → Subscriptions and cancel there. No cancellation fees.</p>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="How do I cancel?" data-es="¿Cómo cancelo?">How do I cancel?</h3>
+          <p style="font-size:14px;color:var(--text-mid)" data-en="Go to Settings → Apple ID → Subscriptions on your iPhone. Cancel anytime — no fees." data-es="Ve a Ajustes → Apple ID → Suscripciones en tu iPhone. Cancela cuando quieras — sin cargos.">Go to Settings → Apple ID → Subscriptions on your iPhone. Cancel anytime — no fees.</p>
         </div>
         <div class="card">
-          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px" data-en="Is Sam AI actually an AI?" data-es="¿Sam IA es realmente IA?">Is Sam AI actually an AI?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Yes! Sam is powered by Claude AI language models (by Anthropic) with full access to your financial context — your records, emotions, goals, and spending patterns. Sam is not a chatbot with scripted answers." data-es="¡Sí! Sam está impulsado por modelos de lenguaje Claude AI (de Anthropic) con acceso completo a tu contexto financiero — tus registros, emociones, metas y patrones de gasto. Sam no es un chatbot con respuestas guionadas.">Yes! Sam is powered by Claude AI language models (by Anthropic) with full access to your financial context — your records, emotions, goals, and spending patterns. Sam is not a chatbot with scripted answers.</p>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="Can I switch plans?" data-es="¿Puedo cambiar de plan?">Can I switch plans?</h3>
+          <p style="font-size:14px;color:var(--text-mid)" data-en="Yes — upgrade or downgrade anytime. Changes take effect at the next billing cycle." data-es="Sí — actualiza o reduce tu plan cuando quieras. Los cambios surten efecto en el próximo ciclo de facturación.">Yes — upgrade or downgrade anytime. Changes take effect at the next billing cycle.</p>
         </div>
         <div class="card">
-          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px" data-en="Is my financial data safe?" data-es="¿Mis datos financieros están seguros?">Is my financial data safe?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Yes. All data is stored on Google Firebase with enterprise-grade security, encrypted at rest and in transit. We never sell your data. Read our Privacy Policy for full details." data-es="Sí. Todos los datos se almacenan en Google Firebase con seguridad de nivel empresarial, cifrados en reposo y en tránsito. Nunca vendemos tus datos. Lee nuestra Política de Privacidad para más detalles.">Yes. All data is stored on Google Firebase with enterprise-grade security, encrypted at rest and in transit. We never sell your data. Read our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="What is Sam AI, really?" data-es="¿Qué es Sam IA, en realidad?">What is Sam AI, really?</h3>
+          <p style="font-size:14px;color:var(--text-mid)" data-en="Sam is powered by Claude AI (Anthropic) and knows your full financial context — your records, emotions, and goals. It's not a scripted chatbot. Note: Sam does not give certified financial advice." data-es="Sam está impulsado por Claude AI (Anthropic) y conoce tu contexto financiero completo — tus registros, emociones y metas. No es un chatbot guionado. Nota: Sam no da asesoramiento financiero certificado.">Sam is powered by Claude AI (Anthropic) and knows your full financial context — your records, emotions, and goals. It's not a scripted chatbot. Note: Sam does not give certified financial advice.</p>
         </div>
         <div class="card">
-          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px" data-en="What does Sam AI NOT do?" data-es="¿Qué NO hace Sam IA?">What does Sam AI NOT do?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Sam AI does not connect to your bank accounts, does not make payments, and does not provide certified financial advice. Sam is an informational AI companion — always consult a professional for major financial decisions." data-es="Sam IA no se conecta a tus cuentas bancarias, no realiza pagos y no proporciona asesoramiento financiero certificado. Sam es un compañero IA informativo — siempre consulta un profesional para decisiones financieras importantes.">Sam AI does not connect to your bank accounts, does not make payments, and does not provide certified financial advice. Sam is an informational AI companion — always consult a professional for major financial decisions.</p>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="Is there a student or family discount?" data-es="¿Hay descuento para estudiantes o familias?">Is there a student or family discount?</h3>
+          <p style="font-size:14px;color:var(--text-mid)" data-en="Not yet, but it's on our roadmap. Sign up for our newsletter to be the first to know." data-es="Todavía no, pero está en nuestro roadmap. Suscríbete a nuestro newsletter para ser el primero en saber.">Not yet, but it's on our roadmap. <a href="blog/index.html">Sign up for our newsletter</a> to be the first to know.</p>
         </div>
       </div>
     </div>
@@ -211,10 +445,11 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="container" style="position:relative;z-index:1">
-    <h2 data-en="Try Finiverse today — it's free." data-es="Prueba Finiverse hoy — es gratis.">Try Finiverse today — it's free.</h2>
-    <p data-en="Download and start tracking your finances. Upgrade to Sam AI whenever you feel ready." data-es="Descarga y empieza a rastrear tus finanzas. Actualiza a Sam IA cuando te sientas listo.">Download and start tracking your finances. Upgrade to Sam AI whenever you feel ready.</p>
+    <h2 data-en="Start with Free. No risk." data-es="Empieza gratis. Sin riesgo.">Start with Free. No risk.</h2>
+    <p data-en="Download Finiverse and begin tracking your finances today. Upgrade when you're ready." data-es="Descarga Finiverse y empieza a rastrear tus finanzas hoy. Actualiza cuando estés listo.">Download Finiverse and begin tracking your finances today. Upgrade when you're ready.</p>
     <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener" style="margin:0 auto;max-width:220px">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <span class="store-btn-text"><small data-en="Download on the" data-es="Descarga en el">Download on the</small><strong>App Store</strong></span>
@@ -235,5 +470,71 @@
 
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
+<script>
+  /* ── Tab switching ── */
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  /* ── Monthly / Yearly toggle ── */
+  /* Prices are approximate — update to match your App Store pricing */
+  const PRICES = {
+    monthly: {
+      eb: { display: '$1', sub: '/mo', billing: '' },
+      pr: { display: '$3', sub: '/mo', billing: '' },
+      sa: { display: '$5', sub: '/mo', billing: '' }
+    },
+    yearly: {
+      eb: { display: '$1', sub: '/mo', billing: '~$19.99 billed yearly' },
+      pr: { display: '$3', sub: '/mo', billing: '~$39.99 billed yearly' },
+      sa: { display: '$5', sub: '/mo', billing: '~$59.99 billed yearly' }
+    }
+  };
+  const PRICES_ES = {
+    monthly: {
+      eb: { billing: '' }, pr: { billing: '' }, sa: { billing: '' }
+    },
+    yearly: {
+      eb: { billing: '~$19.99 al año' }, pr: { billing: '~$39.99 al año' }, sa: { billing: '~$59.99 al año' }
+    }
+  };
+
+  let isYearly = false;
+
+  const sw = document.getElementById('billingSwitch');
+  const lblM = document.getElementById('lblMonthly');
+  const lblY = document.getElementById('lblYearly');
+
+  function applyPricing() {
+    const mode = isYearly ? 'yearly' : 'monthly';
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const p = PRICES[mode];
+    const billing = lang === 'es' ? PRICES_ES[mode] : p;
+
+    document.getElementById('eb-billing').textContent = billing.eb.billing;
+    document.getElementById('pr-billing').textContent = billing.pr.billing;
+    document.getElementById('sa-billing').textContent = billing.sa.billing;
+
+    lblM.classList.toggle('active', !isYearly);
+    lblY.classList.toggle('active', isYearly);
+    sw.classList.toggle('on', isYearly);
+    sw.setAttribute('aria-checked', isYearly);
+  }
+
+  sw.addEventListener('click', () => {
+    isYearly = !isYearly;
+    applyPricing();
+  });
+
+  applyPricing();
+
+  // Re-apply billing notes when language changes
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(applyPricing, 10));
+  });
+</script>
 </body>
 </html>

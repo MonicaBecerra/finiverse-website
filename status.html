@@ -114,9 +114,38 @@
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
 <script>
-/* ── Airtable config — fill these in when you have a base ── */
-const AIRTABLE_TOKEN  = '';
-const AIRTABLE_BASE   = '';
+/*
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  SETUP: Airtable (to track ticket status as an admin)        ║
+  ╠══════════════════════════════════════════════════════════════╣
+  ║  1. Go to https://airtable.com and create a free account     ║
+  ║  2. Create a new Base → name it "Finiverse Support"          ║
+  ║  3. Create a Table called "Tickets" with these fields:       ║
+  ║     - TicketID  (Single line text)  ← e.g. FNV-LMX4K2       ║
+  ║     - Status    (Single select):    pending / reviewing /    ║
+  ║                                     responded / closed       ║
+  ║     - Category  (Single line text)  ← support, billing, etc.║
+  ║     - Message   (Long text)                                  ║
+  ║     - Email     (Email)                                      ║
+  ║     - CreatedAt (Date)                                       ║
+  ║                                                              ║
+  ║  4. Get your Personal Access Token:                          ║
+  ║     airtable.com/create/tokens → create token with:         ║
+  ║     Scopes: data.records:read, data.records:write            ║
+  ║     Access: your "Finiverse Support" base                    ║
+  ║     → copy the pat... token and paste below                  ║
+  ║                                                              ║
+  ║  5. Get your Base ID:                                        ║
+  ║     Open your base → click Help → API docs                   ║
+  ║     The Base ID starts with "app..." → copy it below         ║
+  ║                                                              ║
+  ║  6. When Formspree sends you a contact email, manually       ║
+  ║     add the ticket to Airtable with the TicketID from        ║
+  ║     the email, so users can look it up here.                 ║
+  ╚══════════════════════════════════════════════════════════════╝
+*/
+const AIRTABLE_TOKEN  = '';   /* paste your Personal Access Token here */
+const AIRTABLE_BASE   = '';   /* paste your Base ID (app...) here */
 const AIRTABLE_TABLE  = 'Tickets';
 const USE_AIRTABLE    = AIRTABLE_TOKEN && AIRTABLE_BASE;
 

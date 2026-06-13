@@ -69,7 +69,22 @@
             <button class="pill" data-val="other" data-en="Other" data-es="Otro">Other</button>
           </div>
 
-          <form id="contactForm" action="https://formspree.io/f/hello.finiverse" method="POST" novalidate>
+          <!--
+            ╔══════════════════════════════════════════════════════╗
+            ║  SETUP: Formspree (for this contact form)            ║
+            ╠══════════════════════════════════════════════════════╣
+            ║  1. Go to https://formspree.io and sign up free      ║
+            ║  2. Click "New Form" → name it "Finiverse Contact"   ║
+            ║  3. Copy your form endpoint (looks like:             ║
+            ║     https://formspree.io/f/xabc1234)                 ║
+            ║  4. Replace the action= URL below with yours         ║
+            ║  5. Add hello.finiverse@outlook.com as recipient     ║
+            ║                                                      ║
+            ║  The free plan allows 50 submissions/month.          ║
+            ║  Upgrade to Plus for unlimited + file uploads.       ║
+            ╚══════════════════════════════════════════════════════╝
+          -->
+          <form id="contactForm" action="https://formspree.io/f/xpwzjgqw" method="POST" novalidate>
             <input type="hidden" name="_subject" id="formSubject" value="Finiverse Contact — Support" />
             <input type="hidden" name="category" id="formCategory" value="support" />
 
