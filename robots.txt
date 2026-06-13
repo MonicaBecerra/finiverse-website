@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://monicabecerra.github.io/finiverse-website/sitemap.xml

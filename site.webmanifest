@@ -1,0 +1,13 @@
+{
+  "name": "Finiverse",
+  "short_name": "Finiverse",
+  "description": "Personal finance for neurodivergent minds.",
+  "start_url": "/finiverse-website/",
+  "display": "standalone",
+  "background_color": "#0F0F1A",
+  "theme_color": "#5B4EE8",
+  "icons": [
+    { "src": "images/app-icon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/app-icon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
