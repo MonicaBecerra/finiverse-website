@@ -620,19 +620,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none;
+  object-position: top;
+  display: block;
+  z-index: 1;
 }
 .screenshot-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  color: var(--text-light);
-  font-size: 11px;
-  z-index: 0;
+  display: none;
 }
 .screenshot-placeholder .ss-icon { font-size: 28px; }
 .screenshot-label {
