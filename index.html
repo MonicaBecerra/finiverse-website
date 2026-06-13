@@ -16,26 +16,44 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="#" class="logo">
-        <img src="images/logo.png" alt="Finiverse" class="logo-img" />
+        <!-- SVG logo inline — shows even without logo.png uploaded -->
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <defs>
+            <radialGradient id="bg" cx="40%" cy="35%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#3b0764"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+          <circle cx="28" cy="38" r="2" fill="white" opacity="0.6"/>
+          <circle cx="62" cy="22" r="1.5" fill="white" opacity="0.5"/>
+          <circle cx="75" cy="55" r="1" fill="white" opacity="0.4"/>
+          <circle cx="40" cy="70" r="1.5" fill="white" opacity="0.5"/>
+          <circle cx="55" cy="80" r="1" fill="white" opacity="0.3"/>
+          <path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="78" cy="28" r="6" fill="#00D4C8"/>
+          <circle cx="22" cy="72" r="4" fill="#00D4C8" opacity="0.8"/>
+        </svg>
         <span class="logo-text">Finiverse</span>
       </a>
       <div class="nav-links">
         <a href="#features" data-en="Features" data-es="Funciones">Features</a>
-        <a href="#sam" data-en="Meet Sam" data-es="Conoce a Sam">Meet Sam</a>
-        <a href="#screenshots" data-en="Screenshots" data-es="Capturas">Screenshots</a>
+        <a href="#sam" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
         <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="en">EN</button>
           <span class="lang-sep">|</span>
           <button class="lang-btn" data-lang="es">ES</button>
         </div>
-        <a href="https://apps.apple.com/app/finiverse/id6648789225" target="_blank" class="btn btn-sm" data-en="Download" data-es="Descargar">Download</a>
+        <a href="https://apps.apple.com/app/finiverse/id6648789225" target="_blank" class="btn btn-sm">
+          <span data-en="Download" data-es="Descargar">Download</span>
+        </a>
       </div>
       <button class="nav-mobile-toggle" id="navToggle">☰</button>
     </div>
     <div class="nav-mobile-menu" id="navMenu">
       <a href="#features" data-en="Features" data-es="Funciones">Features</a>
-      <a href="#sam" data-en="Meet Sam" data-es="Conoce a Sam">Meet Sam</a>
+      <a href="#sam" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
       <a href="#screenshots" data-en="Screenshots" data-es="Capturas">Screenshots</a>
       <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
       <div class="mobile-lang">
@@ -56,7 +74,7 @@
     <div class="container hero-inner">
       <div class="hero-content">
         <div class="badge">
-          <img src="images/sam-robot.png" alt="Sam" class="badge-sam" />
+          <span class="sam-emoji">🤖</span>
           <span data-en="Meet Sam, your financial AI" data-es="Conoce a Sam, tu IA financiera">Meet Sam, your financial AI</span>
         </div>
         <h1>
@@ -125,7 +143,7 @@
                 <span class="chevron">›</span>
               </div>
               <div class="sam-insight">
-                <img src="images/sam-robot.png" alt="Sam" class="sam-tiny" />
+                <span style="font-size:16px">🤖</span>
                 <span data-en="You have 3 days on streak. Chat with Sam →" data-es="Tienes 3 días seguidos. Chatea con Sam →">You have 3 days on streak. Chat with Sam →</span>
               </div>
               <div class="achievement-card">
@@ -263,7 +281,10 @@
   <section class="sam-section" id="sam">
     <div class="container sam-inner">
       <div class="sam-visual">
-        <img src="images/sam-robot.png" alt="Sam AI" class="sam-img" />
+        <div class="sam-avatar-big">
+          <img src="images/sam-robot.png" alt="Sam AI" class="sam-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="sam-fallback">🤖</div>
+        </div>
         <div class="sam-chat-preview">
           <div class="chat-msg sam-msg">
             <strong>Sam</strong>
@@ -380,7 +401,13 @@
     <div class="container download-inner">
       <div class="orb orb-dl-1"></div>
       <div class="orb orb-dl-2"></div>
-      <img src="images/logo.png" alt="Finiverse" class="dl-logo" />
+      <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="dl-logo" style="display:block;margin:0 auto 24px;filter:drop-shadow(0 0 20px rgba(91,78,232,0.5))">
+        <defs><radialGradient id="bg2" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs>
+        <circle cx="50" cy="50" r="48" fill="url(#bg2)"/>
+        <circle cx="28" cy="38" r="2" fill="white" opacity="0.6"/><circle cx="62" cy="22" r="1.5" fill="white" opacity="0.5"/><circle cx="75" cy="55" r="1" fill="white" opacity="0.4"/><circle cx="40" cy="70" r="1.5" fill="white" opacity="0.5"/>
+        <path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="78" cy="28" r="6" fill="#00D4C8"/><circle cx="22" cy="72" r="4" fill="#00D4C8" opacity="0.8"/>
+      </svg>
       <h2 data-en="Start your financial journey today." data-es="Comienza tu viaje financiero hoy.">Start your financial journey today.</h2>
       <p data-en="Free to download. No subscriptions to start." data-es="Gratis para descargar. Sin suscripción para empezar.">Free to download. No subscriptions to start.</p>
       <a href="https://apps.apple.com/app/finiverse/id6648789225" target="_blank" class="btn btn-primary btn-lg">
@@ -395,7 +422,12 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="#" class="logo">
-          <img src="images/logo.png" alt="Finiverse" class="logo-img" />
+          <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+            <defs><radialGradient id="bg3" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs>
+            <circle cx="50" cy="50" r="48" fill="url(#bg3)"/>
+            <path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <circle cx="78" cy="28" r="7" fill="#00D4C8"/>
+          </svg>
           <span class="logo-text">Finiverse</span>
         </a>
         <p data-en="Your financial + emotional health." data-es="Tu salud financiera + emocional.">Your financial + emotional health.</p>
