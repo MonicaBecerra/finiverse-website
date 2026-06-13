@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    @media (max-width: 820px) {
+      .founder-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    }
+  </style>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/app-icon.png" />
   <link rel="apple-touch-icon" href="images/app-icon.png" />
@@ -113,6 +118,43 @@
           <h3 style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:8px" data-en="Our users" data-es="Nuestros usuarios">Our users</h3>
           <p style="font-size:15px;color:var(--text-mid)" data-en="People with ADHD, dyslexia, Down syndrome, anxiety, and anyone who felt left behind by traditional finance tools." data-es="Personas con TDAH, dislexia, síndrome de Down, ansiedad, y cualquiera que se haya sentido excluido por las herramientas financieras tradicionales.">People with ADHD, dyslexia, Down syndrome, anxiety, and anyone who felt left behind by traditional finance tools.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder story -->
+<section class="section bg-soft">
+  <div class="container">
+    <div class="founder-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center">
+      <div>
+        <div class="section-label" data-en="Why emotions + finance" data-es="Por qué emociones + finanzas">Why emotions + finance</div>
+        <h2 class="section-title mt-16" data-en="Built from<br><span>lived experience.</span>" data-es="Construida desde<br><span>la experiencia propia.</span>">Built from<br><span>lived experience.</span></h2>
+        <p style="font-size:16px;color:var(--text-mid);line-height:1.8;margin-top:16px"
+           data-en="One of Finiverse's co-founders has ADHD and anxiety. For years, opening a banking app triggered a spiral — walls of red numbers, budget alerts, zero context. It didn't help. It hurt."
+           data-es="Una de las cofundadoras de Finiverse tiene TDAH y ansiedad. Durante años, abrir una app bancaria le causaba un espiral — pantallas de números rojos, alertas de presupuesto, cero contexto. No ayudaba. Lastimaba.">One of Finiverse's co-founders has ADHD and anxiety. For years, opening a banking app triggered a spiral — walls of red numbers, budget alerts, zero context. It didn't help. It hurt.</p>
+        <p style="font-size:16px;color:var(--text-mid);line-height:1.8;margin-top:14px"
+           data-en="When she noticed her spending spikes always happened during her most anxious weeks, the insight was clear: the missing feature wasn't another budget category — it was emotional context. That realization became the core of Finiverse."
+           data-es="Cuando notó que sus picos de gasto siempre ocurrían en sus semanas de mayor ansiedad, la conclusión fue clara: la función que faltaba no era otra categoría de presupuesto — era el contexto emocional. Esa revelación se convirtió en el núcleo de Finiverse.">When she noticed her spending spikes always happened during her most anxious weeks, the insight was clear: the missing feature wasn't another budget category — it was emotional context. That realization became the core of Finiverse.</p>
+      </div>
+
+      <!-- Founder quote card -->
+      <div style="background:#fff;border:1px solid var(--card-border);border-radius:24px;padding:40px;position:relative">
+        <div style="font-size:64px;line-height:1;color:var(--indigo);opacity:.12;font-family:Georgia,serif;position:absolute;top:24px;left:32px">&ldquo;</div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#5B4EE8);color:#fff;font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">M</div>
+          <div>
+            <div style="font-weight:800;color:var(--text-dark);font-size:15px">Monica</div>
+            <div style="font-size:13px;color:var(--text-light)" data-en="Co-founder, Finiverse" data-es="Cofundadora, Finiverse">Co-founder, Finiverse</div>
+          </div>
+          <div style="margin-left:auto;display:flex;gap:6px">
+            <span style="padding:3px 10px;border-radius:100px;background:var(--indigo-light);color:var(--indigo);font-size:11px;font-weight:700">ADHD</span>
+            <span style="padding:3px 10px;border-radius:100px;background:#FFF3CD;color:#92400E;font-size:11px;font-weight:700" data-en="Anxiety" data-es="Ansiedad">Anxiety</span>
+          </div>
+        </div>
+        <blockquote style="margin:0;font-size:16px;font-style:italic;color:var(--text-dark);line-height:1.75;position:relative;z-index:1"
+                    data-en="&ldquo;I avoided looking at my bank account for months at a time. It wasn&rsquo;t laziness — it was that every app made me feel like I was failing. So I built one that finally felt like a friend.&rdquo;"
+                    data-es="&ldquo;Evité ver mi cuenta bancaria durante meses. No era pereza — era que cada app me hacía sentir que estaba fallando. Así que construí una que finalmente se sintiera como una amiga.&rdquo;">&ldquo;I avoided looking at my bank account for months at a time. It wasn&rsquo;t laziness — it was that every app made me feel like I was failing. So I built one that finally felt like a friend.&rdquo;</blockquote>
       </div>
     </div>
   </div>
