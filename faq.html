@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="FAQ — Finiverse" data-title-es="Preguntas Frecuentes — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="index.html#features" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero" style="text-align:center;position:relative;overflow:hidden">
+  <!-- Sam thinking decoration -->
+  <div style="position:absolute;right:5%;bottom:-10px;opacity:.15;pointer-events:none">
+    <img src="images/sam-robot.png" alt="" width="160" style="transform:rotate(10deg)" aria-hidden="true" />
+  </div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label" data-en="Support" data-es="Soporte">Support</div>
+    <h1 data-en="Frequently Asked <span>Questions</span>" data-es="Preguntas <span>Frecuentes</span>">Frequently Asked <span>Questions</span></h1>
+    <p data-en="Everything you need to know about Finiverse. Can't find an answer? Sam inside the app can help, or contact our support team." data-es="Todo lo que necesitas saber sobre Finiverse. ¿No encuentras una respuesta? Sam dentro de la app puede ayudar, o contacta a nuestro equipo de soporte.">Everything you need to know about Finiverse. Can't find an answer? Sam inside the app can help, or <a href="contact.html" style="color:var(--indigo)">contact our support team</a>.</p>
+  </div>
+</section>
+
+<!-- FAQ content -->
+<section class="section">
+  <div class="container" style="max-width:800px">
+
+    <!-- Category tabs -->
+    <div class="faq-tabs" style="margin-bottom:40px">
+      <button class="faq-tab active" data-cat="all" data-en="✨ All" data-es="✨ Todo">✨ All</button>
+      <button class="faq-tab" data-cat="basics" data-en="📱 Basics" data-es="📱 Básicos">📱 Basics</button>
+      <button class="faq-tab" data-cat="sam" data-en="🤖 Sam AI" data-es="🤖 Sam IA">🤖 Sam AI</button>
+      <button class="faq-tab" data-cat="privacy" data-en="🛡️ Privacy" data-es="🛡️ Privacidad">🛡️ Privacy</button>
+      <button class="faq-tab" data-cat="plans" data-en="💰 Plans" data-es="💰 Planes">💰 Plans</button>
+    </div>
+
+    <!-- BASICS -->
+    <div class="faq-group">
+      <h2 class="faq-group-title" data-cat-label="basics" data-en="📱 App Basics" data-es="📱 Básicos de la App" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">📱 App Basics</h2>
+
+      <div class="faq-item" data-cat="basics">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="How do I record an expense?" data-es="¿Cómo registro un gasto?">How do I record an expense?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Tap the purple + button at the bottom of the screen and choose 'Expense'. Enter the amount, select a category (Food, Transport, Services, etc.), and optionally add how you're feeling. Sam uses your emotional data to build personalized insights over time." data-es="Toca el botón morado ＋ en la parte inferior de la pantalla y elige 'Gasto'. Ingresa el monto, selecciona una categoría (Comida, Transporte, Servicios, etc.) y opcionalmente cómo te sientes. Sam usa tus datos emocionales para construir insights personalizados con el tiempo.">Tap the purple + button at the bottom of the screen and choose 'Expense'. Enter the amount, select a category (Food, Transport, Services, etc.), and optionally add how you're feeling. Sam uses your emotional data to build personalized insights over time.</div>
+      </div>
+
+      <div class="faq-item" data-cat="basics">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Can I edit a record after saving it?" data-es="¿Puedo editar un registro después de guardarlo?">Can I edit a record after saving it?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Yes. Open any record from the Records tab and tap Edit to change the amount, category, date, description, or your emotional note. No data is ever locked." data-es="Sí. Abre cualquier registro desde la pestaña Registros y toca Editar para cambiar el monto, categoría, fecha, descripción o tu nota emocional. Ningún dato queda bloqueado.">Yes. Open any record from the Records tab and tap Edit to change the amount, category, date, description, or your emotional note. No data is ever locked.</div>
+      </div>
+
+      <div class="faq-item" data-cat="basics">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="What is the emotional check-in?" data-es="¿Qué es el check-in emocional?">What is the emotional check-in?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="A daily log where you record your mood, focus level, energy, stress, and sleep (automatically synced from Apple Watch, or entered manually). Sam links these emotional signals with your spending patterns — for example, detecting that you tend to spend more when you're anxious or under-slept." data-es="Un registro diario donde anotas tu ánimo, nivel de enfoque, energía, estrés y sueño (sincronizado automáticamente del Apple Watch, o ingresado manualmente). Sam vincula estas señales emocionales con tus patrones de gasto — por ejemplo, detectando que tiendes a gastar más cuando estás ansioso o has dormido poco.">A daily log where you record your mood, focus level, energy, stress, and sleep (automatically synced from Apple Watch, or entered manually). Sam links these emotional signals with your spending patterns — for example, detecting that you tend to spend more when you're anxious or under-slept.</div>
+      </div>
+
+      <div class="faq-item" data-cat="basics">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Does Finiverse connect to my bank?" data-es="¿Finiverse se conecta a mi banco?">Does Finiverse connect to my bank?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="No — Finiverse is intentionally manual. You enter your records yourself, which keeps your banking credentials private and helps build the habit of mindful spending awareness. This is especially helpful for neurodivergent users who benefit from the act of recording." data-es="No — Finiverse es intencionalmente manual. Tú ingresas tus registros, lo que mantiene privadas tus credenciales bancarias y ayuda a desarrollar el hábito de la conciencia del gasto. Esto es especialmente útil para usuarios neurodivergentes que se benefician del acto de registrar.">No — Finiverse is intentionally manual. You enter your records yourself, which keeps your banking credentials private and helps build the habit of mindful spending awareness. This is especially helpful for neurodivergent users who benefit from the act of recording.</div>
+      </div>
+
+      <div class="faq-item" data-cat="basics">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="What currencies does Finiverse support?" data-es="¿Qué monedas soporta Finiverse?">What currencies does Finiverse support?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Finiverse supports multiple currencies. You can set your primary currency in Settings, and multi-currency tracking is available on Premium and Sam AI plans." data-es="Finiverse soporta múltiples monedas. Puedes configurar tu moneda principal en Ajustes, y el seguimiento multi-moneda está disponible en los planes Premium y Sam IA.">Finiverse supports multiple currencies. You can set your primary currency in Settings, and multi-currency tracking is available on Premium and Sam AI plans.</div>
+      </div>
+    </div>
+
+    <!-- SAM AI -->
+    <div class="faq-group" style="margin-top:48px">
+      <h2 class="faq-group-title" data-cat-label="sam" data-en="🤖 Sam AI" data-es="🤖 Sam IA" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">🤖 Sam AI</h2>
+
+      <div class="faq-item" data-cat="sam">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="What can Sam do for me?" data-es="¿Qué puede hacer Sam por mí?">What can Sam do for me?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Sam analyzes your spending, detects emotional spending patterns, and gives personalized suggestions based on your complete financial history and emotional data. Ask Sam anything — 'Did I overspend this month?', 'What's my biggest expense category?', 'Help me save $200 in 30 days', or even 'I'm feeling overwhelmed, where do I start?' Sam is powered by Claude AI (Anthropic) and never judges." data-es="Sam analiza tus gastos, detecta patrones de gasto emocional y te da sugerencias personalizadas basadas en tu historial financiero completo y datos emocionales. Pregúntale lo que sea — '¿Gasté de más este mes?', '¿Cuál es mi mayor categoría de gasto?', 'Ayúdame a ahorrar $200 en 30 días', o incluso 'Me siento abrumado, ¿por dónde empiezo?' Sam está impulsado por Claude AI (Anthropic) y nunca juzga.">Sam analyzes your spending, detects emotional spending patterns, and gives personalized suggestions based on your complete financial history and emotional data. Ask Sam anything — 'Did I overspend this month?', 'What's my biggest expense category?', 'Help me save $200 in 30 days', or even 'I'm feeling overwhelmed, where do I start?' Sam is powered by Claude AI (Anthropic) and never judges.</div>
+      </div>
+
+      <div class="faq-item" data-cat="sam">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Can I use Sam offline?" data-es="¿Puedo usar Sam sin conexión?">Can I use Sam offline?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Sam requires an internet connection to generate AI responses. You can still record expenses, view your balance, and access analytics while offline — Sam just won't be available for chat." data-es="Sam requiere conexión a internet para generar respuestas de IA. Puedes seguir registrando gastos, ver tu saldo y acceder a análisis sin conexión — Sam simplemente no estará disponible para chatear.">Sam requires an internet connection to generate AI responses. You can still record expenses, view your balance, and access analytics while offline — Sam just won't be available for chat.</div>
+      </div>
+
+      <div class="faq-item" data-cat="sam">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="How do I make Sam's responses shorter or calmer?" data-es="¿Cómo hago que Sam responda más corto o calmado?">How do I make Sam's responses shorter or calmer?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Go to Settings → Sam → Response style. You can choose from: Brief (short and direct), Calm (gentle tone, designed for anxiety), Detailed (full analysis), or Motivating (upbeat and encouraging). You can switch anytime, even mid-conversation." data-es="Ve a Ajustes → Sam → Estilo de respuesta. Puedes elegir entre: Breve (corto y directo), Calmado (tono suave, diseñado para ansiedad), Detallado (análisis completo), o Motivador (positivo y alentador). Puedes cambiar en cualquier momento, incluso a mitad de una conversación.">Go to Settings → Sam → Response style. You can choose from: Brief (short and direct), Calm (gentle tone, designed for anxiety), Detailed (full analysis), or Motivating (upbeat and encouraging). You can switch anytime, even mid-conversation.</div>
+      </div>
+
+      <div class="faq-item" data-cat="sam">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Does Sam give real financial advice?" data-es="¿Sam da asesoramiento financiero real?">Does Sam give real financial advice?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Sam's responses are for informational and reflective purposes only — not professional financial, tax, legal, or investment advice. Sam helps you understand your own patterns and make more informed personal decisions. Always consult a qualified professional for significant financial decisions." data-es="Las respuestas de Sam son solo para fines informativos y reflexivos — no constituyen asesoramiento financiero, fiscal, legal o de inversión profesional. Sam te ayuda a entender tus propios patrones y tomar decisiones personales más informadas. Siempre consulta a un profesional calificado para decisiones financieras importantes.">Sam's responses are for informational and reflective purposes only — not professional financial, tax, legal, or investment advice. Sam helps you understand your own patterns and make more informed personal decisions. Always consult a qualified professional for significant financial decisions.</div>
+      </div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="faq-group" style="margin-top:48px">
+      <h2 class="faq-group-title" data-cat-label="privacy" data-en="🛡️ Privacy & Security" data-es="🛡️ Privacidad y Seguridad" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">🛡️ Privacy & Security</h2>
+
+      <div class="faq-item" data-cat="privacy">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Is my financial data private?" data-es="¿Mis datos financieros son privados?">Is my financial data private?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Yes. Your data is linked only to your account and is never sold or shared with third parties for advertising. It's stored securely using Google Firebase with enterprise-grade encryption (GDPR and SOC 2 compliant). We do not store your data on our own servers." data-es="Sí. Tus datos están vinculados únicamente a tu cuenta y nunca se venden ni comparten con terceros para publicidad. Se almacenan de forma segura usando Google Firebase con cifrado de nivel empresarial (cumple con GDPR y SOC 2). No almacenamos tus datos en nuestros propios servidores.">Yes. Your data is linked only to your account and is never sold or shared with third parties for advertising. It's stored securely using Google Firebase with enterprise-grade encryption (GDPR and SOC 2 compliant). We do not store your data on our own servers.</div>
+      </div>
+
+      <div class="faq-item" data-cat="privacy">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Can I use Face ID or Touch ID?" data-es="¿Puedo usar Face ID o Touch ID?">Can I use Face ID or Touch ID?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Yes. Enable biometric authentication in Settings → Security → Face ID / Touch ID. Your financial data stays locked behind Face ID until you authenticate." data-es="Sí. Activa la autenticación biométrica en Ajustes → Seguridad → Face ID / Touch ID. Tus datos financieros permanecen bloqueados detrás de Face ID hasta que te autentiques.">Yes. Enable biometric authentication in Settings → Security → Face ID / Touch ID. Your financial data stays locked behind Face ID until you authenticate.</div>
+      </div>
+
+      <div class="faq-item" data-cat="privacy">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="How do I delete my account?" data-es="¿Cómo elimino mi cuenta?">How do I delete my account?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Go to Settings → Security → Delete account. The process includes a confirmation step to protect against accidental deletion. All your data is permanently erased and cannot be recovered." data-es="Ve a Ajustes → Seguridad → Eliminar cuenta. El proceso incluye un paso de confirmación para proteger contra borrados accidentales. Todos tus datos se borran permanentemente y no se pueden recuperar.">Go to Settings → Security → Delete account. The process includes a confirmation step to protect against accidental deletion. All your data is permanently erased and cannot be recovered.</div>
+      </div>
+    </div>
+
+    <!-- PLANS -->
+    <div class="faq-group" style="margin-top:48px">
+      <h2 class="faq-group-title" data-cat-label="plans" data-en="💰 Plans & Billing" data-es="💰 Planes y Facturación" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">💰 Plans & Billing</h2>
+
+      <div class="faq-item" data-cat="plans">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="Is there a free plan?" data-es="¿Hay un plan gratuito?">Is there a free plan?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Yes — Finiverse is completely free to download and use. The Free plan includes unlimited expense and income recording, 5 mood check-ins per month, basic Sam AI access, goals tracking, and the full gamification system (XP, levels, seasonal events)." data-es="Sí — Finiverse es completamente gratis para descargar y usar. El plan Gratis incluye registro ilimitado de gastos e ingresos, 5 check-ins de ánimo al mes, acceso básico a Sam IA, seguimiento de metas y el sistema de gamificación completo (XP, niveles, eventos estacionales).">Yes — Finiverse is completely free to download and use. The Free plan includes unlimited expense and income recording, 5 mood check-ins per month, basic Sam AI access, goals tracking, and the full gamification system (XP, levels, seasonal events).</div>
+      </div>
+
+      <div class="faq-item" data-cat="plans">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="What are the plan prices?" data-es="¿Cuáles son los precios de los planes?">What are the plan prices?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Monthly subscription prices (USD): Early Bird — $2.99/month · Premium — $9.99/month · Sam AI — $14.99/month. Annual plans are available at a discount of approximately 20%. Prices shown in your local currency in the App Store." data-es="Precios de suscripción mensual (USD): Early Bird — $2.99/mes · Premium — $9.99/mes · Sam IA — $14.99/mes. Los planes anuales están disponibles con un descuento de aproximadamente 20%. Los precios se muestran en tu moneda local en el App Store.">Monthly subscription prices (USD): Early Bird — $2.99/month · Premium — $9.99/month · Sam AI — $14.99/month. Annual plans are available at a discount of approximately 20%. Prices shown in your local currency in the App Store.</div>
+      </div>
+
+      <div class="faq-item" data-cat="plans">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="How do I change or cancel my plan?" data-es="¿Cómo cambio o cancelo mi plan?">How do I change or cancel my plan?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="To change plans: go to Settings → My Plan inside the app. To cancel: go to iPhone Settings → Apple ID → Subscriptions → Finiverse → Cancel. Cancellation takes effect at the end of your current billing period — you keep access until then." data-es="Para cambiar de plan: ve a Ajustes → Mi Plan dentro de la app. Para cancelar: ve a Ajustes de iPhone → Apple ID → Suscripciones → Finiverse → Cancelar. La cancelación surte efecto al final de tu período de facturación actual — mantienes acceso hasta entonces.">To change plans: go to Settings → My Plan inside the app. To cancel: go to iPhone Settings → Apple ID → Subscriptions → Finiverse → Cancel. Cancellation takes effect at the end of your current billing period — you keep access until then.</div>
+      </div>
+
+      <div class="faq-item" data-cat="plans">
+        <button class="faq-q" aria-expanded="false">
+          <span data-en="What does the Sam AI plan include?" data-es="¿Qué incluye el plan Sam IA?">What does the Sam AI plan include?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-en="Everything in Premium plus: unlimited Sam AI conversations, personalized financial context awareness, what-if simulations, early access to new features, 6+ animated avatars with voice, exclusive seasonal events, and the Sam Insider badge." data-es="Todo lo de Premium más: conversaciones ilimitadas con Sam IA, contexto financiero personalizado, simulaciones hipotéticas, acceso anticipado a nuevas funciones, 6+ avatares animados con voz, eventos estacionales exclusivos y el badge Sam Insider.">Everything in Premium plus: unlimited Sam AI conversations, personalized financial context awareness, what-if simulations, early access to new features, 6+ animated avatars with voice, exclusive seasonal events, and the Sam Insider badge.</div>
+      </div>
+    </div>
+
+    <!-- Still have questions? -->
+    <div style="background:linear-gradient(135deg,var(--indigo-light),#F0FFF4);border-radius:24px;padding:40px;text-align:center;margin-top:64px;position:relative;overflow:hidden">
+      <div style="position:absolute;right:-20px;bottom:-20px;opacity:.1;pointer-events:none">
+        <img src="images/sam-animated.gif" alt="" width="140" aria-hidden="true" />
+      </div>
+      <div style="position:relative;z-index:1">
+        <div style="font-size:40px;margin-bottom:12px">💬</div>
+        <h3 style="font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="Still have questions?" data-es="¿Aún tienes preguntas?">Still have questions?</h3>
+        <p style="font-size:15px;color:var(--text-mid);margin-bottom:24px" data-en="Our support team responds within 48 hours. Or ask Sam directly inside the app!" data-es="Nuestro equipo de soporte responde en 48 horas. ¡O pregúntale a Sam directamente en la app!">Our support team responds within 48 hours. Or ask Sam directly inside the app!</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-primary" data-en="Contact support →" data-es="Contactar soporte →">Contact support →</a>
+          <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-ghost" target="_blank" rel="noopener" data-en="Open the app" data-es="Abrir la app">Open the app</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span data-en="© 2026 Finiverse · BeGoTech" data-es="© 2026 Finiverse · BeGoTech">© 2026 Finiverse · BeGoTech</span>
+    <span style="display:flex;gap:16px">
+      <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" style="color:rgba(255,255,255,.5)" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="privacy.html" style="color:rgba(255,255,255,.5)" data-en="Privacy" data-es="Privacidad">Privacy</a>
+    </span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script>
+/* ── FAQ accordion + category filter ── */
+(function () {
+  const items  = document.querySelectorAll('.faq-item');
+  const tabs   = document.querySelectorAll('.faq-tab');
+  const groups = document.querySelectorAll('.faq-group');
+
+  function filterFAQ(cat) {
+    groups.forEach(g => {
+      const label = g.querySelector('[data-cat-label]');
+      const groupCat = label?.getAttribute('data-cat-label');
+      const hasVisible = cat === 'all' || groupCat === cat;
+      g.style.display = hasVisible ? '' : 'none';
+    });
+    items.forEach(item => {
+      const show = cat === 'all' || item.dataset.cat === cat;
+      item.style.display = show ? '' : 'none';
+      if (!show) { item.classList.remove('open'); item.querySelector('.faq-q')?.setAttribute('aria-expanded','false'); }
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filterFAQ(tab.dataset.cat);
+    });
+  });
+
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+    if (!btn || !ans) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach(i => { i.classList.remove('open'); i.querySelector('.faq-q')?.setAttribute('aria-expanded','false'); });
+      if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

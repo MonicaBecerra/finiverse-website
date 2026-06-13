@@ -232,7 +232,7 @@
       <span class="billing-label" id="lblYearly" data-en="Yearly" data-es="Anual">Yearly</span>
       <span class="save-badge" id="saveBadge" data-en="Save ~20%" data-es="Ahorra ~20%">Save ~20%</span>
     </div>
-    <p style="font-size:12px;color:var(--text-light);margin-top:10px" data-en="Prices shown are approximate. Exact pricing in your currency is shown in the App Store." data-es="Los precios mostrados son aproximados. El precio exacto en tu moneda se muestra en el App Store.">Prices shown are approximate. Exact pricing in your currency is shown in the App Store.</p>
+    <p style="font-size:12px;color:var(--text-light);margin-top:10px" data-en="Pricing is managed by Apple and shown in your local currency in the App Store." data-es="El precio lo gestiona Apple y se muestra en tu moneda local en el App Store.">Pricing is managed by Apple and shown in your local currency in the App Store.</p>
   </div>
 </section>
 
@@ -276,8 +276,8 @@
           <div class="plan-icon">⭐</div>
           <div class="plan-name">Early Bird</div>
           <div class="plan-tagline" data-en="For early adopters & power users" data-es="Para usuarios tempranos y avanzados">For early adopters & power users</div>
-          <div class="plan-price" id="eb-price"><sup>$</sup>1<span data-en="/mo" data-es="/mes">/mo</span></div>
-          <div class="plan-billing" id="eb-billing" data-en="~$19.99 billed yearly" data-es="~$19.99 al año"></div>
+          <div class="plan-price" id="eb-price-display"><sup>$</sup><span class="price-num">2.99</span><span data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="eb-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Everything in Free" data-es="Todo lo de Gratis">Everything in Free</span></li>
@@ -298,8 +298,8 @@
           <div class="plan-icon">💜</div>
           <div class="plan-name">Premium</div>
           <div class="plan-tagline" data-en="Full power, your way" data-es="Todo el poder, a tu manera">Full power, your way</div>
-          <div class="plan-price" id="pr-price"><sup>$</sup>3<span data-en="/mo" data-es="/mes">/mo</span></div>
-          <div class="plan-billing" id="pr-billing" data-en="~$39.99 billed yearly" data-es="~$39.99 al año"></div>
+          <div class="plan-price" id="pr-price-display"><sup>$</sup><span class="price-num">9.99</span><span data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="pr-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Everything in Early Bird" data-es="Todo lo de Early Bird">Everything in Early Bird</span></li>
@@ -322,8 +322,8 @@
           </div>
           <div class="plan-name">Sam AI</div>
           <div class="plan-tagline" style="color:rgba(255,255,255,.5)" data-en="Your full AI financial companion" data-es="Tu compañero financiero IA completo">Your full AI financial companion</div>
-          <div class="plan-price" id="sa-price" style="color:#00D4C8"><sup style="color:#00D4C8">$</sup>5<span style="color:rgba(255,255,255,.4)" data-en="/mo" data-es="/mes">/mo</span></div>
-          <div class="plan-billing" id="sa-billing" data-en="~$59.99 billed yearly" data-es="~$59.99 al año"></div>
+          <div class="plan-price" id="sa-price-display" style="color:#00D4C8"><sup style="color:#00D4C8">$</sup><span class="price-num">14.99</span><span style="color:rgba(255,255,255,.4)" data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="sa-billing" style="color:rgba(255,255,255,.4)" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider" style="background:rgba(255,255,255,.08)"></div>
           <ul class="plan-features">
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Everything in Premium" data-es="Todo lo de Premium">Everything in Premium</span></li>
@@ -357,7 +357,7 @@
       <!-- Footer notes -->
       <div style="text-align:center;margin-top:28px">
         <p style="font-size:13px;color:var(--text-light);margin-bottom:8px" data-en="All subscriptions are billed through Apple App Store. Cancel anytime in your Apple ID settings." data-es="Todas las suscripciones se cobran a través del App Store de Apple. Cancela cuando quieras en tu Apple ID.">All subscriptions are billed through Apple App Store. Cancel anytime in your Apple ID settings.</p>
-        <p style="font-size:13px;color:var(--text-light)" data-en="Prices vary by region and are displayed in your local currency in the App Store." data-es="Los precios varían por región y se muestran en tu moneda local en el App Store.">Prices vary by region and are displayed in your local currency in the App Store.</p>
+        <p style="font-size:13px;color:var(--text-light)" data-en="Prices are shown in your local currency inside the App Store." data-es="Los precios se muestran en tu moneda local dentro del App Store.">Prices are shown in your local currency inside the App Store.</p>
       </div>
     </div>
 
@@ -480,61 +480,47 @@
   }
 
   /* ── Monthly / Yearly toggle ── */
-  /* Prices are approximate — update to match your App Store pricing */
-  const PRICES = {
-    monthly: {
-      eb: { display: '$1', sub: '/mo', billing: '' },
-      pr: { display: '$3', sub: '/mo', billing: '' },
-      sa: { display: '$5', sub: '/mo', billing: '' }
-    },
-    yearly: {
-      eb: { display: '$1', sub: '/mo', billing: '~$19.99 billed yearly' },
-      pr: { display: '$3', sub: '/mo', billing: '~$39.99 billed yearly' },
-      sa: { display: '$5', sub: '/mo', billing: '~$59.99 billed yearly' }
-    }
-  };
-  const PRICES_ES = {
-    monthly: {
-      eb: { billing: '' }, pr: { billing: '' }, sa: { billing: '' }
-    },
-    yearly: {
-      eb: { billing: '~$19.99 al año' }, pr: { billing: '~$39.99 al año' }, sa: { billing: '~$59.99 al año' }
-    }
-  };
+  /* Monthly prices (USD): Early Bird $2.99 · Premium $9.99 · Sam AI $14.99
+     Annual saves ~20% — exact annual price shown in App Store by Apple      */
+  const MONTHLY = { eb: 2.99, pr: 9.99, sa: 14.99 };
+  const SAVINGS  = 0.20; // ~20% off annual
 
   let isYearly = false;
 
-  const sw = document.getElementById('billingSwitch');
+  const sw   = document.getElementById('billingSwitch');
   const lblM = document.getElementById('lblMonthly');
   const lblY = document.getElementById('lblYearly');
 
-  function applyPricing() {
-    const mode = isYearly ? 'yearly' : 'monthly';
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const p = PRICES[mode];
-    const billing = lang === 'es' ? PRICES_ES[mode] : p;
+  function fmtPrice(monthly) {
+    return isYearly ? (monthly * (1 - SAVINGS)).toFixed(2) : monthly.toFixed(2);
+  }
 
-    document.getElementById('eb-billing').textContent = billing.eb.billing;
-    document.getElementById('pr-billing').textContent = billing.pr.billing;
-    document.getElementById('sa-billing').textContent = billing.sa.billing;
+  function applyToggle() {
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const billingNote = isYearly
+      ? (lang === 'es' ? 'Facturado anual · Ahorra ~20%' : 'Billed annually · Save ~20%')
+      : (lang === 'es' ? 'Suscripción mensual via App Store' : 'Monthly subscription via App Store');
+
+    // Update displayed prices
+    ['eb','pr','sa'].forEach(k => {
+      const el = document.querySelector(`#${k}-price-display .price-num`);
+      if (el) el.textContent = fmtPrice(MONTHLY[k]);
+      const bill = document.getElementById(`${k}-billing`);
+      if (bill) bill.textContent = billingNote;
+    });
 
     lblM.classList.toggle('active', !isYearly);
-    lblY.classList.toggle('active', isYearly);
+    lblY.classList.toggle('active',  isYearly);
     sw.classList.toggle('on', isYearly);
     sw.setAttribute('aria-checked', isYearly);
   }
 
-  sw.addEventListener('click', () => {
-    isYearly = !isYearly;
-    applyPricing();
-  });
+  sw.addEventListener('click', () => { isYearly = !isYearly; applyToggle(); });
 
-  applyPricing();
+  // Re-apply when language changes
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setTimeout(applyToggle, 20)));
 
-  // Re-apply billing notes when language changes
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setTimeout(applyPricing, 10));
-  });
+  applyToggle();
 </script>
 </body>
 </html>

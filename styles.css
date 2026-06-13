@@ -1119,6 +1119,27 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+/* ---------- Plan App Store pill (replaces hardcoded price) ---------- */
+.plan-appstore-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-soft);
+  border: 1.5px solid var(--card-border);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  text-decoration: none;
+}
+.plan-appstore-pill.dark {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.15);
+  color: #00D4C8;
+}
+
 /* ---------- Annual savings bar ---------- */
 .savings-bar {
   background: linear-gradient(90deg, #5B4EE8, #8B5CF6, #00D4C8);

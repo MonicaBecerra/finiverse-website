@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Partnerships — Finiverse" data-title-es="Alianzas — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partnerships — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .partner-type-card {
+      background: #fff;
+      border: 1.5px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 28px;
+      align-items: flex-start;
+      transition: box-shadow .2s;
+    }
+    .partner-type-card:hover { box-shadow: var(--card-shadow-hover); }
+    @media (max-width: 560px) { .partner-type-card { grid-template-columns: 1fr; gap: 16px; } }
+    .partner-type-icon {
+      width: 72px; height: 72px; border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; flex-shrink: 0;
+    }
+    .partner-type-icon.indigo { background: var(--indigo-light); }
+    .partner-type-icon.mint   { background: var(--mint-light); }
+    .partner-type-icon.gold   { background: #FEF9EE; }
+    .partner-type-icon.coral  { background: var(--coral-light); }
+    .partner-type-title { font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px; }
+    .partner-type-sub   { font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 16px; }
+    .partner-type-tags  { display: flex; gap: 8px; flex-wrap: wrap; }
+    .partner-tag {
+      background: var(--bg-soft); border: 1px solid var(--card-border);
+      border-radius: 100px; padding: 4px 12px;
+      font-size: 12px; font-weight: 600; color: var(--text-mid);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 800px) { .value-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .value-grid { grid-template-columns: 1fr; } }
+    .value-card {
+      background: var(--bg-soft); border-radius: 20px; padding: 28px 24px; text-align: center;
+    }
+    .value-icon { font-size: 36px; margin-bottom: 12px; }
+    .value-title { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+    .value-desc  { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="index.html#features" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-sm" data-en="Get in touch" data-es="Contáctanos">Get in touch</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero" style="text-align:center">
+  <div class="container">
+    <div class="section-label" data-en="Work with us" data-es="Trabaja con nosotros">Work with us</div>
+    <h1 data-en="Let's build <span>together</span>." data-es="Construyamos <span>juntos</span>.">Let's build <span>together</span>.</h1>
+    <p data-en="Finiverse is designed to complement the work of professionals and organizations who serve neurodivergent communities. We're looking for partners who share our belief: that every mind deserves clear, calm financial tools." data-es="Finiverse está diseñado para complementar el trabajo de profesionales y organizaciones que sirven a comunidades neurodivergentes. Buscamos socios que compartan nuestra creencia: que toda mente merece herramientas financieras claras y tranquilas.">Finiverse is designed to complement the work of professionals and organizations who serve neurodivergent communities. We're looking for partners who share our belief: that every mind deserves clear, calm financial tools.</p>
+  </div>
+</section>
+
+<!-- Why partner section -->
+<section class="section bg-soft">
+  <div class="container">
+    <div class="text-center mb-48">
+      <div class="section-label" data-en="Why Finiverse" data-es="Por qué Finiverse">Why Finiverse</div>
+      <h2 class="section-title" data-en="Built with the community <span>in mind</span>." data-es="Construido con la comunidad <span>en mente</span>.">Built with the community <span>in mind</span>.</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card fade-in">
+        <div class="value-icon">🧠</div>
+        <div class="value-title" data-en="Neurodivergent-first" data-es="Neurodivergente primero">Neurodivergent-first</div>
+        <p class="value-desc" data-en="Designed for ADHD, dyslexia, autism, anxiety, and more — not adapted from neurotypical tools." data-es="Diseñado para TDAH, dislexia, autismo, ansiedad y más — no adaptado de herramientas neurotípicas.">Designed for ADHD, dyslexia, autism, anxiety, and more — not adapted from neurotypical tools.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">🤖</div>
+        <div class="value-title" data-en="AI that understands context" data-es="IA que entiende el contexto">AI that understands context</div>
+        <p class="value-desc" data-en="Sam knows the full financial and emotional history of each user — not a generic chatbot." data-es="Sam conoce el historial financiero y emocional completo de cada usuario — no es un chatbot genérico.">Sam knows the full financial and emotional history of each user — not a generic chatbot.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">🌍</div>
+        <div class="value-title" data-en="Global & multilingual" data-es="Global y multilingüe">Global & multilingual</div>
+        <p class="value-desc" data-en="Available in English and Spanish. Multi-currency support. Designed for users anywhere." data-es="Disponible en inglés y español. Soporte multi-moneda. Diseñado para usuarios en cualquier lugar.">Available in English and Spanish. Multi-currency support. Designed for users anywhere.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">🔒</div>
+        <div class="value-title" data-en="Privacy-first" data-es="Privacidad primero">Privacy-first</div>
+        <p class="value-desc" data-en="No bank connections. No data selling. Encrypted on Google Firebase. Your users stay safe." data-es="Sin conexiones bancarias. Sin venta de datos. Cifrado en Google Firebase. Tus usuarios están seguros.">No bank connections. No data selling. Encrypted on Google Firebase. Your users stay safe.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">🎮</div>
+        <div class="value-title" data-en="Engaging for everyone" data-es="Atractivo para todos">Engaging for everyone</div>
+        <p class="value-desc" data-en="XP, levels, seasonal missions, and avatars make financial tracking feel rewarding — not overwhelming." data-es="XP, niveles, misiones estacionales y avatares hacen que el seguimiento financiero se sienta gratificante — no abrumador.">XP, levels, seasonal missions, and avatars make financial tracking feel rewarding — not overwhelming.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">💜</div>
+        <div class="value-title" data-en="Zero judgment" data-es="Cero juicios">Zero judgment</div>
+        <p class="value-desc" data-en="Sam never shames or lectures. Every interaction is designed to feel safe, supportive, and empowering." data-es="Sam nunca avergüenza ni da sermones. Cada interacción está diseñada para sentirse segura, de apoyo y empoderadora.">Sam never shames or lectures. Every interaction is designed to feel safe, supportive, and empowering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who we work with -->
+<section class="section">
+  <div class="container" style="max-width:860px">
+    <div class="text-center mb-48">
+      <div class="section-label" data-en="Partnership types" data-es="Tipos de alianza">Partnership types</div>
+      <h2 class="section-title" data-en="Who we partner <span>with</span>." data-es="Con quién nos <span>asociamos</span>.">Who we partner <span>with</span>.</h2>
+    </div>
+
+    <div class="partner-type-card fade-in">
+      <div class="partner-type-icon indigo">🧠</div>
+      <div>
+        <div class="partner-type-title" data-en="Mental Health Professionals" data-es="Profesionales de Salud Mental">Mental Health Professionals</div>
+        <p class="partner-type-sub" data-en="Therapists, psychologists, and coaches who work with clients dealing with financial anxiety, impulsive spending, money avoidance, or financial trauma. Finiverse provides a safe daily tracking space and gives Sam a way to offer gentle, evidence-informed reflections between sessions." data-es="Terapeutas, psicólogos y coaches que trabajan con clientes que lidian con ansiedad financiera, gastos impulsivos, evitación del dinero o trauma financiero. Finiverse proporciona un espacio de seguimiento diario seguro y le da a Sam una forma de ofrecer reflexiones gentiles e informadas entre sesiones.">Therapists, psychologists, and coaches who work with clients dealing with financial anxiety, impulsive spending, money avoidance, or financial trauma. Finiverse provides a safe daily tracking space and gives Sam a way to offer gentle, evidence-informed reflections between sessions.</p>
+        <div class="partner-type-tags">
+          <span class="partner-tag" data-en="Therapists" data-es="Terapeutas">Therapists</span>
+          <span class="partner-tag" data-en="Psychologists" data-es="Psicólogos">Psychologists</span>
+          <span class="partner-tag" data-en="ADHD coaches" data-es="Coaches de TDAH">ADHD coaches</span>
+          <span class="partner-tag" data-en="Financial therapists" data-es="Terapeutas financieros">Financial therapists</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-type-card fade-in">
+      <div class="partner-type-icon mint">🎓</div>
+      <div>
+        <div class="partner-type-title" data-en="Universities & Schools" data-es="Universidades y Escuelas">Universities & Schools</div>
+        <p class="partner-type-sub" data-en="Educational institutions that want to support students with ADHD, dyslexia, and anxiety in building financial independence alongside their studies. Finiverse works across any currency and any country, making it ideal for international student populations." data-es="Instituciones educativas que quieren apoyar a estudiantes con TDAH, dislexia y ansiedad para construir independencia financiera junto a sus estudios. Finiverse funciona en cualquier moneda y país, lo que lo hace ideal para poblaciones de estudiantes internacionales.">Educational institutions that want to support students with ADHD, dyslexia, and anxiety in building financial independence alongside their studies. Finiverse works across any currency and any country, making it ideal for international student populations.</p>
+        <div class="partner-type-tags">
+          <span class="partner-tag" data-en="Student support centers" data-es="Centros de apoyo estudiantil">Student support centers</span>
+          <span class="partner-tag" data-en="Disability offices" data-es="Oficinas de discapacidad">Disability offices</span>
+          <span class="partner-tag" data-en="Financial literacy programs" data-es="Programas de educación financiera">Financial literacy programs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-type-card fade-in">
+      <div class="partner-type-icon gold">🏢</div>
+      <div>
+        <div class="partner-type-title" data-en="Employers & HR Teams" data-es="Empleadores y Equipos de RR.HH.">Employers & HR Teams</div>
+        <p class="partner-type-sub" data-en="Financial stress is one of the leading causes of reduced productivity and workplace anxiety. Offering Finiverse as an employee wellness benefit — especially in teams with neurodivergent members — is a meaningful and low-cost investment in employee wellbeing." data-es="El estrés financiero es una de las principales causas de reducción de productividad y ansiedad laboral. Ofrecer Finiverse como beneficio de bienestar para empleados — especialmente en equipos con miembros neurodivergentes — es una inversión significativa y de bajo costo en el bienestar de los empleados.">Financial stress is one of the leading causes of reduced productivity and workplace anxiety. Offering Finiverse as an employee wellness benefit — especially in teams with neurodivergent members — is a meaningful and low-cost investment in employee wellbeing.</p>
+        <div class="partner-type-tags">
+          <span class="partner-tag" data-en="Employee wellness" data-es="Bienestar laboral">Employee wellness</span>
+          <span class="partner-tag" data-en="Neurodiversity inclusion" data-es="Inclusión por neurodiversidad">Neurodiversity inclusion</span>
+          <span class="partner-tag" data-en="HR benefits" data-es="Beneficios de RR.HH.">HR benefits</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-type-card fade-in">
+      <div class="partner-type-icon coral">🌐</div>
+      <div>
+        <div class="partner-type-title" data-en="Neurodivergent Communities & Advocacy Groups" data-es="Comunidades y Grupos de Defensa Neurodivergente">Neurodivergent Communities & Advocacy Groups</div>
+        <p class="partner-type-sub" data-en="ADHD communities, autism organizations, Down syndrome advocacy groups, sensory processing foundations — we'd love to co-create content, resources, and educational material that directly serves your community members. We believe the people closest to the problem are the best partners to solve it." data-es="Comunidades de TDAH, organizaciones de autismo, grupos de defensa del síndrome de Down, fundaciones de procesamiento sensorial — nos encantaría co-crear contenido, recursos y material educativo que sirva directamente a los miembros de tu comunidad. Creemos que las personas más cercanas al problema son los mejores socios para resolverlo.">ADHD communities, autism organizations, Down syndrome advocacy groups, sensory processing foundations — we'd love to co-create content, resources, and educational material that directly serves your community members. We believe the people closest to the problem are the best partners to solve it.</p>
+        <div class="partner-type-tags">
+          <span class="partner-tag">ADHD</span>
+          <span class="partner-tag">Autism</span>
+          <span class="partner-tag" data-en="Down syndrome" data-es="Síndrome de Down">Down syndrome</span>
+          <span class="partner-tag" data-en="Sensory processing" data-es="Procesamiento sensorial">Sensory processing</span>
+          <span class="partner-tag" data-en="Dyslexia" data-es="Dislexia">Dyslexia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="position:relative;z-index:1;text-align:center">
+    <h2 data-en="Ready to partner?" data-es="¿Listo para asociarte?">Ready to partner?</h2>
+    <p data-en="Tell us about your organization and how you imagine working together. We respond to partnership inquiries within 48 hours." data-es="Cuéntanos sobre tu organización y cómo te imaginas trabajar juntos. Respondemos consultas de alianzas en 48 horas.">Tell us about your organization and how you imagine working together. We respond to partnership inquiries within 48 hours.</p>
+    <a href="contact.html?cat=investors" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin:0 auto" data-en="Start a conversation →" data-es="Iniciar una conversación →">Start a conversation →</a>
+    <p style="color:rgba(255,255,255,.4);font-size:13px;margin-top:16px">hello.finiverse@outlook.com</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span data-en="© 2026 Finiverse · BeGoTech" data-es="© 2026 Finiverse · BeGoTech">© 2026 Finiverse · BeGoTech</span>
+    <span style="display:flex;gap:16px">
+      <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+      <a href="about.html" style="color:rgba(255,255,255,.5)" data-en="About" data-es="Nosotros">About</a>
+      <a href="contact.html" style="color:rgba(255,255,255,.5)" data-en="Contact" data-es="Contacto">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
