@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Press Kit — Finiverse" data-title-es="Kit de Prensa — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press Kit — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .press-section { margin-bottom: 64px; }
+    .press-section h2 { font-size: 20px; font-weight: 800; color: var(--text-dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--indigo-light); }
+
+    .asset-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 700px) { .asset-grid { grid-template-columns: 1fr 1fr; } }
+
+    .asset-card {
+      background: #fff;
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .asset-card:hover { box-shadow: var(--card-shadow-hover); }
+    .asset-preview {
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      min-height: 120px;
+    }
+    .asset-preview.dark { background: #0F0F1A; }
+    .asset-meta { padding: 12px 14px; border-top: 1px solid var(--card-border); }
+    .asset-name { font-size: 13px; font-weight: 700; color: var(--text-dark); }
+    .asset-info { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+    .asset-dl { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--indigo); text-decoration: none; margin-top: 8px; }
+    .asset-dl:hover { text-decoration: underline; }
+
+    /* Color swatches */
+    .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    @media (max-width: 600px) { .color-grid { grid-template-columns: repeat(2, 1fr); } }
+    .color-swatch { border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border); }
+    .color-block { height: 80px; }
+    .color-info { padding: 10px 12px; background: #fff; }
+    .color-name { font-size: 12px; font-weight: 700; color: var(--text-dark); }
+    .color-hex { font-size: 11px; color: var(--text-light); font-family: monospace; margin-top: 2px; cursor: pointer; }
+    .color-hex:hover { color: var(--indigo); }
+
+    /* Screenshot strip */
+    .ss-strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+    .ss-strip::-webkit-scrollbar { height: 4px; }
+    .ss-strip::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 4px; }
+    .ss-thumb {
+      flex-shrink: 0;
+      width: 110px;
+      background: #1C1C2E;
+      border-radius: 18px;
+      padding: 6px;
+    }
+    .ss-thumb-screen {
+      border-radius: 13px;
+      overflow: hidden;
+      aspect-ratio: 9/19.5;
+    }
+    .ss-thumb-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    .press-copy {
+      background: var(--bg-soft);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 14px; right: 14px;
+      font-size: 11px; font-weight: 600;
+      color: var(--indigo); background: var(--indigo-light);
+      border: none; border-radius: 8px; padding: 4px 10px;
+      cursor: pointer; transition: all .15s;
+    }
+    .copy-btn:hover { background: var(--indigo); color: #fff; }
+
+    .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 600px) { .facts-grid { grid-template-columns: 1fr 1fr; } }
+    .fact-card { background: #fff; border: 1.5px solid var(--card-border); border-radius: 14px; padding: 18px; }
+    .fact-value { font-size: 22px; font-weight: 900; color: var(--indigo); line-height: 1; margin-bottom: 4px; }
+    .fact-label { font-size: 12px; color: var(--text-light); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="help.html" data-en="Help" data-es="Ayuda">Help</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" data-en="Press & Media" data-es="Prensa y Medios">Press & Media</div>
+    <h1 data-en="Press Kit" data-es="Kit de Prensa">Press Kit</h1>
+    <p data-en="Everything you need to write about Finiverse. Download assets, copy our description, and get in touch." data-es="Todo lo que necesitas para escribir sobre Finiverse. Descarga recursos, copia nuestra descripción y contáctanos.">Everything you need to write about Finiverse. Download assets, copy our description, and get in touch.</p>
+    <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="mailto:hello.finiverse@outlook.com?subject=Press%20inquiry" class="btn btn-primary btn-sm" data-en="✉️ Press inquiries" data-es="✉️ Consultas de prensa">✉️ Press inquiries</a>
+      <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-light)">hello.finiverse@outlook.com</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:900px">
+
+    <!-- App facts -->
+    <div class="press-section">
+      <h2 data-en="At a glance" data-es="De un vistazo">At a glance</h2>
+      <div class="facts-grid">
+        <div class="fact-card"><div class="fact-value">iOS</div><div class="fact-label" data-en="Platform (Android coming soon)" data-es="Plataforma (Android próximamente)">Platform (Android coming soon)</div></div>
+        <div class="fact-card"><div class="fact-value">Free</div><div class="fact-label" data-en="to download on App Store" data-es="para descargar en App Store">to download on App Store</div></div>
+        <div class="fact-card"><div class="fact-value">EN + ES</div><div class="fact-label" data-en="Languages supported" data-es="Idiomas disponibles">Languages supported</div></div>
+        <div class="fact-card"><div class="fact-value">2026</div><div class="fact-label" data-en="Launch year" data-es="Año de lanzamiento">Launch year</div></div>
+        <div class="fact-card"><div class="fact-value">Claude</div><div class="fact-label" data-en="AI engine (Anthropic)" data-es="Motor de IA (Anthropic)">AI engine (Anthropic)</div></div>
+        <div class="fact-card"><div class="fact-value">BeGoTech</div><div class="fact-label" data-en="Developer" data-es="Desarrollador">Developer</div></div>
+      </div>
+    </div>
+
+    <!-- Short description (copyable) -->
+    <div class="press-section">
+      <h2 data-en="App description" data-es="Descripción de la app">App description</h2>
+
+      <p style="font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em" data-en="One sentence" data-es="Una oración">One sentence</p>
+      <div class="press-copy" style="margin-bottom:16px">
+        <button class="copy-btn" onclick="copyText(this)" data-en="Copy" data-es="Copiar" data-text-en="Finiverse is the personal finance app built for neurodivergent minds — with Sam AI, emotional check-ins, gamification, and zero judgment." data-text-es="Finiverse es la app de finanzas personales creada para mentes neurodivergentes — con Sam IA, check-ins emocionales, gamificación y cero juicios.">Copy</button>
+        <span data-en="Finiverse is the personal finance app built for neurodivergent minds — with Sam AI, emotional check-ins, gamification, and zero judgment." data-es="Finiverse es la app de finanzas personales creada para mentes neurodivergentes — con Sam IA, check-ins emocionales, gamificación y cero juicios.">Finiverse is the personal finance app built for neurodivergent minds — with Sam AI, emotional check-ins, gamification, and zero judgment.</span>
+      </div>
+
+      <p style="font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em" data-en="Short paragraph" data-es="Párrafo corto">Short paragraph</p>
+      <div class="press-copy" style="margin-bottom:16px">
+        <button class="copy-btn" onclick="copyText(this)" data-en="Copy" data-es="Copiar"
+          data-text-en="Finiverse is a personal finance app designed from the ground up for neurodivergent users — people with ADHD, anxiety, dyslexia, dyscalculia, Down syndrome, and more. Unlike traditional finance apps that overwhelm with data, Finiverse combines mindful expense tracking with an emotional check-in system, a dopamine-aware wishlist, AI-powered insights from Sam (built on Claude by Anthropic), and a full gamification layer that rewards financial consistency. Available on iOS with English and Spanish support."
+          data-text-es="Finiverse es una app de finanzas personales diseñada desde cero para usuarios neurodivergentes — personas con TDAH, ansiedad, dislexia, discalculia, síndrome de Down y más. A diferencia de las apps financieras tradicionales que abruman con datos, Finiverse combina el seguimiento consciente de gastos con un sistema de check-in emocional, una lista de deseos anti-dopamina, insights impulsados por IA de Sam (construido sobre Claude de Anthropic) y una capa completa de gamificación que premia la consistencia financiera. Disponible en iOS con soporte en inglés y español.">Copy</button>
+        <span data-en="Finiverse is a personal finance app designed from the ground up for neurodivergent users — people with ADHD, anxiety, dyslexia, dyscalculia, Down syndrome, and more. Unlike traditional finance apps that overwhelm with data, Finiverse combines mindful expense tracking with an emotional check-in system, a dopamine-aware wishlist, AI-powered insights from Sam (built on Claude by Anthropic), and a full gamification layer that rewards financial consistency. Available on iOS with English and Spanish support."
+           data-es="Finiverse es una app de finanzas personales diseñada desde cero para usuarios neurodivergentes — personas con TDAH, ansiedad, dislexia, discalculia, síndrome de Down y más. A diferencia de las apps financieras tradicionales que abruman con datos, Finiverse combina el seguimiento consciente de gastos con un sistema de check-in emocional, una lista de deseos anti-dopamina, insights impulsados por IA de Sam (construido sobre Claude de Anthropic) y una capa completa de gamificación que premia la consistencia financiera. Disponible en iOS con soporte en inglés y español.">Finiverse is a personal finance app designed from the ground up for neurodivergent users — people with ADHD, anxiety, dyslexia, dyscalculia, Down syndrome, and more. Unlike traditional finance apps that overwhelm with data, Finiverse combines mindful expense tracking with an emotional check-in system, a dopamine-aware wishlist, AI-powered insights from Sam (built on Claude by Anthropic), and a full gamification layer that rewards financial consistency. Available on iOS with English and Spanish support.</span>
+      </div>
+    </div>
+
+    <!-- Brand colors -->
+    <div class="press-section">
+      <h2 data-en="Brand colors" data-es="Colores de marca">Brand colors</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-block" style="background:#5B4EE8"></div>
+          <div class="color-info"><div class="color-name">Indigo</div><div class="color-hex" onclick="copyHex(this)">#5B4EE8</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#00D4C8"></div>
+          <div class="color-info"><div class="color-name">Cyan</div><div class="color-hex" onclick="copyHex(this)">#00D4C8</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#0F0F1A"></div>
+          <div class="color-info"><div class="color-name">Deep Dark</div><div class="color-hex" onclick="copyHex(this)">#0F0F1A</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#F59E0B"></div>
+          <div class="color-info"><div class="color-name">Gold</div><div class="color-hex" onclick="copyHex(this)">#F59E0B</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#EEF0FF"></div>
+          <div class="color-info"><div class="color-name">Indigo Light</div><div class="color-hex" onclick="copyHex(this)">#EEF0FF</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#10B981"></div>
+          <div class="color-info"><div class="color-name">Mint</div><div class="color-hex" onclick="copyHex(this)">#10B981</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App icon & Sam assets -->
+    <div class="press-section">
+      <h2 data-en="Logo & character assets" data-es="Logo y personaje">Logo & character assets</h2>
+      <div class="asset-grid">
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="images/app-icon.png" alt="App icon" width="80" style="border-radius:18px;box-shadow:0 4px 16px rgba(0,0,0,.12)" />
+          </div>
+          <div class="asset-meta">
+            <div class="asset-name" data-en="App Icon" data-es="Icono de App">App Icon</div>
+            <div class="asset-info">PNG · Transparent</div>
+            <a href="images/app-icon.png" download class="asset-dl" data-en="↓ Download" data-es="↓ Descargar">↓ Download</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="images/sam-robot.png" alt="Sam character" width="80" style="object-fit:contain" />
+          </div>
+          <div class="asset-meta">
+            <div class="asset-name">Sam — Static PNG</div>
+            <div class="asset-info">PNG · Transparent bg</div>
+            <a href="images/sam-robot.png" download class="asset-dl" data-en="↓ Download" data-es="↓ Descargar">↓ Download</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview dark">
+            <img src="images/sam-animated.gif" alt="Sam animated" width="80" style="object-fit:contain" />
+          </div>
+          <div class="asset-meta">
+            <div class="asset-name">Sam — Animated GIF</div>
+            <div class="asset-info">GIF · Dark background</div>
+            <a href="images/sam-animated.gif" download class="asset-dl" data-en="↓ Download" data-es="↓ Descargar">↓ Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="press-section">
+      <h2 data-en="App screenshots" data-es="Capturas de pantalla">App screenshots</h2>
+      <div class="ss-strip">
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/home.PNG" alt="Home" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/sam.PNG" alt="Sam AI" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/emotions.PNG" alt="Check-in" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/analytics.PNG" alt="Analytics" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/records.PNG" alt="Records" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/cards.PNG" alt="Cards" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/goals.PNG" alt="Goals" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/levels.PNG" alt="Levels" /></div></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-light);margin-top:12px" data-en="Right-click any screenshot above to save it. For higher resolution originals, email us." data-es="Clic derecho en cualquier captura para guardarla. Para originales en alta resolución, escríbenos.">Right-click any screenshot above to save it. For higher resolution originals, email us.</p>
+    </div>
+
+    <!-- Contact -->
+    <div style="background:linear-gradient(135deg,var(--indigo-light),#F0FFF4);border-radius:24px;padding:36px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <img src="images/sam-animated.gif" alt="Sam" width="60" height="60" style="border-radius:50%;flex-shrink:0" />
+      <div>
+        <h3 style="font-size:18px;font-weight:800;color:var(--text-dark);margin-bottom:4px" data-en="Press contact" data-es="Contacto de prensa">Press contact</h3>
+        <p style="font-size:14px;color:var(--text-mid);margin-bottom:12px" data-en="For interviews, review copies, partnerships, or press inquiries — we respond within 48 hours." data-es="Para entrevistas, copias de revisión, alianzas o consultas de prensa — respondemos en 48 horas.">For interviews, review copies, partnerships, or press inquiries — we respond within 48 hours.</p>
+        <a href="mailto:hello.finiverse@outlook.com?subject=Press%20inquiry" class="btn btn-primary btn-sm" data-en="✉️ hello.finiverse@outlook.com" data-es="✉️ hello.finiverse@outlook.com">✉️ hello.finiverse@outlook.com</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span>© 2026 Finiverse · BeGoTech</span>
+    <span style="display:flex;gap:16px">
+      <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+      <a href="about.html" style="color:rgba(255,255,255,.5)" data-en="About" data-es="Nosotros">About</a>
+      <a href="help.html?tab=contact" style="color:rgba(255,255,255,.5)" data-en="Contact" data-es="Contacto">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script>
+function copyText(btn) {
+  const lang = document.documentElement.getAttribute('data-lang') || 'en';
+  const text = btn.getAttribute('data-text-' + lang) || btn.getAttribute('data-text-en');
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓';
+    setTimeout(() => btn.textContent = orig, 1500);
+  });
+}
+function copyHex(el) {
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    const orig = el.textContent;
+    el.textContent = 'Copied!';
+    setTimeout(() => el.textContent = orig, 1200);
+  });
+}
+</script>
+</body>
+</html>

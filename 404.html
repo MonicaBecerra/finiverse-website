@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Page not found — Finiverse" data-title-es="Página no encontrada — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 40px) 24px 80px;
+    }
+    .error-code {
+      font-size: clamp(80px, 18vw, 160px);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--indigo), #00D4C8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+    .error-sam {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 28px;
+      display: block;
+      animation: samBounce 2.4s ease-in-out infinite;
+    }
+    @keyframes samBounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+    .error-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .error-quick {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .error-quick a {
+      font-size: 13px;
+      color: var(--text-light);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 100px;
+      transition: all .15s;
+    }
+    .error-quick a:hover { color: var(--indigo); border-color: var(--indigo); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="help.html" data-en="Help" data-es="Ayuda">Help</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="error-page">
+  <img src="images/sam-animated.gif" alt="Sam looking confused" class="error-sam" />
+  <div class="error-code">404</div>
+  <h1 style="font-size:clamp(22px,4vw,34px);font-weight:800;color:var(--text-dark);margin-bottom:12px" data-en="Sam looked everywhere." data-es="Sam buscó por todos lados.">Sam looked everywhere.</h1>
+  <p style="font-size:16px;color:var(--text-mid);max-width:420px;line-height:1.7" data-en="This page doesn't exist — or it moved when we weren't looking. No judgment. Let's get you back on track." data-es="Esta página no existe — o se movió cuando no estábamos mirando. Sin juicios. Volvamos al camino.">This page doesn't exist — or it moved when we weren't looking. No judgment. Let's get you back on track.</p>
+
+  <div class="error-links">
+    <a href="index.html" class="btn btn-primary" data-en="← Go home" data-es="← Ir al inicio">← Go home</a>
+    <a href="help.html" class="btn btn-ghost" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
+  </div>
+
+  <div class="error-quick">
+    <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+    <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+    <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+    <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
+    <a href="https://apps.apple.com/app/finiverse/id6648789225" target="_blank" rel="noopener">App Store</a>
+  </div>
+</div>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

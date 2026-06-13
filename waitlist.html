@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Join the Waitlist — Finiverse" data-title-es="Únete a la Lista de Espera — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Waitlist — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .waitlist-layout {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 64px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .waitlist-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+    .platform-card {
+      border: 2px solid var(--card-border);
+      border-radius: 20px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .platform-card:hover { border-color: var(--indigo); background: var(--indigo-light); }
+    .platform-card.selected { border-color: var(--indigo); background: var(--indigo-light); }
+    .platform-card input[type="checkbox"] { display:none; }
+    .platform-icon { font-size: 32px; flex-shrink: 0; }
+    .platform-title { font-size: 16px; font-weight: 800; color: var(--text-dark); }
+    .platform-sub { font-size: 13px; color: var(--text-mid); margin-top: 2px; }
+    .platform-check {
+      margin-left: auto;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--card-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; color: #fff;
+      background: transparent;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .platform-card.selected .platform-check {
+      background: var(--indigo);
+      border-color: var(--indigo);
+    }
+    .platform-card.selected .platform-check::after { content: '✓'; }
+
+    .waitlist-form-box {
+      background: #fff;
+      border: 1.5px solid var(--card-border);
+      border-radius: 24px;
+      padding: 36px;
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+
+    #successState { display:none; text-align:center; padding: 20px 0; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="help.html" data-en="Help" data-es="Ayuda">Help</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download iOS" data-es="Descargar iOS">Download iOS</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero" style="text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;left:3%;bottom:-8px;opacity:.1;pointer-events:none">
+    <img src="images/sam-robot.png" alt="" width="160" style="transform:scaleX(-1) rotate(6deg)" aria-hidden="true" />
+  </div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label" data-en="Coming soon" data-es="Próximamente">Coming soon</div>
+    <h1 data-en="Finiverse is <span>expanding</span>." data-es="Finiverse está <span>creciendo</span>.">Finiverse is <span>expanding</span>.</h1>
+    <p style="max-width:500px;margin:0 auto" data-en="Android and Desktop versions are in development. Join the waitlist and be the first to know — plus get early access when they launch." data-es="Las versiones de Android y Escritorio están en desarrollo. Únete a la lista de espera y sé el primero en saber — además obtén acceso anticipado cuando lancen.">Android and Desktop versions are in development. Join the waitlist and be the first to know — plus get early access when they launch.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="waitlist-layout">
+
+      <!-- Left: what's coming -->
+      <div>
+        <h2 style="font-size:24px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="What's coming" data-es="Lo que viene">What's coming</h2>
+        <p style="font-size:15px;color:var(--text-mid);margin-bottom:36px" data-en="Select the platforms you're waiting for." data-es="Selecciona las plataformas que esperas.">Select the platforms you're waiting for.</p>
+
+        <div class="platform-card selected" id="card-android" onclick="togglePlatform(this, 'android')">
+          <div class="platform-icon">🤖</div>
+          <div>
+            <div class="platform-title">Android</div>
+            <div class="platform-sub" data-en="Same Sam AI, check-ins, gamification — on Android" data-es="Mismo Sam IA, check-ins, gamificación — en Android">Same Sam AI, check-ins, gamification — on Android</div>
+          </div>
+          <div class="platform-check"></div>
+        </div>
+
+        <div class="platform-card" id="card-desktop" onclick="togglePlatform(this, 'desktop')">
+          <div class="platform-icon">💻</div>
+          <div>
+            <div class="platform-title" data-en="Desktop & Web" data-es="Escritorio y Web">Desktop & Web</div>
+            <div class="platform-sub" data-en="Manage your finances from any browser or Mac/Windows app" data-es="Administra tus finanzas desde cualquier navegador o app Mac/Windows">Manage your finances from any browser or Mac/Windows app</div>
+          </div>
+          <div class="platform-check"></div>
+        </div>
+
+        <!-- What they'll get -->
+        <div style="margin-top:48px">
+          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:16px" data-en="What waitlist members get" data-es="Qué reciben los miembros de la lista">What waitlist members get</h3>
+          <ul style="display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-mid)">
+              <span style="background:var(--indigo-light);color:var(--indigo);font-size:11px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">✓</span>
+              <span data-en="First to know when Android or Desktop launches" data-es="El primero en saber cuando Android o Desktop lance">First to know when Android or Desktop launches</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-mid)">
+              <span style="background:var(--indigo-light);color:var(--indigo);font-size:11px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">✓</span>
+              <span data-en="Early access to beta versions" data-es="Acceso anticipado a versiones beta">Early access to beta versions</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-mid)">
+              <span style="background:var(--indigo-light);color:var(--indigo);font-size:11px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">✓</span>
+              <span data-en="Exclusive launch discount on paid plans" data-es="Descuento exclusivo de lanzamiento en planes de pago">Exclusive launch discount on paid plans</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-mid)">
+              <span style="background:var(--indigo-light);color:var(--indigo);font-size:11px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">✓</span>
+              <span data-en="Occasional Finiverse updates — no spam, ever" data-es="Actualizaciones ocasionales de Finiverse — sin spam, nunca">Occasional Finiverse updates — no spam, ever</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Already on iOS? -->
+        <div style="margin-top:48px;background:linear-gradient(135deg,#0F0F1A,#1A1030);border-radius:20px;padding:24px;display:flex;align-items:center;gap:16px">
+          <img src="images/sam-animated.gif" alt="Sam" width="48" height="48" style="border-radius:50%;flex-shrink:0" />
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px" data-en="Already on iPhone?" data-es="¿Ya tienes iPhone?">Already on iPhone?</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:10px" data-en="Finiverse is live on iOS right now. Download free and meet Sam." data-es="Finiverse ya está disponible en iOS. Descarga gratis y conoce a Sam.">Finiverse is live on iOS right now. Download free and meet Sam.</div>
+            <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" style="font-size:12px" data-en="Download on App Store →" data-es="Descargar en App Store →">Download on App Store →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="waitlist-form-box">
+        <div id="formState">
+          <div style="font-size:28px;margin-bottom:12px">📬</div>
+          <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:6px" data-en="Join the waitlist" data-es="Únete a la lista de espera">Join the waitlist</h3>
+          <p style="font-size:14px;color:var(--text-mid);margin-bottom:24px" data-en="One email when your platform launches. No marketing. No noise." data-es="Un correo cuando lance tu plataforma. Sin marketing. Sin ruido.">One email when your platform launches. No marketing. No noise.</p>
+
+          <form id="waitlistForm" action="https://formspree.io/f/xpwzjgqw" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Finiverse Waitlist Signup" />
+            <input type="hidden" name="category" value="waitlist" />
+            <input type="hidden" name="platforms" id="platformsField" value="Android" />
+
+            <div class="form-group">
+              <label class="form-label" for="wl-name" data-en="Your name" data-es="Tu nombre">Your name</label>
+              <input type="text" id="wl-name" name="name" class="form-input" placeholder="Monica" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="wl-email" data-en="Email <span class='req'>*</span>" data-es="Correo <span class='req'>*</span>">Email <span class="req">*</span></label>
+              <input type="email" id="wl-email" name="email" class="form-input" required placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" data-en="Platform(s) you're waiting for" data-es="Plataforma(s) que esperas">Platform(s) you're waiting for</label>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
+                  <input type="checkbox" id="chk-android" checked onchange="syncPlatforms()" style="accent-color:var(--indigo)" /> Android
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer">
+                  <input type="checkbox" id="chk-desktop" onchange="syncPlatforms()" style="accent-color:var(--indigo)" /> Desktop / Web
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" id="wlSubmit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" data-en="Notify me →" data-es="Notificarme →">Notify me →</button>
+            <p style="font-size:11px;color:var(--text-light);text-align:center;margin-top:10px" data-en="No spam. Unsubscribe anytime." data-es="Sin spam. Cancela cuando quieras.">No spam. Unsubscribe anytime.</p>
+          </form>
+        </div>
+
+        <div id="successState">
+          <div style="font-size:56px;margin-bottom:16px">🎉</div>
+          <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="You're on the list!" data-es="¡Estás en la lista!">You're on the list!</h3>
+          <p style="font-size:14px;color:var(--text-mid);line-height:1.65" data-en="We'll send you one email the moment your platform is ready. Sam is excited to meet you on a new device." data-es="Te enviaremos un correo en el momento en que tu plataforma esté lista. Sam está emocionado de conocerte en un nuevo dispositivo.">We'll send you one email the moment your platform is ready. Sam is excited to meet you on a new device.</p>
+          <div style="margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a href="index.html" class="btn btn-primary btn-sm" data-en="Back to home" data-es="Volver al inicio">Back to home</a>
+            <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-ghost btn-sm" target="_blank" rel="noopener" data-en="Try iOS now" data-es="Probar iOS ahora">Try iOS now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span>© 2026 Finiverse · BeGoTech</span>
+    <span style="display:flex;gap:16px">
+      <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+      <a href="privacy.html" style="color:rgba(255,255,255,.5)" data-en="Privacy" data-es="Privacidad">Privacy</a>
+    </span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script>
+const selectedPlatforms = new Set(['android']);
+
+function togglePlatform(card, key) {
+  card.classList.toggle('selected');
+  if (selectedPlatforms.has(key)) selectedPlatforms.delete(key);
+  else selectedPlatforms.add(key);
+  document.getElementById('chk-' + key).checked = selectedPlatforms.has(key);
+  syncPlatforms();
+}
+
+function syncPlatforms() {
+  const android = document.getElementById('chk-android').checked;
+  const desktop = document.getElementById('chk-desktop').checked;
+  document.getElementById('card-android').classList.toggle('selected', android);
+  document.getElementById('card-desktop').classList.toggle('selected', desktop);
+  const parts = [];
+  if (android) parts.push('Android');
+  if (desktop) parts.push('Desktop/Web');
+  document.getElementById('platformsField').value = parts.join(', ') || 'None selected';
+}
+
+const form = document.getElementById('waitlistForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('wlSubmit');
+  btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('formState').style.display = 'none';
+      document.getElementById('successState').style.display = 'block';
+    } else {
+      alert('Something went wrong. Email us at hello.finiverse@outlook.com');
+      btn.disabled = false;
+      btn.textContent = 'Notify me →';
+    }
+  } catch {
+    alert('Network error. Email us at hello.finiverse@outlook.com');
+    btn.disabled = false;
+    btn.textContent = 'Notify me →';
+  }
+});
+</script>
+</body>
+</html>
