@@ -7,28 +7,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="legal.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="logo">
-        <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-          <defs><radialGradient id="lbg" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs>
-          <circle cx="50" cy="50" r="48" fill="url(#lbg)"/>
-          <path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <circle cx="78" cy="28" r="7" fill="#00D4C8"/>
-        </svg>
-        <span class="logo-text">Finiverse</span>
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ng" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#ng)"/><path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="78" cy="28" r="6" fill="#00D4C8"/></svg>
+        <span class="nav-logo-text">Finiverse</span>
       </a>
-      <div class="nav-links">
-        <a href="index.html" data-en="← Back to Home" data-es="← Volver al Inicio">← Back to Home</a>
+      <div class="nav-links" id="navMenu">
+        <a href="index.html" data-en="← Home" data-es="← Inicio">← Home</a>
+        <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+        <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      </div>
+      <div class="nav-right">
         <div class="lang-toggle">
           <button class="lang-btn active" data-lang="en">EN</button>
-          <span class="lang-sep">|</span>
           <button class="lang-btn" data-lang="es">ES</button>
         </div>
+        <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -132,11 +130,16 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-bottom">
-      <p data-en="© 2026 Finiverse. Made with 💜 for every mind." data-es="© 2026 Finiverse. Hecho con 💜 para toda mente.">© 2026 Finiverse. Made with 💜 for every mind.</p>
+    <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+      <span data-en="© 2026 Finiverse · BeGoTech. Made with 💜 for every mind." data-es="© 2026 Finiverse · BeGoTech. Hecho con 💜 para toda mente.">© 2026 Finiverse · BeGoTech. Made with 💜 for every mind.</span>
+      <span style="display:flex;gap:16px">
+        <a href="terms.html" style="color:rgba(255,255,255,.5)" data-en="Terms" data-es="Términos">Terms</a>
+        <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+      </span>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>

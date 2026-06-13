@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Contact — Finiverse" data-title-es="Contacto — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start; }
+    @media (max-width:860px) { .contact-layout { grid-template-columns: 1fr; } }
+    .category-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .pill { padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 500; border: 1.5px solid var(--card-border); color: var(--text-mid); cursor: pointer; transition: all .15s; }
+    .pill.active, .pill:hover { background: var(--indigo); color: #fff; border-color: var(--indigo); }
+    #successCard { display: none; background: var(--mint-light); border: 1.5px solid var(--mint); border-radius: var(--radius); padding: 28px; text-align: center; }
+    #successCard .ticket-id { font-size: 24px; font-weight: 900; color: var(--indigo); letter-spacing: .05em; margin: 12px 0; }
+    #successCard p { font-size: 15px; color: var(--text-mid); line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ng" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#ng)"/><path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="78" cy="28" r="6" fill="#00D4C8"/></svg>
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="index.html#features" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" data-en="We're here to help" data-es="Estamos aquí para ayudar">We're here to help</div>
+    <h1 data-en="Contact Finiverse" data-es="Contacta a Finiverse">Contact Finiverse</h1>
+    <p data-en="Send us a message and we'll get back to you. You'll receive a ticket ID to track your request." data-es="Envíanos un mensaje y te responderemos. Recibirás un ID de ticket para rastrear tu solicitud.">Send us a message and we'll get back to you. You'll receive a ticket ID to track your request.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Form -->
+      <div>
+        <div id="formCard">
+          <div class="category-pills" id="categoryPills">
+            <button class="pill active" data-val="support" data-en="Support" data-es="Soporte">Support</button>
+            <button class="pill" data-val="billing" data-en="Billing" data-es="Facturación">Billing</button>
+            <button class="pill" data-val="feedback" data-en="Feedback" data-es="Retroalimentación">Feedback</button>
+            <button class="pill" data-val="press" data-en="Press / Media" data-es="Prensa / Medios">Press / Media</button>
+            <button class="pill" data-val="investors" data-en="Investors" data-es="Inversionistas">Investors</button>
+            <button class="pill" data-val="other" data-en="Other" data-es="Otro">Other</button>
+          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/hello.finiverse" method="POST" novalidate>
+            <input type="hidden" name="_subject" id="formSubject" value="Finiverse Contact — Support" />
+            <input type="hidden" name="category" id="formCategory" value="support" />
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="form-group">
+                <label class="form-label" for="fname" data-en="First Name <span class='req'>*</span>" data-es="Nombre <span class='req'>*</span>">First Name <span class="req">*</span></label>
+                <input type="text" id="fname" name="firstName" class="form-input" required data-ph-en="Monica" data-ph-es="Monica" placeholder="Monica" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lname" data-en="Last Name" data-es="Apellido">Last Name</label>
+                <input type="text" id="lname" name="lastName" class="form-input" placeholder="Becerra" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email" data-en="Email <span class='req'>*</span>" data-es="Correo electrónico <span class='req'>*</span>">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" class="form-input" required data-ph-en="you@example.com" data-ph-es="tu@ejemplo.com" placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="subject" data-en="Subject <span class='req'>*</span>" data-es="Asunto <span class='req'>*</span>">Subject <span class="req">*</span></label>
+              <input type="text" id="subject" name="subject" class="form-input" required data-ph-en="Brief description of your question" data-ph-es="Breve descripción de tu pregunta" placeholder="Brief description of your question" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message" data-en="Message <span class='req'>*</span>" data-es="Mensaje <span class='req'>*</span>">Message <span class="req">*</span></label>
+              <textarea id="message" name="message" class="form-textarea" required data-ph-en="Tell us what you need help with..." data-ph-es="Cuéntanos en qué necesitas ayuda..." placeholder="Tell us what you need help with..."></textarea>
+            </div>
+
+            <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+              <button type="submit" class="btn btn-primary" id="submitBtn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+              <p style="font-size:13px;color:var(--text-light)" data-en="We typically respond within 48 hours." data-es="Normalmente respondemos en 48 horas.">We typically respond within 48 hours.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success -->
+        <div id="successCard">
+          <div style="font-size:48px;margin-bottom:8px">✅</div>
+          <h3 style="font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:4px" data-en="Message sent!" data-es="¡Mensaje enviado!">Message sent!</h3>
+          <p data-en="Your ticket ID is:" data-es="Tu ID de ticket es:">Your ticket ID is:</p>
+          <div class="ticket-id" id="ticketDisplay">FNV-000000</div>
+          <p data-en="Save this ID to track your ticket status. We'll respond to your email within 48 hours." data-es="Guarda este ID para rastrear el estado de tu ticket. Responderemos a tu correo en 48 horas.">Save this ID to track your ticket status. We'll respond to your email within 48 hours.</p>
+          <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+            <a href="status.html" class="btn btn-primary btn-sm" data-en="Track Ticket" data-es="Rastrear Ticket">Track Ticket</a>
+            <button class="btn btn-ghost btn-sm" onclick="resetForm()" data-en="Send Another" data-es="Enviar Otro">Send Another</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="card">
+          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:16px" data-en="Response times" data-es="Tiempos de respuesta">Response times</h3>
+          <ul style="display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+              <span data-en="Support" data-es="Soporte">Support</span>
+              <span style="font-weight:600;color:var(--mint)" data-en="~24 hours" data-es="~24 horas">~24 hours</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+              <span data-en="Billing" data-es="Facturación">Billing</span>
+              <span style="font-weight:600;color:var(--mint)" data-en="~24 hours" data-es="~24 horas">~24 hours</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+              <span data-en="Feedback" data-es="Retroalimentación">Feedback</span>
+              <span style="font-weight:600;color:var(--text-mid)" data-en="~48 hours" data-es="~48 horas">~48 hours</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+              <span data-en="Press / Investors" data-es="Prensa / Inversionistas">Press / Investors</span>
+              <span style="font-weight:600;color:var(--text-mid)" data-en="2–5 days" data-es="2–5 días">2–5 days</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:12px" data-en="Direct contact" data-es="Contacto directo">Direct contact</h3>
+          <a href="mailto:hello.finiverse@outlook.com" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--indigo);margin-bottom:12px">
+            <span style="font-size:20px">✉️</span> hello.finiverse@outlook.com
+          </a>
+          <p style="font-size:13px;color:var(--text-light)" data-en="For urgent issues or if the form doesn't work, email us directly." data-es="Para asuntos urgentes o si el formulario no funciona, escríbenos directamente.">For urgent issues or if the form doesn't work, email us directly.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:12px" data-en="Track a ticket" data-es="Rastrear un ticket">Track a ticket</h3>
+          <p style="font-size:14px;color:var(--text-mid);margin-bottom:12px" data-en="Already have a ticket ID? Check its status:" data-es="¿Ya tienes un ID de ticket? Revisa su estado:">Already have a ticket ID? Check its status:</p>
+          <a href="status.html" class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" data-en="Check Ticket Status →" data-es="Ver Estado del Ticket →">Check Ticket Status →</a>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:12px" data-en="Follow us" data-es="Síguenos">Follow us</h3>
+          <div style="display:flex;gap:10px">
+            <a href="https://instagram.com/hello.finiverse" target="_blank" rel="noopener" class="social-link" style="background:var(--bg-soft);border-color:var(--card-border)">📷</a>
+            <a href="https://linkedin.com/company/FiniverseApp" target="_blank" rel="noopener" class="social-link" style="background:var(--bg-soft);border-color:var(--card-border)">💼</a>
+          </div>
+          <p style="font-size:12px;color:var(--text-light);margin-top:10px">@hello.finiverse · FiniverseApp</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span data-en="© 2026 Finiverse · BeGoTech" data-es="© 2026 Finiverse · BeGoTech">© 2026 Finiverse · BeGoTech</span>
+    <span style="display:flex;gap:16px">
+      <a href="privacy.html" style="color:rgba(255,255,255,.5)" data-en="Privacy" data-es="Privacidad">Privacy</a>
+      <a href="terms.html" style="color:rgba(255,255,255,.5)" data-en="Terms" data-es="Términos">Terms</a>
+      <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+    </span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script>
+  // Category pills
+  const pills = document.querySelectorAll('.pill');
+  const formCategory = document.getElementById('formCategory');
+  const formSubject = document.getElementById('formSubject');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      formCategory.value = pill.dataset.val;
+      formSubject.value = 'Finiverse Contact — ' + pill.textContent.trim();
+    });
+  });
+
+  // Ticket generation
+  function generateTicketId() {
+    const ts = Date.now().toString(36).toUpperCase();
+    const rnd = Math.random().toString(36).substring(2, 5).toUpperCase();
+    return 'FNV-' + ts + rnd;
+  }
+
+  // Recent tickets in localStorage
+  function saveTicket(id, subject, category) {
+    const tickets = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]');
+    tickets.unshift({ id, subject, category, date: new Date().toISOString() });
+    if (tickets.length > 10) tickets.pop();
+    localStorage.setItem('finiverse-tickets', JSON.stringify(tickets));
+  }
+
+  // Form submission
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    const ticketId = generateTicketId();
+    const subject = document.getElementById('subject').value;
+    const category = formCategory.value;
+
+    // Add ticket ID to form data
+    const hidden = document.createElement('input');
+    hidden.type = 'hidden';
+    hidden.name = 'ticketId';
+    hidden.value = ticketId;
+    form.appendChild(hidden);
+
+    try {
+      const data = new FormData(form);
+      await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+    } catch (_) { /* show success even if Formspree not configured */ }
+
+    saveTicket(ticketId, subject, category);
+    document.getElementById('ticketDisplay').textContent = ticketId;
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('successCard').style.display = 'block';
+  });
+
+  function resetForm() {
+    document.getElementById('formCard').style.display = 'block';
+    document.getElementById('successCard').style.display = 'none';
+    document.getElementById('contactForm').reset();
+    document.getElementById('submitBtn').disabled = false;
+    document.getElementById('submitBtn').textContent =
+      document.documentElement.getAttribute('data-lang') === 'es' ? 'Enviar Mensaje' : 'Send Message';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Ticket Status — Finiverse" data-title-es="Estado de Ticket — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Status — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #statusResult { display: none; margin-top: 32px; }
+    #recentTickets { margin-top: 32px; }
+    .ticket-badge {
+      display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 12px; font-weight: 600;
+    }
+    .badge-pending  { background: #FEF3C7; color: #92400E; }
+    .badge-review   { background: var(--indigo-light); color: var(--indigo); }
+    .badge-responded{ background: var(--mint-light); color: #065F46; }
+    .badge-closed   { background: #F3F4F6; color: var(--text-mid); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ng" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#ng)"/><path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="78" cy="28" r="6" fill="#00D4C8"/></svg>
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" data-en="Support" data-es="Soporte">Support</div>
+    <h1 data-en="Check Ticket Status" data-es="Verificar Estado de Ticket">Check Ticket Status</h1>
+    <p data-en="Enter your ticket ID (e.g. FNV-ABC123) to see the current status of your support request." data-es="Ingresa tu ID de ticket (ej. FNV-ABC123) para ver el estado actual de tu solicitud de soporte.">Enter your ticket ID (e.g. FNV-ABC123) to see the current status of your support request.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:680px">
+
+    <!-- Search -->
+    <div class="card" style="padding:32px">
+      <h2 style="font-size:20px;font-weight:700;color:var(--text-dark);margin-bottom:20px" data-en="Enter Ticket ID" data-es="Ingresar ID de Ticket">Enter Ticket ID</h2>
+      <div style="display:flex;gap:12px">
+        <input type="text" id="ticketInput" class="form-input" style="font-family:monospace;font-weight:600;text-transform:uppercase;letter-spacing:.05em"
+               data-ph-en="FNV-XXXXXX" data-ph-es="FNV-XXXXXX" placeholder="FNV-XXXXXX" />
+        <button class="btn btn-primary" id="searchBtn" onclick="searchTicket()" data-en="Search" data-es="Buscar">Search</button>
+      </div>
+      <p style="font-size:13px;color:var(--text-light);margin-top:10px" data-en="Your ticket ID was shown after submitting a contact form." data-es="Tu ID de ticket se mostró después de enviar un formulario de contacto.">Your ticket ID was shown after submitting a contact form.</p>
+    </div>
+
+    <!-- Result -->
+    <div id="statusResult" class="card" style="padding:32px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:24px">
+        <div>
+          <div style="font-size:12px;color:var(--text-light);font-weight:600;letter-spacing:.08em;margin-bottom:4px" data-en="TICKET ID" data-es="ID DE TICKET">TICKET ID</div>
+          <div style="font-size:22px;font-weight:900;color:var(--text-dark);font-family:monospace" id="resultId">FNV-000000</div>
+        </div>
+        <div id="resultBadge" class="ticket-badge badge-pending" data-en="Pending" data-es="Pendiente">Pending</div>
+      </div>
+
+      <div id="resultSubject" style="font-size:15px;color:var(--text-mid);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--card-border)"></div>
+
+      <!-- Timeline -->
+      <div class="ticket-timeline" id="timelineWrap"></div>
+
+      <!-- Response bubble -->
+      <div id="responseBubble" style="display:none;margin-top:24px;background:var(--indigo-light);border:1px solid rgba(91,78,232,.2);border-radius:14px;padding:20px">
+        <div style="font-size:12px;font-weight:600;color:var(--indigo);margin-bottom:8px" data-en="Response from Finiverse" data-es="Respuesta de Finiverse">Response from Finiverse</div>
+        <p id="responseText" style="font-size:15px;color:var(--text-dark);line-height:1.65"></p>
+      </div>
+    </div>
+
+    <!-- Not found -->
+    <div id="notFound" style="display:none;text-align:center;padding:40px 0">
+      <div style="font-size:48px;margin-bottom:16px">🔍</div>
+      <h3 style="font-size:20px;font-weight:700;color:var(--text-dark);margin-bottom:8px" data-en="Ticket not found" data-es="Ticket no encontrado">Ticket not found</h3>
+      <p style="font-size:15px;color:var(--text-mid)" data-en="Check the ID and try again. If you just submitted, it may take a few minutes to appear." data-es="Verifica el ID e inténtalo de nuevo. Si acabas de enviar, puede tomar unos minutos en aparecer.">Check the ID and try again. If you just submitted, it may take a few minutes to appear.</p>
+      <a href="contact.html" class="btn btn-primary btn-sm" style="margin-top:20px" data-en="Submit a new request" data-es="Enviar nueva solicitud">Submit a new request</a>
+    </div>
+
+    <!-- Recent -->
+    <div id="recentTickets">
+      <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:16px" data-en="Recent tickets from this device" data-es="Tickets recientes de este dispositivo">Recent tickets from this device</h3>
+      <div id="recentList" style="display:flex;flex-direction:column;gap:10px"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span data-en="© 2026 Finiverse · BeGoTech" data-es="© 2026 Finiverse · BeGoTech">© 2026 Finiverse · BeGoTech</span>
+    <a href="contact.html" style="color:rgba(255,255,255,.5)" data-en="Submit Request" data-es="Enviar Solicitud">Submit Request</a>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script>
+/* ── Airtable config — fill these in when you have a base ── */
+const AIRTABLE_TOKEN  = '';
+const AIRTABLE_BASE   = '';
+const AIRTABLE_TABLE  = 'Tickets';
+const USE_AIRTABLE    = AIRTABLE_TOKEN && AIRTABLE_BASE;
+
+const STATUSES = {
+  pending:   { en: 'Pending',    es: 'Pendiente',    cls: 'badge-pending',   icon: '⏳' },
+  reviewing: { en: 'Reviewing',  es: 'En revisión',  cls: 'badge-review',    icon: '🔍' },
+  responded: { en: 'Responded',  es: 'Respondido',   cls: 'badge-responded', icon: '✅' },
+  closed:    { en: 'Closed',     es: 'Cerrado',      cls: 'badge-closed',    icon: '🔒' }
+};
+
+function getLang() { return document.documentElement.getAttribute('data-lang') || 'en'; }
+
+function renderTimeline(currentStatus) {
+  const steps = ['pending','reviewing','responded','closed'];
+  const idx = steps.indexOf(currentStatus);
+  const labels = {
+    pending:   { en: 'Request received', es: 'Solicitud recibida' },
+    reviewing: { en: 'Under review',     es: 'En revisión' },
+    responded: { en: 'Response sent',    es: 'Respuesta enviada' },
+    closed:    { en: 'Ticket closed',    es: 'Ticket cerrado' }
+  };
+  const lang = getLang();
+  return steps.map((s, i) => {
+    const done   = i < idx;
+    const active = i === idx;
+    const dotCls = done ? 'done' : active ? 'active' : '';
+    return `
+      <div class="timeline-step">
+        <div class="timeline-dot ${dotCls}">${done ? '✓' : active ? STATUSES[s].icon : ''}</div>
+        <div class="timeline-body">
+          <div class="timeline-title">${labels[s][lang]}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+async function searchTicket() {
+  const raw = document.getElementById('ticketInput').value.trim().toUpperCase();
+  if (!raw) return;
+  const id = raw.startsWith('FNV-') ? raw : 'FNV-' + raw;
+
+  document.getElementById('statusResult').style.display = 'none';
+  document.getElementById('notFound').style.display = 'none';
+
+  if (USE_AIRTABLE) {
+    await fetchFromAirtable(id);
+  } else {
+    checkLocalTicket(id);
+  }
+}
+
+function checkLocalTicket(id) {
+  const tickets = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]');
+  const ticket  = tickets.find(t => t.id === id);
+  if (!ticket) { document.getElementById('notFound').style.display = 'block'; return; }
+  showTicket({ id: ticket.id, subject: ticket.subject, status: 'pending', response: null });
+}
+
+async function fetchFromAirtable(id) {
+  try {
+    const filter = encodeURIComponent(`{TicketID} = "${id}"`);
+    const url = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${AIRTABLE_TABLE}?filterByFormula=${filter}`;
+    const res  = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } });
+    const data = await res.json();
+    if (!data.records?.length) { document.getElementById('notFound').style.display = 'block'; return; }
+    const r = data.records[0].fields;
+    showTicket({ id, subject: r.Subject || '', status: (r.Status || 'pending').toLowerCase(), response: r.Response || null });
+  } catch (e) {
+    document.getElementById('notFound').style.display = 'block';
+  }
+}
+
+function showTicket({ id, subject, status, response }) {
+  const lang = getLang();
+  const st = STATUSES[status] || STATUSES.pending;
+
+  document.getElementById('resultId').textContent = id;
+  document.getElementById('resultSubject').textContent = subject;
+
+  const badge = document.getElementById('resultBadge');
+  badge.className = 'ticket-badge ' + st.cls;
+  badge.textContent = st[lang];
+
+  document.getElementById('timelineWrap').innerHTML = renderTimeline(status);
+
+  const bubble = document.getElementById('responseBubble');
+  if (response) {
+    document.getElementById('responseText').textContent = response;
+    bubble.style.display = 'block';
+  } else {
+    bubble.style.display = 'none';
+  }
+
+  document.getElementById('statusResult').style.display = 'block';
+}
+
+function loadRecent() {
+  const tickets = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]');
+  const list = document.getElementById('recentList');
+  const wrap = document.getElementById('recentTickets');
+  if (!tickets.length) { wrap.style.display = 'none'; return; }
+  list.innerHTML = tickets.slice(0, 5).map(t => `
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg-soft);border:1px solid var(--card-border);border-radius:12px;padding:14px 16px;cursor:pointer" onclick="document.getElementById('ticketInput').value='${t.id}';searchTicket()">
+      <div>
+        <div style="font-weight:700;font-size:13px;font-family:monospace;color:var(--indigo)">${t.id}</div>
+        <div style="font-size:13px;color:var(--text-mid);margin-top:2px">${t.subject || ''}</div>
+      </div>
+      <span style="font-size:12px;color:var(--text-light)">${new Date(t.date).toLocaleDateString()}</span>
+    </div>`).join('');
+}
+
+document.getElementById('ticketInput').addEventListener('keydown', e => { if (e.key === 'Enter') searchTicket(); });
+document.getElementById('ticketInput').addEventListener('input', () => {
+  document.getElementById('ticketInput').value = document.getElementById('ticketInput').value.toUpperCase();
+});
+
+loadRecent();
+
+// Prefill from URL param ?ticket=FNV-XXX
+const urlTicket = new URLSearchParams(location.search).get('ticket');
+if (urlTicket) { document.getElementById('ticketInput').value = urlTicket; searchTicket(); }
+</script>
+</body>
+</html>
