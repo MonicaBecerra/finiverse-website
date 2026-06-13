@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Careers — Finiverse" data-title-es="Trabaja con Nosotros — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers — Finiverse</title>
+  <meta name="description" content="Join Finiverse. We're a small team building personal finance tools for neurodivergent people. Come build something that matters." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .careers-honest {
+      background: var(--bg-soft);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px 48px;
+      max-width: 680px;
+      margin: 64px auto 0;
+    }
+    @media (max-width: 600px) { .careers-honest { padding: 28px 24px; } }
+    .careers-honest h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .careers-honest p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .careers-honest p:last-child { margin-bottom: 0; }
+
+    /* Values */
+    .values-section { padding: 80px 0 40px; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    @media (max-width: 760px) { .values-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .values-grid { grid-template-columns: 1fr; } }
+    .value-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .value-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .value-card h3 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .value-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+    /* Open roles */
+    .roles-section { padding: 40px 0 80px; }
+    .roles-intro {
+      background: linear-gradient(135deg, var(--indigo-light), #fff);
+      border: 1px solid rgba(91,78,232,.15);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .roles-intro strong { color: var(--text-dark); }
+    .role-list { display: flex; flex-direction: column; gap: 16px; }
+    .role-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      transition: border-color .15s;
+    }
+    .role-card:hover { border-color: var(--indigo); }
+    .role-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--indigo-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .role-info h3 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .role-info p { font-size: 14px; color: var(--text-mid); line-height: 1.6; margin-bottom: 12px; }
+    .role-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .role-tag {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(0,0,0,.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-light);
+    }
+    .role-tag.remote { background: #F0FDF4; color: #059669; border-color: #BBF7D0; }
+    .role-tag.parttime { background: #EEF0FF; color: var(--indigo); border-color: rgba(91,78,232,.2); }
+
+    /* Email CTA */
+    .careers-cta {
+      background: var(--bg-dark);
+      border-radius: 20px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 0 0 80px;
+    }
+    @media (max-width: 600px) { .careers-cta { padding: 40px 24px; } }
+    .careers-cta h2 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .careers-cta p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.65; max-width: 480px; margin: 0 auto 28px; }
+    .careers-email-display {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: all .15s;
+      text-decoration: none;
+    }
+    .careers-email-display:hover { background: rgba(255,255,255,.1); }
+    .careers-note { font-size: 13px; color: rgba(255,255,255,.35); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="help.html" data-en="Help" data-es="Ayuda">Help</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="page-hero">
+  <div style="max-width:var(--max-w);margin:0 auto;padding:0 24px">
+    <div style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--indigo-light);color:var(--indigo);border-radius:100px;font-size:13px;font-weight:600;margin-bottom:20px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span data-en="Careers" data-es="Trabaja con Nosotros">Careers</span>
+    </div>
+    <h1 class="page-hero-title" data-en="We're small. The problem isn't." data-es="Somos pequeños. El problema no lo es.">We're small. The problem isn't.</h1>
+    <p class="page-hero-sub" style="max-width:560px;margin:0 auto" data-en="Finiverse is built by a tiny team that genuinely believes personal finance should work for every brain — not just neurotypical ones. If that matters to you too, keep reading." data-es="Finiverse está construido por un equipo pequeño que cree genuinamente que las finanzas personales deberían funcionar para cada cerebro. Si eso también te importa, sigue leyendo.">Finiverse is built by a tiny team that genuinely believes personal finance should work for every brain — not just neurotypical ones. If that matters to you too, keep reading.</p>
+  </div>
+</section>
+
+<div style="max-width:720px;margin:0 auto;padding:0 24px">
+
+  <!-- Honest section -->
+  <div class="careers-honest fade-in">
+    <h2 data-en="Let's be honest with you." data-es="Seamos honestos contigo.">Let's be honest with you.</h2>
+    <p data-en="We're not a startup with 40 engineers, a ping-pong table, and a Series A. We're a tiny, independent team — right now that mostly means Monica, the founder — building something real from scratch." data-es="No somos una startup con 40 ingenieros y una Serie A. Somos un equipo pequeño e independiente — por ahora principalmente Monica, la fundadora — construyendo algo real desde cero.">We're not a startup with 40 engineers, a ping-pong table, and a Series A. We're a tiny, independent team — right now that mostly means Monica, the founder — building something real from scratch.</p>
+    <p data-en="We don't have formal job listings right now. What we do have is a clear mission, a live app on the App Store, and people reaching out who want to help build it." data-es="No tenemos vacantes formales ahora mismo. Lo que sí tenemos es una misión clara, una app en el App Store, y personas que quieren ayudar a construirla.">We don't have formal job listings right now. What we do have is a clear mission, a live app on the App Store, and people reaching out who want to help build it.</p>
+    <p data-en="If you see yourself in our values and want to build with us — even in a small, early capacity — we'd love to hear from you." data-es="Si te identificas con nuestros valores y quieres construir con nosotros — aunque sea en una capacidad pequeña y temprana — nos encantaría saber de ti.">If you see yourself in our values and want to build with us — even in a small, early capacity — we'd love to hear from you.</p>
+  </div>
+
+</div>
+
+<div style="max-width:var(--max-w);margin:0 auto;padding:0 24px">
+
+  <!-- ═══ VALUES ═══ -->
+  <section class="values-section">
+    <h2 style="font-size:28px;font-weight:800;color:var(--text-dark);text-align:center" data-en="What we care about." data-es="Lo que nos importa.">What we care about.</h2>
+    <div class="values-grid">
+
+      <div class="value-card fade-in">
+        <span class="value-icon">🧠</span>
+        <h3 data-en="Neurodivergent-first" data-es="Neurodivergentes primero">Neurodivergent-first</h3>
+        <p data-en="We design for ADHD, anxiety, dyscalculia, autism — then it works great for everyone else. Not the other way around." data-es="Diseñamos para TDAH, ansiedad, discalculia, autismo — y luego funciona para todos. No al revés.">We design for ADHD, anxiety, dyscalculia, autism — then it works great for everyone else. Not the other way around.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <span class="value-icon">🚫</span>
+        <h3 data-en="No shame, ever" data-es="Sin vergüenza, nunca">No shame, ever</h3>
+        <p data-en="Finance apps love making people feel bad. We don't. Every word we write — in the app, in Sam's responses, on this site — is judgment-free." data-es="Las apps de finanzas aman hacer que la gente se sienta mal. Nosotros no. Todo lo que escribimos es libre de juicios.">Finance apps love making people feel bad. We don't. Every word we write — in the app, in Sam's responses, on this site — is judgment-free.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <span class="value-icon">🔒</span>
+        <h3 data-en="Privacy by default" data-es="Privacidad por defecto">Privacy by default</h3>
+        <p data-en="Your financial data is deeply personal. We don't sell it. We don't analyze it for ads. We build privacy in, not on." data-es="Tus datos financieros son profundamente personales. No los vendemos. No los analizamos para anuncios. La privacidad va primero.">Your financial data is deeply personal. We don't sell it. We don't analyze it for ads. We build privacy in, not on.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <span class="value-icon">🐢</span>
+        <h3 data-en="Sustainable pace" data-es="Ritmo sostenible">Sustainable pace</h3>
+        <p data-en="We're not racing to ship features. We're building something that lasts. We don't glorify overwork — we've seen what burnout does." data-es="No estamos corriendo para lanzar funciones. Construimos algo que perdura. No glorificamos el trabajo excesivo.">We're not racing to ship features. We're building something that lasts. We don't glorify overwork — we've seen what burnout does.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <span class="value-icon">💬</span>
+        <h3 data-en="Direct communication" data-es="Comunicación directa">Direct communication</h3>
+        <p data-en="No politics. No vague feedback. We say what we mean, we assume good intent, and we disagree openly when something's not right." data-es="Sin política. Sin feedback vago. Decimos lo que pensamos, asumimos buena intención y disentimos abiertamente cuando algo no está bien.">No politics. No vague feedback. We say what we mean, we assume good intent, and we disagree openly when something's not right.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <span class="value-icon">🌍</span>
+        <h3 data-en="Remote & async" data-es="Remoto y asincrónico">Remote & async</h3>
+        <p data-en="We build remotely by default. That means flexibility — and trusting people to own their work without constant check-ins." data-es="Construimos en remoto por defecto. Eso significa flexibilidad — y confiar en que las personas son dueñas de su trabajo.">We build remotely by default. That means flexibility — and trusting people to own their work without constant check-ins.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ OPEN ROLES ═══ -->
+  <section class="roles-section">
+    <h2 style="font-size:28px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="Who we'd love to hear from." data-es="De quién nos gustaría saber.">Who we'd love to hear from.</h2>
+    <p style="font-size:16px;color:var(--text-mid);margin-bottom:32px" data-en="No formal positions yet — but if any of these feel like you, reach out." data-es="No hay posiciones formales todavía — pero si alguna de estas te describe, escríbenos.">No formal positions yet — but if any of these feel like you, reach out.</p>
+
+    <div class="role-list">
+
+      <div class="role-card fade-in">
+        <div class="role-icon">📱</div>
+        <div class="role-info">
+          <h3 data-en="iOS Developer (Swift)" data-es="Desarrolladora/or iOS (Swift)">iOS Developer (Swift)</h3>
+          <p data-en="Someone who loves clean SwiftUI, cares about accessibility, and wants to build features that genuinely help people manage money. Experience with Core Data or CloudKit is a plus." data-es="Alguien que ama SwiftUI limpio, le importa la accesibilidad y quiere construir funciones que genuinamente ayuden a las personas. Experiencia con Core Data o CloudKit es un plus.">Someone who loves clean SwiftUI, cares about accessibility, and wants to build features that genuinely help people manage money. Experience with Core Data or CloudKit is a plus.</p>
+          <div class="role-tags">
+            <span class="role-tag remote" data-en="Remote" data-es="Remoto">Remote</span>
+            <span class="role-tag parttime" data-en="Part-time / Contract" data-es="Parcial / Contrato">Part-time / Contract</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="role-card fade-in">
+        <div class="role-icon">🎨</div>
+        <div class="role-info">
+          <h3 data-en="Product Designer" data-es="Diseñadora/or de Producto">Product Designer</h3>
+          <p data-en="Someone who thinks deeply about UX for neurodivergent users — low friction flows, calming visuals, accessible interactions. Figma and iOS design system experience preferred." data-es="Alguien que piensa profundamente en UX para usuarios neurodivergentes — flujos de baja fricción, visuales calmantes, interacciones accesibles. Preferiblemente experiencia en Figma e iOS.">Someone who thinks deeply about UX for neurodivergent users — low friction flows, calming visuals, accessible interactions. Figma and iOS design system experience preferred.</p>
+          <div class="role-tags">
+            <span class="role-tag remote" data-en="Remote" data-es="Remoto">Remote</span>
+            <span class="role-tag parttime" data-en="Part-time" data-es="Parcial">Part-time</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="role-card fade-in">
+        <div class="role-icon">📝</div>
+        <div class="role-info">
+          <h3 data-en="Content & Community (Neurodivergent Focus)" data-es="Contenido y Comunidad (Enfoque Neurodivergente)">Content & Community (Neurodivergent Focus)</h3>
+          <p data-en="Someone who writes clearly, builds community authentically, and ideally has lived experience with ADHD, anxiety, or other neurodivergent traits. No jargon. No hustle-culture finance content." data-es="Alguien que escribe con claridad, construye comunidad auténticamente y ojalá tiene experiencia vivida con TDAH, ansiedad u otras características neurodivergentes.">Someone who writes clearly, builds community authentically, and ideally has lived experience with ADHD, anxiety, or other neurodivergent traits. No jargon. No hustle-culture finance content.</p>
+          <div class="role-tags">
+            <span class="role-tag remote" data-en="Remote" data-es="Remoto">Remote</span>
+            <span class="role-tag parttime" data-en="Part-time / Freelance" data-es="Parcial / Freelance">Part-time / Freelance</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="role-card fade-in">
+        <div class="role-icon">🧪</div>
+        <div class="role-info">
+          <h3 data-en="Mental Health / Behavioural Finance Advisor" data-es="Asesor/a en Salud Mental / Finanzas Conductuales">Mental Health / Behavioural Finance Advisor</h3>
+          <p data-en="A therapist, counsellor, or researcher who wants to consult on how Finiverse approaches emotional check-ins, spending triggers, and the psychology of money. Even occasional input matters." data-es="Un terapeuta, consejero o investigador que quiera consultar sobre cómo Finiverse aborda los chequeos emocionales y la psicología del dinero.">A therapist, counsellor, or researcher who wants to consult on how Finiverse approaches emotional check-ins, spending triggers, and the psychology of money. Even occasional input matters.</p>
+          <div class="role-tags">
+            <span class="role-tag remote" data-en="Remote" data-es="Remoto">Remote</span>
+            <span class="role-tag parttime" data-en="Advisory / Consulting" data-es="Asesoría / Consultoría">Advisory / Consulting</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ EMAIL CTA ═══ -->
+  <div class="careers-cta fade-in">
+    <h2 data-en="Sound like you?" data-es="¿Te suena familiar?">Sound like you?</h2>
+    <p data-en="Send us a short note — who you are, what you do, and why Finiverse. No formal cover letter needed. No LinkedIn required. Just you." data-es="Envíanos una nota corta — quién eres, qué haces y por qué Finiverse. No se necesita carta de presentación formal. Solo tú.">Send us a short note — who you are, what you do, and why Finiverse. No formal cover letter needed. No LinkedIn required. Just you.</p>
+    <a href="mailto:hello.finiverse@outlook.com?subject=I'd love to build with Finiverse" class="careers-email-display">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      hello.finiverse@outlook.com
+    </a>
+    <p class="careers-note" data-en="We read every email. Response may take a few days — we're a small team." data-es="Leemos cada correo. La respuesta puede tardar unos días — somos un equipo pequeño.">We read every email. Response may take a few days — we're a small team.</p>
+  </div>
+
+</div>
+
+<footer id="site-footer"></footer>
+
+<script src="footer.js"></script>
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

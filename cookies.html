@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Cookie Policy — Finiverse" data-title-es="Política de Cookies — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — Finiverse</title>
+  <meta name="description" content="Finiverse's cookie policy. We keep it simple: no advertising cookies, no third-party tracking. Just the basics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .legal-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+    .legal-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 48px 0 12px;
+      padding-top: 48px;
+      border-top: 1px solid var(--card-border);
+    }
+    .legal-body h2:first-of-type { border-top: none; padding-top: 0; }
+    .legal-body p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .legal-body ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .legal-body ul li {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+    .legal-date {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 40px;
+    }
+    /* Cookie type cards */
+    .cookie-table {
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .cookie-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 80px;
+      gap: 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .cookie-row:last-child { border-bottom: none; }
+    .cookie-row.header {
+      background: var(--bg-soft);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-light);
+    }
+    .cookie-cell {
+      padding: 14px 18px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.5;
+      border-right: 1px solid var(--card-border);
+    }
+    .cookie-cell:last-child { border-right: none; }
+    .cookie-cell.yes { color: #059669; font-weight: 600; }
+    .cookie-cell.no { color: var(--text-light); }
+    .tldr-box {
+      background: var(--indigo-light);
+      border: 1px solid rgba(91,78,232,.15);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+    .tldr-box strong { color: var(--indigo); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="help.html" data-en="Help" data-es="Ayuda">Help</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="page-hero">
+  <div style="max-width:var(--max-w);margin:0 auto;padding:0 24px">
+    <h1 class="page-hero-title" data-en="Cookie Policy" data-es="Política de Cookies">Cookie Policy</h1>
+    <p class="page-hero-sub" data-en="Short version: we use as few cookies as possible and none of them are for advertising." data-es="Versión corta: usamos el mínimo de cookies posible y ninguna es para publicidad.">Short version: we use as few cookies as possible and none of them are for advertising.</p>
+  </div>
+</section>
+
+<div class="legal-body">
+  <p class="legal-date" data-en="Last updated: June 2026" data-es="Última actualización: junio 2026">Last updated: June 2026</p>
+
+  <!-- TL;DR -->
+  <div class="tldr-box">
+    <strong data-en="TL;DR:" data-es="En resumen:">TL;DR:</strong>
+    <span data-en=" This website uses a small number of cookies to remember your language preference and understand basic traffic. We use no advertising cookies, no retargeting, and no cookies that track you across other websites." data-es=" Este sitio web usa una pequeña cantidad de cookies para recordar tu preferencia de idioma y entender el tráfico básico. No usamos cookies publicitarias, remarketing ni cookies que te rastreen en otros sitios."> This website uses a small number of cookies to remember your language preference and understand basic traffic. We use no advertising cookies, no retargeting, and no cookies that track you across other websites.</span>
+  </div>
+
+  <h2 data-en="What are cookies?" data-es="¿Qué son las cookies?">What are cookies?</h2>
+  <p data-en="Cookies are small text files stored on your device when you visit a website. They help websites remember things about you — like your language preference or whether you've dismissed a banner — across page loads and visits." data-es="Las cookies son pequeños archivos de texto almacenados en tu dispositivo cuando visitas un sitio web. Ayudan a los sitios web a recordar cosas sobre ti — como tu preferencia de idioma — entre cargas de página y visitas.">Cookies are small text files stored on your device when you visit a website. They help websites remember things about you — like your language preference or whether you've dismissed a banner — across page loads and visits.</p>
+  <p data-en="The Finiverse iOS app itself does not use browser cookies. This policy applies only to this website (monicabecerra.github.io/finiverse-website)." data-es="La app de Finiverse para iOS no usa cookies del navegador. Esta política aplica únicamente a este sitio web.">The Finiverse iOS app itself does not use browser cookies. This policy applies only to this website (monicabecerra.github.io/finiverse-website).</p>
+
+  <h2 data-en="Cookies we use" data-es="Cookies que utilizamos">Cookies we use</h2>
+
+  <div class="cookie-table">
+    <div class="cookie-row header">
+      <div class="cookie-cell" data-en="Cookie" data-es="Cookie">Cookie</div>
+      <div class="cookie-cell" data-en="Purpose" data-es="Propósito">Purpose</div>
+      <div class="cookie-cell" data-en="Used?" data-es="¿Se usa?">Used?</div>
+    </div>
+    <div class="cookie-row">
+      <div class="cookie-cell"><strong>finiverse-lang</strong></div>
+      <div class="cookie-cell" data-en="Stores your language choice (EN/ES) using localStorage so it persists on your next visit." data-es="Almacena tu elección de idioma (EN/ES) usando localStorage para que persista en tu próxima visita.">Stores your language choice (EN/ES) using localStorage so it persists on your next visit.</div>
+      <div class="cookie-cell yes" data-en="Yes" data-es="Sí">Yes</div>
+    </div>
+    <div class="cookie-row">
+      <div class="cookie-cell"><strong data-en="Analytics (basic)" data-es="Analíticas (básicas)">Analytics (basic)</strong></div>
+      <div class="cookie-cell" data-en="Aggregate page view counts to understand which content is useful. No personal data collected." data-es="Conteo agregado de visitas de página para entender qué contenido es útil. Sin datos personales.">Aggregate page view counts to understand which content is useful. No personal data collected.</div>
+      <div class="cookie-cell yes" data-en="Yes" data-es="Sí">Yes</div>
+    </div>
+    <div class="cookie-row">
+      <div class="cookie-cell"><strong data-en="Advertising / retargeting" data-es="Publicidad / remarketing">Advertising / retargeting</strong></div>
+      <div class="cookie-cell" data-en="Tracking you across websites to show you ads." data-es="Rastrearte en otros sitios para mostrarte anuncios.">Tracking you across websites to show you ads.</div>
+      <div class="cookie-cell no" data-en="Never" data-es="Nunca">Never</div>
+    </div>
+    <div class="cookie-row">
+      <div class="cookie-cell"><strong data-en="Third-party tracking" data-es="Rastreo de terceros">Third-party tracking</strong></div>
+      <div class="cookie-cell" data-en="Cookies from social networks, ad networks, or data brokers." data-es="Cookies de redes sociales, redes publicitarias o corredores de datos.">Cookies from social networks, ad networks, or data brokers.</div>
+      <div class="cookie-cell no" data-en="Never" data-es="Nunca">Never</div>
+    </div>
+    <div class="cookie-row">
+      <div class="cookie-cell"><strong data-en="Session / form" data-es="Sesión / formulario">Session / form</strong></div>
+      <div class="cookie-cell" data-en="Temporary cookies used to process form submissions (contact, waitlist) via Formspree. Deleted after the session." data-es="Cookies temporales para procesar envíos de formularios vía Formspree. Se eliminan tras la sesión.">Temporary cookies used to process form submissions (contact, waitlist) via Formspree. Deleted after the session.</div>
+      <div class="cookie-cell yes" data-en="Yes (temporary)" data-es="Sí (temporales)">Yes (temporary)</div>
+    </div>
+  </div>
+
+  <h2 data-en="LocalStorage vs cookies" data-es="LocalStorage vs cookies">LocalStorage vs cookies</h2>
+  <p data-en="Our language preference (finiverse-lang) is actually stored in your browser's localStorage, not as a traditional cookie. It works the same way functionally — it remembers your choice across visits — but it's only readable by this website and is never sent to any server." data-es="Nuestra preferencia de idioma (finiverse-lang) se almacena en el localStorage de tu navegador, no como una cookie tradicional. Funciona igual — recuerda tu elección entre visitas — pero solo puede leerla este sitio web y nunca se envía a ningún servidor.">Our language preference (finiverse-lang) is actually stored in your browser's localStorage, not as a traditional cookie. It works the same way functionally — it remembers your choice across visits — but it's only readable by this website and is never sent to any server.</p>
+
+  <h2 data-en="Third-party services" data-es="Servicios de terceros">Third-party services</h2>
+  <p data-en="This website uses the following third-party services that may set their own cookies:" data-es="Este sitio web usa los siguientes servicios de terceros que pueden establecer sus propias cookies:">This website uses the following third-party services that may set their own cookies:</p>
+  <ul>
+    <li><strong>Google Fonts</strong> — <span data-en="Loads the Inter typeface. Google may log requests to their CDN. See" data-es="Carga la tipografía Inter. Google puede registrar solicitudes a su CDN. Ver">Loads the Inter typeface. Google may log requests to their CDN. See</span> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--indigo)">Google's Privacy Policy</a>.</li>
+    <li><strong>Formspree</strong> — <span data-en="Processes contact and waitlist form submissions. See" data-es="Procesa los envíos de formularios de contacto y lista de espera. Ver">Processes contact and waitlist form submissions. See</span> <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--indigo)">Formspree's Privacy Policy</a>.</li>
+    <li><strong>Apple App Store</strong> — <span data-en="Links to download the app. If you click through, Apple's own cookies and policies apply." data-es="Links para descargar la app. Si haces clic, aplican las cookies y políticas de Apple.">Links to download the app. If you click through, Apple's own cookies and policies apply.</span></li>
+  </ul>
+
+  <h2 data-en="How to control cookies" data-es="Cómo controlar las cookies">How to control cookies</h2>
+  <p data-en="You can control and delete cookies through your browser settings. Here are direct links for the most common browsers:" data-es="Puedes controlar y eliminar las cookies a través de la configuración de tu navegador. Aquí hay enlaces directos para los navegadores más comunes:">You can control and delete cookies through your browser settings. Here are direct links for the most common browsers:</p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" style="color:var(--indigo)">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" target="_blank" rel="noopener" style="color:var(--indigo)">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/en-us/HT201265" target="_blank" rel="noopener" style="color:var(--indigo)">Safari</a></li>
+    <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener" style="color:var(--indigo)">Microsoft Edge</a></li>
+  </ul>
+  <p data-en="Clearing localStorage will reset your language preference to English. Other than that, there are no functional consequences for refusing non-essential cookies on this site." data-es="Borrar el localStorage restablecerá tu preferencia de idioma al inglés. Aparte de eso, no hay consecuencias funcionales por rechazar cookies no esenciales en este sitio.">Clearing localStorage will reset your language preference to English. Other than that, there are no functional consequences for refusing non-essential cookies on this site.</p>
+
+  <h2 data-en="Changes to this policy" data-es="Cambios en esta política">Changes to this policy</h2>
+  <p data-en="If we ever start using new cookies or third-party services, we'll update this page and note the date at the top. We won't add advertising or tracking cookies without being transparent about it." data-es="Si alguna vez empezamos a usar nuevas cookies o servicios de terceros, actualizaremos esta página y anotaremos la fecha en la parte superior. No añadiremos cookies publicitarias o de seguimiento sin ser transparentes al respecto.">If we ever start using new cookies or third-party services, we'll update this page and note the date at the top. We won't add advertising or tracking cookies without being transparent about it.</p>
+
+  <h2 data-en="Contact" data-es="Contacto">Contact</h2>
+  <p data-en="Questions about this policy? Reach us at" data-es="¿Preguntas sobre esta política? Contáctanos en">Questions about this policy? Reach us at</p>
+  <p><a href="mailto:hello.finiverse@outlook.com" style="color:var(--indigo);font-weight:600">hello.finiverse@outlook.com</a></p>
+  <p>
+    <a href="privacy.html" style="color:var(--indigo)" data-en="← Privacy Policy" data-es="← Política de Privacidad">← Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="terms.html" style="color:var(--indigo)" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a>
+  </p>
+</div>
+
+<footer id="site-footer"></footer>
+
+<script src="footer.js"></script>
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
