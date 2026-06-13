@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Help Center — Finiverse" data-title-es="Centro de Ayuda — Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Center — Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .help-tabs { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:48px; }
+    .help-tab  { padding:8px 20px; border-radius:100px; font-size:14px; font-weight:600; border:1.5px solid var(--card-border); color:var(--text-mid); background:#fff; cursor:pointer; transition:all .15s; }
+    .help-tab.active, .help-tab:hover { background:var(--indigo); color:#fff; border-color:var(--indigo); }
+
+    /* panels */
+    .help-panel { display:none; }
+    .help-panel.active { display:block; }
+
+    /* contact form styles (pulled from contact.html) */
+    .contact-layout { display:grid; grid-template-columns:1fr 340px; gap:40px; align-items:start; }
+    @media (max-width:860px) { .contact-layout { grid-template-columns:1fr; } }
+    .category-pills { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+    .pill { padding:6px 14px; border-radius:100px; font-size:13px; font-weight:500; border:1.5px solid var(--card-border); color:var(--text-mid); cursor:pointer; transition:all .15s; }
+    .pill.active, .pill:hover { background:var(--indigo); color:#fff; border-color:var(--indigo); }
+    #successCard { display:none; background:var(--mint-light); border:1.5px solid var(--mint); border-radius:var(--radius); padding:28px; text-align:center; }
+    #successCard .ticket-id { font-size:24px; font-weight:900; color:var(--indigo); letter-spacing:.05em; margin:12px 0; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="index.html#features" data-en="Features" data-es="Funciones">Features</a>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a>
+      <a href="help.html" data-en="Help" data-es="Ayuda">Help</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero" style="text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;right:4%;bottom:-8px;opacity:.13;pointer-events:none">
+    <img src="images/sam-robot.png" alt="" width="170" style="transform:rotate(-8deg) scaleX(-1)" aria-hidden="true" />
+  </div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label" data-en="Help Center" data-es="Centro de Ayuda">Help Center</div>
+    <h1 data-en="Get help, <span>not headaches</span>." data-es="Obtén ayuda, <span>no dolores de cabeza</span>.">Get help, <span>not headaches</span>.</h1>
+    <p data-en="Browse answers or send us a message. Sam inside the app can also help anytime." data-es="Navega las respuestas o envíanos un mensaje. Sam dentro de la app también puede ayudarte en cualquier momento.">Browse answers or send us a message. Sam inside the app can also help anytime.</p>
+  </div>
+</section>
+
+<!-- Quick option cards -->
+<section style="padding:0 0 8px;background:var(--bg-soft)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:0 auto;transform:translateY(-32px)">
+      <button onclick="switchTab('faq')" id="card-faq" style="background:#fff;border:2px solid var(--indigo);border-radius:20px;padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 8px 30px rgba(91,78,232,.18)'" onmouseout="this.style.boxShadow=''">
+        <span style="font-size:28px">💬</span>
+        <span style="font-size:14px;font-weight:700;color:var(--indigo)" data-en="Browse FAQ" data-es="Ver FAQ">Browse FAQ</span>
+      </button>
+      <button onclick="switchTab('contact')" id="card-contact" style="background:#fff;border:2px solid var(--card-border);border-radius:20px;padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 8px 30px rgba(91,78,232,.1)'" onmouseout="this.style.boxShadow=''">
+        <span style="font-size:28px">✉️</span>
+        <span style="font-size:14px;font-weight:700;color:var(--text-dark)" data-en="Contact Support" data-es="Contactar Soporte">Contact Support</span>
+      </button>
+      <a href="status.html" style="background:#fff;border:2px solid var(--card-border);border-radius:20px;padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 8px 30px rgba(91,78,232,.1)'" onmouseout="this.style.boxShadow=''">
+        <span style="font-size:28px">🎫</span>
+        <span style="font-size:14px;font-weight:700;color:var(--text-dark)" data-en="Track Ticket" data-es="Rastrear Ticket">Track Ticket</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Main content -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <!-- Tab switcher -->
+    <div class="help-tabs">
+      <button class="help-tab active" onclick="switchTab('faq')" id="tab-faq" data-en="💬 Frequently Asked Questions" data-es="💬 Preguntas Frecuentes">💬 Frequently Asked Questions</button>
+      <button class="help-tab" onclick="switchTab('contact')" id="tab-contact" data-en="✉️ Contact Support" data-es="✉️ Contactar Soporte">✉️ Contact Support</button>
+    </div>
+
+    <!-- ═══ FAQ PANEL ═══ -->
+    <div class="help-panel active" id="panel-faq" style="max-width:800px">
+
+      <!-- Category filter tabs -->
+      <div class="faq-tabs" style="margin-bottom:40px">
+        <button class="faq-tab active" data-cat="all" data-en="✨ All" data-es="✨ Todo">✨ All</button>
+        <button class="faq-tab" data-cat="basics" data-en="📱 Basics" data-es="📱 Básicos">📱 Basics</button>
+        <button class="faq-tab" data-cat="sam" data-en="🤖 Sam AI" data-es="🤖 Sam IA">🤖 Sam AI</button>
+        <button class="faq-tab" data-cat="privacy" data-en="🛡️ Privacy" data-es="🛡️ Privacidad">🛡️ Privacy</button>
+        <button class="faq-tab" data-cat="plans" data-en="💰 Plans" data-es="💰 Planes">💰 Plans</button>
+      </div>
+
+      <!-- BASICS -->
+      <div class="faq-group">
+        <h2 class="faq-group-title" data-cat-label="basics" data-en="📱 App Basics" data-es="📱 Básicos de la App" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">📱 App Basics</h2>
+
+        <div class="faq-item" data-cat="basics">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="How do I record an expense?" data-es="¿Cómo registro un gasto?">How do I record an expense?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Tap the purple + button at the bottom of the screen and choose 'Expense'. Enter the amount, select a category (Food, Transport, Services, etc.), and optionally add how you're feeling. Sam uses your emotional data to build personalized insights over time." data-es="Toca el botón morado ＋ en la parte inferior de la pantalla y elige 'Gasto'. Ingresa el monto, selecciona una categoría (Comida, Transporte, Servicios, etc.) y opcionalmente cómo te sientes. Sam usa tus datos emocionales para construir insights personalizados con el tiempo.">Tap the purple + button at the bottom of the screen and choose 'Expense'. Enter the amount, select a category (Food, Transport, Services, etc.), and optionally add how you're feeling. Sam uses your emotional data to build personalized insights over time.</div>
+        </div>
+
+        <div class="faq-item" data-cat="basics">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Can I edit a record after saving it?" data-es="¿Puedo editar un registro después de guardarlo?">Can I edit a record after saving it?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Yes. Open any record from the Records tab and tap Edit to change the amount, category, date, description, or your emotional note. No data is ever locked." data-es="Sí. Abre cualquier registro desde la pestaña Registros y toca Editar para cambiar el monto, categoría, fecha, descripción o tu nota emocional. Ningún dato queda bloqueado.">Yes. Open any record from the Records tab and tap Edit to change the amount, category, date, description, or your emotional note. No data is ever locked.</div>
+        </div>
+
+        <div class="faq-item" data-cat="basics">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="What is the emotional check-in?" data-es="¿Qué es el check-in emocional?">What is the emotional check-in?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="A daily log where you record your mood, focus level, energy, stress, and sleep (automatically synced from Apple Watch, or entered manually). Sam links these emotional signals with your spending patterns — for example, detecting that you tend to spend more when you're anxious or under-slept." data-es="Un registro diario donde anotas tu ánimo, nivel de enfoque, energía, estrés y sueño (sincronizado automáticamente del Apple Watch, o ingresado manualmente). Sam vincula estas señales emocionales con tus patrones de gasto — por ejemplo, detectando que tiendes a gastar más cuando estás ansioso o has dormido poco.">A daily log where you record your mood, focus level, energy, stress, and sleep (automatically synced from Apple Watch, or entered manually). Sam links these emotional signals with your spending patterns — for example, detecting that you tend to spend more when you're anxious or under-slept.</div>
+        </div>
+
+        <div class="faq-item" data-cat="basics">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Does Finiverse connect to my bank?" data-es="¿Finiverse se conecta a mi banco?">Does Finiverse connect to my bank?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="No — Finiverse is intentionally manual. You enter your records yourself, which keeps your banking credentials private and helps build the habit of mindful spending awareness. This is especially helpful for neurodivergent users who benefit from the act of recording." data-es="No — Finiverse es intencionalmente manual. Tú ingresas tus registros, lo que mantiene privadas tus credenciales bancarias y ayuda a desarrollar el hábito de la conciencia del gasto. Esto es especialmente útil para usuarios neurodivergentes que se benefician del acto de registrar.">No — Finiverse is intentionally manual. You enter your records yourself, which keeps your banking credentials private and helps build the habit of mindful spending awareness. This is especially helpful for neurodivergent users who benefit from the act of recording.</div>
+        </div>
+
+        <div class="faq-item" data-cat="basics">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="What currencies does Finiverse support?" data-es="¿Qué monedas soporta Finiverse?">What currencies does Finiverse support?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Finiverse supports multiple currencies. You can set your primary currency in Settings, and multi-currency tracking is available on Premium and Sam AI plans." data-es="Finiverse soporta múltiples monedas. Puedes configurar tu moneda principal en Ajustes, y el seguimiento multi-moneda está disponible en los planes Premium y Sam IA.">Finiverse supports multiple currencies. You can set your primary currency in Settings, and multi-currency tracking is available on Premium and Sam AI plans.</div>
+        </div>
+      </div>
+
+      <!-- SAM AI -->
+      <div class="faq-group" style="margin-top:48px">
+        <h2 class="faq-group-title" data-cat-label="sam" data-en="🤖 Sam AI" data-es="🤖 Sam IA" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">🤖 Sam AI</h2>
+
+        <div class="faq-item" data-cat="sam">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="What can Sam do for me?" data-es="¿Qué puede hacer Sam por mí?">What can Sam do for me?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Sam analyzes your spending, detects emotional spending patterns, and gives personalized suggestions based on your complete financial history and emotional data. Ask Sam anything — 'Did I overspend this month?', 'What's my biggest expense category?', 'Help me save $200 in 30 days', or even 'I'm feeling overwhelmed, where do I start?' Sam is powered by Claude AI (Anthropic) and never judges." data-es="Sam analiza tus gastos, detecta patrones de gasto emocional y te da sugerencias personalizadas basadas en tu historial financiero completo y datos emocionales. Pregúntale lo que sea — '¿Gasté de más este mes?', '¿Cuál es mi mayor categoría?', 'Ayúdame a ahorrar $200 en 30 días', o incluso 'Me siento abrumado, ¿por dónde empiezo?' Sam está impulsado por Claude AI (Anthropic) y nunca juzga.">Sam analyzes your spending, detects emotional spending patterns, and gives personalized suggestions based on your complete financial history and emotional data. Ask Sam anything — 'Did I overspend this month?', 'What's my biggest expense category?', 'Help me save $200 in 30 days', or even 'I'm feeling overwhelmed, where do I start?' Sam is powered by Claude AI (Anthropic) and never judges.</div>
+        </div>
+
+        <div class="faq-item" data-cat="sam">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Can I use Sam offline?" data-es="¿Puedo usar Sam sin conexión?">Can I use Sam offline?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Sam requires an internet connection to generate AI responses. You can still record expenses, view your balance, and access analytics while offline — Sam just won't be available for chat." data-es="Sam requiere conexión a internet para generar respuestas de IA. Puedes seguir registrando gastos, ver tu saldo y acceder a análisis sin conexión — Sam simplemente no estará disponible para chatear.">Sam requires an internet connection to generate AI responses. You can still record expenses, view your balance, and access analytics while offline — Sam just won't be available for chat.</div>
+        </div>
+
+        <div class="faq-item" data-cat="sam">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="How do I make Sam's responses shorter or calmer?" data-es="¿Cómo hago que Sam responda más corto o calmado?">How do I make Sam's responses shorter or calmer?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Go to Settings → Sam → Response style. You can choose from: Brief (short and direct), Calm (gentle tone, designed for anxiety), Detailed (full analysis), or Motivating (upbeat and encouraging). You can switch anytime, even mid-conversation." data-es="Ve a Ajustes → Sam → Estilo de respuesta. Puedes elegir entre: Breve, Calmado, Detallado o Motivador. Puedes cambiar en cualquier momento, incluso a mitad de una conversación.">Go to Settings → Sam → Response style. You can choose from: Brief (short and direct), Calm (gentle tone, designed for anxiety), Detailed (full analysis), or Motivating (upbeat and encouraging). You can switch anytime, even mid-conversation.</div>
+        </div>
+
+        <div class="faq-item" data-cat="sam">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Does Sam give real financial advice?" data-es="¿Sam da asesoramiento financiero real?">Does Sam give real financial advice?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Sam's responses are for informational and reflective purposes only — not professional financial, tax, legal, or investment advice. Sam helps you understand your own patterns and make more informed personal decisions. Always consult a qualified professional for significant financial decisions." data-es="Las respuestas de Sam son solo para fines informativos y reflexivos — no constituyen asesoramiento profesional. Sam te ayuda a entender tus propios patrones y tomar decisiones más informadas. Siempre consulta a un profesional calificado para decisiones financieras importantes.">Sam's responses are for informational and reflective purposes only — not professional financial, tax, legal, or investment advice. Sam helps you understand your own patterns and make more informed personal decisions. Always consult a qualified professional for significant financial decisions.</div>
+        </div>
+      </div>
+
+      <!-- PRIVACY -->
+      <div class="faq-group" style="margin-top:48px">
+        <h2 class="faq-group-title" data-cat-label="privacy" data-en="🛡️ Privacy & Security" data-es="🛡️ Privacidad y Seguridad" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">🛡️ Privacy & Security</h2>
+
+        <div class="faq-item" data-cat="privacy">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Is my financial data private?" data-es="¿Mis datos financieros son privados?">Is my financial data private?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Yes. Your data is linked only to your account and is never sold or shared with third parties for advertising. It's stored securely using Google Firebase with enterprise-grade encryption (GDPR and SOC 2 compliant). We do not store your data on our own servers." data-es="Sí. Tus datos están vinculados únicamente a tu cuenta y nunca se venden ni comparten con terceros para publicidad. Se almacenan de forma segura usando Google Firebase con cifrado de nivel empresarial (cumple con GDPR y SOC 2).">Yes. Your data is linked only to your account and is never sold or shared with third parties for advertising. It's stored securely using Google Firebase with enterprise-grade encryption (GDPR and SOC 2 compliant). We do not store your data on our own servers.</div>
+        </div>
+
+        <div class="faq-item" data-cat="privacy">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Can I use Face ID or Touch ID?" data-es="¿Puedo usar Face ID o Touch ID?">Can I use Face ID or Touch ID?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Yes. Enable biometric authentication in Settings → Security → Face ID / Touch ID. Your financial data stays locked behind Face ID until you authenticate." data-es="Sí. Activa la autenticación biométrica en Ajustes → Seguridad → Face ID / Touch ID. Tus datos financieros permanecen bloqueados hasta que te autentiques.">Yes. Enable biometric authentication in Settings → Security → Face ID / Touch ID. Your financial data stays locked behind Face ID until you authenticate.</div>
+        </div>
+
+        <div class="faq-item" data-cat="privacy">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="How do I delete my account?" data-es="¿Cómo elimino mi cuenta?">How do I delete my account?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Go to Settings → Security → Delete account. The process includes a confirmation step to protect against accidental deletion. All your data is permanently erased and cannot be recovered." data-es="Ve a Ajustes → Seguridad → Eliminar cuenta. El proceso incluye un paso de confirmación para proteger contra borrados accidentales. Todos tus datos se borran permanentemente y no se pueden recuperar.">Go to Settings → Security → Delete account. The process includes a confirmation step to protect against accidental deletion. All your data is permanently erased and cannot be recovered.</div>
+        </div>
+      </div>
+
+      <!-- PLANS -->
+      <div class="faq-group" style="margin-top:48px">
+        <h2 class="faq-group-title" data-cat-label="plans" data-en="💰 Plans & Billing" data-es="💰 Planes y Facturación" style="font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--indigo-light)">💰 Plans & Billing</h2>
+
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="Is there a free plan?" data-es="¿Hay un plan gratuito?">Is there a free plan?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Yes — Finiverse is completely free to download and use. The Free plan includes unlimited expense and income recording, 5 mood check-ins per month, basic Sam AI access, goals tracking, and the full gamification system (XP, levels, seasonal events)." data-es="Sí — Finiverse es completamente gratis para descargar y usar. El plan Gratis incluye registro ilimitado de gastos e ingresos, 5 check-ins de ánimo al mes, acceso básico a Sam IA, seguimiento de metas y el sistema de gamificación completo.">Yes — Finiverse is completely free to download and use. The Free plan includes unlimited expense and income recording, 5 mood check-ins per month, basic Sam AI access, goals tracking, and the full gamification system (XP, levels, seasonal events).</div>
+        </div>
+
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="What are the plan prices?" data-es="¿Cuáles son los precios de los planes?">What are the plan prices?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Monthly prices (USD): Early Bird — $2.99/mo · Premium — $9.99/mo · Sam AI — $14.99/mo. Annual plans save approximately 20%. Prices are shown in your local currency in the App Store." data-es="Precios mensuales (USD): Early Bird — $2.99/mes · Premium — $9.99/mes · Sam IA — $14.99/mes. Los planes anuales ahorran aproximadamente 20%. Los precios se muestran en tu moneda local en el App Store.">Monthly prices (USD): Early Bird — $2.99/mo · Premium — $9.99/mo · Sam AI — $14.99/mo. Annual plans save approximately 20%. Prices are shown in your local currency in the App Store.</div>
+        </div>
+
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="How do I change or cancel my plan?" data-es="¿Cómo cambio o cancelo mi plan?">How do I change or cancel my plan?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="To change plans: go to Settings → My Plan inside the app. To cancel: go to iPhone Settings → Apple ID → Subscriptions → Finiverse → Cancel. Cancellation takes effect at the end of your current billing period — you keep access until then." data-es="Para cambiar de plan: ve a Ajustes → Mi Plan dentro de la app. Para cancelar: ve a Ajustes de iPhone → Apple ID → Suscripciones → Finiverse → Cancelar. La cancelación surte efecto al final de tu período de facturación actual.">To change plans: go to Settings → My Plan inside the app. To cancel: go to iPhone Settings → Apple ID → Subscriptions → Finiverse → Cancel. Cancellation takes effect at the end of your current billing period — you keep access until then.</div>
+        </div>
+
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" aria-expanded="false">
+            <span data-en="What does the Sam AI plan include?" data-es="¿Qué incluye el plan Sam IA?">What does the Sam AI plan include?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a" data-en="Everything in Premium plus: unlimited Sam AI conversations, personalized financial context awareness, what-if simulations, early access to new features, 6+ animated avatars with voice, exclusive seasonal events, and the Sam Insider badge." data-es="Todo lo de Premium más: conversaciones ilimitadas con Sam IA, contexto financiero personalizado, simulaciones hipotéticas, acceso anticipado a nuevas funciones, 6+ avatares animados con voz, eventos estacionales exclusivos y el badge Sam Insider.">Everything in Premium plus: unlimited Sam AI conversations, personalized financial context awareness, what-if simulations, early access to new features, 6+ animated avatars with voice, exclusive seasonal events, and the Sam Insider badge.</div>
+        </div>
+      </div>
+
+      <!-- CTA to contact -->
+      <div style="background:linear-gradient(135deg,var(--indigo-light),#F0FFF4);border-radius:24px;padding:40px;text-align:center;margin-top:64px;position:relative;overflow:hidden">
+        <div style="position:absolute;right:-16px;bottom:-16px;opacity:.1;pointer-events:none">
+          <img src="images/sam-animated.gif" alt="" width="130" aria-hidden="true" />
+        </div>
+        <div style="position:relative;z-index:1">
+          <div style="font-size:36px;margin-bottom:10px">🤔</div>
+          <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="Didn't find your answer?" data-es="¿No encontraste tu respuesta?">Didn't find your answer?</h3>
+          <p style="font-size:15px;color:var(--text-mid);margin-bottom:24px" data-en="Our support team responds within 48 hours." data-es="Nuestro equipo responde en 48 horas.">Our support team responds within 48 hours.</p>
+          <button onclick="switchTab('contact')" class="btn btn-primary" data-en="Contact support →" data-es="Contactar soporte →">Contact support →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONTACT PANEL ═══ -->
+    <div class="help-panel" id="panel-contact">
+      <div class="contact-layout">
+
+        <!-- Form -->
+        <div>
+          <div id="formCard">
+            <p style="font-size:15px;color:var(--text-mid);margin-bottom:24px" data-en="Send us a message and we'll get back to you. You'll receive a ticket ID to track your request." data-es="Envíanos un mensaje y te responderemos. Recibirás un ID de ticket para rastrear tu solicitud.">Send us a message and we'll get back to you. You'll receive a ticket ID to track your request.</p>
+
+            <div class="category-pills" id="categoryPills">
+              <button class="pill active" data-val="support" data-en="Support" data-es="Soporte">Support</button>
+              <button class="pill" data-val="billing" data-en="Billing" data-es="Facturación">Billing</button>
+              <button class="pill" data-val="feedback" data-en="Feedback" data-es="Retroalimentación">Feedback</button>
+              <button class="pill" data-val="press" data-en="Press / Media" data-es="Prensa / Medios">Press / Media</button>
+              <button class="pill" data-val="investors" data-en="Investors" data-es="Inversionistas">Investors</button>
+              <button class="pill" data-val="other" data-en="Other" data-es="Otro">Other</button>
+            </div>
+
+            <form id="contactForm" action="https://formspree.io/f/xpwzjgqw" method="POST" novalidate>
+              <input type="hidden" name="_subject" id="formSubject" value="Finiverse Contact — Support" />
+              <input type="hidden" name="category" id="formCategory" value="support" />
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label" for="fname" data-en="First Name <span class='req'>*</span>" data-es="Nombre <span class='req'>*</span>">First Name <span class="req">*</span></label>
+                  <input type="text" id="fname" name="firstName" class="form-input" required placeholder="Monica" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lname" data-en="Last Name" data-es="Apellido">Last Name</label>
+                  <input type="text" id="lname" name="lastName" class="form-input" placeholder="Becerra" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email" data-en="Email <span class='req'>*</span>" data-es="Correo electrónico <span class='req'>*</span>">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" required placeholder="you@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="subject" data-en="Subject <span class='req'>*</span>" data-es="Asunto <span class='req'>*</span>">Subject <span class="req">*</span></label>
+                <input type="text" id="subject" name="subject" class="form-input" required placeholder="Brief description of your question" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message" data-en="Message <span class='req'>*</span>" data-es="Mensaje <span class='req'>*</span>">Message <span class="req">*</span></label>
+                <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us what you need help with..."></textarea>
+              </div>
+
+              <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+                <button type="submit" class="btn btn-primary" id="submitBtn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+                <p style="font-size:13px;color:var(--text-light)" data-en="We typically respond within 48 hours." data-es="Normalmente respondemos en 48 horas.">We typically respond within 48 hours.</p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success state -->
+          <div id="successCard">
+            <div style="font-size:48px;margin-bottom:8px">✅</div>
+            <h3 style="font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:4px" data-en="Message sent!" data-es="¡Mensaje enviado!">Message sent!</h3>
+            <p data-en="Your ticket ID is:" data-es="Tu ID de ticket es:">Your ticket ID is:</p>
+            <div class="ticket-id" id="ticketDisplay">FNV-000000</div>
+            <p data-en="Save this ID to track your ticket status. We'll respond to your email within 48 hours." data-es="Guarda este ID para rastrear el estado de tu ticket. Responderemos en 48 horas.">Save this ID to track your ticket status. We'll respond to your email within 48 hours.</p>
+            <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+              <a href="status.html" class="btn btn-primary btn-sm" data-en="Track Ticket" data-es="Rastrear Ticket">Track Ticket</a>
+              <button class="btn btn-ghost btn-sm" onclick="resetForm()" data-en="Send Another" data-es="Enviar Otro">Send Another</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="card">
+            <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:16px" data-en="Response times" data-es="Tiempos de respuesta">Response times</h3>
+            <ul style="display:flex;flex-direction:column;gap:12px">
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+                <span data-en="Support" data-es="Soporte">Support</span>
+                <span style="font-weight:600;color:var(--mint)" data-en="~24 hours" data-es="~24 horas">~24 hours</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+                <span data-en="Billing" data-es="Facturación">Billing</span>
+                <span style="font-weight:600;color:var(--mint)" data-en="~24 hours" data-es="~24 horas">~24 hours</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+                <span data-en="Feedback" data-es="Retroalimentación">Feedback</span>
+                <span style="font-weight:600;color:var(--text-mid)" data-en="~48 hours" data-es="~48 horas">~48 hours</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:14px">
+                <span data-en="Press / Investors" data-es="Prensa / Inversionistas">Press / Investors</span>
+                <span style="font-weight:600;color:var(--text-mid)" data-en="2–5 days" data-es="2–5 días">2–5 days</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:12px" data-en="Direct contact" data-es="Contacto directo">Direct contact</h3>
+            <a href="mailto:hello.finiverse@outlook.com" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--indigo);margin-bottom:12px">
+              <span style="font-size:20px">✉️</span> hello.finiverse@outlook.com
+            </a>
+            <p style="font-size:13px;color:var(--text-light)" data-en="For urgent issues, email us directly." data-es="Para asuntos urgentes, escríbenos directamente.">For urgent issues, email us directly.</p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:12px" data-en="Track a ticket" data-es="Rastrear un ticket">Track a ticket</h3>
+            <p style="font-size:14px;color:var(--text-mid);margin-bottom:12px" data-en="Already have a ticket ID? Check its status:" data-es="¿Ya tienes un ID de ticket? Revisa su estado:">Already have a ticket ID? Check its status:</p>
+            <a href="status.html" class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" data-en="Check Ticket Status →" data-es="Ver Estado del Ticket →">Check Ticket Status →</a>
+          </div>
+
+          <div class="card" style="background:linear-gradient(135deg,#0F0F1A,#1A1030);border-color:#2D2B50">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+              <img src="images/sam-animated.gif" alt="Sam" width="40" height="40" style="border-radius:50%" />
+              <div>
+                <div style="font-size:14px;font-weight:700;color:#fff">Sam</div>
+                <div style="font-size:12px;color:rgba(255,255,255,.5)" data-en="Inside the app" data-es="Dentro de la app">Inside the app</div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6" data-en="For quick finance questions, open the app and chat with Sam directly — no wait time." data-es="Para preguntas rápidas, abre la app y chatea con Sam directamente — sin tiempo de espera.">For quick finance questions, open the app and chat with Sam directly — no wait time.</p>
+            <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" style="margin-top:14px;width:100%;justify-content:center" target="_blank" rel="noopener" data-en="Open Finiverse →" data-es="Abrir Finiverse →">Open Finiverse →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bottom" style="max-width:var(--max-w);margin:0 auto;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px">
+    <span data-en="© 2026 Finiverse · BeGoTech" data-es="© 2026 Finiverse · BeGoTech">© 2026 Finiverse · BeGoTech</span>
+    <span style="display:flex;gap:16px">
+      <a href="index.html" style="color:rgba(255,255,255,.5)" data-en="Home" data-es="Inicio">Home</a>
+      <a href="pricing.html" style="color:rgba(255,255,255,.5)" data-en="Pricing" data-es="Planes">Pricing</a>
+      <a href="privacy.html" style="color:rgba(255,255,255,.5)" data-en="Privacy" data-es="Privacidad">Privacy</a>
+      <a href="terms.html" style="color:rgba(255,255,255,.5)" data-en="Terms" data-es="Términos">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script>
+/* ── Tab switching ── */
+function switchTab(tab) {
+  document.querySelectorAll('.help-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.help-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('[id^="card-"]').forEach(c => {
+    c.style.border = '2px solid var(--card-border)';
+  });
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (document.getElementById('card-' + tab)) {
+    document.getElementById('card-' + tab).style.border = '2px solid var(--indigo)';
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Open to contact tab if URL has ?tab=contact */
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('tab') === 'contact') switchTab('contact');
+})();
+
+/* ── FAQ accordion + category filter ── */
+(function () {
+  const items  = document.querySelectorAll('.faq-item');
+  const tabs   = document.querySelectorAll('.faq-tab');
+  const groups = document.querySelectorAll('.faq-group');
+
+  function filterFAQ(cat) {
+    groups.forEach(g => {
+      const label = g.querySelector('[data-cat-label]');
+      const groupCat = label?.getAttribute('data-cat-label');
+      g.style.display = (cat === 'all' || groupCat === cat) ? '' : 'none';
+    });
+    items.forEach(item => {
+      const show = cat === 'all' || item.dataset.cat === cat;
+      item.style.display = show ? '' : 'none';
+      if (!show) { item.classList.remove('open'); item.querySelector('.faq-q')?.setAttribute('aria-expanded','false'); }
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filterFAQ(tab.dataset.cat);
+    });
+  });
+
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach(i => { i.classList.remove('open'); i.querySelector('.faq-q')?.setAttribute('aria-expanded','false'); });
+      if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+})();
+
+/* ── Contact form ── */
+const pills = document.querySelectorAll('.pill');
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    document.getElementById('formCategory').value = pill.dataset.val;
+    document.getElementById('formSubject').value = 'Finiverse Contact — ' + pill.textContent.trim();
+  });
+});
+
+function generateTicketId() {
+  const ts  = Date.now().toString(36).toUpperCase();
+  const rnd = Math.random().toString(36).substring(2, 5).toUpperCase();
+  return 'FNV-' + ts.slice(-4) + rnd;
+}
+
+function resetForm() {
+  document.getElementById('successCard').style.display = 'none';
+  document.getElementById('formCard').style.display = '';
+}
+
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const origText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      const ticketId = generateTicketId();
+      document.getElementById('ticketDisplay').textContent = ticketId;
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please email hello.finiverse@outlook.com directly.');
+      btn.disabled = false;
+      btn.textContent = origText;
+    }
+  } catch {
+    alert('Network error. Please email hello.finiverse@outlook.com directly.');
+    btn.disabled = false;
+    btn.textContent = origText;
+  }
+});
+</script>
+</body>
+</html>
