@@ -106,11 +106,12 @@
     .plan-tagline { font-size: 12px; color: var(--text-light); margin-bottom: 18px; }
     .plan-card.dark-card .plan-tagline { color: rgba(255,255,255,.5); }
 
-    .plan-price { font-size: 38px; font-weight: 900; letter-spacing: -.03em; color: var(--text-dark); line-height: 1; }
-    .plan-price sup { font-size: 18px; font-weight: 600; vertical-align: super; }
-    .plan-price span { font-size: 16px; font-weight: 500; color: var(--text-light); }
+    .plan-price { font-size: 42px; font-weight: 900; letter-spacing: -.03em; color: var(--text-dark); line-height: 1; }
+    .plan-price sup { font-size: 20px; font-weight: 700; vertical-align: super; }
+    .plan-price .price-num { font-size: inherit; font-weight: inherit; color: inherit; }
+    .plan-price .price-unit { font-size: 16px; font-weight: 500; color: var(--text-light); }
     .plan-card.dark-card .plan-price { color: #00D4C8; }
-    .plan-card.dark-card .plan-price span { color: rgba(255,255,255,.4); }
+    .plan-card.dark-card .plan-price .price-unit { color: rgba(255,255,255,.4); }
 
     .plan-billing { font-size: 11px; color: var(--text-light); margin-top: 3px; margin-bottom: 20px; min-height: 16px; }
     .plan-card.dark-card .plan-billing { color: rgba(255,255,255,.4); }
@@ -276,7 +277,7 @@
           <div class="plan-icon">⭐</div>
           <div class="plan-name">Early Bird</div>
           <div class="plan-tagline" data-en="For early adopters & power users" data-es="Para usuarios tempranos y avanzados">For early adopters & power users</div>
-          <div class="plan-price" id="eb-price-display"><sup>$</sup><span class="price-num">2.99</span><span data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-price" id="eb-price-display"><sup>$</sup><span class="price-num">2.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
           <div class="plan-billing" id="eb-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
@@ -298,7 +299,7 @@
           <div class="plan-icon">💜</div>
           <div class="plan-name">Premium</div>
           <div class="plan-tagline" data-en="Full power, your way" data-es="Todo el poder, a tu manera">Full power, your way</div>
-          <div class="plan-price" id="pr-price-display"><sup>$</sup><span class="price-num">9.99</span><span data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-price" id="pr-price-display"><sup>$</sup><span class="price-num">9.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
           <div class="plan-billing" id="pr-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
@@ -322,7 +323,7 @@
           </div>
           <div class="plan-name">Sam AI</div>
           <div class="plan-tagline" style="color:rgba(255,255,255,.5)" data-en="Your full AI financial companion" data-es="Tu compañero financiero IA completo">Your full AI financial companion</div>
-          <div class="plan-price" id="sa-price-display" style="color:#00D4C8"><sup style="color:#00D4C8">$</sup><span class="price-num">14.99</span><span style="color:rgba(255,255,255,.4)" data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-price" id="sa-price-display" style="color:#00D4C8"><sup style="color:#00D4C8">$</sup><span class="price-num">14.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
           <div class="plan-billing" id="sa-billing" style="color:rgba(255,255,255,.4)" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider" style="background:rgba(255,255,255,.08)"></div>
           <ul class="plan-features">
