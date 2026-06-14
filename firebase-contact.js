@@ -66,16 +66,18 @@
     return ticketId;
   }
 
-  /* Normalize ERP status values to the 4 known keys */
+  /* Normalize ERP status values (EN + ES) to the 4 known keys */
   function normalizeStatus(raw) {
     if (!raw) return 'pending';
-    var s = raw.toLowerCase().trim();
-    if (s === 'reviewing' || s === 'in_review' || s === 'in review' ||
-        s === 'under_review' || s === 'under review' || s === 'review') return 'reviewing';
-    if (s === 'responded' || s === 'replied' || s === 'answered' ||
-        s === 'response sent') return 'responded';
-    if (s === 'closed' || s === 'done' || s === 'resolved' ||
-        s === 'completed' || s === 'complete') return 'closed';
+    var s = raw.toLowerCase().trim().replace(/\s+/g, '_');
+    if (s === 'reviewing' || s === 'in_review' || s === 'under_review' || s === 'review' ||
+        s === 'en_revision' || s === 'en_revisión' || s === 'revision' || s === 'revisión' ||
+        s === 'en_revision' || s === 'en_proceso' || s === 'proceso') return 'reviewing';
+    if (s === 'responded' || s === 'replied' || s === 'answered' || s === 'response_sent' ||
+        s === 'respondido' || s === 'contestado' || s === 'respuesta_enviada') return 'responded';
+    if (s === 'closed' || s === 'done' || s === 'resolved' || s === 'completed' ||
+        s === 'cerrado' || s === 'resuelto' || s === 'finalizado' || s === 'completado') return 'closed';
+    if (s === 'pending' || s === 'pendiente' || s === 'nuevo' || s === 'new') return 'pending';
     return 'pending';
   }
 
