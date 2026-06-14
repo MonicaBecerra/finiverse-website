@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en" data-title-en="Contact — Finiverse" data-title-es="Contacto — Finiverse">
+<html lang="en" data-lang="en" data-title-en="Contact · Finiverse" data-title-es="Contacto · Finiverse">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Finiverse</title>
+  <title>Contact · Finiverse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -33,9 +33,9 @@
   <meta name="twitter:site" content="@hello_finiverse" />
   <meta name="twitter:image" content="https://monicabecerra.github.io/finiverse-website/images/home.PNG" />
   <meta property="og:url" content="https://monicabecerra.github.io/finiverse-website/contact.html" />
-  <meta property="og:title" content="Contact — Finiverse" />
+  <meta property="og:title" content="Contact · Finiverse" />
   <meta property="og:description" content="Personal finance for neurodivergent minds." />
-  <meta name="twitter:title" content="Contact — Finiverse" />
+  <meta name="twitter:title" content="Contact · Finiverse" />
   <meta name="twitter:description" content="Personal finance for neurodivergent minds." />
 </head>
 <body>
@@ -134,7 +134,7 @@
             ╚══════════════════════════════════════════════════════╝
           -->
           <form id="contactForm" action="https://formspree.io/f/xpwzjgqw" method="POST" novalidate>
-            <input type="hidden" name="_subject" id="formSubject" value="Finiverse Contact — Support" />
+            <input type="hidden" name="_subject" id="formSubject" value="Finiverse Contact, Support" />
             <input type="hidden" name="category" id="formCategory" value="support" />
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
@@ -250,7 +250,7 @@
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       formCategory.value = pill.dataset.val;
-      formSubject.value = 'Finiverse Contact — ' + pill.textContent.trim();
+      formSubject.value = 'Finiverse Contact, ' + pill.textContent.trim();
     });
   });
 
