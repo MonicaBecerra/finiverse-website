@@ -447,6 +447,7 @@
 <script src="footer.js"></script>
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
+<script src="firebase-contact.js"></script>
 <script>
 /* ── Tab switching ── */
 function switchTab(tab) {
@@ -518,15 +519,10 @@ pills.forEach(pill => {
   });
 });
 
-function generateTicketId() {
-  const ts  = Date.now().toString(36).toUpperCase();
-  const rnd = Math.random().toString(36).substring(2, 5).toUpperCase();
-  return 'FNV-' + ts.slice(-4) + rnd;
-}
-
 function resetForm() {
   document.getElementById('successCard').style.display = 'none';
   document.getElementById('formCard').style.display = '';
+  document.getElementById('formError').style.display = 'none';
 }
 
 const form = document.getElementById('contactForm');
@@ -536,22 +532,12 @@ form.addEventListener('submit', async (e) => {
   const origText = btn.textContent;
   btn.disabled = true;
   btn.textContent = '...';
+  document.getElementById('formError').style.display = 'none';
   try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
-    });
-    if (res.ok) {
-      const ticketId = generateTicketId();
-      document.getElementById('ticketDisplay').textContent = ticketId;
-      document.getElementById('formCard').style.display = 'none';
-      document.getElementById('successCard').style.display = 'block';
-    } else {
-      document.getElementById('formError').style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = origText;
-    }
+    const ticketId = await FiniverseContact.submit(new FormData(form));
+    document.getElementById('ticketDisplay').textContent = ticketId;
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('successCard').style.display = 'block';
   } catch {
     document.getElementById('formError').style.display = 'block';
     btn.disabled = false;
