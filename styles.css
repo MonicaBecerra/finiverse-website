@@ -581,6 +581,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-size: 14px;
   font-weight: 500;
   color: var(--text-mid);
+  white-space: nowrap;
 }
 .trust-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
 
