@@ -257,14 +257,6 @@
     });
   });
 
-  // Recent tickets in localStorage
-  function saveTicket(id, subject, category) {
-    const tickets = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]');
-    tickets.unshift({ id, subject, category, date: new Date().toISOString() });
-    if (tickets.length > 10) tickets.pop();
-    localStorage.setItem('finiverse-tickets', JSON.stringify(tickets));
-  }
-
   // Form submission
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async (e) => {
@@ -277,7 +269,6 @@
 
     try {
       const ticketId = await FiniverseContact.submit(new FormData(form));
-      saveTicket(ticketId, document.getElementById('subject').value, formCategory.value);
       document.getElementById('ticketDisplay').textContent = ticketId;
       document.getElementById('formCard').style.display = 'none';
       document.getElementById('successCard').style.display = 'block';

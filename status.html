@@ -157,42 +157,8 @@
 <script src="footer.js"></script>
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
+<script src="firebase-contact.js"></script>
 <script>
-/*
-  ╔══════════════════════════════════════════════════════════════╗
-  ║  SETUP: Airtable (to track ticket status as an admin)        ║
-  ╠══════════════════════════════════════════════════════════════╣
-  ║  1. Go to https://airtable.com and create a free account     ║
-  ║  2. Create a new Base → name it "Finiverse Support"          ║
-  ║  3. Create a Table called "Tickets" with these fields:       ║
-  ║     - TicketID  (Single line text)  ← e.g. FNV-LMX4K2       ║
-  ║     - Status    (Single select):    pending / reviewing /    ║
-  ║                                     responded / closed       ║
-  ║     - Category  (Single line text)  ← support, billing, etc.║
-  ║     - Message   (Long text)                                  ║
-  ║     - Email     (Email)                                      ║
-  ║     - CreatedAt (Date)                                       ║
-  ║                                                              ║
-  ║  4. Get your Personal Access Token:                          ║
-  ║     airtable.com/create/tokens → create token with:         ║
-  ║     Scopes: data.records:read, data.records:write            ║
-  ║     Access: your "Finiverse Support" base                    ║
-  ║     → copy the pat... token and paste below                  ║
-  ║                                                              ║
-  ║  5. Get your Base ID:                                        ║
-  ║     Open your base → click Help → API docs                   ║
-  ║     The Base ID starts with "app..." → copy it below         ║
-  ║                                                              ║
-  ║  6. When Formspree sends you a contact email, manually       ║
-  ║     add the ticket to Airtable with the TicketID from        ║
-  ║     the email, so users can look it up here.                 ║
-  ╚══════════════════════════════════════════════════════════════╝
-*/
-const AIRTABLE_TOKEN  = '';   /* paste your Personal Access Token here */
-const AIRTABLE_BASE   = '';   /* paste your Base ID (app...) here */
-const AIRTABLE_TABLE  = 'Tickets';
-const USE_AIRTABLE    = AIRTABLE_TOKEN && AIRTABLE_BASE;
-
 const STATUSES = {
   pending:   { en: 'Pending',    es: 'Pendiente',    cls: 'badge-pending',   icon: '⏳' },
   reviewing: { en: 'Reviewing',  es: 'En revisión',  cls: 'badge-review',    icon: '🔍' },
@@ -234,31 +200,37 @@ async function searchTicket() {
   document.getElementById('statusResult').style.display = 'none';
   document.getElementById('notFound').style.display = 'none';
 
-  if (USE_AIRTABLE) {
-    await fetchFromAirtable(id);
-  } else {
-    checkLocalTicket(id);
-  }
-}
+  const btn = document.getElementById('searchBtn');
+  const origText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '...';
 
-function checkLocalTicket(id) {
-  const tickets = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]');
-  const ticket  = tickets.find(t => t.id === id);
-  if (!ticket) { document.getElementById('notFound').style.display = 'block'; return; }
-  showTicket({ id: ticket.id, subject: ticket.subject, status: 'pending', response: null });
-}
-
-async function fetchFromAirtable(id) {
   try {
-    const filter = encodeURIComponent(`{TicketID} = "${id}"`);
-    const url = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${AIRTABLE_TABLE}?filterByFormula=${filter}`;
-    const res  = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } });
-    const data = await res.json();
-    if (!data.records?.length) { document.getElementById('notFound').style.display = 'block'; return; }
-    const r = data.records[0].fields;
-    showTicket({ id, subject: r.Subject || '', status: (r.Status || 'pending').toLowerCase(), response: r.Response || null });
-  } catch (e) {
-    document.getElementById('notFound').style.display = 'block';
+    /* 1. Try Firestore (works on any device) */
+    let ticket = await FiniverseContact.fetchTicket(id);
+
+    /* 2. Fallback: localStorage (same browser only) */
+    if (!ticket) {
+      const local = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]').find(t => t.id === id);
+      if (local) ticket = { id: local.id, subject: local.subject, status: 'pending', response: null };
+    }
+
+    if (ticket) {
+      showTicket(ticket);
+    } else {
+      document.getElementById('notFound').style.display = 'block';
+    }
+  } catch (_) {
+    /* Firestore unavailable — try localStorage only */
+    const local = JSON.parse(localStorage.getItem('finiverse-tickets') || '[]').find(t => t.id === id);
+    if (local) {
+      showTicket({ id: local.id, subject: local.subject, status: 'pending', response: null });
+    } else {
+      document.getElementById('notFound').style.display = 'block';
+    }
+  } finally {
+    btn.disabled = false;
+    btn.textContent = origText;
   }
 }
 
