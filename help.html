@@ -365,6 +365,10 @@
                 <button type="submit" class="btn btn-primary" id="submitBtn" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
                 <p style="font-size:13px;color:var(--text-light)" data-en="We typically respond within 48 hours." data-es="Normalmente respondemos en 48 horas.">We typically respond within 48 hours.</p>
               </div>
+              <div id="formError" style="display:none;margin-top:16px;padding:14px 16px;background:#FFF5F5;border:1px solid #FECACA;border-radius:12px;font-size:14px;color:#991B1B">
+                Something went wrong sending your message. Please email us directly at
+                <a href="mailto:hello.finiverse@outlook.com" style="color:#991B1B;font-weight:700">hello.finiverse@outlook.com</a> and we'll get back to you.
+              </div>
             </form>
           </div>
 
@@ -544,12 +548,12 @@ form.addEventListener('submit', async (e) => {
       document.getElementById('formCard').style.display = 'none';
       document.getElementById('successCard').style.display = 'block';
     } else {
-      alert('Something went wrong. Please email hello.finiverse@outlook.com directly.');
+      document.getElementById('formError').style.display = 'block';
       btn.disabled = false;
       btn.textContent = origText;
     }
   } catch {
-    alert('Network error. Please email hello.finiverse@outlook.com directly.');
+    document.getElementById('formError').style.display = 'block';
     btn.disabled = false;
     btn.textContent = origText;
   }

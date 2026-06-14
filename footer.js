@@ -45,10 +45,7 @@
     '        <li><a href="features.html" data-en="Features" data-es="Funciones">Features</a></li>',
     '        <li><a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a></li>',
     '        <li><a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a></li>',
-    '        <li><a href="features.html#wishlist" data-en="Wishlist" data-es="Lista de deseos">Wishlist</a></li>',
-    '        <li><a href="features.html#gamification" data-en="Gamification" data-es="Gamificación">Gamification</a></li>',
-    '        <li><a href="waitlist.html?p=android" data-en="Android (soon)" data-es="Android (pronto)">Android (soon)</a></li>',
-    '        <li><a href="waitlist.html?p=desktop" data-en="Desktop (soon)" data-es="Desktop (pronto)">Desktop (soon)</a></li>',
+    '        <li><a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a></li>',
     '      </ul>',
     '    </nav>',
 
