@@ -66,6 +66,19 @@
     return ticketId;
   }
 
+  /* Normalize ERP status values to the 4 known keys */
+  function normalizeStatus(raw) {
+    if (!raw) return 'pending';
+    var s = raw.toLowerCase().trim();
+    if (s === 'reviewing' || s === 'in_review' || s === 'in review' ||
+        s === 'under_review' || s === 'under review' || s === 'review') return 'reviewing';
+    if (s === 'responded' || s === 'replied' || s === 'answered' ||
+        s === 'response sent') return 'responded';
+    if (s === 'closed' || s === 'done' || s === 'resolved' ||
+        s === 'completed' || s === 'complete') return 'closed';
+    return 'pending';
+  }
+
   /* Fetch ticket status by ID — used by status.html */
   async function fetchTicket(ticketId) {
     var res = await fetch(BASE + ticketId + '?key=' + KEY);
@@ -78,7 +91,7 @@
       id:       ticketId,
       subject:  (f.subject  && f.subject.stringValue)  || '',
       category: (f.category && f.category.stringValue) || '',
-      status:   (f.status   && f.status.stringValue)   || 'pending',
+      status:   normalizeStatus(f.status && f.status.stringValue),
       response: (f.response && f.response.stringValue) || null
     };
   }
