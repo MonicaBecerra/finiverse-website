@@ -60,7 +60,6 @@
     '        <li><a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a></li>',
     '        <li><a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a></li>',
     '        <li><a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a></li>',
-    '        <li><a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>',
     '      </ul>',
     '    </nav>',
 
@@ -68,9 +67,7 @@
     '      <h4 data-en="Company" data-es="Empresa">Company</h4>',
     '      <ul>',
     '        <li><a href="about.html" data-en="About" data-es="Nosotros">About</a></li>',
-    '        <li><a href="blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>',
     '        <li><a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a></li>',
-    '        <li><a href="partnerships.html" data-en="Partnerships" data-es="Alianzas">Partnerships</a></li>',
     '        <li><a href="careers.html" data-en="Careers" data-es="Trabaja con nosotros">Careers</a></li>',
     '      </ul>',
     '    </nav>',
@@ -81,7 +78,6 @@
     '        <li><a href="privacy.html" data-en="Privacy Policy" data-es="Privacidad">Privacy Policy</a></li>',
     '        <li><a href="terms.html" data-en="Terms of Service" data-es="Términos">Terms of Service</a></li>',
     '        <li><a href="cookies.html" data-en="Cookie Policy" data-es="Cookies">Cookie Policy</a></li>',
-    '        <li><a href="status.html" data-en="Ticket Status" data-es="Estado del Ticket">Ticket Status</a></li>',
     '      </ul>',
     '    </nav>',
 
