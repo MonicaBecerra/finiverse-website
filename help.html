@@ -116,15 +116,29 @@
 </section>
 
 
+<!-- Quick option cards -->
+<section style="padding:0 0 8px;background:var(--bg-soft)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:0 auto;transform:translateY(-32px)">
+      <button onclick="switchTab('faq')" id="card-faq" style="background:#fff;border:2px solid var(--indigo);border-radius:20px;padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 8px 30px rgba(91,78,232,.18)'" onmouseout="this.style.boxShadow=''">
+        <span style="font-size:28px">💬</span>
+        <span style="font-size:14px;font-weight:700;color:var(--indigo)" data-en="Browse FAQ" data-es="Ver FAQ">Browse FAQ</span>
+      </button>
+      <button onclick="switchTab('contact')" id="card-contact" style="background:#fff;border:2px solid var(--card-border);border-radius:20px;padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 8px 30px rgba(91,78,232,.1)'" onmouseout="this.style.boxShadow=''">
+        <span style="font-size:28px">✉️</span>
+        <span style="font-size:14px;font-weight:700;color:var(--text-dark)" data-en="Contact Support" data-es="Contactar Soporte">Contact Support</span>
+      </button>
+      <a href="status.html" style="background:#fff;border:2px solid var(--card-border);border-radius:20px;padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 8px 30px rgba(91,78,232,.1)'" onmouseout="this.style.boxShadow=''">
+        <span style="font-size:28px">🎫</span>
+        <span style="font-size:14px;font-weight:700;color:var(--text-dark)" data-en="Track Ticket" data-es="Rastrear Ticket">Track Ticket</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Main content -->
 <section class="section" style="padding-top:0">
   <div class="container">
-
-    <!-- Tab switcher -->
-    <div class="help-tabs">
-      <button class="help-tab active" onclick="switchTab('faq')" id="tab-faq" data-en="💬 Frequently Asked Questions" data-es="💬 Preguntas Frecuentes">💬 Frequently Asked Questions</button>
-      <button class="help-tab" onclick="switchTab('contact')" id="tab-contact" data-en="✉️ Contact Support" data-es="✉️ Contactar Soporte">✉️ Contact Support</button>
-    </div>
 
     <!-- ═══ FAQ PANEL ═══ -->
     <div class="help-panel active" id="panel-faq" style="max-width:800px">
