@@ -353,6 +353,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: #fff;
 }
 .btn-dark:hover { background: #1A1A2E; color: #fff; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--indigo);
+  border: 2px solid var(--indigo);
+}
+.btn-outline:hover {
+  background: var(--indigo);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(91,78,232,0.28);
+}
 .btn-sm { padding: 8px 18px; font-size: 14px; border-radius: 10px; }
 .btn-lg { padding: 16px 32px; font-size: 17px; border-radius: 14px; }
 
@@ -1677,9 +1688,27 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .step-arrow { text-align: center; transform: rotate(90deg); }
 }
 
+/* ── Microinteractions ── */
+.home-feat-phone .phone-frame {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.home-feat-row:hover .phone-frame {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(91,78,232,0.14);
+}
+.step { transition: transform .2s; }
+.step:hover { transform: translateY(-4px); }
+.step:hover .step-num { box-shadow: 0 8px 20px rgba(91,78,232,0.35); }
+.step-num { transition: box-shadow .2s; }
+.ba-card { transition: transform .2s, box-shadow .2s; }
+.ba-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.review-invite { transition: box-shadow .2s; }
+.review-invite:hover { box-shadow: 0 8px 32px rgba(91,78,232,0.14); }
+
 /* ── Trust strip ── */
 .trust-strip { display: flex; border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; background: #fff; }
-.trust-item { flex: 1; display: flex; align-items: flex-start; gap: 14px; padding: 22px 20px; border-right: 1px solid var(--card-border); }
+.trust-item { flex: 1; display: flex; align-items: flex-start; gap: 14px; padding: 22px 20px; border-right: 1px solid var(--card-border); transition: background .15s; }
+.trust-item:hover { background: var(--indigo-light); }
 .trust-item:last-child { border-right: none; }
 .trust-ico { font-size: 26px; flex-shrink: 0; line-height: 1; }
 .trust-label { font-size: 14px; font-weight: 700; color: var(--text-dark); line-height: 1.3; }
