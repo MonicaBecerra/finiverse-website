@@ -215,7 +215,7 @@
           <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:6px" data-en="Join the waitlist" data-es="Únete a la lista de espera">Join the waitlist</h3>
           <p style="font-size:14px;color:var(--text-mid);margin-bottom:24px" data-en="One email when your platform launches. No marketing. No noise." data-es="Un correo cuando lance tu plataforma. Sin marketing. Sin ruido.">One email when your platform launches. No marketing. No noise.</p>
 
-          <form id="waitlistForm" action="https://formspree.io/f/xpwzjgqw" method="POST" novalidate>
+          <form id="waitlistForm" novalidate>
             <input type="hidden" name="_subject" value="Finiverse Waitlist Signup" />
             <input type="hidden" name="category" value="waitlist" />
             <input type="hidden" name="platforms" id="platformsField" value="Android" />
@@ -292,17 +292,38 @@ function syncPlatforms() {
   document.getElementById('platformsField').value = parts.join(', ') || 'None selected';
 }
 
+const PROJ = 'fintrack-6948a';
+const KEY  = 'AIzaSyDqeIpLSJ3yc0kA2l9rhDmOvNiAmDPoAks';
+const BASE = 'https://firestore.googleapis.com/v1/projects/' + PROJ + '/databases/(default)/documents/waitlist/';
+
 const form = document.getElementById('waitlistForm');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('wlSubmit');
   btn.disabled = true;
   btn.textContent = '...';
+  document.getElementById('wlError').style.display = 'none';
+
+  const email     = document.getElementById('wl-email').value.trim();
+  const name      = document.getElementById('wl-name').value.trim();
+  const platforms = document.getElementById('platformsField').value;
+  const docId     = email.replace(/[^a-zA-Z0-9]/g, '_') + '_' + Date.now().toString(36);
+
+  const doc = {
+    fields: {
+      email:       { stringValue: email },
+      name:        { stringValue: name },
+      platforms:   { stringValue: platforms },
+      source:      { stringValue: 'website' },
+      submittedAt: { timestampValue: new Date().toISOString() }
+    }
+  };
+
   try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
+    const res = await fetch(BASE + docId + '?key=' + KEY, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(doc)
     });
     if (res.ok) {
       document.getElementById('formState').style.display = 'none';
