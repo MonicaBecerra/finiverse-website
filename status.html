@@ -14,10 +14,11 @@
     .ticket-badge {
       display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 12px; font-weight: 600;
     }
-    .badge-pending  { background: #FEF3C7; color: #92400E; }
-    .badge-review   { background: var(--indigo-light); color: var(--indigo); }
-    .badge-responded{ background: var(--mint-light); color: #065F46; }
-    .badge-closed   { background: #F3F4F6; color: var(--text-mid); }
+    .badge-pending     { background: #FEF3C7; color: #92400E; }
+    .badge-review      { background: var(--indigo-light); color: var(--indigo); }
+    .badge-planned     { background: #EDE9FE; color: #5B21B6; }
+    .badge-implemented { background: var(--mint-light); color: #065F46; }
+    .badge-rejected    { background: #FEE2E2; color: #991B1B; }
   </style>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/app-icon.png" />
@@ -160,28 +161,33 @@
 <script src="firebase-contact.js"></script>
 <script>
 const STATUSES = {
-  pending:   { en: 'Pending',    es: 'Pendiente',    cls: 'badge-pending',   icon: '⏳' },
-  reviewing: { en: 'Reviewing',  es: 'En revisión',  cls: 'badge-review',    icon: '🔍' },
-  responded: { en: 'Responded',  es: 'Respondido',   cls: 'badge-responded', icon: '✅' },
-  closed:    { en: 'Closed',     es: 'Cerrado',      cls: 'badge-closed',    icon: '🔒' }
+  pending:     { en: 'Received',    es: 'Recibido',     cls: 'badge-pending',     icon: '⏳' },
+  reviewing:   { en: 'Under review',es: 'En revisión',  cls: 'badge-review',      icon: '🔍' },
+  planned:     { en: 'Planned',     es: 'Planificado',  cls: 'badge-planned',     icon: '📋' },
+  implemented: { en: 'Implemented', es: 'Implementado', cls: 'badge-implemented', icon: '✅' },
+  rejected:    { en: 'Rejected',    es: 'Rechazado',    cls: 'badge-rejected',    icon: '✕'  }
 };
 
 function getLang() { return document.documentElement.getAttribute('data-lang') || 'en'; }
 
 function renderTimeline(currentStatus) {
-  const steps = ['pending','reviewing','responded','closed'];
+  /* Two paths: normal flow vs rejected */
+  const steps = currentStatus === 'rejected'
+    ? ['pending', 'reviewing', 'rejected']
+    : ['pending', 'reviewing', 'planned', 'implemented'];
   const idx = steps.indexOf(currentStatus);
   const labels = {
-    pending:   { en: 'Request received', es: 'Solicitud recibida' },
-    reviewing: { en: 'Under review',     es: 'En revisión' },
-    responded: { en: 'Response sent',    es: 'Respuesta enviada' },
-    closed:    { en: 'Ticket closed',    es: 'Ticket cerrado' }
+    pending:     { en: 'Received',         es: 'Recibido' },
+    reviewing:   { en: 'Under review',     es: 'En revisión' },
+    planned:     { en: 'Planned',          es: 'Planificado' },
+    implemented: { en: 'Implemented',      es: 'Implementado' },
+    rejected:    { en: 'Not accepted',     es: 'No aceptado' }
   };
   const lang = getLang();
   return steps.map((s, i) => {
     const done   = i < idx;
     const active = i === idx;
-    const dotCls = done ? 'done' : active ? 'active' : '';
+    const dotCls = done ? 'done' : active ? (s === 'rejected' ? 'rejected' : 'active') : '';
     return `
       <div class="timeline-step">
         <div class="timeline-dot ${dotCls}">${done ? '✓' : active ? STATUSES[s].icon : ''}</div>

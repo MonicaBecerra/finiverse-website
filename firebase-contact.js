@@ -66,19 +66,18 @@
     return ticketId;
   }
 
-  /* Normalize ERP status values (EN + ES) to the 4 known keys */
+  /* Normalize ERP/app status values (EN + ES) to 5 display keys:
+     pending | reviewing | planned | implemented | rejected            */
   function normalizeStatus(raw) {
     if (!raw) return 'pending';
     var s = raw.toLowerCase().trim().replace(/\s+/g, '_');
-    if (s === 'reviewing' || s === 'in_review' || s === 'under_review' || s === 'review' ||
-        s === 'en_revision' || s === 'en_revisión' || s === 'revision' || s === 'revisión' ||
-        s === 'en_revision' || s === 'en_proceso' || s === 'proceso') return 'reviewing';
-    if (s === 'responded' || s === 'replied' || s === 'answered' || s === 'response_sent' ||
-        s === 'respondido' || s === 'contestado' || s === 'respuesta_enviada') return 'responded';
-    if (s === 'closed' || s === 'done' || s === 'resolved' || s === 'completed' ||
-        s === 'cerrado' || s === 'resuelto' || s === 'finalizado' || s === 'completado') return 'closed';
-    if (s === 'pending' || s === 'pendiente' || s === 'nuevo' || s === 'new') return 'pending';
-    return 'pending';
+    if (s === 'en_revision' || s === 'en_revisión' || s === 'revision' ||
+        s === 'reviewing'   || s === 'in_review'   || s === 'under_review') return 'reviewing';
+    if (s === 'planificado' || s === 'planned'     || s === 'plan' || s === 'scheduled') return 'planned';
+    if (s === 'implementado'|| s === 'implemented' || s === 'done' ||
+        s === 'completado'  || s === 'completed'   || s === 'cerrado' || s === 'closed') return 'implemented';
+    if (s === 'rechazado'   || s === 'rejected'    || s === 'declined' || s === 'denied') return 'rejected';
+    return 'pending'; /* recibido, received, nuevo, pendiente → pending */
   }
 
   /* Fetch ticket status by ID — used by status.html */
