@@ -281,8 +281,11 @@
       document.getElementById('ticketDisplay').textContent = ticketId;
       document.getElementById('formCard').style.display = 'none';
       document.getElementById('successCard').style.display = 'block';
-    } catch {
-      document.getElementById('formError').style.display = 'block';
+    } catch (err) {
+      var errEl = document.getElementById('formError');
+      errEl.style.display = 'block';
+      errEl.querySelector('span#errDetail') && (errEl.querySelector('span#errDetail').textContent = err && err.message ? ' (' + err.message + ')' : '');
+      console.error('Contact form error:', err);
       btn.disabled = false;
       btn.textContent = origText;
     }
