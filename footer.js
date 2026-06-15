@@ -56,6 +56,7 @@
     '        <li><a href="faq.html" data-en="FAQ" data-es="Preguntas frecuentes">FAQ</a></li>',
     '        <li><a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a></li>',
     '        <li><a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a></li>',
+    '        <li><a href="changelog.html" data-en="What\'s New" data-es="Novedades">What\'s New</a></li>',
     '        <li><a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a></li>',
     '      </ul>',
     '    </nav>',

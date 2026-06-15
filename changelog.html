@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="What's New · Finiverse" data-title-es="Novedades · Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's New · Finiverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Changelog layout ── */
+    .cl-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* ── Timeline line ── */
+    .cl-timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .cl-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--card-border);
+    }
+
+    /* ── Single release entry ── */
+    .cl-entry {
+      position: relative;
+      margin-bottom: 56px;
+    }
+    .cl-entry:last-child { margin-bottom: 0; }
+
+    /* Dot on the timeline */
+    .cl-entry::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--indigo);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--indigo);
+    }
+    .cl-entry.fix::before  { background: #F59E0B; box-shadow: 0 0 0 2px #F59E0B; }
+    .cl-entry.minor::before { background: var(--text-light); box-shadow: 0 0 0 2px var(--text-light); }
+
+    /* Meta row: version + date + badge */
+    .cl-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .cl-version {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -.02em;
+    }
+    .cl-date {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* Badges */
+    .cl-badge {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .cl-badge-new     { background: #DCFCE7; color: #166534; }
+    .cl-badge-improve { background: var(--indigo-light); color: var(--indigo); }
+    .cl-badge-fix     { background: #FEF3C7; color: #92400E; }
+    .cl-badge-perf    { background: #F0FDFA; color: #0F766E; }
+
+    /* Change items */
+    .cl-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .cl-items li {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .cl-items li::before {
+      content: '·';
+      color: var(--indigo);
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+    .cl-items li.fix::before  { color: #F59E0B; }
+    .cl-items li.new::before  { color: #16A34A; }
+    .cl-items li.perf::before { color: #0D9488; }
+
+    /* Section divider label */
+    .cl-year-divider {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      margin-left: -32px;
+      padding-left: 32px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/app-icon.png" />
+  <link rel="apple-touch-icon" href="images/app-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Finiverse" />
+  <meta property="og:image" content="https://monicabecerra.github.io/finiverse-website/images/home.PNG" />
+  <meta property="og:url" content="https://monicabecerra.github.io/finiverse-website/changelog.html" />
+  <meta property="og:title" content="What's New · Finiverse" />
+  <meta property="og:description" content="New features, improvements and fixes in every Finiverse update." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@hello_finiverse" />
+</head>
+<body>
+
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span data-en="Product" data-es="Producto">Product</span>
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
+          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
+        </div>
+      </div>
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span data-en="Resources" data-es="Recursos">Resources</span>
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
+          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
+          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
+          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
+        </div>
+      </div>
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page header -->
+<section class="page-hero" style="padding-bottom:40px">
+  <div style="max-width:680px;margin:0 auto;padding:0 24px">
+    <div class="section-label" data-en="What's New" data-es="Novedades">What's New</div>
+    <h1 data-en="Finiverse updates." data-es="Actualizaciones de Finiverse.">Finiverse updates.</h1>
+    <p data-en="Every version, every fix, every new feature. Updated with each App Store release." data-es="Cada versión, cada corrección, cada nueva función. Actualizado con cada lanzamiento en el App Store.">Every version, every fix, every new feature. Updated with each App Store release.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CÓMO AGREGAR UNA NUEVA VERSIÓN
+     ════════════════════════════════════════════════════════════════
+     1. Copia el bloque de ejemplo desde la línea marcada abajo
+     2. Pégalo AQUÍ ARRIBA, justo debajo de este comentario
+     3. Cambia: versión, fecha, clase del badge y texto de los items
+     4. Guarda y el sitio se actualiza solo en GitHub Pages
+
+     CLASES disponibles para .cl-entry:
+       (ninguna)  → punto índigo  = versión mayor / con features nuevas
+       fix        → punto naranja = solo bug fixes o parches menores
+       minor      → punto gris    = cambios internos / técnicos
+
+     CLASES disponibles para <li>:
+       (ninguna)  → mejora / cambio general
+       new        → ✦ feature nueva
+       fix        → ✦ corrección de bug
+       perf       → ✦ mejora de rendimiento
+
+     BADGES disponibles:
+       <span class="cl-badge cl-badge-new">New</span>
+       <span class="cl-badge cl-badge-improve">Improvement</span>
+       <span class="cl-badge cl-badge-fix">Bug fix</span>
+       <span class="cl-badge cl-badge-perf">Performance</span>
+     ═══════════════════════════════════════════════════════════════ -->
+
+<div class="cl-container">
+  <div class="cl-timeline">
+
+    <!-- ── DIVIDER DE AÑO (copia esto cuando empieces un año nuevo) ── -->
+    <div class="cl-year-divider">2025</div>
+
+    <!-- ══════════════════════════════════════════════
+         EMPIEZA A COPIAR DESDE AQUÍ PARA NUEVA VERSIÓN
+         ══════════════════════════════════════════════ -->
+
+    <!-- ── v1.10.2 — Bug fix ── -->
+    <div class="cl-entry fix fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.2</span>
+        <span class="cl-date" data-en="June 2025" data-es="Junio 2025">June 2025</span>
+        <span class="cl-badge cl-badge-fix" data-en="Bug fix" data-es="Corrección">Bug fix</span>
+      </div>
+      <ul class="cl-items">
+        <li class="fix" data-en="Fixed a crash that occurred on first launch for some users after updating" data-es="Corregido un error que causaba cierre inesperado en el primer inicio para algunos usuarios al actualizar">Fixed a crash that occurred on first launch for some users after updating</li>
+        <li class="fix" data-en="Resolved an issue where category icons were not displaying correctly on iOS 17" data-es="Resuelto un problema donde los íconos de categoría no se mostraban correctamente en iOS 17">Resolved an issue where category icons were not displaying correctly on iOS 17</li>
+        <li class="fix" data-en="Sam AI response times improved after a backend timeout issue" data-es="Tiempos de respuesta de Sam IA mejorados tras un problema de tiempo de espera en el servidor">Sam AI response times improved after a backend timeout issue</li>
+        <li data-en="Minor UI fixes across the Records and Goals screens" data-es="Correcciones menores de interfaz en las pantallas de Registros y Metas">Minor UI fixes across the Records and Goals screens</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.10.0 — Sam AI launch ── -->
+    <div class="cl-entry fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.0</span>
+        <span class="cl-date" data-en="May 2025" data-es="Mayo 2025">May 2025</span>
+        <span class="cl-badge cl-badge-new" data-en="New" data-es="Nuevo">New</span>
+        <span class="cl-badge cl-badge-improve" data-en="Improvement" data-es="Mejora">Improvement</span>
+      </div>
+      <ul class="cl-items">
+        <li class="new" data-en="Sam AI is here — your personal financial AI, powered by Claude (Anthropic). Ask anything, get answers based on your real data." data-es="Sam IA ya está aquí — tu IA financiera personal, impulsada por Claude (Anthropic). Pregunta lo que sea, recibe respuestas basadas en tus datos reales.">Sam AI is here — your personal financial AI, powered by Claude (Anthropic). Ask anything, get answers based on your real data.</li>
+        <li class="new" data-en="Emotional Check-in: log your mood, energy, stress and sleep every day and see how they connect to your spending" data-es="Check-in Emocional: registra tu estado de ánimo, energía, estrés y sueño cada día y ve cómo se conectan con tu gasto">Emotional Check-in: log your mood, energy, stress and sleep every day and see how they connect to your spending</li>
+        <li class="new" data-en="Wishlist with waiting periods — add items before buying them, break the impulse-spend cycle" data-es="Lista de deseos con período de espera — agrega artículos antes de comprarlos, rompe el ciclo de compra impulsiva">Wishlist with waiting periods — add items before buying them, break the impulse-spend cycle</li>
+        <li class="new" data-en="Gamification: XP, levels, weekly missions and seasonal events to keep you motivated" data-es="Gamificación: XP, niveles, misiones semanales y eventos estacionales para mantenerte motivado">Gamification: XP, levels, weekly missions and seasonal events to keep you motivated</li>
+        <li data-en="Sam AI subscription now available via App Store in-app purchase" data-es="Suscripción Sam IA disponible ahora vía compra integrada en el App Store">Sam AI subscription now available via App Store in-app purchase</li>
+        <li data-en="Full Spanish (ES) language support across the entire app" data-es="Soporte completo en español (ES) en toda la app">Full Spanish (ES) language support across the entire app</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.9.0 — Cards & multi-currency ── -->
+    <div class="cl-entry fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.9.0</span>
+        <span class="cl-date" data-en="March 2025" data-es="Marzo 2025">March 2025</span>
+        <span class="cl-badge cl-badge-new" data-en="New" data-es="Nuevo">New</span>
+      </div>
+      <ul class="cl-items">
+        <li class="new" data-en="Cards module: add credit and debit cards, track balances and spending by card" data-es="Módulo de Tarjetas: agrega tarjetas de crédito y débito, rastrea saldos y gasto por tarjeta">Cards module: add credit and debit cards, track balances and spending by card</li>
+        <li class="new" data-en="Multi-currency support — set any currency as your primary" data-es="Soporte multi-moneda — establece cualquier moneda como principal">Multi-currency support — set any currency as your primary</li>
+        <li data-en="Analysis tab redesigned with Emotion × Finance relationship view" data-es="Pestaña de Análisis rediseñada con vista de relación Emoción × Finanzas">Analysis tab redesigned with Emotion × Finance relationship view</li>
+        <li class="perf" data-en="Faster loading times across all main tabs" data-es="Tiempos de carga más rápidos en todas las pestañas principales">Faster loading times across all main tabs</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.0.0 — Initial launch ── -->
+    <div class="cl-entry fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.0.0</span>
+        <span class="cl-date" data-en="2024 — Initial launch" data-es="2024 — Lanzamiento inicial">2024 — Initial launch</span>
+        <span class="cl-badge cl-badge-new" data-en="Launch" data-es="Lanzamiento">Launch</span>
+      </div>
+      <ul class="cl-items">
+        <li class="new" data-en="Finiverse launches on the App Store" data-es="Finiverse se lanza en el App Store">Finiverse launches on the App Store</li>
+        <li class="new" data-en="Expenses, Income, Loans and Goals — core financial tracking" data-es="Gastos, Ingresos, Préstamos y Metas — seguimiento financiero básico">Expenses, Income, Loans and Goals — core financial tracking</li>
+        <li class="new" data-en="Smart categories with color-coded icons" data-es="Categorías inteligentes con íconos en color">Smart categories with color-coded icons</li>
+        <li class="new" data-en="Built from the ground up for neurodivergent minds" data-es="Construida desde cero para mentes neurodivergentes">Built from the ground up for neurodivergent minds</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer id="site-footer" class="footer"></footer>
+
+<script src="footer.js"></script>
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
