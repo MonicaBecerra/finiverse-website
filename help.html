@@ -457,7 +457,8 @@ function switchTab(tab) {
     c.style.border = '2px solid var(--card-border)';
   });
   document.getElementById('panel-' + tab).classList.add('active');
-  document.getElementById('tab-' + tab).classList.add('active');
+  const tabEl = document.getElementById('tab-' + tab);
+  if (tabEl) tabEl.classList.add('active');
   if (document.getElementById('card-' + tab)) {
     document.getElementById('card-' + tab).style.border = '2px solid var(--indigo)';
   }
