@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Finiverse Avoids False Mood-Spending Correlations · Finiverse</title>
+  <meta name="description" content="Most finance apps show you a correlation and call it AI insight. Here's the actual statistical pipeline Finiverse runs before it tells you anything, including false discovery rate correction." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
+  <link rel="icon" type="image/png" href="https://finiverseapp.com/images/app-icon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/app-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Finiverse" />
+  <meta property="og:url" content="https://finiverseapp.com/blog-fdr-methodology.html" />
+  <meta property="og:title" content="How Finiverse Avoids False Mood-Spending Correlations" />
+  <meta property="og:description" content="Most finance apps show you a correlation and call it AI insight. Here's the actual statistical pipeline Finiverse runs before it tells you anything." />
+  <meta property="og:image" content="https://finiverseapp.com/images/app-icon.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@hello_finiverse" />
+  <meta name="twitter:title" content="How Finiverse Avoids False Mood-Spending Correlations" />
+  <meta name="twitter:description" content="The statistical pipeline behind Finiverse's mood × spending insights, explained." />
+  <meta name="twitter:image" content="https://finiverseapp.com/images/app-icon.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K25B6JP5S6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K25B6JP5S6');
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+        <span class="nav-logo-text">Finiverse</span>
+      </a>
+      <div class="nav-links" id="navMenu">
+      <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+
+      <!-- Product dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span data-en="Product" data-es="Producto">Product</span>
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
+          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
+        </div>
+      </div>
+
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+
+      <!-- Resources dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span data-en="Resources" data-es="Recursos">Resources</span>
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
+          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
+          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
+          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
+        </div>
+      </div>
+
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
+
+    </div>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+        <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <div class="legal-container">
+
+      <div class="legal-header">
+        <div class="badge-light" data-en="Behind the Science" data-es="Detrás de la Ciencia">Behind the Science</div>
+        <h1 data-en="How Finiverse Avoids Showing You False Mood-Spending Correlations" data-es="Cómo Finiverse evita mostrarte correlaciones falsas entre ánimo y gasto">How Finiverse Avoids Showing You False Mood-Spending Correlations</h1>
+        <p class="legal-date" data-en="Published: June 17, 2026 · 8 min read" data-es="Publicado: 17 de junio de 2026 · 8 min de lectura">Published: June 17, 2026 · 8 min read</p>
+        <p data-en="Plenty of finance apps say &ldquo;AI-powered insights.&rdquo; Almost none of them show you the statistical work behind that sentence. Here's ours." data-es="Muchas apps de finanzas dicen &ldquo;insights con IA.&rdquo; Casi ninguna te muestra el trabajo estadístico detrás de esa frase. Aquí está el nuestro.">Plenty of finance apps say &ldquo;AI-powered insights.&rdquo; Almost none of them show you the statistical work behind that sentence. Here's ours.</p>
+      </div>
+
+      <div class="legal-body">
+
+        <div class="legal-section">
+          <h2 data-en="The problem with &ldquo;you spend more when you're sad&rdquo;" data-es="El problema con &ldquo;gastas más cuando estás triste&rdquo;">The problem with &ldquo;you spend more when you're sad&rdquo;</h2>
+          <p data-en="If you log enough categories against enough moods, some of them will look correlated by pure chance. Test 20 category × mood combinations at a typical 95% confidence threshold and, on average, one of them will appear &ldquo;significant&rdquo; even if nothing real is going on. Test 50, and you'll likely get two or three. This is called the multiple comparisons problem, and it's exactly what happens when an app silently runs dozens of correlation checks in the background and surfaces whichever ones look interesting." data-es="Si registras suficientes categorías contra suficientes estados de ánimo, algunas parecerán correlacionadas por pura casualidad. Si pruebas 20 combinaciones de categoría × ánimo con un umbral de confianza del 95%, en promedio una de ellas parecerá &ldquo;significativa&rdquo; aunque no esté pasando nada real. Si pruebas 50, probablemente obtendrás dos o tres. Esto se llama el problema de comparaciones múltiples, y es exactamente lo que pasa cuando una app corre silenciosamente decenas de pruebas de correlación y te muestra las que se ven interesantes.">If you log enough categories against enough moods, some of them will look correlated by pure chance. Test 20 category × mood combinations at a typical 95% confidence threshold and, on average, one of them will appear &ldquo;significant&rdquo; even if nothing real is going on. Test 50, and you'll likely get two or three. This is called the multiple comparisons problem, and it's exactly what happens when an app silently runs dozens of correlation checks in the background and surfaces whichever ones look interesting.</p>
+          <p data-en="We didn't want Finiverse to be that app. So before Sam AI ever mentions a pattern like &ldquo;you tend to spend more on Dining when your mood is low,&rdquo; that pattern has already passed a multi-step statistical pipeline designed to throw out noise and confounds. Here's exactly what that pipeline does." data-es="No queríamos que Finiverse fuera esa app. Así que antes de que Sam IA mencione un patrón como &ldquo;tiendes a gastar más en Comida cuando tu ánimo está bajo,&rdquo; ese patrón ya pasó por un proceso estadístico de varios pasos diseñado para descartar ruido y factores de confusión. Esto es exactamente lo que hace ese proceso.">We didn't want Finiverse to be that app. So before Sam AI ever mentions a pattern like &ldquo;you tend to spend more on Dining when your mood is low,&rdquo; that pattern has already passed a multi-step statistical pipeline designed to throw out noise and confounds. Here's exactly what that pipeline does.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="1. Minimum sample size, every time" data-es="1. Tamaño mínimo de muestra, siempre">1. Minimum sample size, every time</h2>
+          <p data-en="A pattern never gets evaluated with fewer than 5–7 matching transactions for the mood group, and at least 3 for the comparison baseline. One coffee bought on a sad Tuesday proves nothing, and Finiverse treats it that way." data-es="Un patrón nunca se evalúa con menos de 5–7 transacciones que coincidan con el grupo de ánimo, y al menos 3 para la base de comparación. Un café comprado un martes triste no prueba nada, y Finiverse lo trata así.">A pattern never gets evaluated with fewer than 5–7 matching transactions for the mood group, and at least 3 for the comparison baseline. One coffee bought on a sad Tuesday proves nothing, and Finiverse treats it that way.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="2. Removing the day-of-week confound" data-es="2. Eliminando el factor del día de la semana">2. Removing the day-of-week confound</h2>
+          <p data-en="People spend differently on Saturdays than on Tuesdays, regardless of mood. Before any mood comparison happens, Finiverse residualizes each expense against the typical spending for that category on that specific day of the week. If a pattern still survives after removing the day-of-week effect, and if more than 70% of its transactions cluster on a single weekday anyway, it gets flagged as a likely day-of-week confounder instead of a mood effect." data-es="La gente gasta diferente los sábados que los martes, sin importar el ánimo. Antes de cualquier comparación de ánimo, Finiverse residualiza cada gasto contra el gasto típico de esa categoría en ese día específico de la semana. Si un patrón sobrevive después de eliminar el efecto del día de la semana, y si más del 70% de sus transacciones se agrupan en un solo día, se marca como un probable factor de confusión del día de la semana en lugar de un efecto del ánimo.">People spend differently on Saturdays than on Tuesdays, regardless of mood. Before any mood comparison happens, Finiverse residualizes each expense against the typical spending for that category on that specific day of the week. If a pattern still survives after removing the day-of-week effect, and if more than 70% of its transactions cluster on a single weekday anyway, it gets flagged as a likely day-of-week confounder instead of a mood effect.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="3. Capping outliers (winsorizing)" data-es="3. Limitando valores extremos (winsorizing)">3. Capping outliers (winsorizing)</h2>
+          <p data-en="One unusually large purchase, a flight, a deductible, a one-off repair, can drag an entire mood average upward and fake a pattern that isn't there. Amounts are capped at the 90th percentile for their category before any averaging happens, so a single outlier can't manufacture a correlation." data-es="Una compra inusualmente grande, un vuelo, un deducible, una reparación puntual, puede arrastrar el promedio de un ánimo entero hacia arriba y fingir un patrón que no existe. Los montos se limitan al percentil 90 de su categoría antes de cualquier promedio, así que un solo valor extremo no puede fabricar una correlación.">One unusually large purchase, a flight, a deductible, a one-off repair, can drag an entire mood average upward and fake a pattern that isn't there. Amounts are capped at the 90th percentile for their category before any averaging happens, so a single outlier can't manufacture a correlation.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="4. Weighting recent data more, without discarding history" data-es="4. Dar más peso a lo reciente, sin descartar el historial">4. Weighting recent data more, without discarding history</h2>
+          <p data-en="Older transactions count less than recent ones, using a time-decay curve whose half-life adapts to how much history you've logged. There's also a seasonal floor that keeps anniversary-adjacent spending (the same week last year) from disappearing entirely just because it's old." data-es="Las transacciones antiguas cuentan menos que las recientes, usando una curva de decaimiento en el tiempo cuya vida media se adapta a cuánto historial has registrado. También hay un piso estacional que evita que el gasto cercano a un aniversario (la misma semana del año pasado) desaparezca por completo solo por ser antiguo.">Older transactions count less than recent ones, using a time-decay curve whose half-life adapts to how much history you've logged. There's also a seasonal floor that keeps anniversary-adjacent spending (the same week last year) from disappearing entirely just because it's old.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="5. Correcting for which moods get logged near a purchase" data-es="5. Corrigiendo qué ánimos se registran cerca de una compra">5. Correcting for which moods get logged near a purchase</h2>
+          <p data-en="People don't log check-ins at random moments, some moods get tagged near a purchase far more often than others simply out of habit, not because spending caused them. Finiverse applies inverse probability weighting: it compares how often each mood appears near transactions versus how often it appears overall, and re-weights accordingly so a mood that happens to get logged constantly doesn't dominate every pattern by sheer frequency." data-es="La gente no registra check-ins en momentos aleatorios, algunos ánimos se etiquetan cerca de una compra mucho más a menudo que otros simplemente por hábito, no porque el gasto los haya causado. Finiverse aplica ponderación por probabilidad inversa: compara qué tan seguido aparece cada ánimo cerca de transacciones contra qué tan seguido aparece en general, y reajusta el peso para que un ánimo que se registra todo el tiempo no domine cada patrón solo por frecuencia.">People don't log check-ins at random moments, some moods get tagged near a purchase far more often than others simply out of habit, not because spending caused them. Finiverse applies inverse probability weighting: it compares how often each mood appears near transactions versus how often it appears overall, and re-weights accordingly so a mood that happens to get logged constantly doesn't dominate every pattern by sheer frequency.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="6. A real statistical test, not a gut check" data-es="6. Una prueba estadística real, no una corazonada">6. A real statistical test, not a gut check</h2>
+          <p data-en="Spending amounts are log-transformed (money is naturally skewed, a few large numbers can otherwise dominate an average) and compared using a Welch–Satterthwaite t-test, the standard method for comparing two groups whose variances aren't assumed to be equal. Every comparison also tracks an effective sample size, so a few high-weight, low-recency data points can't masquerade as strong evidence." data-es="Los montos de gasto se transforman logarítmicamente (el dinero tiene una distribución naturalmente sesgada, unos pocos números grandes pueden dominar un promedio) y se comparan usando una prueba t de Welch–Satterthwaite, el método estándar para comparar dos grupos cuyas varianzas no se asume que sean iguales. Cada comparación también rastrea un tamaño de muestra efectivo, para que unos pocos puntos de datos con peso alto y poca recencia no se disfracen de evidencia sólida.">Spending amounts are log-transformed (money is naturally skewed, a few large numbers can otherwise dominate an average) and compared using a Welch–Satterthwaite t-test, the standard method for comparing two groups whose variances aren't assumed to be equal. Every comparison also tracks an effective sample size, so a few high-weight, low-recency data points can't masquerade as strong evidence.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="7. False Discovery Rate correction (the important part)" data-es="7. Corrección de tasa de falso descubrimiento (la parte importante)">7. False Discovery Rate correction (the important part)</h2>
+          <p data-en="This is the step most apps skip entirely. Finiverse doesn't test one pattern, it tests dozens at once: every spending category against every mood level, across multiple pattern families (general spending, essential spending, impulse spending, wellbeing signals like sleep and stress, mixed emotional states, and behavioral dysregulation signals). Running that many tests and trusting each one's individual p-value would guarantee false positives." data-es="Este es el paso que casi todas las apps se saltan por completo. Finiverse no prueba un solo patrón, prueba decenas a la vez: cada categoría de gasto contra cada nivel de ánimo, a través de varias familias de patrones (gasto general, gasto esencial, gasto impulsivo, señales de bienestar como sueño y estrés, estados emocionales mixtos y señales de desregulación conductual). Correr tantas pruebas y confiar en el valor p individual de cada una garantizaría falsos positivos.">This is the step most apps skip entirely. Finiverse doesn't test one pattern, it tests dozens at once: every spending category against every mood level, across multiple pattern families (general spending, essential spending, impulse spending, wellbeing signals like sleep and stress, mixed emotional states, and behavioral dysregulation signals). Running that many tests and trusting each one's individual p-value would guarantee false positives.</p>
+          <p data-en="So Finiverse applies the Benjamini-Hochberg procedure, the same false discovery rate correction method used in fields like genomics, where researchers routinely test thousands of genes at once and need a principled way to control how many of their &ldquo;discoveries&rdquo; are actually noise. Patterns are ranked by strength of evidence, and only the ones that clear a sliding significance bar, set so that at most 10% of what survives is expected to be a false discovery, get kept. Everything else is discarded before it ever reaches you." data-es="Por eso Finiverse aplica el procedimiento de Benjamini-Hochberg, el mismo método de corrección de tasa de falso descubrimiento que se usa en campos como la genómica, donde los investigadores prueban rutinariamente miles de genes a la vez y necesitan una forma rigurosa de controlar cuántos de sus &ldquo;descubrimientos&rdquo; son en realidad ruido. Los patrones se ordenan por fuerza de evidencia, y solo se conservan los que superan un umbral de significancia variable, fijado para que como máximo el 10% de lo que sobrevive se espere que sea un falso descubrimiento. Todo lo demás se descarta antes de llegar a ti.">So Finiverse applies the Benjamini-Hochberg procedure, the same false discovery rate correction method used in fields like genomics, where researchers routinely test thousands of genes at once and need a principled way to control how many of their &ldquo;discoveries&rdquo; are actually noise. Patterns are ranked by strength of evidence, and only the ones that clear a sliding significance bar, set so that at most 10% of what survives is expected to be a false discovery, get kept. Everything else is discarded before it ever reaches you.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="8. Deduplication across overlapping pattern families" data-es="8. Eliminación de duplicados entre familias de patrones superpuestas">8. Deduplication across overlapping pattern families</h2>
+          <p data-en="The same mood and category can qualify under more than one pattern family at once (for example, both &ldquo;impulse spending&rdquo; and &ldquo;behavioral dysregulation&rdquo;). Rather than show you the same insight twice, Finiverse keeps only the highest-priority, highest-confidence version." data-es="El mismo ánimo y categoría pueden calificar en más de una familia de patrones a la vez (por ejemplo, tanto &ldquo;gasto impulsivo&rdquo; como &ldquo;desregulación conductual&rdquo;). En lugar de mostrarte el mismo insight dos veces, Finiverse conserva solo la versión de mayor prioridad y mayor confianza.">The same mood and category can qualify under more than one pattern family at once (for example, both &ldquo;impulse spending&rdquo; and &ldquo;behavioral dysregulation&rdquo;). Rather than show you the same insight twice, Finiverse keeps only the highest-priority, highest-confidence version.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="What Sam AI actually says" data-es="Lo que Sam IA realmente dice">What Sam AI actually says</h2>
+          <p data-en="Sam never sees raw correlations. By the time a mood-spending pattern reaches Sam's context, it has already survived every step above, and Sam is instructed to mention it gently, only when there's enough data behind it, and never as a verdict on who you are. The statistics happen quietly in the background so the conversation with Sam can stay human." data-es="Sam nunca ve correlaciones crudas. Para cuando un patrón de ánimo y gasto llega al contexto de Sam, ya sobrevivió cada paso anterior, y a Sam se le indica mencionarlo con suavidad, solo cuando hay suficientes datos detrás, y nunca como un veredicto sobre quién eres. La estadística pasa silenciosamente en segundo plano para que la conversación con Sam se mantenga humana.">Sam never sees raw correlations. By the time a mood-spending pattern reaches Sam's context, it has already survived every step above, and Sam is instructed to mention it gently, only when there's enough data behind it, and never as a verdict on who you are. The statistics happen quietly in the background so the conversation with Sam can stay human.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2 data-en="Why we're telling you this" data-es="Por qué te contamos esto">Why we're telling you this</h2>
+          <p data-en="Most apps that say &ldquo;AI-powered insights&rdquo; are showing you a correlation and hoping you don't ask how it was computed. We'd rather show the work. If a pattern shows up in Finiverse, it's because it survived sample-size checks, day-of-week residualization, outlier capping, selection-bias correction, a real significance test, and false discovery rate correction, not because it was the first thing that looked interesting." data-es="La mayoría de las apps que dicen &ldquo;insights con IA&rdquo; te muestran una correlación y esperan que no preguntes cómo se calculó. Preferimos mostrar el trabajo. Si un patrón aparece en Finiverse, es porque sobrevivió controles de tamaño de muestra, residualización por día de la semana, límites a valores extremos, corrección de sesgo de selección, una prueba de significancia real y corrección de tasa de falso descubrimiento, no porque fue lo primero que se vio interesante.">Most apps that say &ldquo;AI-powered insights&rdquo; are showing you a correlation and hoping you don't ask how it was computed. We'd rather show the work. If a pattern shows up in Finiverse, it's because it survived sample-size checks, day-of-week residualization, outlier capping, selection-bias correction, a real significance test, and false discovery rate correction, not because it was the first thing that looked interesting.</p>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:48px">
+        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-lg" target="_blank" rel="noopener" data-en="Try Finiverse →" data-es="Probar Finiverse →">Try Finiverse →</a>
+        <p style="margin-top:16px"><a href="resources.html" data-en="← Back to Guides & Resources" data-es="← Volver a Guías y Recursos">← Back to Guides & Resources</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="footer.js"></script>
+  <script src="i18n.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>
