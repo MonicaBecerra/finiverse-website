@@ -317,6 +317,7 @@ form.addEventListener('submit', async (e) => {
   const email     = document.getElementById('wl-email').value.trim();
   const name      = document.getElementById('wl-name').value.trim();
   const platforms = document.getElementById('platformsField').value;
+  const lang       = document.documentElement.getAttribute('data-lang') || 'en';
   const docId     = email.replace(/[^a-zA-Z0-9]/g, '_') + '_' + Date.now().toString(36);
 
   const doc = {
@@ -325,6 +326,7 @@ form.addEventListener('submit', async (e) => {
       name:        { stringValue: name },
       platforms:   { stringValue: platforms },
       source:      { stringValue: 'website' },
+      lang:        { stringValue: lang },
       submittedAt: { timestampValue: new Date().toISOString() }
     }
   };
