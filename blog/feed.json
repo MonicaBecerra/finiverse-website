@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "articles": [
+    {
+      "id": "fdr-methodology",
+      "url": "https://finiverseapp.com/blog-fdr-methodology.html",
+      "emoji": "📐",
+      "publishedAt": "2026-06-17",
+      "readTime": "8 min",
+      "category": {
+        "es": "Detrás de la Ciencia",
+        "en": "Behind the Science"
+      },
+      "title": {
+        "es": "La Mayoría de las Apps de Finanzas Te Muestran Ruido y le Dicen Insight.",
+        "en": "Most Finance Apps Show You Noise and Call It Insight."
+      },
+      "excerpt": {
+        "es": "La mayoría de las apps que dicen “insights con IA” nunca muestran la estadística detrás de esa frase. Aquí está el proceso real que Finiverse corre antes de que Sam mencione un patrón.",
+        "en": "Most apps that say “AI-powered insights” never show the statistics behind that sentence. Here's the actual pipeline that Finiverse runs before Sam ever mentions a pattern."
+      }
+    }
+  ]
+}
