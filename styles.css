@@ -1317,6 +1317,30 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .savings-bar-close:hover { background: rgba(255,255,255,.35); }
 
+/* ---------- In-app browser notice (WhatsApp/Instagram/etc.) ---------- */
+.inapp-notice {
+  background: #1A1035;
+  color: #fff;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  z-index: 999;
+}
+.inapp-notice-close {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  width: 24px; height: 24px; border-radius: 50%; cursor: pointer;
+  font-size: 13px; display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.inapp-notice-close:hover { background: rgba(255,255,255,.3); }
+
 /* ---------- Reviews section ---------- */
 .reviews-grid {
   display: grid;
