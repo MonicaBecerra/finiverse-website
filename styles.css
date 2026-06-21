@@ -171,25 +171,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   flex-shrink: 0;
 }
 
-.nav-login-link {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-mid);
-  transition: color .15s;
-  white-space: nowrap;
-}
-.nav-login-link:hover { color: var(--indigo); text-decoration: none; }
-
-/* Auth links live in two places: inline in .nav-right for desktop, and inside the
-   mobile burger dropdown (.nav-links.open) for small screens, matching the existing
-   860px breakpoint where .nav-links itself collapses into that dropdown. */
-.nav-auth-mobile { display: none; }
-.nav-links.open .nav-auth-mobile { display: block; }
-@media (max-width: 860px) {
-  /* Specificity must beat .btn (used by the "Sign up" link) regardless of source order. */
-  .nav-right .nav-auth-desktop { display: none; }
-}
-
 /* Language toggle */
 .lang-toggle {
   display: flex;
