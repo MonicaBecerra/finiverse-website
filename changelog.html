@@ -129,6 +129,77 @@
       border-bottom: 1px solid var(--card-border);
       padding-bottom: 12px;
     }
+
+    /* ── Roadmap ── */
+    .pitch-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--indigo);
+      margin-bottom: 12px;
+    }
+    .roadmap-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    @media (max-width: 680px) { .roadmap-row { grid-template-columns: 1fr; } }
+    .roadmap-card {
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      background: var(--card-bg);
+      position: relative;
+    }
+    .roadmap-card.active {
+      border-color: var(--indigo);
+      background: var(--indigo-light);
+    }
+    .roadmap-phase {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+    .roadmap-card.active .roadmap-phase { color: var(--indigo); }
+    .roadmap-phase-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .roadmap-card.active .roadmap-phase-dot { background: var(--indigo); }
+    .roadmap-card:not(.active) .roadmap-phase-dot { background: var(--text-light); }
+    .roadmap-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .roadmap-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .roadmap-item {
+      font-size: 14px;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .roadmap-item .ri-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--text-light);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .roadmap-card.active .ri-dot { background: var(--indigo); }
+    .roadmap-card.active .roadmap-item { color: #3730A3; }
   </style>
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
@@ -139,7 +210,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Finiverse" />
   <meta property="og:image" content="https://finiverseapp.com/images/og-icon.png" />
-  <meta property="og:url" content="https://monicabecerra.github.io/finiverse-website/changelog.html" />
+  <meta property="og:url" content="https://finiverseapp.com/changelog.html" />
   <meta property="og:title" content="What's New · Finiverse" />
   <meta property="og:description" content="New features, improvements and fixes in every Finiverse update." />
   <meta name="twitter:card" content="summary" />
@@ -212,6 +283,47 @@
     <div class="section-label" data-en="What's New" data-es="Novedades">What's New</div>
     <h1 data-en="Finiverse updates." data-es="Actualizaciones de Finiverse.">Finiverse updates.</h1>
     <p data-en="Every version, every fix, every new feature. Updated with each App Store release." data-es="Cada versión, cada corrección, cada nueva función. Actualizado con cada lanzamiento en el App Store.">Every version, every fix, every new feature. Updated with each App Store release.</p>
+  </div>
+</section>
+
+<!-- ═══ ROADMAP ═══ -->
+<section class="section" style="background:#F8F8FB;padding:24px 24px 64px">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="pitch-label" data-en="Roadmap" data-es="Roadmap">Roadmap</div>
+    <h2 style="font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--text-dark);letter-spacing:-.02em;margin-bottom:4px" data-en="Where we are. Where we're going." data-es="Dónde estamos. A dónde vamos.">Where we are. Where we're going.</h2>
+    <div class="roadmap-row">
+      <div class="roadmap-card active fade-in">
+        <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Now · Live" data-es="Ahora · En Vivo">Now · Live</span></div>
+        <h3 data-en="iOS App" data-es="App iOS">iOS App</h3>
+        <div class="roadmap-items">
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial tracking (expenses, income, loans, goals)" data-es="Seguimiento financiero (gastos, ingresos, préstamos, metas)">Financial tracking (expenses, income, loans, goals)</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Sam AI, Claude-powered, personal context" data-es="Sam IA, con Claude, contexto personal">Sam AI, Claude-powered, personal context</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Emotion × Finance daily check-in" data-es="Emoción × Finanzas, check-in diario">Emotion × Finance daily check-in</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Cards & multi-currency" data-es="Tarjetas y multi-moneda">Cards & multi-currency</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="EN + ES, App Store subscription" data-es="EN + ES, suscripción en App Store">EN + ES, App Store subscription</span></div>
+        </div>
+      </div>
+      <div class="roadmap-card fade-in">
+        <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Next 6 months" data-es="Próximos 6 meses">Next 6 months</span></div>
+        <h3 data-en="Growth Phase" data-es="Fase de Crecimiento">Growth Phase</h3>
+        <div class="roadmap-items">
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Android launch" data-es="Lanzamiento Android">Android launch</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Bank connection (read-only import)" data-es="Conexión bancaria (importación de solo lectura)">Bank connection (read-only import)</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Community & social features" data-es="Funciones comunitarias y sociales">Community & social features</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="FR, PT language support" data-es="Soporte FR, PT">FR, PT language support</span></div>
+        </div>
+      </div>
+      <div class="roadmap-card fade-in">
+        <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="12+ months" data-es="12+ meses">12+ months</span></div>
+        <h3 data-en="Scale Phase" data-es="Fase de Escala">Scale Phase</h3>
+        <div class="roadmap-items">
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="B2B: Mental health orgs & employers" data-es="B2B: Organizaciones de salud mental y empresas">B2B: Mental health orgs & employers</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial advisor integrations" data-es="Integraciones con asesores financieros">Financial advisor integrations</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Family & caregiver plans" data-es="Planes familiares y de cuidadores">Family & caregiver plans</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Web app & desktop" data-es="App web y escritorio">Web app & desktop</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
