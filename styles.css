@@ -1317,6 +1317,58 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .savings-bar-close:hover { background: rgba(255,255,255,.35); }
 
+/* ---------- Sticky download bar (appears on scroll) ---------- */
+.dl-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1A1035;
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  z-index: 998;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.18);
+  transform: translateY(110%);
+  transition: transform .3s ease;
+}
+.dl-sticky-bar.visible { transform: translateY(0); }
+.dl-sticky-bar-info { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.dl-sticky-bar-info img { width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0; }
+.dl-sticky-bar-text { font-size: 13px; line-height: 1.35; min-width: 0; }
+.dl-sticky-bar-text strong { display: block; font-size: 14px; font-weight: 800; }
+.dl-sticky-bar-text span { color: rgba(255,255,255,.6); font-size: 12px; }
+.dl-sticky-bar-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.dl-sticky-bar-btn {
+  background: #5B4EE8;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.dl-sticky-bar-btn:hover { background: #4a3fd0; }
+.dl-sticky-bar-close {
+  background: rgba(255,255,255,.15);
+  border: none;
+  color: #fff;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.dl-sticky-bar-close:hover { background: rgba(255,255,255,.3); }
+@media (max-width: 420px) {
+  .dl-sticky-bar-text span { display: none; }
+}
+
 /* ---------- In-app browser notice (WhatsApp/Instagram/etc.) ---------- */
 .inapp-notice {
   background: #1A1035;
