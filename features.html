@@ -192,6 +192,21 @@
 </head>
 <body>
 
+<!-- Sticky download bar -->
+<div class="dl-sticky-bar" id="dlStickyBar">
+  <div class="dl-sticky-bar-info">
+    <img src="images/app-icon.png" alt="Finiverse" />
+    <div class="dl-sticky-bar-text">
+      <strong data-en="Try Finiverse free" data-es="Prueba Finiverse gratis">Try Finiverse free</strong>
+      <span data-en="No credit card needed" data-es="Sin tarjeta de crédito">No credit card needed</span>
+    </div>
+  </div>
+  <div class="dl-sticky-bar-actions">
+    <a href="https://apps.apple.com/app/finiverse/id6648789225" class="dl-sticky-bar-btn" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+    <button class="dl-sticky-bar-close" id="dlStickyBarClose" aria-label="Close">✕</button>
+  </div>
+</div>
+
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
@@ -530,5 +545,30 @@
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
 <script src="inapp-notice.js"></script>
+<script>
+/* ── Sticky download bar: show after scrolling, dismissible ── */
+(function () {
+  const bar = document.getElementById('dlStickyBar');
+  const closeBtn = document.getElementById('dlStickyBarClose');
+  if (!bar || !closeBtn) return;
+  if (sessionStorage.getItem('dlStickyBarDismissed')) return;
+
+  function onScroll() {
+    if (window.scrollY > 500) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  closeBtn.addEventListener('click', () => {
+    bar.classList.remove('visible');
+    bar.style.display = 'none';
+    sessionStorage.setItem('dlStickyBarDismissed', '1');
+  });
+})();
+</script>
+
 </body>
 </html>
