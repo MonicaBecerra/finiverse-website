@@ -1271,6 +1271,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* ---------- Scroll animations ---------- */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
+@media print {
+  .fade-in { opacity: 1 !important; transform: none !important; }
+  .dl-sticky-bar, .savings-bar, .inapp-notice, .nav-burger { display: none !important; }
+}
 
 /* ---------- Plan App Store pill (replaces hardcoded price) ---------- */
 .plan-appstore-pill {
