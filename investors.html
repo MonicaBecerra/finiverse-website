@@ -534,7 +534,7 @@
     <h1 data-en="1 in 5 people.<br><em>Zero apps built for them.</em>" data-es="1 de cada 5 personas.<br><em>Cero apps diseñadas para ellas.</em>">1 in 5 people.<br><em>Zero apps built for them.</em></h1>
     <p data-en="Finiverse is the first personal finance app designed for neurodivergent minds, the users every other app loses to overwhelm, anxiety, and a UI that wasn't made for them." data-es="Finiverse es la primera app de finanzas personales diseñada para mentes neurodivergentes, los usuarios que todas las demás apps pierden por el agobio, la ansiedad y una UI que no fue hecha para ellas.">Finiverse is the first personal finance app designed for neurodivergent minds, the users every other app loses to overwhelm, anxiety, and a UI that wasn't made for them.</p>
     <div class="inv-hero-actions">
-      <a href="mailto:hello@finiverseapp.com?subject=Investor Inquiry · Finiverse" class="btn-inv-primary" data-en="Request Pitch Deck →" data-es="Solicitar Pitch Deck →">Request Pitch Deck →</a>
+      <button type="button" class="btn-inv-primary" id="openDeckModalBtn1" style="border:none;cursor:pointer" data-en="Request Pitch Deck →" data-es="Solicitar Pitch Deck →">Request Pitch Deck →</button>
       <a href="mailto:hello@finiverseapp.com?subject=Investor Inquiry · Finiverse" class="btn-inv-ghost" data-en="Get in Touch" data-es="Contáctanos">Get in Touch</a>
     </div>
   </div>
@@ -750,12 +750,35 @@
     <h2 data-en="Let's build this<br>together." data-es="Construyamos esto<br>juntos.">Let's build this<br>together.</h2>
     <p data-en="We're looking for investors who believe great products deserve to work for every mind, not just some of them." data-es="Buscamos inversionistas que crean que los grandes productos merecen funcionar para toda mente, no solo para algunas.">We're looking for investors who believe great products deserve to work for every mind, not just some of them.</p>
     <div class="inv-cta-actions">
-      <a href="mailto:hello@finiverseapp.com?subject=Investor Inquiry · Finiverse" class="btn-inv-primary" data-en="Request the Deck →" data-es="Solicitar el Deck →">Request the Deck →</a>
+      <button type="button" class="btn-inv-primary" id="openDeckModalBtn2" style="border:none;cursor:pointer" data-en="Request the Deck →" data-es="Solicitar el Deck →">Request the Deck →</button>
       <a href="about.html" class="btn-inv-ghost" data-en="Meet the Founder" data-es="Conoce a la Fundadora">Meet the Founder</a>
     </div>
     <div class="inv-cta-email">hello@finiverseapp.com</div>
   </div>
 </section>
+
+<!-- ═══ DECK REQUEST MODAL ═══ -->
+<div id="deckModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(13,13,26,.7);z-index:1000;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:20px;max-width:420px;width:100%;padding:32px;position:relative">
+    <button type="button" id="deckModalClose" aria-label="Close" style="position:absolute;top:16px;right:16px;background:var(--card-bg,#F4F4FA);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px">✕</button>
+    <div id="deckFormState">
+      <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin:0 0 8px" data-en="Get the Pitch Deck" data-es="Recibe el Pitch Deck">Get the Pitch Deck</h3>
+      <p style="font-size:14px;color:var(--text-mid);margin:0 0 20px" data-en="Leave your email and we'll send the deck right away." data-es="Déjanos tu correo y te enviamos el deck de inmediato.">Leave your email and we'll send the deck right away.</p>
+      <form id="deckForm">
+        <input type="email" id="deckEmail" required placeholder="you@fund.com" style="width:100%;padding:12px 14px;border:1.5px solid var(--card-border,#E5E0F5);border-radius:10px;font-size:14px;margin-bottom:10px;box-sizing:border-box" />
+        <input type="text" id="deckName" placeholder="Name (optional)" data-ph-en="Name (optional)" data-ph-es="Nombre (opcional)" style="width:100%;padding:12px 14px;border:1.5px solid var(--card-border,#E5E0F5);border-radius:10px;font-size:14px;margin-bottom:10px;box-sizing:border-box" />
+        <input type="text" id="deckFirm" placeholder="Fund / firm (optional)" data-ph-en="Fund / firm (optional)" data-ph-es="Fondo / firma (opcional)" style="width:100%;padding:12px 14px;border:1.5px solid var(--card-border,#E5E0F5);border-radius:10px;font-size:14px;margin-bottom:16px;box-sizing:border-box" />
+        <button type="submit" id="deckSubmitBtn" class="btn-inv-primary" style="width:100%;border:none;cursor:pointer" data-en="Send me the deck →" data-es="Envíenme el deck →">Send me the deck →</button>
+      </form>
+      <div id="deckFormError" style="display:none;margin-top:12px;font-size:13px;color:#991B1B" data-en="Something went wrong. Email us at hello@finiverseapp.com" data-es="Algo salió mal. Escríbenos a hello@finiverseapp.com">Something went wrong. Email us at hello@finiverseapp.com</div>
+    </div>
+    <div id="deckSuccessState" style="display:none;text-align:center;padding:12px 0">
+      <div style="font-size:40px;margin-bottom:12px">📨</div>
+      <h3 style="font-size:18px;font-weight:800;color:var(--text-dark);margin:0 0 8px" data-en="On its way!" data-es="¡En camino!">On its way!</h3>
+      <p style="font-size:14px;color:var(--text-mid)" data-en="Check your inbox, the deck should arrive in a minute." data-es="Revisa tu correo, el deck debería llegar en un minuto.">Check your inbox, the deck should arrive in a minute.</p>
+    </div>
+  </div>
+</div>
 
 <footer id="site-footer" class="footer"></footer>
 
@@ -784,6 +807,79 @@
     bar.classList.remove('visible');
     bar.style.display = 'none';
     sessionStorage.setItem('dlStickyBarDismissed', '1');
+  });
+})();
+
+/* ── Pitch deck request modal ── */
+(function () {
+  const overlay = document.getElementById('deckModalOverlay');
+  const closeBtn = document.getElementById('deckModalClose');
+  const form = document.getElementById('deckForm');
+  const formState = document.getElementById('deckFormState');
+  const successState = document.getElementById('deckSuccessState');
+  const errorBox = document.getElementById('deckFormError');
+  if (!overlay || !form) return;
+
+  function openModal() {
+    overlay.style.display = 'flex';
+    formState.style.display = 'block';
+    successState.style.display = 'none';
+    errorBox.style.display = 'none';
+    form.reset();
+  }
+  function closeModal() { overlay.style.display = 'none'; }
+
+  ['openDeckModalBtn1', 'openDeckModalBtn2'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', openModal);
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+  const PROJ = 'fintrack-6948a';
+  const KEY  = 'AIzaSyDqeIpLSJ3yc0kA2l9rhDmOvNiAmDPoAks';
+  const BASE = 'https://firestore.googleapis.com/v1/projects/' + PROJ + '/databases/(default)/documents/pitchDeckRequests/';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = document.getElementById('deckSubmitBtn');
+    submitBtn.disabled = true;
+    errorBox.style.display = 'none';
+
+    const email = document.getElementById('deckEmail').value.trim();
+    const name  = document.getElementById('deckName').value.trim();
+    const firm  = document.getElementById('deckFirm').value.trim();
+    const lang  = document.documentElement.getAttribute('data-lang') || 'en';
+    const docId = email.replace(/[^a-zA-Z0-9]/g, '_') + '_' + Date.now().toString(36);
+
+    const doc = {
+      fields: {
+        email: { stringValue: email },
+        name:  { stringValue: name },
+        firm:  { stringValue: firm },
+        lang:  { stringValue: lang },
+        source: { stringValue: 'investors_page' },
+        submittedAt: { timestampValue: new Date().toISOString() }
+      }
+    };
+
+    try {
+      const res = await fetch(BASE + docId + '?key=' + KEY, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(doc)
+      });
+      if (res.ok) {
+        formState.style.display = 'none';
+        successState.style.display = 'block';
+      } else {
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+      }
+    } catch {
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+    }
   });
 })();
 </script>
