@@ -428,6 +428,15 @@
     .moat-section .pitch-section-header p { color: rgba(255,255,255,.5); }
 
     .bg-soft-inv { background: #F8F8FB; }
+
+    /* ── Print/PDF: one section per page, no live-site chrome ── */
+    @media print {
+      .inv-hero-actions, .inv-cta-actions { display: none !important; }
+      body > section + section {
+        page-break-before: always;
+        break-before: page;
+      }
+    }
   </style>
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
