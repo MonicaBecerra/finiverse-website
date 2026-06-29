@@ -1273,7 +1273,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 @media print {
   .fade-in { opacity: 1 !important; transform: none !important; }
-  .dl-sticky-bar, .savings-bar, .inapp-notice, .nav-burger { display: none !important; }
+  .dl-sticky-bar, .savings-bar, .inapp-notice, .nav-burger, .nav { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 
 /* ---------- Plan App Store pill (replaces hardcoded price) ---------- */
