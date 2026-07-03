@@ -73,6 +73,7 @@
     '        <li><a href="about.html" data-en="About" data-es="Nosotros">About</a></li>',
     '        <li><a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a></li>',
     '        <li><a href="careers.html" data-en="Careers" data-es="Trabaja con nosotros">Careers</a></li>',
+    '        <li><a href="https://finiverse-erp.web.app/landing" target="_blank" rel="noopener" data-en="Finiverse ERP (for startups)" data-es="Finiverse ERP (para startups)">Finiverse ERP (for startups)</a></li>',
     '      </ul>',
     '    </nav>',
 
