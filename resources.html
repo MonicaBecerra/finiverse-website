@@ -295,11 +295,11 @@
     <h1 class="page-hero-title" data-en="Finance for the real brain." data-es="Finanzas para el cerebro real.">Finance for the real brain.</h1>
     <p class="page-hero-sub" data-en="Practical articles about money, ADHD, anxiety, and building habits that stick, written for the way you actually think." data-es="Artículos prácticos sobre dinero, TDAH, ansiedad y hábitos financieros reales, escritos para la forma en que realmente piensas.">Practical articles about money, ADHD, anxiety, and building habits that stick, written for the way you actually think.</p>
     <div class="res-categories">
-      <button class="res-cat-btn active" data-en="All" data-es="Todos">All</button>
-      <button class="res-cat-btn" data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</button>
-      <button class="res-cat-btn" data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</button>
-      <button class="res-cat-btn" data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</button>
-      <button class="res-cat-btn" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</button>
+      <button class="res-cat-btn active" data-filter="all" data-en="All" data-es="Todos">All</button>
+      <button class="res-cat-btn" data-filter="adhd-money" data-en="ADHD &amp; Money" data-es="TDAH y Dinero">ADHD &amp; Money</button>
+      <button class="res-cat-btn" data-filter="anxiety-finance" data-en="Anxiety &amp; Finance" data-es="Ansiedad y Finanzas">Anxiety &amp; Finance</button>
+      <button class="res-cat-btn" data-filter="dyscalculia" data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</button>
+      <button class="res-cat-btn" data-filter="getting-started" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</button>
     </div>
   </div>
 </section>
@@ -356,7 +356,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ ADHD & MONEY ═══ -->
-  <section class="res-section fade-in" data-category="ADHD & Money">
+  <section class="res-section fade-in" data-category="adhd-money">
     <div class="res-section-label">
       <h2 data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</h2>
       <span class="cat-badge badge-adhd" data-en="3 articles" data-es="3 artículos">3 articles</span>
@@ -393,7 +393,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ ANXIETY & FINANCE ═══ -->
-  <section class="res-section fade-in" data-category="Anxiety & Finance">
+  <section class="res-section fade-in" data-category="anxiety-finance">
     <div class="res-section-label">
       <h2 data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</h2>
       <span class="cat-badge badge-anxiety" data-en="3 articles" data-es="3 artículos">3 articles</span>
@@ -430,7 +430,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ DYSCALCULIA ═══ -->
-  <section class="res-section fade-in" data-category="Dyscalculia">
+  <section class="res-section fade-in" data-category="dyscalculia">
     <div class="res-section-label">
       <h2 data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</h2>
       <span class="cat-badge badge-dyscalculia" data-en="2 articles" data-es="2 artículos">2 articles</span>
@@ -459,7 +459,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ GETTING STARTED ═══ -->
-  <section class="res-section fade-in" data-category="Getting Started">
+  <section class="res-section fade-in" data-category="getting-started">
     <div class="res-section-label">
       <h2 data-en="Getting Started" data-es="Primeros Pasos">Getting Started</h2>
       <span class="cat-badge badge-general" data-en="1 article" data-es="1 artículo">1 article</span>
@@ -501,35 +501,34 @@
 <script>
 /* ── Category filter buttons ── */
 (function () {
-  const btns = document.querySelectorAll('.res-cat-btn');
-  const sections = document.querySelectorAll('.res-section[data-category]');
-  const dividers = document.querySelectorAll('.res-divider');
+  var btns = document.querySelectorAll('.res-cat-btn');
+  var sections = document.querySelectorAll('.res-section[data-category]');
+  var dividers = document.querySelectorAll('.res-divider');
 
   btns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       btns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
-      const selected = (btn.getAttribute('data-en') || btn.textContent).trim();
-      const showAll = selected === 'All' || selected === 'Todos';
+      var filter = btn.getAttribute('data-filter') || 'all';
+      var showAll = filter === 'all';
 
       sections.forEach(function (sec) {
-        const cat = sec.getAttribute('data-category');
-        const isLatest = cat === 'all';
-        if (showAll || isLatest || cat === selected) {
+        var cat = sec.getAttribute('data-category');
+        if (showAll || cat === 'all' || cat === filter) {
           sec.style.display = '';
         } else {
           sec.style.display = 'none';
         }
       });
 
-      // hide dividers between hidden sections
       dividers.forEach(function (hr) {
-        const prev = hr.previousElementSibling;
-        const next = hr.nextElementSibling;
-        const prevHidden = prev && prev.style.display === 'none';
-        const nextHidden = next && next.style.display === 'none';
-        hr.style.display = (prevHidden || nextHidden) ? 'none' : '';
+        var prev = hr.previousElementSibling;
+        var next = hr.nextElementSibling;
+        hr.style.display = (
+          (prev && prev.style.display === 'none') ||
+          (next && next.style.display === 'none')
+        ) ? 'none' : '';
       });
     });
   });
