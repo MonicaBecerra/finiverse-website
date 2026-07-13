@@ -499,29 +499,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: rgba(255,255,255,.4);
   margin-top: 12px;
 }
-.sam-hero-bubble {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 18px;
-  padding: 7px 12px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 100px;
-  max-width: 300px;
-}
-.sam-hero-bubble img {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.sam-hero-bubble span {
-  font-size: 12px;
-  color: rgba(255,255,255,.6);
-  line-height: 1.4;
-  font-style: italic;
-}
 
 /* Phone mockup */
 .phone-wrap {
