@@ -307,7 +307,7 @@
       <span class="billing-label active" id="lblMonthly" data-en="Monthly" data-es="Mensual">Monthly</span>
       <button class="toggle-switch" id="billingSwitch" aria-label="Toggle billing period" aria-checked="false"></button>
       <span class="billing-label" id="lblYearly" data-en="Yearly" data-es="Anual">Yearly</span>
-      <span class="save-badge" id="saveBadge" data-en="Save ~20%" data-es="Ahorra ~20%">Save ~20%</span>
+      <span class="save-badge" id="saveBadge" data-en="Save ~15%" data-es="Ahorra ~15%">Save ~15%</span>
     </div>
     <p style="font-size:12px;color:var(--text-light);margin-top:10px" data-en="Pricing is managed by Apple and shown in your local currency in the App Store." data-es="El precio lo gestiona Apple y se muestra en tu moneda local en el App Store.">Pricing is managed by Apple and shown in your local currency in the App Store.</p>
   </div>
@@ -581,9 +581,9 @@
 
   /* ── Monthly / Yearly toggle ── */
   /* Monthly prices (USD): Early Bird $2.99 · Premium $9.99 · Sam AI $14.99
-     Annual saves ~20%, exact annual price shown in App Store by Apple      */
+     Annual saves ~15%, exact annual price shown in App Store by Apple      */
   const MONTHLY = { eb: 2.99, pr: 9.99, sa: 14.99 };
-  const SAVINGS  = 0.20; // ~20% off annual
+  const SAVINGS  = 0.15; // ~15% off annual
 
   let isYearly = false;
 
@@ -598,7 +598,7 @@
   function applyToggle() {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     const billingNote = isYearly
-      ? (lang === 'es' ? 'Facturado anual · Ahorra ~20%' : 'Billed annually · Save ~20%')
+      ? (lang === 'es' ? 'Facturado anual · Ahorra ~15%' : 'Billed annually · Save ~15%')
       : (lang === 'es' ? 'Suscripción mensual via App Store' : 'Monthly subscription via App Store');
 
     // Update displayed prices
