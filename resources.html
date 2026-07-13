@@ -311,7 +311,7 @@
        of this .article-grid, right below the comment, when something new
        goes live. Move the matching "Coming soon" card out of its category
        section below so it doesn't appear twice. ═══ -->
-  <section class="res-section fade-in">
+  <section class="res-section fade-in" data-category="all">
     <div class="res-section-label">
       <h2 data-en="Latest Articles" data-es="Últimos Artículos">Latest Articles</h2>
       <span class="cat-badge badge-general" data-en="4 articles" data-es="4 artículos">4 articles</span>
@@ -356,7 +356,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ ADHD & MONEY ═══ -->
-  <section class="res-section fade-in">
+  <section class="res-section fade-in" data-category="ADHD & Money">
     <div class="res-section-label">
       <h2 data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</h2>
       <span class="cat-badge badge-adhd" data-en="3 articles" data-es="3 artículos">3 articles</span>
@@ -393,7 +393,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ ANXIETY & FINANCE ═══ -->
-  <section class="res-section fade-in">
+  <section class="res-section fade-in" data-category="Anxiety & Finance">
     <div class="res-section-label">
       <h2 data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</h2>
       <span class="cat-badge badge-anxiety" data-en="3 articles" data-es="3 artículos">3 articles</span>
@@ -430,7 +430,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ DYSCALCULIA ═══ -->
-  <section class="res-section fade-in">
+  <section class="res-section fade-in" data-category="Dyscalculia">
     <div class="res-section-label">
       <h2 data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</h2>
       <span class="cat-badge badge-dyscalculia" data-en="2 articles" data-es="2 artículos">2 articles</span>
@@ -459,7 +459,7 @@
   <hr class="res-divider" />
 
   <!-- ═══ GETTING STARTED ═══ -->
-  <section class="res-section fade-in">
+  <section class="res-section fade-in" data-category="Getting Started">
     <div class="res-section-label">
       <h2 data-en="Getting Started" data-es="Primeros Pasos">Getting Started</h2>
       <span class="cat-badge badge-general" data-en="1 article" data-es="1 artículo">1 article</span>
@@ -499,6 +499,42 @@
 <script src="nav.js"></script>
 <script src="inapp-notice.js"></script>
 <script>
+/* ── Category filter buttons ── */
+(function () {
+  const btns = document.querySelectorAll('.res-cat-btn');
+  const sections = document.querySelectorAll('.res-section[data-category]');
+  const dividers = document.querySelectorAll('.res-divider');
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      const selected = (btn.getAttribute('data-en') || btn.textContent).trim();
+      const showAll = selected === 'All' || selected === 'Todos';
+
+      sections.forEach(function (sec) {
+        const cat = sec.getAttribute('data-category');
+        const isLatest = cat === 'all';
+        if (showAll || isLatest || cat === selected) {
+          sec.style.display = '';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+
+      // hide dividers between hidden sections
+      dividers.forEach(function (hr) {
+        const prev = hr.previousElementSibling;
+        const next = hr.nextElementSibling;
+        const prevHidden = prev && prev.style.display === 'none';
+        const nextHidden = next && next.style.display === 'none';
+        hr.style.display = (prevHidden || nextHidden) ? 'none' : '';
+      });
+    });
+  });
+})();
+
 /* ── Sticky download bar: show after scrolling, dismissible ── */
 (function () {
   const bar = document.getElementById('dlStickyBar');
