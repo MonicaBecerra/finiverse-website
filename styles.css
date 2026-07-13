@@ -502,25 +502,24 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .sam-hero-bubble {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  padding: 12px 18px;
+  gap: 7px;
+  margin-top: 18px;
+  padding: 7px 12px;
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 20px;
-  max-width: 360px;
+  border-radius: 100px;
+  max-width: 300px;
 }
 .sam-hero-bubble img {
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   flex-shrink: 0;
-  background: rgba(91,78,232,.2);
 }
 .sam-hero-bubble span {
-  font-size: 13px;
-  color: rgba(255,255,255,.7);
-  line-height: 1.5;
+  font-size: 12px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.4;
   font-style: italic;
 }
 
