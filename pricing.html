@@ -81,9 +81,9 @@
       box-shadow: 0 0 0 1px var(--indigo), 0 16px 48px rgba(91,78,232,.12);
     }
     .plan-card.dark-card {
-      background: linear-gradient(145deg, #0D0B1F, #1A1030);
-      border-color: #5B4EE8;
-      box-shadow: 0 0 0 1px #5B4EE8, 0 16px 48px rgba(91,78,232,.25);
+      background: var(--indigo-light);
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 1px var(--indigo), 0 16px 48px rgba(91,78,232,.15);
     }
 
     .plan-top-badge {
@@ -102,29 +102,23 @@
       font-size: 17px; font-weight: 800;
       color: var(--text-dark); margin-bottom: 3px;
     }
-    .plan-card.dark-card .plan-name { color: #fff; }
     .plan-tagline { font-size: 12px; color: var(--text-light); margin-bottom: 18px; }
-    .plan-card.dark-card .plan-tagline { color: rgba(255,255,255,.5); }
 
     .plan-price { font-size: 42px; font-weight: 900; letter-spacing: -.03em; color: var(--text-dark); line-height: 1; }
     .plan-price sup { font-size: 20px; font-weight: 700; vertical-align: super; }
     .plan-price .price-num { font-size: inherit; font-weight: inherit; color: inherit; }
     .plan-price .price-unit { font-size: 16px; font-weight: 500; color: var(--text-light); }
-    .plan-card.dark-card .plan-price { color: #00D4C8; }
-    .plan-card.dark-card .plan-price .price-unit { color: rgba(255,255,255,.4); }
+    .plan-card.dark-card .plan-price { color: var(--indigo); }
 
     .plan-billing { font-size: 11px; color: var(--text-light); margin-top: 3px; margin-bottom: 20px; min-height: 16px; }
-    .plan-card.dark-card .plan-billing { color: rgba(255,255,255,.4); }
 
     .plan-divider { height: 1px; background: var(--card-border); margin-bottom: 18px; }
-    .plan-card.dark-card .plan-divider { background: rgba(255,255,255,.08); }
 
     .plan-features { display: flex; flex-direction: column; gap: 9px; flex: 1; margin-bottom: 22px; }
     .plan-feature {
       display: flex; align-items: flex-start; gap: 8px;
       font-size: 13px; color: var(--text-mid);
     }
-    .plan-card.dark-card .plan-feature { color: rgba(255,255,255,.8); }
     .plan-feature .fi {
       width: 18px; height: 18px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -391,17 +385,17 @@
           <a href="https://apps.apple.com/app/finiverse/id6648789225" class="plan-cta cta-gold" target="_blank" rel="noopener" data-en="Upgrade to Premium →" data-es="Actualizar a Premium →">Upgrade to Premium →</a>
         </div>
 
-        <!-- SAM AI (dark card) -->
+        <!-- SAM AI (featured card) -->
         <div class="plan-card dark-card">
           <div class="plan-top-badge samai" data-en="✦ Ultimate" data-es="✦ Máximo">✦ Ultimate</div>
           <div class="plan-icon">
             <img src="images/sam-robot.png" alt="Sam" style="width:36px;height:36px;object-fit:contain" onerror="this.parentElement.textContent='🤖'" />
           </div>
           <div class="plan-name">Sam AI</div>
-          <div class="plan-tagline" style="color:rgba(255,255,255,.5)" data-en="Your full AI financial companion" data-es="Tu compañero financiero IA completo">Your full AI financial companion</div>
-          <div class="plan-price" id="sa-price-display" style="color:#00D4C8"><sup style="color:#00D4C8">$</sup><span class="price-num">14.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
-          <div class="plan-billing" id="sa-billing" style="color:rgba(255,255,255,.4)" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
-          <div class="plan-divider" style="background:rgba(255,255,255,.08)"></div>
+          <div class="plan-tagline" data-en="Your full AI financial companion" data-es="Tu compañero financiero IA completo">Your full AI financial companion</div>
+          <div class="plan-price" id="sa-price-display"><sup>$</sup><span class="price-num">14.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-billing" id="sa-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
+          <div class="plan-divider"></div>
           <ul class="plan-features">
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Everything in Premium" data-es="Todo lo de Premium">Everything in Premium</span></li>
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Unlimited Sam AI conversations" data-es="Conversaciones Sam IA ilimitadas">Unlimited Sam AI conversations</span></li>

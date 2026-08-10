@@ -439,7 +439,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 /* ---------- HERO ---------- */
 .hero {
-  background: var(--bg-dark);
+  background: linear-gradient(180deg, var(--bg-soft) 0%, #fff 100%);
   padding: calc(var(--nav-h) + 80px) 0 80px;
   overflow: hidden;
   position: relative;
@@ -449,8 +449,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 55% at 75% 55%, rgba(251,146,60,.12) 0%, transparent 65%),
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,78,232,.35) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 55% at 75% 55%, rgba(251,146,60,.07) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,78,232,.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-inner {
@@ -470,9 +470,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--cyan);
-  background: rgba(0,212,200,.1);
-  border: 1px solid rgba(0,212,200,.2);
+  color: #0D9488;
+  background: var(--mint-light);
+  border: 1px solid rgba(16,185,129,.2);
   padding: 5px 14px;
   border-radius: 100px;
   margin-bottom: 20px;
@@ -482,13 +482,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: -.03em;
-  color: #fff;
+  color: var(--text-dark);
   margin-bottom: 20px;
 }
-.hero-title span { color: var(--cyan); }
+.hero-title span { color: var(--indigo); }
 .hero-sub {
   font-size: 18px;
-  color: rgba(255,255,255,.65);
+  color: var(--text-mid);
   line-height: 1.7;
   margin-bottom: 36px;
   max-width: 480px;
@@ -496,7 +496,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .hero-note {
   font-size: 12px;
-  color: rgba(255,255,255,.4);
+  color: var(--text-light);
   margin-top: 12px;
 }
 
@@ -510,7 +510,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .phone-glow {
   position: absolute;
   width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(91,78,232,.5) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(91,78,232,.16) 0%, transparent 70%);
   pointer-events: none;
 }
 .phone-frame {
@@ -636,7 +636,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 /* ---------- Sam section ---------- */
 .sam-section {
-  background: var(--bg-dark);
+  background: var(--bg-soft);
   overflow: hidden;
   position: relative;
 }
@@ -645,13 +645,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   position: absolute;
   right: -200px; top: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0,212,200,.1) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(0,212,200,.06) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .sam-chat {
-  background: var(--bg-dark2);
-  border: 1px solid rgba(255,255,255,.08);
+  background: #fff;
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   padding: 18px;
   max-width: 380px;
@@ -662,7 +662,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   gap: 12px;
   margin-bottom: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid var(--card-border);
 }
 .chat-avatar {
   width: 40px; height: 40px;
@@ -673,8 +673,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   justify-content: center;
   font-size: 20px;
 }
-.chat-name { font-weight: 700; color: #fff; font-size: 15px; }
-.chat-status { font-size: 12px; color: #00D4C8; display: flex; align-items: center; gap: 4px; }
+.chat-name { font-weight: 700; color: var(--text-dark); font-size: 15px; }
+.chat-status { font-size: 12px; color: #0D9488; display: flex; align-items: center; gap: 4px; }
 .chat-status::before { content: ''; width: 6px; height: 6px; background: #00D4C8; border-radius: 50%; }
 
 .chat-bubble {
@@ -686,8 +686,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   max-width: 85%;
 }
 .bubble-sam {
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.85);
+  background: var(--bg-soft);
+  color: var(--text-mid);
   border-radius: 4px 14px 14px 14px;
 }
 .bubble-user {
@@ -697,9 +697,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: 14px 4px 14px 14px;
 }
 .bubble-highlight {
-  background: linear-gradient(135deg, rgba(0,212,200,.12), rgba(91,78,232,.12));
+  background: linear-gradient(135deg, rgba(0,212,200,.08), rgba(91,78,232,.08));
   border: 1px solid rgba(0,212,200,.2);
-  color: rgba(255,255,255,.85);
+  color: var(--text-mid);
   border-radius: 14px;
 }
 
@@ -890,32 +890,34 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 /* ---------- CTA section ---------- */
 .cta-section {
-  background: linear-gradient(135deg, var(--bg-dark) 0%, #1A1A3E 100%);
+  background: var(--bg-soft);
   text-align: center;
   padding: 100px 0;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--card-border);
 }
 .cta-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,212,200,.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(91,78,232,.08) 0%, transparent 70%);
   pointer-events: none;
 }
 .cta-section h2 {
   font-size: clamp(28px,4vw,48px);
   font-weight: 900;
-  color: #fff;
+  color: var(--text-dark);
   letter-spacing: -.02em;
   margin-bottom: 16px;
 }
-.cta-section p { font-size: 18px; color: rgba(255,255,255,.6); margin-bottom: 36px; }
+.cta-section p { font-size: 18px; color: var(--text-mid); margin-bottom: 36px; }
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--bg-dark);
-  color: rgba(255,255,255,.6);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--card-border);
+  color: var(--text-mid);
 }
 .footer-inner {
   max-width: var(--max-w);
@@ -938,7 +940,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   gap: 9px;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-dark);
   font-size: 16px;
   font-weight: 800;
   margin-bottom: 6px;
@@ -946,7 +948,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .footer-logo-text { letter-spacing: -.01em; }
 .footer-tagline {
   font-size: 13px;
-  color: rgba(255,255,255,.38);
+  color: var(--text-light);
   margin: 0;
 }
 .footer-header-right {
@@ -959,12 +961,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .footer-social-link {
   width: 32px; height: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.1);
-  background: rgba(255,255,255,.04);
+  border: 1px solid var(--card-border);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,.45);
+  color: var(--text-light);
   text-decoration: none;
   transition: all .15s;
 }
@@ -974,21 +976,21 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   gap: 7px;
   padding: 7px 14px;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   text-decoration: none;
-  color: rgba(255,255,255,.7);
+  color: var(--text-mid);
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
   transition: all .15s;
 }
-.footer-appstore-btn:hover { border-color: var(--indigo); color: #fff; }
+.footer-appstore-btn:hover { border-color: var(--indigo); color: var(--indigo); }
 
 /* Divider */
 .footer-rule {
   border: none;
-  border-top: 1px solid rgba(255,255,255,.07);
+  border-top: 1px solid var(--card-border);
   margin: 0;
 }
 
@@ -998,7 +1000,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   padding: 40px 0 48px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid var(--card-border);
 }
 @media (max-width: 760px) {
   .footer-nav { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
@@ -1010,7 +1012,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .footer-col h4 {
   font-size: 11px;
   font-weight: 700;
-  color: rgba(255,255,255,.3);
+  color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: .1em;
   margin-bottom: 14px;
@@ -1018,11 +1020,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .footer-col ul a {
   font-size: 14px;
-  color: rgba(255,255,255,.5);
+  color: var(--text-mid);
   transition: color .15s;
   text-decoration: none;
 }
-.footer-col ul a:hover { color: #fff; }
+.footer-col ul a:hover { color: var(--indigo); }
 
 /* Bottom bar */
 .footer-bottom {
@@ -1033,7 +1035,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   flex-wrap: wrap;
   gap: 12px;
   font-size: 13px;
-  color: rgba(255,255,255,.25);
+  color: var(--text-light);
 }
 @media (max-width: 540px) {
   .footer-header { flex-direction: column; align-items: flex-start; }
@@ -1044,16 +1046,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .social-link {
   width: 36px; height: 36px;
   border-radius: 10px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
+  background: #fff;
+  border: 1px solid var(--card-border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
+  color: var(--text-mid);
   transition: all .2s;
   text-decoration: none !important;
 }
-.social-link:hover { background: var(--indigo); border-color: var(--indigo); }
+.social-link:hover { background: var(--indigo); border-color: var(--indigo); color: #fff; }
 
 /* ---------- Page hero (interior pages) ---------- */
 .page-hero {
@@ -1719,9 +1722,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--indigo);
 }
 
-/* Recognition section dark banner */
+/* Recognition section banner */
 .recognition-banner {
-  background: var(--bg-dark);
+  background: var(--bg-soft);
+  border: 1px solid var(--card-border);
   border-radius: 24px;
   padding: 56px 48px;
   text-align: center;
@@ -1731,15 +1735,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .recognition-banner h2 {
   font-size: clamp(22px, 4vw, 36px);
   font-weight: 900;
-  color: #fff;
+  color: var(--text-dark);
   line-height: 1.2;
   margin-bottom: 12px;
   letter-spacing: -.02em;
 }
-.recognition-banner h2 span { color: #00D4C8; }
+.recognition-banner h2 span { color: var(--indigo); }
 .recognition-banner p {
   font-size: 16px;
-  color: rgba(255,255,255,.55);
+  color: var(--text-mid);
   max-width: 520px;
   margin: 0 auto 32px;
   line-height: 1.7;
@@ -1838,7 +1842,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(91,78,232,.07) 1px, transparent 1px);
   background-size: 30px 30px;
   pointer-events: none;
   z-index: 0;
@@ -1863,10 +1867,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-style: normal;
 }
 
-/* Recognition banner: warm glow instead of flat dark */
+/* Recognition banner: soft light glow */
 .recognition-banner {
-  background: linear-gradient(135deg, #13102b 0%, #0a1520 55%, #0e1628 100%);
-  border: 1px solid rgba(91,78,232,.22);
+  background: var(--bg-soft);
+  border: 1px solid var(--card-border);
   position: relative;
   overflow: hidden;
 }
@@ -1875,7 +1879,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   position: absolute;
   top: -50%; left: -10%;
   width: 55%; height: 140%;
-  background: radial-gradient(ellipse, rgba(91,78,232,.28) 0%, transparent 68%);
+  background: radial-gradient(ellipse, rgba(91,78,232,.07) 0%, transparent 68%);
   pointer-events: none;
 }
 .recognition-banner::after {
@@ -1883,7 +1887,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   position: absolute;
   bottom: -50%; right: -10%;
   width: 50%; height: 140%;
-  background: radial-gradient(ellipse, rgba(0,212,200,.16) 0%, transparent 68%);
+  background: radial-gradient(ellipse, rgba(0,212,200,.06) 0%, transparent 68%);
   pointer-events: none;
 }
 .recognition-banner > * { position: relative; z-index: 1; }

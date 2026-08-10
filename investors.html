@@ -11,18 +11,19 @@
   <style>
     /* ── Investor pitch styles ── */
     .inv-hero {
-      background: linear-gradient(160deg, #0D0D1A 0%, #1A1033 60%, #0F1B2D 100%);
+      background: linear-gradient(180deg, var(--bg-soft) 0%, #fff 100%);
       padding: 120px 24px 100px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid var(--card-border);
     }
     .inv-hero::before {
       content: '';
       position: absolute;
       top: -120px; left: 50%; transform: translateX(-50%);
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(91,78,232,.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(91,78,232,.07) 0%, transparent 70%);
       pointer-events: none;
     }
     .inv-hero-tag {
@@ -30,28 +31,29 @@
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(91,78,232,.2);
+      background: var(--indigo-light);
       border-radius: 100px;
       font-size: 12px;
       font-weight: 600;
-      color: rgba(255,255,255,.6);
+      color: var(--indigo);
       letter-spacing: .06em;
       text-transform: uppercase;
       margin-bottom: 28px;
     }
-    .inv-hero-tag span { color: #00D4C8; }
+    .inv-hero-tag span { color: #0D9488; }
     .inv-hero h1 {
       font-size: clamp(38px, 6vw, 68px);
       font-weight: 900;
-      color: #fff;
+      color: var(--text-dark);
       line-height: 1.1;
       letter-spacing: -.02em;
       margin-bottom: 20px;
     }
-    .inv-hero h1 em { color: #5B4EE8; font-style: normal; }
+    .inv-hero h1 em { color: var(--indigo); font-style: normal; }
     .inv-hero p {
       font-size: 18px;
-      color: rgba(255,255,255,.55);
+      color: var(--text-mid);
       max-width: 560px;
       margin: 0 auto 40px;
       line-height: 1.65;
@@ -64,7 +66,7 @@
     }
     .btn-inv-primary {
       padding: 14px 28px;
-      background: #5B4EE8;
+      background: var(--indigo);
       color: #fff;
       border-radius: 12px;
       font-weight: 700;
@@ -72,18 +74,18 @@
       text-decoration: none;
       transition: all .2s;
     }
-    .btn-inv-primary:hover { background: #4a3fd0; transform: translateY(-1px); }
+    .btn-inv-primary:hover { background: var(--indigo-dark); transform: translateY(-1px); }
     .btn-inv-ghost {
       padding: 14px 28px;
-      border: 1px solid rgba(255,255,255,.2);
-      color: rgba(255,255,255,.75);
+      border: 1px solid var(--card-border);
+      color: var(--indigo);
       border-radius: 12px;
       font-weight: 600;
       font-size: 15px;
       text-decoration: none;
       transition: all .2s;
     }
-    .btn-inv-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
+    .btn-inv-ghost:hover { border-color: var(--indigo); background: var(--indigo-light); }
 
     /* ── Pitch label ── */
     .pitch-label {
@@ -210,43 +212,46 @@
 
     /* ── Moat section ── */
     .moat-section {
-      background: linear-gradient(135deg, #0D0D1A 0%, #1A1033 100%);
+      background: var(--bg-soft);
       padding: 80px 24px;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
     }
     .moat-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 16px;
       margin-top: 48px;
     }
     @media (max-width: 720px) { .moat-grid { grid-template-columns: 1fr; } }
     .moat-card {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
+      background: #fff;
+      border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 36px 32px;
+      box-shadow: var(--card-shadow);
     }
     .moat-card-num {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.3);
+      color: var(--text-light);
       margin-bottom: 20px;
     }
     .moat-card h3 {
       font-size: 22px;
       font-weight: 800;
-      color: #fff;
+      color: var(--text-dark);
       margin-bottom: 12px;
       line-height: 1.25;
     }
     .moat-card p {
       font-size: 14px;
-      color: rgba(255,255,255,.5);
+      color: var(--text-mid);
       line-height: 1.65;
     }
-    .moat-card .moat-accent { color: #5B4EE8; }
+    .moat-card .moat-accent { color: var(--indigo); }
 
     /* ── Business model ── */
     .biz-flow {
@@ -368,20 +373,21 @@
 
     /* ── CTA ── */
     .inv-cta {
-      background: linear-gradient(160deg, #0D0D1A 0%, #1A1033 100%);
+      background: var(--bg-soft);
       padding: 100px 24px;
       text-align: center;
+      border-top: 1px solid var(--card-border);
     }
     .inv-cta h2 {
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
-      color: #fff;
+      color: var(--text-dark);
       margin-bottom: 16px;
       letter-spacing: -.02em;
     }
     .inv-cta p {
       font-size: 17px;
-      color: rgba(255,255,255,.5);
+      color: var(--text-mid);
       max-width: 440px;
       margin: 0 auto 36px;
       line-height: 1.65;
@@ -395,7 +401,7 @@
     .inv-cta-email {
       margin-top: 20px;
       font-size: 13px;
-      color: rgba(255,255,255,.3);
+      color: var(--text-light);
     }
 
     /* ── Section spacing ── */
@@ -424,8 +430,6 @@
       max-width: 540px;
       line-height: 1.65;
     }
-    .moat-section .pitch-section-header h2 { color: #fff; }
-    .moat-section .pitch-section-header p { color: rgba(255,255,255,.5); }
 
     .bg-soft-inv { background: #F8F8FB; }
 
@@ -655,7 +659,7 @@
 <section class="moat-section">
   <div class="pitch-section-inner">
     <div class="pitch-section-header">
-      <div class="pitch-label" style="color:rgba(255,255,255,.4)" data-en="Why we win" data-es="Por qué ganamos">Why we win</div>
+      <div class="pitch-label" data-en="Why we win" data-es="Por qué ganamos">Why we win</div>
       <h2 data-en="Three moats competitors<br><span style='color:#5B4EE8'>can't easily copy.</span>" data-es="Tres ventajas que los competidores<br><span style='color:#5B4EE8'>no pueden copiar fácilmente.</span>">Three moats competitors<br><span style="color:#5B4EE8">can't easily copy.</span></h2>
       <p data-en="Being first matters. But being first with a data advantage and a category lock-in matters more." data-es="Ser primero importa. Pero ser primero con una ventaja de datos y un bloqueo de categoría importa más.">Being first matters. But being first with a data advantage and a category lock-in matters more.</p>
     </div>
@@ -871,7 +875,7 @@
 <section class="moat-section">
   <div class="pitch-section-inner">
     <div class="pitch-section-header">
-      <div class="pitch-label" style="color:rgba(255,255,255,.4)" data-en="Why we win · ERP" data-es="Por qué ganamos · ERP">Why we win · ERP</div>
+      <div class="pitch-label" data-en="Why we win · ERP" data-es="Por qué ganamos · ERP">Why we win · ERP</div>
       <h2 data-en="Three reasons this<br><span style='color:#5B4EE8'>is hard to copy.</span>" data-es="Tres razones por las que<br><span style='color:#5B4EE8'>es difícil de copiar.</span>">Three reasons this<br><span style="color:#5B4EE8">is hard to copy.</span></h2>
       <p data-en="Two products, one operating discipline. What we learn building one sharpens the other." data-es="Dos productos, una misma disciplina operativa. Lo que aprendemos construyendo uno afila al otro.">Two products, one operating discipline. What we learn building one sharpens the other.</p>
     </div>
