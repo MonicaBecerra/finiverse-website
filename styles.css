@@ -601,15 +601,27 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   flex-wrap: wrap;
 }
 .trust-bar-inner .trust-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 12px;
+  line-height: 1;
   font-weight: 500;
   color: var(--text-mid);
   white-space: nowrap;
 }
-.trust-bar-inner .trust-item .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
+.trust-bar-inner .trust-item .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
+
+@media (max-width: 760px) {
+  .trust-bar-inner {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .trust-bar-inner::-webkit-scrollbar { display: none; }
+}
 
 /* ---------- Feature cards ---------- */
 .feature-icon {
