@@ -697,9 +697,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: 14px 4px 14px 14px;
 }
 .bubble-highlight {
-  background: linear-gradient(135deg, rgba(0,212,200,.08), rgba(91,78,232,.08));
-  border: 1px solid rgba(0,212,200,.2);
-  color: var(--text-mid);
+  background: linear-gradient(135deg, rgba(0,212,200,.16), rgba(91,78,232,.16));
+  border: 1px solid rgba(91,78,232,.28);
+  color: var(--text-dark);
+  font-weight: 500;
   border-radius: 14px;
 }
 
