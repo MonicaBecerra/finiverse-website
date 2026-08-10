@@ -1827,3 +1827,104 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .trust-item { border-right: none; border-bottom: 1px solid var(--card-border); }
   .trust-item:last-child { border-bottom: none; }
 }
+
+/* ═══════════════════════════════════════════════════
+   VISUAL DIFFERENTIATION — makes Finiverse visually
+   distinct from generic fintech landing pages
+   ═══════════════════════════════════════════════════ */
+
+/* Hero: subtle dot-grid overlay — no other page has this */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-inner { position: relative; z-index: 1; }
+
+/* Pain cards: personal / diary-entry style instead of generic white box */
+.pain-card {
+  background: linear-gradient(135deg, #faf5ff 0%, #f0edff 100%);
+  border: 1px solid rgba(91,78,232,.13);
+  border-left: 3px solid var(--indigo);
+  font-style: italic;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.pain-card:hover {
+  transform: translateX(5px);
+  box-shadow: -4px 4px 20px rgba(91,78,232,.1);
+}
+.pain-check {
+  background: var(--indigo);
+  color: #fff;
+  font-style: normal;
+}
+
+/* Recognition banner: warm glow instead of flat dark */
+.recognition-banner {
+  background: linear-gradient(135deg, #13102b 0%, #0a1520 55%, #0e1628 100%);
+  border: 1px solid rgba(91,78,232,.22);
+  position: relative;
+  overflow: hidden;
+}
+.recognition-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 55%; height: 140%;
+  background: radial-gradient(ellipse, rgba(91,78,232,.28) 0%, transparent 68%);
+  pointer-events: none;
+}
+.recognition-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -50%; right: -10%;
+  width: 50%; height: 140%;
+  background: radial-gradient(ellipse, rgba(0,212,200,.16) 0%, transparent 68%);
+  pointer-events: none;
+}
+.recognition-banner > * { position: relative; z-index: 1; }
+
+/* Feature section: warm purple-teal gradient instead of cold #F8F8FF */
+#features { background: linear-gradient(160deg, #fdfcff 0%, #f6f4ff 45%, #f0fdfb 100%) !important; }
+
+/* Feature rows: color-coded by section */
+/* Track — indigo (default, already styled) */
+#features .home-feat-row:nth-child(2) .home-feat-kicker {
+  background: rgba(91,78,232,.1); color: var(--indigo);
+}
+
+/* Feel — violet/purple */
+#features .home-feat-row:nth-child(3) .home-feat-kicker {
+  background: rgba(139,92,246,.12); color: #7c3aed;
+}
+#features .home-feat-row:nth-child(3) .hf-check { background: #7c3aed; }
+#features .home-feat-row:nth-child(3) .phone-frame {
+  box-shadow: 0 24px 64px rgba(139,92,246,.28), 0 0 0 1px rgba(255,255,255,.06);
+}
+#features .home-feat-row:nth-child(3) .home-feat-text h3 { color: #4c1d95; }
+#features .home-feat-row:nth-child(3) { border-top-color: rgba(139,92,246,.12); }
+
+/* Goals — mint/teal */
+#features .home-feat-row:nth-child(4) .home-feat-kicker {
+  background: rgba(16,185,129,.1); color: #047857;
+}
+#features .home-feat-row:nth-child(4) .hf-check { background: var(--mint); }
+#features .home-feat-row:nth-child(4) .phone-frame {
+  box-shadow: 0 24px 64px rgba(16,185,129,.25), 0 0 0 1px rgba(255,255,255,.06);
+}
+#features .home-feat-row:nth-child(4) .home-feat-text h3 { color: #064e3b; }
+#features .home-feat-row:nth-child(4) { border-top-color: rgba(16,185,129,.12); }
+
+/* Hover: feature rows — keep color-coded glow on hover */
+#features .home-feat-row:nth-child(3):hover .phone-frame {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(139,92,246,.35), 0 0 0 1px rgba(255,255,255,.08);
+}
+#features .home-feat-row:nth-child(4):hover .phone-frame {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(16,185,129,.35), 0 0 0 1px rgba(255,255,255,.08);
+}
