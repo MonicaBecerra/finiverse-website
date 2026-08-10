@@ -458,8 +458,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: center;
 }
 .hero-tag {
@@ -1927,57 +1927,4 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 #features .home-feat-row:nth-child(4):hover .phone-frame {
   transform: translateY(-6px);
   box-shadow: 0 28px 64px rgba(16,185,129,.35), 0 0 0 1px rgba(255,255,255,.08);
-}
-
-/* ─── Hero: 3D phone tilt + floating stat chips ─── */
-.hero-phone-tilt {
-  width: 260px;
-  transform: perspective(1100px) rotateY(-10deg) rotateX(4deg);
-  transition: transform 0.5s ease;
-}
-.phone-wrap:hover .hero-phone-tilt {
-  transform: perspective(1100px) rotateY(-4deg) rotateX(1deg);
-}
-
-.hero-float {
-  position: absolute;
-  background: rgba(255,255,255,.96);
-  color: #13113a;
-  border-radius: 100px;
-  padding: 9px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 8px 28px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.12);
-  white-space: nowrap;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 10;
-}
-.hero-float strong { font-weight: 800; }
-
-.hero-float-streak  {
-  top: 12%;
-  right: -8px;
-  animation: hfloat 4s ease-in-out infinite;
-}
-.hero-float-mood {
-  top: 48%;
-  left: -12px;
-  animation: hfloat 4s ease-in-out infinite 1.4s;
-}
-.hero-float-insight {
-  bottom: 16%;
-  right: 10px;
-  animation: hfloat 4s ease-in-out infinite 2.8s;
-}
-
-@keyframes hfloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-7px); }
-}
-
-@media (max-width: 860px) {
-  .hero-float { display: none; }
-  .hero-phone-tilt { transform: none; width: 220px; }
-  .hero-inner { grid-template-columns: 1fr; }
 }
