@@ -185,6 +185,11 @@
     .gami-table .g-yes { color: #10B981; font-weight: 700; }
     .gami-table .g-no  { color: #D1D5DB; }
     .gami-table .sam-col { background: rgba(91,78,232,.04); }
+    .gami-table .compare-group td {
+      background: var(--bg-soft);
+      font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--text-light); padding: 8px 12px;
+    }
   </style>
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
@@ -314,7 +319,7 @@
     <!-- Tab selector -->
     <div class="tabs-bar">
       <button class="tab-btn active" onclick="showTab('pricing')" data-en="💰 Plans" data-es="💰 Planes">💰 Plans</button>
-      <button class="tab-btn" onclick="showTab('gamification')" data-en="🎮 Gamification" data-es="🎮 Gamificación">🎮 Gamification</button>
+      <button class="tab-btn" onclick="showTab('gamification')" data-en="📊 Compare all" data-es="📊 Comparar todo">📊 Compare all</button>
     </div>
 
     <!-- PRICING TAB -->
@@ -437,19 +442,19 @@
       </div>
     </div>
 
-    <!-- GAMIFICATION TAB -->
+    <!-- COMPARE ALL TAB -->
     <div class="tab-panel" id="tab-gamification">
-      <div style="max-width:740px;margin:0 auto">
+      <div style="max-width:820px;margin:0 auto">
         <div class="text-center mb-48" style="margin-bottom:32px">
-          <h2 class="section-title" data-en="Level up your <span>financial game</span>." data-es="Sube de nivel en tu <span>juego financiero</span>.">Level up your <span>financial game</span>.</h2>
-          <p class="section-sub" style="margin:12px auto 0" data-en="Finiverse uses XP, levels, medals, and achievements to turn financial habits into something you actually want to do." data-es="Finiverse usa XP, niveles, medallas y logros para convertir los hábitos financieros en algo que realmente quieres hacer.">Finiverse uses XP, levels, medals, and achievements to turn financial habits into something you actually want to do.</p>
+          <h2 class="section-title" data-en="Every plan, <span>side by side</span>." data-es="Todos los planes, <span>lado a lado</span>.">Every plan, <span>side by side</span>.</h2>
+          <p class="section-sub" style="margin:12px auto 0" data-en="Every feature and benefit across all four plans, so you can see exactly what changes when you upgrade." data-es="Cada función y beneficio en los cuatro planes, para que veas exactamente qué cambia al actualizar.">Every feature and benefit across all four plans, so you can see exactly what changes when you upgrade.</p>
         </div>
 
         <div style="overflow-x:auto">
           <table class="gami-table">
             <thead>
               <tr>
-                <th style="text-align:left" data-en="🎮 Feature" data-es="🎮 Función">🎮 Feature</th>
+                <th style="text-align:left" data-en="Feature" data-es="Función">Feature</th>
                 <th data-en="Free" data-es="Gratis">Free 🌱</th>
                 <th data-en="Early Bird" data-es="Early Bird">Early Bird ⭐</th>
                 <th data-en="Premium" data-es="Premium">Premium 💜</th>
@@ -457,9 +462,65 @@
               </tr>
             </thead>
             <tbody>
+              <tr class="compare-group"><td colspan="5" data-en="Core tracking" data-es="Registro base">Core tracking</td></tr>
+              <tr>
+                <td data-en="💰 Income &amp; expenses" data-es="💰 Ingresos y gastos">💰 Income &amp; expenses</td>
+                <td class="g-yes">✓ Unlimited</td><td class="g-yes">✓ Unlimited</td><td class="g-yes">✓ Unlimited</td><td class="sam-col g-yes">✓ Unlimited</td>
+              </tr>
+              <tr>
+                <td data-en="😊 Mood check-ins" data-es="😊 Registros de ánimo">😊 Mood check-ins</td>
+                <td data-en="5 / month" data-es="5 / mes">5 / month</td><td class="g-yes">✓ Unlimited</td><td class="g-yes">✓ Unlimited</td><td class="sam-col g-yes">✓ Unlimited</td>
+              </tr>
+              <tr>
+                <td data-en="🎁 Wish list items" data-es="🎁 Deseos en lista">🎁 Wish list items</td>
+                <td>3</td><td>10</td><td>10</td><td class="sam-col">10</td>
+              </tr>
+              <tr class="compare-group"><td colspan="5" data-en="Sam AI &amp; insights" data-es="Sam IA e insights">Sam AI &amp; insights</td></tr>
+              <tr>
+                <td data-en="🤖 Sam AI conversations" data-es="🤖 Conversaciones con Sam IA">🤖 Sam AI conversations</td>
+                <td class="g-no">✕</td><td data-en="30 / month" data-es="30 / mes">30 / month</td><td data-en="100 / month" data-es="100 / mes">100 / month</td><td class="sam-col" style="color:var(--indigo);font-weight:700" data-en="Unlimited" data-es="Ilimitado">Unlimited</td>
+              </tr>
+              <tr>
+                <td data-en="🧠 ML-powered recommendations" data-es="🧠 Recomendaciones ML">🧠 ML-powered recommendations</td>
+                <td class="g-no">✕</td><td class="g-yes">✓</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🎯 Personalized financial context" data-es="🎯 Contexto financiero personalizado">🎯 Personalized financial context</td>
+                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-no">✕</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🔮 What-if simulations" data-es="🔮 Simulaciones hipotéticas">🔮 What-if simulations</td>
+                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-no">✕</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr class="compare-group"><td colspan="5" data-en="Tools &amp; support" data-es="Herramientas y soporte">Tools &amp; support</td></tr>
+              <tr>
+                <td data-en="🌍 Multi-currency support" data-es="🌍 Soporte multi-moneda">🌍 Multi-currency support</td>
+                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="📄 PDF export" data-es="📄 Exportar PDF">📄 PDF export</td>
+                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🆘 SOS button" data-es="🆘 Botón SOS">🆘 SOS button</td>
+                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🙋 Priority support" data-es="🙋 Soporte prioritario">🙋 Priority support</td>
+                <td class="g-no">✕</td><td class="g-yes">✓</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr>
+                <td data-en="🚀 Early access to new features" data-es="🚀 Acceso anticipado a nuevas funciones">🚀 Early access to new features</td>
+                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-no">✕</td><td class="sam-col g-yes">✓</td>
+              </tr>
+              <tr class="compare-group"><td colspan="5" data-en="Gamification &amp; rewards" data-es="Gamificación y recompensas">Gamification &amp; rewards</td></tr>
               <tr>
                 <td data-en="🏅 Medals" data-es="🏅 Medallas">🏅 Medals</td>
                 <td>🥈</td><td>🥇</td><td>💎</td><td class="sam-col">💎</td>
+              </tr>
+              <tr>
+                <td data-en="🎭 Animated avatars" data-es="🎭 Avatares animados">🎭 Animated avatars</td>
+                <td>1</td><td>2</td><td>4</td><td class="sam-col" style="color:var(--indigo);font-weight:700" data-en="6+ with voice" data-es="6+ con voz">6+ with voice</td>
               </tr>
               <tr>
                 <td data-en="🌟 Seasonal events" data-es="🌟 Eventos estacionales">🌟 Seasonal events</td>
@@ -470,15 +531,7 @@
                 <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
               </tr>
               <tr>
-                <td data-en="🎭 Animated avatars" data-es="🎭 Avatares animados">🎭 Animated avatars</td>
-                <td>1</td><td>2</td><td>4</td><td class="sam-col" style="color:var(--indigo);font-weight:700">6+</td>
-              </tr>
-              <tr>
                 <td data-en="⭐ Exclusive Sam AI events" data-es="⭐ Eventos exclusivos Sam IA">⭐ Exclusive Sam AI events</td>
-                <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-no">✕</td><td class="sam-col g-yes">✓</td>
-              </tr>
-              <tr>
-                <td data-en="🔊 Avatar with voice" data-es="🔊 Avatar con voz">🔊 Avatar with voice</td>
                 <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-no">✕</td><td class="sam-col g-yes">✓</td>
               </tr>
               <tr>
@@ -490,7 +543,7 @@
         </div>
 
         <div style="text-align:center;margin-top:32px">
-          <button onclick="showTab('pricing')" class="btn btn-primary" data-en="See all plans →" data-es="Ver todos los planes →">See all plans →</button>
+          <button onclick="showTab('pricing')" class="btn btn-primary" data-en="See plan pricing →" data-es="Ver precios de planes →">See plan pricing →</button>
         </div>
       </div>
     </div>
