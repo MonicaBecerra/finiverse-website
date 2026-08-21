@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Traditional Finance Advice Ignores Neurodivergent People · Finiverse</title>
+  <meta name="description" content="'Just track every expense.' 'Automate your savings.' Standard finance advice assumes a neurotypical brain. Here's why that's a problem, and what actually works." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
+  <link rel="icon" type="image/png" href="https://finiverseapp.com/images/app-icon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/app-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Finiverse" />
+  <meta property="og:url" content="https://finiverseapp.com/blog-neurodivergent-finance.html" />
+  <meta property="og:title" content="Why Traditional Finance Advice Ignores Neurodivergent People" />
+  <meta property="og:description" content="'Just track every expense.' 'Automate your savings.' Standard advice assumes a neurotypical brain. Here's why that's a problem, and what actually works." />
+  <meta property="og:image" content="https://finiverseapp.com/images/og-icon.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@hello_finiverse" />
+  <meta name="twitter:title" content="Why Traditional Finance Advice Ignores Neurodivergent People" />
+  <meta name="twitter:description" content="Standard finance advice assumes a neurotypical brain. Here's why that's a problem." />
+  <meta name="twitter:image" content="https://finiverseapp.com/images/og-icon.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K25B6JP5S6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K25B6JP5S6', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  </script>
+</head>
+<body>
+
+<!-- Sticky download bar -->
+<div class="dl-sticky-bar" id="dlStickyBar">
+  <div class="dl-sticky-bar-info">
+    <img src="images/app-icon.png" alt="Finiverse" />
+    <div class="dl-sticky-bar-text">
+      <strong data-en="Try Finiverse free" data-es="Prueba Finiverse gratis">Try Finiverse free</strong>
+      <span data-en="No credit card needed" data-es="Sin tarjeta de crédito">No credit card needed</span>
+    </div>
+  </div>
+  <div class="dl-sticky-bar-actions">
+    <a href="https://apps.apple.com/app/finiverse/id6648789225" class="dl-sticky-bar-btn" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+    <button class="dl-sticky-bar-close" id="dlStickyBarClose" aria-label="Close">✕</button>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
+      <span class="nav-logo-text">Finiverse</span>
+    </a>
+    <div class="nav-links" id="navMenu">
+      <a href="/" data-en="Home" data-es="Inicio">Home</a>
+
+      <!-- Product dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span data-en="Product" data-es="Producto">Product</span>
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
+          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
+          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
+        </div>
+      </div>
+
+      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
+
+      <!-- Resources dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span data-en="Resources" data-es="Recursos">Resources</span>
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-panel">
+          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
+          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
+          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
+          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
+        </div>
+      </div>
+
+      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
+      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="legal-page">
+  <div class="legal-container">
+
+    <div class="legal-header">
+      <div class="badge-light" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</div>
+      <h1 data-en="Why Traditional Finance Advice Ignores Neurodivergent People" data-es="Por qué los consejos financieros tradicionales ignoran a las personas neurodivergentes">Why Traditional Finance Advice Ignores Neurodivergent People</h1>
+      <p class="legal-date" data-en="Published: August 21, 2026 · 8 min read" data-es="Publicado: 21 de agosto de 2026 · 8 min de lectura">Published: August 21, 2026 · 8 min read</p>
+      <p data-en="&ldquo;Just track every expense.&rdquo; &ldquo;Automate your savings.&rdquo; &ldquo;Pay yourself first.&rdquo; These are the cornerstones of personal finance advice, and for millions of people, they don't work. Not because those people aren't trying, but because the advice was never designed with their brain in mind." data-es="&ldquo;Solo registra cada gasto.&rdquo; &ldquo;Automatiza tus ahorros.&rdquo; &ldquo;Págale primero a ti mismo.&rdquo; Estos son los pilares del consejo financiero personal, y para millones de personas, simplemente no funcionan. No porque esas personas no lo intenten, sino porque el consejo nunca fue diseñado pensando en su cerebro.">&ldquo;Just track every expense.&rdquo; &ldquo;Automate your savings.&rdquo; &ldquo;Pay yourself first.&rdquo; These are the cornerstones of personal finance advice, and for millions of people, they don't work. Not because those people aren't trying, but because the advice was never designed with their brain in mind.</p>
+    </div>
+
+    <div class="legal-body">
+
+      <div class="legal-section">
+        <h2 data-en="The assumption buried in every finance book" data-es="El supuesto enterrado en cada libro de finanzas">The assumption buried in every finance book</h2>
+        <p data-en="Mainstream personal finance is built on a set of cognitive assumptions that go almost entirely unstated. It assumes you can hold a budget in working memory while standing in a checkout line. It assumes monthly reviews feel like a useful ritual rather than a source of dread. It assumes you can look at a number, feel its weight, and make a calm decision about it. It assumes that once a system is set up, you'll remember it exists." data-es="Las finanzas personales del mainstream se construyen sobre un conjunto de supuestos cognitivos que casi nunca se mencionan. Asume que puedes tener un presupuesto en la memoria de trabajo mientras estás en la caja del supermercado. Asume que las revisiones mensuales se sienten como un ritual útil y no como una fuente de angustia. Asume que puedes mirar un número, sentir su peso, y tomar una decisión tranquila sobre él. Asume que una vez que el sistema está configurado, recordarás que existe.">Mainstream personal finance is built on a set of cognitive assumptions that go almost entirely unstated. It assumes you can hold a budget in working memory while standing in a checkout line. It assumes monthly reviews feel like a useful ritual rather than a source of dread. It assumes you can look at a number, feel its weight, and make a calm decision about it. It assumes that once a system is set up, you'll remember it exists.</p>
+        <p data-en="These assumptions describe a specific type of brain, one with strong executive function, low anxiety around numbers, and a reliable working memory. That brain exists. It's just not the only one." data-es="Estos supuestos describen un tipo específico de cerebro, uno con una función ejecutiva sólida, poca ansiedad ante los números, y una memoria de trabajo confiable. Ese cerebro existe. Solo que no es el único.">These assumptions describe a specific type of brain, one with strong executive function, low anxiety around numbers, and a reliable working memory. That brain exists. It's just not the only one.</p>
+        <p data-en="An estimated 15&ndash;20% of the global population is neurodivergent, meaning their brain processes information differently from the dominant norm. That includes people with ADHD, anxiety disorders, dyscalculia, autism, dyslexia, and combinations of these. The tools built for the other 80% often become obstacles for this group, not because they're complicated, but because they're designed around cognitive strengths that aren't equally distributed." data-es="Se estima que entre el 15 y el 20% de la población mundial es neurodivergente, lo que significa que su cerebro procesa la información de forma diferente a la norma dominante. Eso incluye personas con TDAH, trastornos de ansiedad, discalculia, autismo, dislexia, y combinaciones de estos. Las herramientas construidas para el otro 80% a menudo se convierten en obstáculos para este grupo, no porque sean complicadas, sino porque están diseñadas alrededor de fortalezas cognitivas que no se distribuyen de igual manera.">An estimated 15&ndash;20% of the global population is neurodivergent, meaning their brain processes information differently from the dominant norm. That includes people with ADHD, anxiety disorders, dyscalculia, autism, dyslexia, and combinations of these. The tools built for the other 80% often become obstacles for this group, not because they're complicated, but because they're designed around cognitive strengths that aren't equally distributed.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-en="How ADHD breaks the standard financial model" data-es="Cómo el TDAH rompe el modelo financiero estándar">How ADHD breaks the standard financial model</h2>
+        <p data-en="ADHD affects executive function, the cluster of mental skills that handle planning, impulse control, working memory, and time perception. These are exactly the skills that most personal finance systems depend on." data-es="El TDAH afecta la función ejecutiva, el conjunto de habilidades mentales que gestiona la planificación, el control de impulsos, la memoria de trabajo y la percepción del tiempo. Estas son exactamente las habilidades de las que depende la mayoría de los sistemas de finanzas personales.">ADHD affects executive function, the cluster of mental skills that handle planning, impulse control, working memory, and time perception. These are exactly the skills that most personal finance systems depend on.</p>
+        <p data-en="Take the advice to &ldquo;automate your savings.&rdquo; On the surface, this seems perfectly suited to an ADHD brain, set it up once and forget it. But the same impulsivity that makes impulse spending common also makes it likely that an overdraft will wipe out the automatic transfer. The advice also leaves out what to do when something goes wrong, when the account is empty, or when the automation quietly fails for three months and nobody noticed." data-es="Tomemos el consejo de &ldquo;automatizar tus ahorros.&rdquo; A primera vista, parece perfectamente adecuado para un cerebro con TDAH, configúralo una vez y olvídalo. Pero la misma impulsividad que hace frecuente el gasto impulsivo también hace probable que un sobregiro elimine la transferencia automática. El consejo también omite qué hacer cuando algo sale mal, cuando la cuenta está vacía, o cuando la automatización falla en silencio durante tres meses y nadie se da cuenta.">Take the advice to &ldquo;automate your savings.&rdquo; On the surface, this seems perfectly suited to an ADHD brain, set it up once and forget it. But the same impulsivity that makes impulse spending common also makes it likely that an overdraft will wipe out the automatic transfer. The advice also leaves out what to do when something goes wrong, when the account is empty, or when the automation quietly fails for three months and nobody noticed.</p>
+        <p data-en="Research on ADHD consistently shows elevated <strong>delay discounting</strong>, a tendency to strongly prefer an immediate smaller reward over a larger future one. This isn't a character flaw; it reflects genuine differences in how dopamine signals value in the brain. A savings goal that pays off in five years is neurologically difficult to prioritize over a purchase that feels good right now. Standard advice rarely acknowledges this asymmetry, and the person is left feeling like they simply lack willpower." data-es="La investigación sobre TDAH muestra consistentemente un mayor <strong>descuento por demora</strong>, una tendencia a preferir fuertemente una recompensa inmediata más pequeña sobre una mayor en el futuro. Esto no es un defecto de carácter; refleja diferencias genuinas en cómo la dopamina señala el valor en el cerebro. Una meta de ahorro que se paga en cinco años es neurológicamente difícil de priorizar sobre una compra que se siente bien ahora mismo. El consejo estándar rara vez reconoce esta asimetría, y la persona termina sintiéndose como si simplemente careciera de fuerza de voluntad.">Research on ADHD consistently shows elevated <strong>delay discounting</strong>, a tendency to strongly prefer an immediate smaller reward over a larger future one. This isn't a character flaw; it reflects genuine differences in how dopamine signals value in the brain. A savings goal that pays off in five years is neurologically difficult to prioritize over a purchase that feels good right now. Standard advice rarely acknowledges this asymmetry, and the person is left feeling like they simply lack willpower.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-en="How financial anxiety rewires the whole equation" data-es="Cómo la ansiedad financiera reconfigura toda la ecuación">How financial anxiety rewires the whole equation</h2>
+        <p data-en="For people with anxiety, the standard advice to &ldquo;track every expense&rdquo; can backfire in a specific way. Tracking creates visibility. Visibility means confronting numbers. Confronting numbers activates a threat response in a brain already primed for worry. The result is often avoidance, not because the person doesn't care, but because the emotional cost of opening the banking app is genuinely high." data-es="Para personas con ansiedad, el consejo estándar de &ldquo;registrar cada gasto&rdquo; puede tener el efecto contrario de una manera específica. El registro crea visibilidad. La visibilidad significa enfrentarse a los números. Enfrentarse a los números activa una respuesta de amenaza en un cerebro ya predispuesto a la preocupación. El resultado suele ser la evitación, no porque a la persona no le importe, sino porque el costo emocional de abrir la app bancaria es genuinamente alto.">For people with anxiety, the standard advice to &ldquo;track every expense&rdquo; can backfire in a specific way. Tracking creates visibility. Visibility means confronting numbers. Confronting numbers activates a threat response in a brain already primed for worry. The result is often avoidance, not because the person doesn't care, but because the emotional cost of opening the banking app is genuinely high.</p>
+        <p data-en="Financial avoidance is well documented in the behavioral economics literature. It tends to compound: the longer you avoid looking, the more it builds up, and the worse you feel about looking, which makes you avoid it further. Standard advice treats this as a discipline problem. It rarely is. It's a nervous system problem, and it needs a different kind of solution." data-es="La evitación financiera está bien documentada en la literatura de economía conductual. Tiende a acumularse: cuanto más tiempo evitas mirar, más se acumula, y peor te sientes al mirar, lo que te hace evitarlo aún más. El consejo estándar lo trata como un problema de disciplina. Rara vez lo es. Es un problema del sistema nervioso, y necesita un tipo diferente de solución.">Financial avoidance is well documented in the behavioral economics literature. It tends to compound: the longer you avoid looking, the more it builds up, and the worse you feel about looking, which makes you avoid it further. Standard advice treats this as a discipline problem. It rarely is. It's a nervous system problem, and it needs a different kind of solution.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-en="What dyscalculia does to number-based finance tools" data-es="Lo que la discalculia le hace a las herramientas financieras basadas en números">What dyscalculia does to number-based finance tools</h2>
+        <p data-en="Dyscalculia is a learning difference that affects the ability to understand and work with numbers. It's roughly as common as dyslexia, affecting an estimated 3&ndash;7% of the population, and significantly underdiagnosed. People with dyscalculia often describe numbers as &ldquo;slippery,&rdquo; totals that don't stick, calculations that feel unreliable, and an inability to hold numerical quantities in mind without losing them." data-es="La discalculia es una diferencia de aprendizaje que afecta la capacidad de entender y trabajar con números. Es aproximadamente tan común como la dislexia, afectando a un estimado del 3 al 7% de la población, y está significativamente subdiagnosticada. Las personas con discalculia a menudo describen los números como &ldquo;resbaladizos,&rdquo; totales que no se quedan, cálculos que se sienten poco confiables, y la incapacidad de mantener cantidades numéricas en la mente sin perderlas.">Dyscalculia is a learning difference that affects the ability to understand and work with numbers. It's roughly as common as dyslexia, affecting an estimated 3&ndash;7% of the population, and significantly underdiagnosed. People with dyscalculia often describe numbers as &ldquo;slippery,&rdquo; totals that don't stick, calculations that feel unreliable, and an inability to hold numerical quantities in mind without losing them.</p>
+        <p data-en="Personal finance, as it's usually taught, is almost entirely numerical. Spreadsheet columns, budget percentages, interest rates, payoff timelines. For someone with dyscalculia, these tools require translating information through a broken filter before any decision can be made. This is exhausting and error-prone, which often looks from the outside like carelessness, or not caring about money." data-es="Las finanzas personales, como se enseñan habitualmente, son casi en su totalidad numéricas. Columnas de hojas de cálculo, porcentajes de presupuesto, tasas de interés, plazos de pago. Para alguien con discalculia, estas herramientas requieren traducir información a través de un filtro defectuoso antes de poder tomar cualquier decisión. Esto es agotador y propenso a errores, lo que desde afuera a menudo parece descuido, o falta de interés en el dinero.">Personal finance, as it's usually taught, is almost entirely numerical. Spreadsheet columns, budget percentages, interest rates, payoff timelines. For someone with dyscalculia, these tools require translating information through a broken filter before any decision can be made. This is exhausting and error-prone, which often looks from the outside like carelessness, or not caring about money.</p>
+        <p data-en="What actually helps is changing the representation: bars instead of numbers, color instead of amount, visual size instead of decimal places. A bar that's &ldquo;almost full&rdquo; communicates more reliably than a number that reads &ldquo;$847.23 of $1,000 spent.&rdquo;" data-es="Lo que realmente ayuda es cambiar la representación: barras en lugar de números, color en lugar de cantidad, tamaño visual en lugar de decimales. Una barra que está &ldquo;casi llena&rdquo; comunica de manera más confiable que un número que dice &ldquo;$847.23 de $1,000 gastados.&rdquo;">What actually helps is changing the representation: bars instead of numbers, color instead of amount, visual size instead of decimal places. A bar that's &ldquo;almost full&rdquo; communicates more reliably than a number that reads &ldquo;$847.23 of $1,000 spent.&rdquo;</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-en="What actually works — principles for a wider range of brains" data-es="Lo que realmente funciona, principios para un rango más amplio de cerebros">What actually works — principles for a wider range of brains</h2>
+        <p data-en="None of this means neurodivergent people can't manage money well. It means the tools most commonly recommended weren't built with them in mind. When the design changes, the outcomes change." data-es="Nada de esto significa que las personas neurodivergentes no puedan manejar bien el dinero. Significa que las herramientas más comúnmente recomendadas no fueron construidas pensando en ellas. Cuando el diseño cambia, los resultados cambian.">None of this means neurodivergent people can't manage money well. It means the tools most commonly recommended weren't built with them in mind. When the design changes, the outcomes change.</p>
+        <ul>
+          <li data-en="<strong>Reduce friction at the point of logging.</strong> Every extra tap, field, or decision is a chance for the habit to break. The best time to capture a purchase is immediately after it happens, which means the tool needs to be faster than the moment passes." data-es="<strong>Reduce la fricción en el momento de registrar.</strong> Cada toque, campo o decisión adicional es una oportunidad para que el hábito se rompa. El mejor momento para registrar una compra es inmediatamente después de que ocurre, lo que significa que la herramienta necesita ser más rápida que el momento pasa."><strong>Reduce friction at the point of logging.</strong> Every extra tap, field, or decision is a chance for the habit to break. The best time to capture a purchase is immediately after it happens, which means the tool needs to be faster than the moment passes.</li>
+          <li data-en="<strong>Make feedback immediate, not monthly.</strong> A balance that updates in real time gives a dopamine-compatible signal. A monthly report does not. For brains that discount the future heavily, feedback needs to arrive close to the behavior." data-es="<strong>Haz que la retroalimentación sea inmediata, no mensual.</strong> Un saldo que se actualiza en tiempo real da una señal compatible con la dopamina. Un reporte mensual no lo hace. Para cerebros que descuentan mucho el futuro, la retroalimentación necesita llegar cerca del comportamiento."><strong>Make feedback immediate, not monthly.</strong> A balance that updates in real time gives a dopamine-compatible signal. A monthly report does not. For brains that discount the future heavily, feedback needs to arrive close to the behavior.</li>
+          <li data-en="<strong>Add an emotional layer.</strong> Standard finance tools track what was spent. They rarely track why. For neurodivergent people, the emotional context is often the signal, not the category. Knowing that stress-spending tends to happen on Thursday evenings is more actionable than knowing that &ldquo;dining out&rdquo; is 23% of your budget." data-es="<strong>Agrega una capa emocional.</strong> Las herramientas financieras estándar registran lo que se gastó. Rara vez registran el porqué. Para las personas neurodivergentes, el contexto emocional suele ser la señal, no la categoría. Saber que el gasto por estrés tiende a ocurrir los jueves por la noche es más accionable que saber que &ldquo;comer fuera&rdquo; es el 23% de tu presupuesto."><strong>Add an emotional layer.</strong> Standard finance tools track what was spent. They rarely track why. For neurodivergent people, the emotional context is often the signal, not the category. Knowing that stress-spending tends to happen on Thursday evenings is more actionable than knowing that &ldquo;dining out&rdquo; is 23% of your budget.</li>
+          <li data-en="<strong>Replace numbers with visuals where possible.</strong> Progress bars, color signals, and proportion-based displays communicate financial state to more types of brains than numerical totals do." data-es="<strong>Reemplaza los números con visuales donde sea posible.</strong> Las barras de progreso, las señales de color y los displays basados en proporción comunican el estado financiero a más tipos de cerebros de lo que lo hacen los totales numéricos."><strong>Replace numbers with visuals where possible.</strong> Progress bars, color signals, and proportion-based displays communicate financial state to more types of brains than numerical totals do.</li>
+          <li data-en="<strong>Build in friction before impulsive spending, not after.</strong> A wishlist that adds a waiting period is more compatible with how an ADHD brain works than a tracking tool that counts up after the fact. The pause needs to happen before the purchase, not during the guilt that comes afterward." data-es="<strong>Agrega fricción antes del gasto impulsivo, no después.</strong> Una wishlist que agrega un período de espera es más compatible con cómo funciona un cerebro con TDAH que una herramienta de seguimiento que cuenta después. La pausa necesita ocurrir antes de la compra, no durante la culpa que viene después."><strong>Build in friction before impulsive spending, not after.</strong> A wishlist that adds a waiting period is more compatible with how an ADHD brain works than a tracking tool that counts up after the fact. The pause needs to happen before the purchase, not during the guilt that comes afterward.</li>
+          <li data-en="<strong>Never lecture.</strong> Shame shuts down behavior change. The most effective financial support for people with anxiety or executive function differences is non-judgmental, specific, and brief." data-es="<strong>Nunca sermonees.</strong> La vergüenza paraliza el cambio de comportamiento. El apoyo financiero más efectivo para personas con ansiedad o diferencias en la función ejecutiva es sin juicios, específico y breve."><strong>Never lecture.</strong> Shame shuts down behavior change. The most effective financial support for people with anxiety or executive function differences is non-judgmental, specific, and brief.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-en="The problem isn't the person. It's the design." data-es="El problema no es la persona. Es el diseño.">The problem isn't the person. It's the design.</h2>
+        <p data-en="When standard financial advice fails for neurodivergent people, the failure is usually diagnosed as a lack of motivation, discipline, or effort. The more accurate diagnosis is a mismatch between the tool and the brain using it." data-es="Cuando los consejos financieros estándar fallan para las personas neurodivergentes, el fracaso generalmente se diagnostica como falta de motivación, disciplina o esfuerzo. El diagnóstico más preciso es una incompatibilidad entre la herramienta y el cerebro que la usa.">When standard financial advice fails for neurodivergent people, the failure is usually diagnosed as a lack of motivation, discipline, or effort. The more accurate diagnosis is a mismatch between the tool and the brain using it.</p>
+        <p data-en="Good financial tools should adapt to the person, not require the person to adapt to the tool. That means acknowledging emotional context, building feedback loops that work with dopamine rather than against it, reducing the cognitive load of routine financial decisions, and removing judgment entirely from the interface." data-es="Las buenas herramientas financieras deben adaptarse a la persona, no requerir que la persona se adapte a la herramienta. Eso significa reconocer el contexto emocional, construir ciclos de retroalimentación que funcionen con la dopamina en lugar de en contra de ella, reducir la carga cognitiva de las decisiones financieras rutinarias, y eliminar completamente el juicio de la interfaz.">Good financial tools should adapt to the person, not require the person to adapt to the tool. That means acknowledging emotional context, building feedback loops that work with dopamine rather than against it, reducing the cognitive load of routine financial decisions, and removing judgment entirely from the interface.</p>
+        <p data-en="That's a design problem. And design problems have design solutions." data-es="Ese es un problema de diseño. Y los problemas de diseño tienen soluciones de diseño.">That's a design problem. And design problems have design solutions.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-en="Sources" data-es="Fuentes">Sources</h2>
+        <ul style="font-size:14px;color:var(--text-light)">
+          <li data-en="Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolve. Guilford Press." data-es="Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolve. Guilford Press.">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolve. Guilford Press.</li>
+          <li data-en="Beauchaine, T. P., Ben-David, I., &amp; Bos, M. (2020). ADHD, delay discounting, and risky financial behaviors. PLOS ONE." data-es="Beauchaine, T. P., Ben-David, I., &amp; Bos, M. (2020). ADHD, delay discounting, and risky financial behaviors. PLOS ONE.">Beauchaine, T. P., Ben-David, I., &amp; Bos, M. (2020). ADHD, delay discounting, and risky financial behaviors. PLOS ONE.</li>
+          <li data-en="Butterworth, B. (2019). Dyscalculia: From Science to Education. Routledge." data-es="Butterworth, B. (2019). Dyscalculia: From Science to Education. Routledge.">Butterworth, B. (2019). Dyscalculia: From Science to Education. Routledge.</li>
+          <li data-en="Rick, S. I., Cryder, C. E., &amp; Loewenstein, G. (2008). Tightwads and spendthrifts. Journal of Consumer Research." data-es="Rick, S. I., Cryder, C. E., &amp; Loewenstein, G. (2008). Tightwads and spendthrifts. Journal of Consumer Research.">Rick, S. I., Cryder, C. E., &amp; Loewenstein, G. (2008). Tightwads and spendthrifts. Journal of Consumer Research.</li>
+          <li data-en="Armstrong, T. (2010). The Power of Neurodiversity. Da Capo Press." data-es="Armstrong, T. (2010). The Power of Neurodiversity. Da Capo Press.">Armstrong, T. (2010). The Power of Neurodiversity. Da Capo Press.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;background:var(--indigo-light);border-radius:20px;padding:40px 32px">
+      <h3 style="font-size:22px;font-weight:800;color:var(--text-dark);margin:0 0 8px" data-en="Built for the way your brain actually works." data-es="Construido para la forma en que tu cerebro realmente funciona.">Built for the way your brain actually works.</h3>
+      <p style="font-size:15px;color:var(--text-mid);margin:0 0 24px" data-en="Finiverse tracks emotion alongside money, keeps things visual, and never lectures. Free to start, no bank sync required." data-es="Finiverse registra la emoción junto con el dinero, mantiene todo visual, y nunca sermonea. Gratis para empezar, sin conexión bancaria.">Finiverse tracks emotion alongside money, keeps things visual, and never lectures. Free to start, no bank sync required.</p>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-lg" target="_blank" rel="noopener" data-en="Download Finiverse free →" data-es="Descargar Finiverse gratis →">Download Finiverse free →</a>
+      <p style="margin-top:16px"><a href="resources.html" data-en="← Back to Guides &amp; Resources" data-es="← Volver a Guías y Recursos">← Back to Guides &amp; Resources</a></p>
+    </div>
+
+  </div>
+</main>
+
+<footer id="site-footer" class="footer"></footer>
+
+<script src="footer.js"></script>
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script src="inapp-notice.js"></script>
+<script>
+(function () {
+  const bar = document.getElementById('dlStickyBar');
+  const closeBtn = document.getElementById('dlStickyBarClose');
+  if (!bar || !closeBtn) return;
+  if (sessionStorage.getItem('dlStickyBarDismissed')) return;
+
+  function onScroll() {
+    if (window.scrollY > 500) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  closeBtn.addEventListener('click', () => {
+    bar.classList.remove('visible');
+    bar.style.display = 'none';
+    sessionStorage.setItem('dlStickyBarDismissed', '1');
+  });
+})();
+</script>
+
+</body>
+</html>
