@@ -93,7 +93,7 @@
       subject:  (f.subject  && f.subject.stringValue)  || '',
       category: (f.category && f.category.stringValue) || '',
       status:   normalizeStatus(f.status && f.status.stringValue),
-      response: (f.response && f.response.stringValue) || null
+      response: (f.response && f.response.stringValue) || (f.adminReply && f.adminReply.stringValue) || null
     };
   }
 
