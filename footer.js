@@ -90,7 +90,7 @@
 
     '  <!-- bottom bar -->',
     '  <div class="footer-bottom">',
-    '    <span data-en="© 2026 Finiverse · BeGoTech" data-es="© 2026 Finiverse · BeGoTech">© 2026 Finiverse · BeGoTech</span>',
+    '    <span data-en="© 2026 <span class=\'fltd-wm\'><span class=\'fltd-name\'>Finiverse</span><span class=\'fltd-rule\'></span><span class=\'fltd-suffix\'>LTD</span></span>" data-es="© 2026 <span class=\'fltd-wm\'><span class=\'fltd-name\'>Finiverse</span><span class=\'fltd-rule\'></span><span class=\'fltd-suffix\'>LTD</span></span>">© 2026 Finiverse LTD</span>',
     '    <div class="lang-toggle" style="flex-shrink:0">',
     '      <button class="lang-btn" data-lang="en">EN</button>',
     '      <button class="lang-btn" data-lang="es">ES</button>',
