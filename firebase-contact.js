@@ -80,6 +80,13 @@
     return 'pending'; /* recibido, received, nuevo, pendiente → pending */
   }
 
+  /* Firestore fields can come back as stringValue or timestampValue
+     depending on which function wrote them — read either. */
+  function fieldDate(field) {
+    if (!field) return null;
+    return field.timestampValue || field.stringValue || null;
+  }
+
   /* Fetch ticket status by ID — used by status.html */
   async function fetchTicket(ticketId) {
     var res = await fetch(BASE + ticketId + '?key=' + KEY);
@@ -93,7 +100,8 @@
       subject:  (f.subject  && f.subject.stringValue)  || '',
       category: (f.category && f.category.stringValue) || '',
       status:   normalizeStatus(f.status && f.status.stringValue),
-      response: (f.response && f.response.stringValue) || (f.adminReply && f.adminReply.stringValue) || null
+      response: (f.response && f.response.stringValue) || (f.adminReply && f.adminReply.stringValue) || null,
+      responseAt: fieldDate(f.responseAt) || fieldDate(f.adminReplyAt)
     };
   }
 

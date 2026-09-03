@@ -161,7 +161,10 @@
 
       <!-- Response bubble -->
       <div id="responseBubble" style="display:none;margin-top:24px;background:var(--indigo-light);border:1px solid rgba(91,78,232,.2);border-radius:14px;padding:20px">
-        <div style="font-size:12px;font-weight:600;color:var(--indigo);margin-bottom:8px" data-en="Response from Finiverse" data-es="Respuesta de Finiverse">Response from Finiverse</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px">
+          <div style="font-size:12px;font-weight:600;color:var(--indigo)" data-en="Response from Finiverse" data-es="Respuesta de Finiverse">Response from Finiverse</div>
+          <div id="responseDate" style="font-size:11px;color:var(--text-light);white-space:nowrap"></div>
+        </div>
         <p id="responseText" style="font-size:15px;color:var(--text-dark);line-height:1.65"></p>
       </div>
     </div>
@@ -296,7 +299,21 @@ async function searchTicket() {
   }
 }
 
-function showTicket({ id, subject, status, response }) {
+function formatResponseDate(iso, lang) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return '';
+  try {
+    return new Intl.DateTimeFormat(lang === 'es' ? 'es-ES' : 'en-US', {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    }).format(d);
+  } catch (_) {
+    return '';
+  }
+}
+
+function showTicket({ id, subject, status, response, responseAt }) {
   const lang = getLang();
   const st = STATUSES[status] || STATUSES.pending;
 
@@ -312,6 +329,7 @@ function showTicket({ id, subject, status, response }) {
   const bubble = document.getElementById('responseBubble');
   if (response) {
     document.getElementById('responseText').textContent = response;
+    document.getElementById('responseDate').textContent = formatResponseDate(responseAt, lang);
     bubble.style.display = 'block';
   } else {
     bubble.style.display = 'none';
