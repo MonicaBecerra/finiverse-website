@@ -87,6 +87,20 @@
     }
     .btn-inv-ghost:hover { border-color: var(--indigo); background: var(--indigo-light); }
 
+    /* ── Product tabs ── */
+    .tabs-bar {
+      display: flex; gap: 8px; justify-content: center;
+      background: var(--bg-soft); border: 1px solid var(--card-border);
+      border-radius: 14px; padding: 6px; width: fit-content;
+    }
+    .tab-btn {
+      padding: 8px 24px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      color: var(--text-light); transition: all .15s;
+    }
+    .tab-btn.active { background: #fff; color: var(--indigo); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
     /* ── Pitch label ── */
     .pitch-label {
       font-size: 11px;
@@ -545,6 +559,14 @@
   </div>
 </nav>
 
+<!-- ═══ PRODUCT TABS ═══ -->
+<div class="tabs-bar" style="margin:32px auto 0">
+  <button class="tab-btn active" onclick="showTab('app')" data-en="💜 FiniverseApp" data-es="💜 FiniverseApp">💜 FiniverseApp</button>
+  <button class="tab-btn" onclick="showTab('erp')" data-en="🏢 Finiverse ERP" data-es="🏢 Finiverse ERP">🏢 Finiverse ERP</button>
+</div>
+
+
+<div class="tab-panel active" id="tab-app">
 <!-- ═══ HERO ═══ -->
 <section class="inv-hero">
   <div style="position:relative;z-index:1;max-width:760px;margin:0 auto">
@@ -760,7 +782,10 @@
     </div>
   </div>
 </section>
+</div><!-- /#tab-app -->
 
+
+<div class="tab-panel" id="tab-erp">
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- ═══ FINIVERSE ERP (second business line, mirrored) ═══ -->
 <!-- ═══════════════════════════════════════════════════════ -->
@@ -977,6 +1002,8 @@
     </div>
   </div>
 </section>
+</div><!-- /#tab-erp -->
+
 
 <!-- ═══ FOUNDER ═══ -->
 <section class="pitch-section">
@@ -1096,6 +1123,16 @@
     sessionStorage.setItem('dlStickyBarDismissed', '1');
   });
 })();
+
+/* ── Product tab switching ── */
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  const tabBtn = document.querySelector(`.tab-btn[onclick*="showTab('${id}')"]`);
+  if (tabBtn) tabBtn.classList.add('active');
+  document.querySelectorAll('#tab-' + id + ' .fade-in').forEach(el => el.classList.add('visible'));
+}
 
 /* ── Pitch deck request modal ── */
 (function () {
