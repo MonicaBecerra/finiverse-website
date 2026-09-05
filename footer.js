@@ -88,6 +88,10 @@
 
     '  </div>',
 
+    '  <div style="border-top:1px solid var(--card-border);padding-top:16px;margin-top:8px">',
+    '    <span style="font-size:12px;color:var(--text-light);line-height:1.6" data-en="Finiverse LTD is a company registered in England and Wales, company no. 17440736. Registered office: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ." data-es="Finiverse LTD es una empresa registrada en Inglaterra y Gales, número de compañía 17440736. Domicilio social: 71-75 Shelton Street, Covent Garden, Londres, Reino Unido, WC2H 9JQ.">Finiverse LTD is a company registered in England and Wales, company no. 17440736. Registered office: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ.</span>',
+    '  </div>',
+
     '  <!-- bottom bar -->',
     '  <div class="footer-bottom">',
     '    <span data-en="© 2026 Finiverse · <span class=\'fltd-wm\'><span class=\'fltd-name\'>Finiverse</span><span class=\'fltd-rule\'></span><span class=\'fltd-suffix\'>LTD</span></span>" data-es="© 2026 Finiverse · <span class=\'fltd-wm\'><span class=\'fltd-name\'>Finiverse</span><span class=\'fltd-rule\'></span><span class=\'fltd-suffix\'>LTD</span></span>">© 2026 Finiverse · Finiverse LTD</span>',
