@@ -87,6 +87,25 @@
     .cl-badge-fix     { background: #FEF3C7; color: #92400E; }
     .cl-badge-perf    { background: #F0FDFA; color: #0F766E; }
 
+    /* Roadmap status pills */
+    .ri-status {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 100px;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .ri-shipped   { background: #DCFCE7; color: #166534; }
+    .ri-indev     { background: var(--indigo-light); color: var(--indigo); }
+    .ri-planned   { background: #F1F5F9; color: #475569; }
+    .ri-exploring { background: #FEF3C7; color: #92400E; }
+    .roadmap-item { display: flex; align-items: center; }
+
     /* Change items */
     .cl-items {
       list-style: none;
@@ -311,31 +330,31 @@
         <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Now · Live" data-es="Ahora · En Vivo">Now · Live</span></div>
         <h3 data-en="iOS App" data-es="App iOS">iOS App</h3>
         <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial tracking (expenses, income, loans, goals)" data-es="Seguimiento financiero (gastos, ingresos, préstamos, metas)">Financial tracking (expenses, income, loans, goals)</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Sam AI, Claude-powered, personal context" data-es="Sam IA, con Claude, contexto personal">Sam AI, Claude-powered, personal context</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Emotion × Finance daily check-in" data-es="Emoción × Finanzas, check-in diario">Emotion × Finance daily check-in</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Cards & multi-currency" data-es="Tarjetas y multi-moneda">Cards & multi-currency</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="EN + ES, App Store subscription" data-es="EN + ES, suscripción en App Store">EN + ES, App Store subscription</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial tracking (expenses, income, loans, goals)" data-es="Seguimiento financiero (gastos, ingresos, préstamos, metas)">Financial tracking (expenses, income, loans, goals)</span><span class="ri-status ri-shipped" data-en="Shipped" data-es="Lanzado">Shipped</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Sam AI, Claude-powered, personal context" data-es="Sam IA, con Claude, contexto personal">Sam AI, Claude-powered, personal context</span><span class="ri-status ri-shipped" data-en="Shipped" data-es="Lanzado">Shipped</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Emotion × Finance daily check-in" data-es="Emoción × Finanzas, check-in diario">Emotion × Finance daily check-in</span><span class="ri-status ri-shipped" data-en="Shipped" data-es="Lanzado">Shipped</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Cards & multi-currency" data-es="Tarjetas y multi-moneda">Cards & multi-currency</span><span class="ri-status ri-shipped" data-en="Shipped" data-es="Lanzado">Shipped</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="EN + ES, App Store subscription" data-es="EN + ES, suscripción en App Store">EN + ES, App Store subscription</span><span class="ri-status ri-shipped" data-en="Shipped" data-es="Lanzado">Shipped</span></div>
         </div>
       </div>
       <div class="roadmap-card fade-in">
         <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Next 6 months" data-es="Próximos 6 meses">Next 6 months</span></div>
         <h3 data-en="Growth Phase" data-es="Fase de Crecimiento">Growth Phase</h3>
         <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Android launch" data-es="Lanzamiento Android">Android launch</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Bank connection (read-only import)" data-es="Conexión bancaria (importación de solo lectura)">Bank connection (read-only import)</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Community & social features" data-es="Funciones comunitarias y sociales">Community & social features</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="FR, PT language support" data-es="Soporte FR, PT">FR, PT language support</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Android launch" data-es="Lanzamiento Android">Android launch</span><span class="ri-status ri-planned" data-en="Planned" data-es="Planificado">Planned</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Bank connection (read-only import)" data-es="Conexión bancaria (importación de solo lectura)">Bank connection (read-only import)</span><span class="ri-status ri-indev" data-en="In development" data-es="En desarrollo">In development</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Community & social features" data-es="Funciones comunitarias y sociales">Community & social features</span><span class="ri-status ri-planned" data-en="Planned" data-es="Planificado">Planned</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="FR, PT language support" data-es="Soporte FR, PT">FR, PT language support</span><span class="ri-status ri-planned" data-en="Planned" data-es="Planificado">Planned</span></div>
         </div>
       </div>
       <div class="roadmap-card fade-in">
         <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="12+ months" data-es="12+ meses">12+ months</span></div>
         <h3 data-en="Scale Phase" data-es="Fase de Escala">Scale Phase</h3>
         <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="B2B: Mental health orgs & employers" data-es="B2B: Organizaciones de salud mental y empresas">B2B: Mental health orgs & employers</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial advisor integrations" data-es="Integraciones con asesores financieros">Financial advisor integrations</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Family & caregiver plans" data-es="Planes familiares y de cuidadores">Family & caregiver plans</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Web app & desktop" data-es="App web y escritorio">Web app & desktop</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="B2B: Mental health orgs & employers" data-es="B2B: Organizaciones de salud mental y empresas">B2B: Mental health orgs & employers</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial advisor integrations" data-es="Integraciones con asesores financieros">Financial advisor integrations</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Family & caregiver plans" data-es="Planes familiares y de cuidadores">Family & caregiver plans</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Web app & desktop" data-es="App web y escritorio">Web app & desktop</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
         </div>
       </div>
     </div>
