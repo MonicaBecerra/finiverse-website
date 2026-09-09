@@ -109,18 +109,8 @@
   <meta property="og:description" content="Finiverse's cookie policy. We keep it simple: no advertising cookies, no third-party tracking. Just the basics." />
   <meta name="twitter:title" content="Cookie Policy · Finiverse" />
   <meta name="twitter:description" content="Finiverse's cookie policy. We keep it simple: no advertising cookies, no third-party tracking. Just the basics." />
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K25B6JP5S6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-K25B6JP5S6', {
-      page_title: document.title,
-      page_location: window.location.href,
-      page_path: window.location.pathname
-    });
-  </script>
+  <!-- Analytics: consent-gated via consent.js -->
+  <script src="consent.js"></script>
 </head>
 <body>
 
@@ -269,6 +259,10 @@
     <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener" style="color:var(--indigo)">Microsoft Edge</a></li>
   </ul>
   <p data-en="Clearing localStorage will reset your language preference to English. Other than that, there are no functional consequences for refusing non-essential cookies on this site." data-es="Borrar el localStorage restablecerá tu preferencia de idioma al inglés. Aparte de eso, no hay consecuencias funcionales por rechazar cookies no esenciales en este sitio.">Clearing localStorage will reset your language preference to English. Other than that, there are no functional consequences for refusing non-essential cookies on this site.</p>
+
+  <h2 data-en="Your analytics preference" data-es="Tu preferencia de analítica">Your analytics preference</h2>
+  <p data-en="You can change your Google Analytics consent at any time. Click the button below to reset your choice and see the banner again." data-es="Puedes cambiar tu consentimiento de Google Analytics en cualquier momento. Haz clic en el botón de abajo para restablecer tu elección y ver el banner de nuevo.">You can change your Google Analytics consent at any time. Click the button below to reset your choice and see the banner again.</p>
+  <button onclick="window.fvCookiePrefs && window.fvCookiePrefs()" style="margin-top:8px;background:var(--indigo);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer" data-en="Change analytics preference" data-es="Cambiar preferencia de analítica">Change analytics preference</button>
 
   <h2 data-en="Changes to this policy" data-es="Cambios en esta política">Changes to this policy</h2>
   <p data-en="If we ever start using new cookies or third-party services, we'll update this page and note the date at the top. We won't add advertising or tracking cookies without being transparent about it." data-es="Si alguna vez empezamos a usar nuevas cookies o servicios de terceros, actualizaremos esta página y anotaremos la fecha en la parte superior. No añadiremos cookies publicitarias o de seguimiento sin ser transparentes al respecto.">If we ever start using new cookies or third-party services, we'll update this page and note the date at the top. We won't add advertising or tracking cookies without being transparent about it.</p>
