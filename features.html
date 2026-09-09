@@ -271,15 +271,23 @@
     <p style="max-width:560px;margin:0 auto" data-en="Every feature in Finiverse was designed for minds that work differently, ADHD, anxiety, dyslexia, dyscalculia, and more. No overwhelm. No judgment." data-es="Cada función de Finiverse fue diseñada para mentes que funcionan diferente, TDAH, ansiedad, dislexia, discalculia y más. Sin agobio. Sin juicios.">Every feature in Finiverse was designed for minds that work differently, ADHD, anxiety, dyslexia, dyscalculia, and more. No overwhelm. No judgment.</p>
 
     <!-- Feature overview chips -->
-    <div class="feat-overview">
-      <a href="#sam-ai" class="feat-chip">
-        <div class="feat-chip-icon">🤖</div>
-        <div class="feat-chip-name" data-en="Sam AI" data-es="Sam IA">Sam AI</div>
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin:48px 0 10px" data-en="Three core pillars" data-es="Tres pilares principales">Three core pillars</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:600px;margin:0 auto 10px">
+      <a href="#checkin" class="feat-chip" style="padding:22px 16px">
+        <div class="feat-chip-icon" style="font-size:32px">💜</div>
+        <div class="feat-chip-name" style="font-size:13px" data-en="Emotion × Finance" data-es="Emoción × Finanzas">Emotion × Finance</div>
       </a>
-      <a href="#checkin" class="feat-chip">
-        <div class="feat-chip-icon">💜</div>
-        <div class="feat-chip-name" data-en="Emotional Check-in" data-es="Check-in Emocional">Emotional Check-in</div>
+      <a href="#sam-ai" class="feat-chip" style="padding:22px 16px">
+        <div class="feat-chip-icon" style="font-size:32px">🤖</div>
+        <div class="feat-chip-name" style="font-size:13px" data-en="Sam AI" data-es="Sam IA">Sam AI</div>
       </a>
+      <a href="#wishlist" class="feat-chip" style="padding:22px 16px">
+        <div class="feat-chip-icon" style="font-size:32px">✨</div>
+        <div class="feat-chip-name" style="font-size:13px" data-en="Impulse Control" data-es="Control de Impulso">Impulse Control</div>
+      </a>
+    </div>
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin:20px 0 10px" data-en="More features" data-es="Más funciones">More features</div>
+    <div class="feat-overview" style="max-width:600px;margin:0 auto;grid-template-columns:repeat(5,1fr)">
       <a href="#records" class="feat-chip">
         <div class="feat-chip-icon">📋</div>
         <div class="feat-chip-name" data-en="Records" data-es="Registros">Records</div>
@@ -296,15 +304,12 @@
         <div class="feat-chip-icon">🎯</div>
         <div class="feat-chip-name" data-en="Goals" data-es="Metas">Goals</div>
       </a>
-      <a href="#wishlist" class="feat-chip">
-        <div class="feat-chip-icon">✨</div>
-        <div class="feat-chip-name" data-en="Wishlist" data-es="Lista de Deseos">Wishlist</div>
-      </a>
       <a href="#gamification" class="feat-chip">
         <div class="feat-chip-icon">🏆</div>
-        <div class="feat-chip-name" data-en="Gamification" data-es="Gamificación">Gamification</div>
+        <div class="feat-chip-name" data-en="Levels" data-es="Niveles">Levels</div>
       </a>
     </div>
+    <style>@media(max-width:480px){.feat-overview[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}}</style>
   </div>
 </section>
 
@@ -351,10 +356,39 @@
 <section class="section">
   <div class="container">
 
-    <!-- SAM AI -->
-    <div class="feat-row" id="sam-ai">
+    <!-- EMOTION × FINANCE (Pillar 1) -->
+    <div class="feat-row" id="checkin">
       <div class="feat-text fade-in">
-        <div class="feat-tag">🤖 <span data-en="Sam AI" data-es="Sam IA">Sam AI</span></div>
+        <div class="feat-tag" style="background:rgba(139,92,246,.12);color:#6D28D9">💜 <span data-en="Pillar 1 · Emotion × Finance" data-es="Pilar 1 · Emoción × Finanzas">Pillar 1 · Emotion × Finance</span></div>
+        <h2 class="feat-title" data-en="Your feelings <span>are financial data</span>." data-es="Tus emociones <span>son datos financieros</span>.">Your feelings <span>are financial data</span>.</h2>
+        <p class="feat-desc" data-en="Every day, log your mood, energy, focus, stress level, and sleep. Sam connects those emotional signals with your spending, and shows you patterns you'd never notice on your own." data-es="Cada día, registra tu ánimo, energía, enfoque, nivel de estrés y sueño. Sam conecta esas señales emocionales con tu gasto, y te muestra patrones que nunca notarías solo.">Every day, log your mood, energy, focus, stress level, and sleep. Sam connects those emotional signals with your spending, and shows you patterns you'd never notice on your own.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Mood, focus, energy, stress, sleep, all in one daily check-in" data-es="Ánimo, enfoque, energía, estrés, sueño, todo en un registro diario">Mood, focus, energy, stress, sleep, all in one daily check-in</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Apple Watch sync, sleep and heart rate imported automatically" data-es="Sincronización con Apple Watch, sueño y frecuencia cardíaca importados automáticamente">Apple Watch sync, sleep and heart rate imported automatically</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam links emotions to spending: 'You tend to spend more on anxious Fridays'" data-es="Sam vincula emociones con gasto: 'Tiendes a gastar más los viernes ansiosos'">Sam links emotions to spending: "You tend to spend more on anxious Fridays"</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="No wrong answers. No pressure." data-es="No hay respuestas incorrectas. Sin presión.">No wrong answers. No pressure.</span></li>
+        </ul>
+      </div>
+      <div class="feat-visual fade-in">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/emotions.PNG" alt="Emotional check-in" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAM AI (Pillar 2) -->
+    <div class="feat-row reverse" id="sam-ai">
+      <div class="feat-visual fade-in">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/sam.PNG" alt="Sam AI chat" />
+          </div>
+        </div>
+      </div>
+      <div class="feat-text fade-in">
+        <div class="feat-tag">🤖 <span data-en="Pillar 2 · Sam AI" data-es="Pilar 2 · Sam IA">Pillar 2 · Sam AI</span></div>
         <h2 class="feat-title" data-en="Your AI that <span>actually knows you</span>." data-es="Tu IA que <span>realmente te conoce</span>.">Your AI that <span>actually knows you</span>.</h2>
         <p class="feat-desc" data-en="Sam is not a generic chatbot. Sam reads your full financial history, your emotional data, your goals, and gives you answers that actually make sense for your life. Powered by Claude AI (Anthropic)." data-es="Sam no es un chatbot genérico. Sam lee tu historial financiero completo, tus datos emocionales, tus metas, y te da respuestas que realmente tienen sentido para tu vida. Impulsado por Claude AI (Anthropic).">Sam is not a generic chatbot. Sam reads your full financial history, your emotional data, your goals, and gives you answers that actually make sense for your life. Powered by Claude AI (Anthropic).</p>
         <ul class="feat-bullets">
@@ -366,35 +400,64 @@
         </ul>
         <a href="pricing.html" class="btn btn-primary" data-en="See Sam AI plans →" data-es="Ver planes Sam IA →">See Sam AI plans →</a>
       </div>
+    </div>
+
+    <!-- WISHLIST (Pillar 3) -->
+    <div class="feat-row" id="wishlist">
+      <div class="feat-text fade-in">
+        <div class="feat-tag" style="background:#FEF3C7;color:#92400E">✨ <span data-en="Pillar 3 · Impulse Control" data-es="Pilar 3 · Control de Impulso">Pillar 3 · Impulse Control</span></div>
+        <h2 class="feat-title" data-en="Want it? <span>Wait first.</span>" data-es="¿Lo quieres? <span>Espera primero.</span>">Want it? <span>Wait first.</span></h2>
+        <p class="feat-desc" data-en="The Finiverse Wishlist is designed to break the dopamine-buy cycle. Instead of purchasing impulsively, you add items to your list and set a waiting period. If you still want it after that time, it's a real want, not a reaction." data-es="La Lista de Deseos de Finiverse está diseñada para romper el ciclo de compra por dopamina. En lugar de comprar impulsivamente, agregas artículos a tu lista y estableces un período de espera. Si aún lo quieres después de ese tiempo, es un deseo real, no una reacción.">The Finiverse Wishlist is designed to break the dopamine-buy cycle. Instead of purchasing impulsively, you add items to your list and set a waiting period. If you still want it after that time, it's a real want, not a reaction.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Add anything you want to buy, before buying it" data-es="Agrega lo que quieras comprar, antes de comprarlo">Add anything you want to buy, before buying it</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Set a personal waiting period (24h, 3 days, 1 week)" data-es="Establece un período de espera personal (24h, 3 días, 1 semana)">Set a personal waiting period (24h, 3 days, 1 week)</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Sam reminds you when the wait is over, and asks if you still want it" data-es="Sam te recuerda cuando termina la espera, y te pregunta si aún lo quieres">Sam reminds you when the wait is over, and asks if you still want it</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Especially helpful for ADHD and impulsive spending patterns" data-es="Especialmente útil para TDAH y patrones de gasto impulsivo">Especially helpful for ADHD and impulsive spending patterns</span></li>
+        </ul>
+        <div style="margin-top:8px;padding:14px 16px;background:#FFF7ED;border-radius:12px;border-left:3px solid #F59E0B">
+          <p style="font-size:13px;color:#92400E;font-style:italic;margin:0" data-en="&quot;I added AirPods to my list. 7 days later, I genuinely didn't want them anymore. That's the Wishlist working.&quot;" data-es="&quot;Agregué AirPods a mi lista. 7 días después, ya no los quería. Eso es la Lista de Deseos funcionando.&quot;">"I added AirPods to my list. 7 days later, I genuinely didn't want them anymore. That's the Wishlist working."</p>
+        </div>
+      </div>
       <div class="feat-visual fade-in">
-        <div class="feat-phone">
-          <div class="feat-phone-screen">
-            <img src="images/sam.PNG" alt="Sam AI chat" />
+        <div class="wishlist-card">
+          <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:16px;display:flex;align-items:center;gap:6px">✨ <span data-en="My Wishlist, 3 items" data-es="Mi Lista de Deseos, 3 artículos">My Wishlist, 3 items</span></div>
+
+          <div class="wishlist-item">
+            <span style="font-size:22px">🎧</span>
+            <div style="flex:1">
+              <div class="wishlist-item-name">AirPods Pro</div>
+              <div class="wishlist-item-wait" data-en="⏳ 4 days left to wait" data-es="⏳ 4 días más de espera">⏳ 4 days left to wait</div>
+              <div class="wishlist-progress"><div class="wishlist-progress-fill" style="width:43%"></div></div>
+            </div>
           </div>
+
+          <div class="wishlist-item">
+            <span style="font-size:22px">📚</span>
+            <div style="flex:1">
+              <div class="wishlist-item-name" data-en="Book: Atomic Habits" data-es="Libro: Atomic Habits">Book: Atomic Habits</div>
+              <div class="wishlist-item-wait" style="color:#10B981;font-weight:600" data-en="✅ Ready, still want it?" data-es="✅ Listo, ¿aún lo quieres?">✅ Ready, still want it?</div>
+              <div class="wishlist-progress"><div class="wishlist-progress-fill" style="width:100%;background:#10B981"></div></div>
+            </div>
+          </div>
+
+          <div class="wishlist-item">
+            <span style="font-size:22px">👟</span>
+            <div style="flex:1">
+              <div class="wishlist-item-name">Nike Air Max</div>
+              <div class="wishlist-item-wait" data-en="⏳ 6 days left to wait" data-es="⏳ 6 días más de espera">⏳ 6 days left to wait</div>
+              <div class="wishlist-progress"><div class="wishlist-progress-fill" style="width:14%"></div></div>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-top:16px;font-size:11px;color:#92400E;opacity:.7" data-en="Pause. Think. Decide with clarity." data-es="Pausa. Piensa. Decide con claridad.">Pause. Think. Decide with clarity.</div>
         </div>
       </div>
     </div>
 
-    <!-- EMOTIONAL CHECK-IN -->
-    <div class="feat-row reverse" id="checkin">
-      <div class="feat-visual fade-in">
-        <div class="feat-phone">
-          <div class="feat-phone-screen">
-            <img src="images/emotions.PNG" alt="Emotional check-in" />
-          </div>
-        </div>
-      </div>
-      <div class="feat-text fade-in">
-        <div class="feat-tag">💜 <span data-en="Emotional Check-in" data-es="Check-in Emocional">Emotional Check-in</span></div>
-        <h2 class="feat-title" data-en="Your feelings <span>are financial data</span>." data-es="Tus emociones <span>son datos financieros</span>.">Your feelings <span>are financial data</span>.</h2>
-        <p class="feat-desc" data-en="Every day, log your mood, energy, focus, stress level, and sleep. Sam connects those emotional signals with your spending, and shows you patterns you'd never notice on your own." data-es="Cada día, registra tu ánimo, energía, enfoque, nivel de estrés y sueño. Sam conecta esas señales emocionales con tu gasto, y te muestra patrones que nunca notarías solo.">Every day, log your mood, energy, focus, stress level, and sleep. Sam connects those emotional signals with your spending, and shows you patterns you'd never notice on your own.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Mood, focus, energy, stress, sleep, all in one daily check-in" data-es="Ánimo, enfoque, energía, estrés, sueño, todo en un registro diario">Mood, focus, energy, stress, sleep, all in one daily check-in</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Apple Watch sync, sleep and heart rate imported automatically" data-es="Sincronización con Apple Watch, sueño y frecuencia cardíaca importados automáticamente">Apple Watch sync, sleep and heart rate imported automatically</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam links emotions to spending: 'You tend to spend more on anxious Fridays'" data-es="Sam vincula emociones con gasto: 'Tiendes a gastar más los viernes ansiosos'">Sam links emotions to spending: "You tend to spend more on anxious Fridays"</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="No wrong answers. No pressure." data-es="No hay respuestas incorrectas. Sin presión.">No wrong answers. No pressure.</span></li>
-        </ul>
-      </div>
+    <!-- MORE FEATURES divider -->
+    <div style="text-align:center;padding:48px 0 16px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light)" data-en="More features" data-es="Más funciones">More features</div>
+      <div style="width:40px;height:2px;background:var(--card-border);margin:10px auto 0;border-radius:2px"></div>
     </div>
 
     <!-- RECORDS -->
@@ -484,58 +547,6 @@
           <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam gives tips on reaching your goal faster" data-es="Sam da consejos para alcanzar tu meta más rápido">Sam gives tips on reaching your goal faster</span></li>
           <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Linked to your savings records automatically" data-es="Vinculado automáticamente a tus registros de ahorro">Linked to your savings records automatically</span></li>
         </ul>
-      </div>
-    </div>
-
-    <!-- WISHLIST -->
-    <div class="feat-row" id="wishlist">
-      <div class="feat-text fade-in">
-        <div class="feat-tag" style="background:#FEF3C7;color:#92400E">✨ <span data-en="Wishlist" data-es="Lista de Deseos">Wishlist</span></div>
-        <h2 class="feat-title" data-en="Want it? <span>Wait first.</span>" data-es="¿Lo quieres? <span>Espera primero.</span>">Want it? <span>Wait first.</span></h2>
-        <p class="feat-desc" data-en="The Finiverse Wishlist is designed to break the dopamine-buy cycle. Instead of purchasing impulsively, you add items to your list and set a waiting period. If you still want it after that time, it's a real want, not a reaction." data-es="La Lista de Deseos de Finiverse está diseñada para romper el ciclo de compra por dopamina. En lugar de comprar impulsivamente, agregas artículos a tu lista y estableces un período de espera. Si aún lo quieres después de ese tiempo, es un deseo real, no una reacción.">The Finiverse Wishlist is designed to break the dopamine-buy cycle. Instead of purchasing impulsively, you add items to your list and set a waiting period. If you still want it after that time, it's a real want, not a reaction.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Add anything you want to buy, before buying it" data-es="Agrega lo que quieras comprar, antes de comprarlo">Add anything you want to buy, before buying it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Set a personal waiting period (24h, 3 days, 1 week)" data-es="Establece un período de espera personal (24h, 3 días, 1 semana)">Set a personal waiting period (24h, 3 days, 1 week)</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Sam reminds you when the wait is over, and asks if you still want it" data-es="Sam te recuerda cuando termina la espera, y te pregunta si aún lo quieres">Sam reminds you when the wait is over, and asks if you still want it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Especially helpful for ADHD and impulsive spending patterns" data-es="Especialmente útil para TDAH y patrones de gasto impulsivo">Especially helpful for ADHD and impulsive spending patterns</span></li>
-        </ul>
-        <div style="margin-top:8px;padding:14px 16px;background:#FFF7ED;border-radius:12px;border-left:3px solid #F59E0B">
-          <p style="font-size:13px;color:#92400E;font-style:italic;margin:0" data-en="&quot;I added AirPods to my list. 7 days later, I genuinely didn't want them anymore. That's the Wishlist working.&quot;" data-es="&quot;Agregué AirPods a mi lista. 7 días después, ya no los quería. Eso es la Lista de Deseos funcionando.&quot;">"I added AirPods to my list. 7 days later, I genuinely didn't want them anymore. That's the Wishlist working."</p>
-        </div>
-      </div>
-      <div class="feat-visual fade-in">
-        <div class="wishlist-card">
-          <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:16px;display:flex;align-items:center;gap:6px">✨ <span data-en="My Wishlist, 3 items" data-es="Mi Lista de Deseos, 3 artículos">My Wishlist, 3 items</span></div>
-
-          <div class="wishlist-item">
-            <span style="font-size:22px">🎧</span>
-            <div style="flex:1">
-              <div class="wishlist-item-name">AirPods Pro</div>
-              <div class="wishlist-item-wait" data-en="⏳ 4 days left to wait" data-es="⏳ 4 días más de espera">⏳ 4 days left to wait</div>
-              <div class="wishlist-progress"><div class="wishlist-progress-fill" style="width:43%"></div></div>
-            </div>
-          </div>
-
-          <div class="wishlist-item">
-            <span style="font-size:22px">📚</span>
-            <div style="flex:1">
-              <div class="wishlist-item-name" data-en="Book: Atomic Habits" data-es="Libro: Atomic Habits">Book: Atomic Habits</div>
-              <div class="wishlist-item-wait" style="color:#10B981;font-weight:600" data-en="✅ Ready, still want it?" data-es="✅ Listo, ¿aún lo quieres?">✅ Ready, still want it?</div>
-              <div class="wishlist-progress"><div class="wishlist-progress-fill" style="width:100%;background:#10B981"></div></div>
-            </div>
-          </div>
-
-          <div class="wishlist-item">
-            <span style="font-size:22px">👟</span>
-            <div style="flex:1">
-              <div class="wishlist-item-name">Nike Air Max</div>
-              <div class="wishlist-item-wait" data-en="⏳ 6 days left to wait" data-es="⏳ 6 días más de espera">⏳ 6 days left to wait</div>
-              <div class="wishlist-progress"><div class="wishlist-progress-fill" style="width:14%"></div></div>
-            </div>
-          </div>
-
-          <div style="text-align:center;margin-top:16px;font-size:11px;color:#92400E;opacity:.7" data-en="Pause. Think. Decide with clarity." data-es="Pausa. Piensa. Decide con claridad.">Pause. Think. Decide with clarity.</div>
-        </div>
       </div>
     </div>
 
