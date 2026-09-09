@@ -145,6 +145,14 @@
       color: var(--text-light);
       font-weight: 500;
     }
+    /* Mute unpublished cards so published content stands out */
+    .article-card:has(.article-soon) {
+      opacity: .45;
+      filter: grayscale(.4);
+      pointer-events: none;
+    }
+    .article-card:has(.article-soon) .article-excerpt { display: none; }
+    .article-card:has(.article-soon) .article-emoji { font-size: 20px; margin-bottom: 10px; }
     .article-read-link {
       font-size: 13px;
       font-weight: 600;
