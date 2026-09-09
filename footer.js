@@ -88,8 +88,18 @@
 
     '  </div>',
 
-    '  <div style="border-top:1px solid var(--card-border);padding-top:16px;margin-top:8px">',
-    '    <span style="font-size:12px;color:var(--text-light);line-height:1.6" data-en="Finiverse LTD is a company registered in England and Wales, company no. 17440736. Registered office: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ." data-es="Finiverse LTD es una empresa registrada en Inglaterra y Gales, número de compañía 17440736. Domicilio social: 71-75 Shelton Street, Covent Garden, Londres, Reino Unido, WC2H 9JQ.">Finiverse LTD is a company registered in England and Wales, company no. 17440736. Registered office: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ.</span>',
+    '  <div style="border-top:1px solid var(--card-border);padding-top:20px;margin-top:8px">',
+    '    <div style="display:flex;align-items:flex-start;gap:10px">',
+    '      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-light);flex-shrink:0;margin-top:2px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+    '      <div>',
+    '        <p style="font-size:12px;color:var(--text-mid);margin:0 0 3px;line-height:1.5;font-weight:500">',
+    '          <span data-en="Finiverse LTD &middot; Registered in England &amp; Wales &middot; Co. no.&nbsp;17440736" data-es="Finiverse LTD &middot; Registrada en Inglaterra y Gales &middot; Co. no.&nbsp;17440736">Finiverse LTD &middot; Registered in England &amp; Wales &middot; Co. no.&nbsp;17440736</span>',
+    '        </p>',
+    '        <p style="font-size:11px;color:var(--text-light);margin:0;line-height:1.5">',
+    '          <span data-en="Registered office: 71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom" data-es="Domicilio social: 71-75 Shelton Street, Covent Garden, Londres WC2H 9JQ, Reino Unido">Registered office: 71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom</span>',
+    '        </p>',
+    '      </div>',
+    '    </div>',
     '  </div>',
 
     '  <!-- bottom bar -->',
