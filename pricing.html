@@ -346,6 +346,27 @@
         <p style="font-size:12px;color:var(--text-light);margin-top:14px" data-en="After 7 days, you keep the Free plan unless you choose to subscribe. Sam AI is powered by Claude (Anthropic)." data-es="Después de 7 días, conservas el plan Gratis a menos que elijas suscribirte. Sam IA está impulsado por Claude (Anthropic).">After 7 days, you keep the Free plan unless you choose to subscribe. Sam AI is powered by Claude (Anthropic).</p>
       </div>
 
+      <!-- Quick decision guide -->
+      <div style="max-width:760px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px" class="decide-grid">
+        <div style="background:#fff;border:1px solid var(--card-border);border-radius:16px;padding:18px 16px;text-align:center">
+          <div style="font-size:22px;margin-bottom:8px">🌱</div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px" data-en="Just starting out?" data-es="¿Apenas comienzas?">Just starting out?</div>
+          <div style="font-size:12px;color:var(--text-mid)" data-en="Start with Free — includes 7-day full trial automatically." data-es="Empieza gratis — incluye prueba de 7 días automáticamente.">Start with Free — includes 7-day full trial automatically.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--card-border);border-radius:16px;padding:18px 16px;text-align:center">
+          <div style="font-size:22px;margin-bottom:8px">💜</div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px" data-en="Want advanced tracking?" data-es="¿Quieres seguimiento avanzado?">Want advanced tracking?</div>
+          <div style="font-size:12px;color:var(--text-mid)" data-en="Premium gives you multi-currency, PDF export, and 100 Sam chats/month." data-es="Premium incluye multi-moneda, PDF y 100 chats con Sam/mes.">Premium gives you multi-currency, PDF export, and 100 Sam chats/month.</div>
+        </div>
+        <div style="background:var(--indigo-light);border:1.5px solid rgba(91,78,232,.3);border-radius:16px;padding:18px 16px;text-align:center;position:relative">
+          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--indigo);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:100px;white-space:nowrap" data-en="Finiverse Pick" data-es="Recomendación">Finiverse Pick</div>
+          <div style="font-size:22px;margin-bottom:8px">🤖</div>
+          <div style="font-size:13px;font-weight:700;color:var(--indigo);margin-bottom:4px" data-en="Want the full experience?" data-es="¿Quieres la experiencia completa?">Want the full experience?</div>
+          <div style="font-size:12px;color:var(--text-mid)" data-en="Sam AI is the plan Finiverse is built around — unlimited conversations, context, and simulations." data-es="Sam IA es el plan para el que fue diseñado Finiverse — conversaciones ilimitadas, contexto y simulaciones.">Sam AI is the plan Finiverse is built around — unlimited conversations, context, and simulations.</div>
+        </div>
+      </div>
+      <style>@media(max-width:600px){.decide-grid{grid-template-columns:1fr!important}}</style>
+
       <div class="plans-grid">
 
         <!-- FREE -->
@@ -371,9 +392,10 @@
 
         <!-- EARLY BIRD -->
         <div class="plan-card">
+          <div class="plan-top-badge" style="background:rgba(245,158,11,.15);color:#92400E;border:1px solid rgba(245,158,11,.4)" data-en="⭐ Early adopter rate" data-es="⭐ Precio de adoptante temprano">⭐ Early adopter rate</div>
           <div class="plan-icon">⭐</div>
           <div class="plan-name">Early Bird</div>
-          <div class="plan-tagline" data-en="For early adopters & power users" data-es="Para usuarios tempranos y avanzados">For early adopters & power users</div>
+          <div class="plan-tagline" data-en="Locked-in low price for early supporters" data-es="Precio bajo garantizado para los primeros usuarios">Locked-in low price for early supporters</div>
           <div class="plan-price" id="eb-price-display"><sup>$</sup><span class="price-num">2.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
           <div class="plan-billing" id="eb-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
@@ -414,7 +436,7 @@
 
         <!-- SAM AI (featured card) -->
         <div class="plan-card dark-card">
-          <div class="plan-top-badge samai" data-en="✦ Ultimate" data-es="✦ Máximo">✦ Ultimate</div>
+          <div class="plan-top-badge samai" data-en="✦ Finiverse Pick" data-es="✦ Recomendación Finiverse">✦ Finiverse Pick</div>
           <div class="plan-icon">
             <img src="images/sam-robot.png" alt="Sam" style="width:36px;height:36px;object-fit:contain" onerror="this.parentElement.textContent='🤖'" />
           </div>
