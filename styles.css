@@ -1952,3 +1952,105 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transform: translateY(-6px);
   box-shadow: 0 28px 64px rgba(16,185,129,.35), 0 0 0 1px rgba(255,255,255,.08);
 }
+
+/* ---------- Pain list (replaces pain-grid cards) ---------- */
+.pain-list {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pain-list li {
+  font-size: clamp(15px, 2vw, 18px);
+  font-style: italic;
+  color: var(--text-mid);
+  padding: 18px 24px;
+  border-left: 3px solid transparent;
+  line-height: 1.6;
+  border-radius: 0 8px 8px 0;
+  transition: border-color .2s, background .2s, color .2s;
+}
+.pain-list li:hover {
+  border-left-color: var(--indigo);
+  background: var(--indigo-light);
+  color: var(--text-dark);
+}
+.pain-close {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--indigo);
+  margin-bottom: 56px;
+}
+
+/* ---------- Three pillars (replaces only-fini-grid cards) ---------- */
+.three-pillars {
+  border-top: 1px solid var(--card-border);
+  max-width: 780px;
+  margin: 0 auto;
+}
+.pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+.pillar:last-child { border-bottom: none; }
+.pillar-num {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--indigo);
+  opacity: .14;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 80px;
+  padding-top: 2px;
+  user-select: none;
+}
+.pillar-body h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.pillar-body p {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+@media (max-width: 500px) {
+  .pillar { gap: 20px; }
+  .pillar-num { font-size: 36px; width: 48px; }
+}
+
+/* ---------- Loop cards (replaces inline-styled step cards) ---------- */
+.loop-card {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: var(--card-shadow);
+}
+.loop-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.loop-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+.loop-card-accent {
+  background: var(--indigo-light);
+  border-color: rgba(91,78,232,.25);
+  box-shadow: none;
+}
+.loop-card-accent h3 { color: var(--indigo-dark); }
