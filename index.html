@@ -84,65 +84,8 @@
   </div>
 </div>
 
-<!-- ═══ NAV ═══ -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
-      <span class="nav-logo-text">Finiverse</span>
-    </a>
-
-    <div class="nav-links" id="navMenu">
-      <a href="/" data-en="Home" data-es="Inicio">Home</a>
-
-      <!-- Product dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Product" data-es="Producto">Product</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
-          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
-          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
-        </div>
-      </div>
-
-      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
-
-      <!-- Resources dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Resources" data-es="Recursos">Resources</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
-          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
-          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
-          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
-        </div>
-      </div>
-
-      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
-      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
-    </div>
-
-    <div class="nav-right">
-      <div class="lang-toggle" role="group" aria-label="Language selector">
-        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
-      </div>
-      <a href="https://finiverse-erp.web.app/landing" target="_blank" rel="noopener" class="nav-erp-badge"
-         data-en="🏢 For Business" data-es="🏢 Para Empresas">🏢 For Business</a>
-      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener"
-         data-en="Download" data-es="Descargar">Download</a>
-      <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
+<nav class="nav" id="site-nav"></nav>
+<script src="header.js"></script>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero hero-centered" aria-label="Hero">
@@ -169,8 +112,7 @@
         </a>
       </div>
 
-      <p class="hero-note"><span data-en="Free · iOS + Android beta · English + Spanish · Sam doesn&rsquo;t judge 💜" data-es="Gratis · iOS + Android beta · Inglés + Español · Sam no te juzga 💜">Free · iOS + Android beta · English + Spanish · Sam doesn&rsquo;t judge 💜</span>
-        <a href="#the-system" class="hero-how" data-en="See how it works ↓" data-es="Ver cómo funciona ↓">See how it works ↓</a></p>
+      <p class="hero-note"><a href="#the-system" class="hero-how" data-en="See how it works ↓" data-es="Ver cómo funciona ↓">See how it works ↓</a></p>
     </div>
 
     <div class="phone-wrap hero-stage" aria-hidden="true">
@@ -213,7 +155,6 @@
     <div class="trust-item"><span class="dot"></span><span data-en="iOS · Android beta" data-es="iOS · Android beta">iOS · Android beta</span></div>
     <div class="trust-item"><span class="dot"></span><span data-en="English + Spanish" data-es="Inglés + Español">English + Spanish</span></div>
     <div class="trust-item"><span class="dot"></span><span data-en="No shame, no judgment" data-es="Sin vergüenza, sin juicios">No shame, no judgment</span></div>
-    <div class="trust-item"><span class="dot"></span><span data-en="No bank sync required" data-es="Sin conexión bancaria">No bank sync required</span></div>
     <div class="trust-item"><span class="dot"></span><span data-en="UK registered company" data-es="Empresa registrada en UK">UK registered company</span></div>
   </div>
 </div>
@@ -249,20 +190,8 @@
 
     <p class="text-center pain-close" data-en="→ Finiverse was built for exactly this." data-es="→ Finiverse fue hecha exactamente para esto.">→ Finiverse was built for exactly this.</p>
 
-
-  </div>
-</section>
-
-<!-- ═══ BEFORE / AFTER ═══ -->
-<section class="section" id="compare">
-  <div class="container">
-    <div class="text-center mb-48">
-      <div class="section-label" data-en="The difference" data-es="La diferencia">The difference</div>
-      <h2 class="section-title" data-en="Finance apps were designed for<br><span>the wrong brain.</span>" data-es="Las apps de finanzas no fueron<br><span>diseñadas para ti.</span>">Finance apps were designed for<br><span>the wrong brain.</span></h2>
-      <p class="section-sub" style="margin:14px auto 0" data-en="Finiverse flips the script, built for the way your brain actually works." data-es="Finiverse lo cambia, diseñada para como funciona tu mente.">Finiverse flips the script, built for the way your brain actually works.</p>
-    </div>
-
-    <div class="ba-wrap">
+    <!-- Before / after: same message as the banner above, shown instead of told again -->
+    <div class="ba-wrap" id="compare" style="margin-top:48px">
       <div class="ba-card ba-bad fade-in">
         <div class="ba-badge"><span data-en="Other finance apps" data-es="Otras apps de finanzas">Other finance apps</span></div>
         <h4 data-en="Feels like filing taxes while anxious" data-es="Se siente como hacer impuestos con ansiedad">Feels like filing taxes while anxious</h4>
@@ -283,29 +212,11 @@
           <li><span>💚</span><span data-en="Encouragement, not shame" data-es="Motivación, no vergüenza">Encouragement, not shame</span></li>
           <li><span>🧠</span><span data-en="Designed for ADHD, anxiety, dyscalculia &amp; more" data-es="Diseñada para TDAH, ansiedad, discalculia y más">Designed for ADHD, anxiety, dyscalculia &amp; more</span></li>
           <li><span>❤️</span><span data-en="Tracks how you feel, not just what you spend" data-es="Rastrea cómo te sientes, no solo lo que gastas">Tracks how you feel, not just what you spend</span></li>
-          <li><span>🆓</span><span data-en="Free to start &mdash; bank sync only if you want it" data-es="Gratis para empezar &mdash; banco solo si tú quieres">Free to start &mdash; bank sync only if you want it</span></li>
         </ul>
         <div class="ba-sam-row">
           <img src="images/sam-animated.gif" alt="Sam" onerror="this.style.display='none'">
           <div class="ba-sam-bubble" data-en="You saved $12 more than last week. That's real progress, I'm proud of you 🌟" data-es="Ahorraste $12 más que la semana pasada. Eso es progreso real, estoy orgulloso de ti 🌟">You saved $12 more than last week. That's real progress, I'm proud of you 🌟</div>
         </div>
-      </div>
-    </div>
-    <div class="diff-points">
-      <div class="diff-point fade-in">
-        <span class="diff-point-ico" aria-hidden="true">💭</span>
-        <h3 data-en="Emotion × money, connected" data-es="Emoción × dinero, conectados">Emotion × money, connected</h3>
-        <p data-en="Your check-ins meet your real spending, so patterns show up on their own." data-es="Tus check-ins se cruzan con tus gastos reales y los patrones aparecen solos.">Your check-ins meet your real spending, so patterns show up on their own.</p>
-      </div>
-      <div class="diff-point fade-in">
-        <span class="diff-point-ico" aria-hidden="true">🤖</span>
-        <h3 data-en="Sam remembers how you feel" data-es="Sam recuerda cómo te sientes">Sam remembers how you feel</h3>
-        <p data-en="Not just your balance: your triggers, your goals, your good days." data-es="No solo tu saldo: tus detonantes, tus metas, tus días buenos.">Not just your balance: your triggers, your goals, your good days.</p>
-      </div>
-      <div class="diff-point fade-in">
-        <span class="diff-point-ico" aria-hidden="true">✍️</span>
-        <h3 data-en="Manual first. Bank optional." data-es="Manual primero. Banco opcional.">Manual first. Bank optional.</h3>
-        <p data-en="Free to start. You log your own data; connecting a bank is always your choice." data-es="Gratis para empezar. Tú registras tus datos; conectar un banco siempre es tu decisión.">Free to start. You log your own data; connecting a bank is always your choice.</p>
       </div>
     </div>
   </div>
@@ -349,120 +260,13 @@
     <p style="text-align:center;margin-top:40px;font-size:14px;font-weight:600;color:var(--text-light);letter-spacing:.04em"
        data-en="Detect → Understand → Intervene → Change → repeat, every day."
        data-es="Detectar → Entender → Intervenir → Cambiar → repetir, cada día.">Detect → Understand → Intervene → Change → repeat, every day.</p>
-  </div>
-</section>
 
-
-<!-- ═══ HOW IT WORKS ═══ -->
-<section class="section" id="how-it-works">
-  <div class="container">
-    <div class="text-center mb-48">
-      <h2 class="section-title" data-en="Up and running<br><span>in 3 minutes.</span>" data-es="Lista para usar<br><span>en 3 minutos.</span>">Up and running<br><span>in 3 minutes.</span></h2>
-    </div>
-    <div class="steps-row">
-      <div class="step fade-in">
-        <div class="step-num">1</div>
-        <h3 data-en="Create your free account" data-es="Crea tu cuenta gratis">Create your free account</h3>
-        <p data-en="Download the app and sign up in under a minute, just an email and a password. No credit card, no commitments." data-es="Descarga la app y regístrate en menos de un minuto, solo un correo y contraseña. Sin tarjeta, sin compromisos.">Download the app and sign up in under a minute, just an email and a password. No credit card, no commitments.</p>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step fade-in">
-        <div class="step-num">2</div>
-        <h3 data-en="Log your first record" data-es="Registra tu primer gasto">Log your first record</h3>
-        <p data-en="Add an income or expense in seconds. Pick a category, a date, and how you felt making it. That's it." data-es="Agrega un ingreso o gasto en segundos. Elige categoría, fecha y cómo te sentiste. Eso es todo.">Add an income or expense in seconds. Pick a category, a date, and how you felt making it. That's it.</p>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step fade-in">
-        <div class="step-num">3</div>
-        <h3 data-en="Ask Sam anything" data-es="Pregúntale a Sam">Ask Sam anything</h3>
-        <p data-en='"How did I do this week?" Sam knows your history and your emotions, and answers without judgment, always.' data-es='"¿Cómo me fue esta semana?" Sam conoce tu historial y tus emociones, y responde sin juicios, siempre.'>"How did I do this week?" Sam knows your history and your emotions, and answers without judgment, always.</p>
-      </div>
-    </div>
-    <div class="text-center" style="margin-top:44px">
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-lg" target="_blank" rel="noopener" data-en="Download free on App Store" data-es="Descargar gratis en App Store">Download free on App Store</a>
-        <a href="waitlist.html?p=android-beta" class="btn btn-ghost btn-lg" data-en="🤖 Android beta →" data-es="🤖 Beta de Android →">🤖 Android beta →</a>
-      </div>
-      <p style="margin-top:10px;font-size:13px;color:var(--text-light)" data-en="iOS + Android beta · Free to start · No credit card required" data-es="iOS + beta de Android · Gratis para empezar · Sin tarjeta de crédito">iOS + Android beta · Free to start · No credit card required</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FEATURES ═══ -->
-<section class="section bg-soft" id="features">
-  <div class="container">
-    <div class="text-center mb-48">
-      <h2 class="section-title" data-en="Everything your finances need.<br><span>Nothing they don't.</span>" data-es="Todo lo que necesitan tus finanzas.<br><span>Nada más.</span>">Everything your finances need.<br><span>Nothing they don't.</span></h2>
-      <p class="section-sub" style="margin:14px auto 0" data-en="Simple, visual, and designed to work with your brain, not against it." data-es="Simple, visual y diseñada para trabajar con tu cerebro, no en tu contra.">Simple, visual, and designed to work with your brain, not against it.</p>
-    </div>
-    <!-- Row 1: Track, text left, phone right -->
-    <div class="home-feat-row fade-in">
-      <div class="home-feat-text">
-        <span class="home-feat-kicker" data-en="Track" data-es="Registrar">Track</span>
-        <h3 data-en="See exactly where<br>your money goes" data-es="Ve exactamente a dónde<br>va tu dinero">See exactly where<br>your money goes</h3>
-        <p data-en="Log income and expenses in seconds. Categories, dates, notes, and a clear view of your cash flow without the overwhelm." data-es="Registra ingresos y gastos en segundos. Categorías, fechas, notas, y una visión clara de tu flujo sin agobio.">Log income and expenses in seconds. Categories, dates, notes, and a clear view of your cash flow without the overwhelm.</p>
-        <ul class="home-feat-bullets">
-          <li><span class="hf-check">✓</span><span data-en="Income &amp; expenses by category" data-es="Ingresos y gastos por categoría">Income &amp; expenses by category</span></li>
-          <li><span class="hf-check">✓</span><span data-en="Multi-currency support" data-es="Soporte multi-moneda">Multi-currency support</span></li>
-          <li><span class="hf-check">✓</span><span data-en="Recurring transactions" data-es="Transacciones recurrentes">Recurring transactions</span></li>
-        </ul>
-      </div>
-      <div class="home-feat-phone">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/records.PNG" alt="Finiverse records view" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row 2: Feel, phone left, text right -->
-    <div class="home-feat-row fade-in">
-      <div class="home-feat-phone">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/emotions.PNG" alt="Finiverse emotion tracking" loading="lazy">
-          </div>
-        </div>
-      </div>
-      <div class="home-feat-text">
-        <span class="home-feat-kicker" data-en="Feel" data-es="Sentir">Feel</span>
-        <h3 data-en="Your emotions matter<br>in money too" data-es="Tus emociones también<br>importan en el dinero">Your emotions matter<br>in money too</h3>
-        <p data-en="Record how you feel when you spend. Finiverse helps you discover emotional spending patterns most apps never surface." data-es="Registra cómo te sientes cuando gastas. Finiverse te ayuda a descubrir patrones emocionales que la mayoría de apps nunca muestran.">Record how you feel when you spend. Finiverse helps you discover emotional spending patterns most apps never surface.</p>
-        <ul class="home-feat-bullets">
-          <li><span class="hf-check">✓</span><span data-en="Log mood with every purchase" data-es="Registra tu estado de ánimo en cada compra">Log mood with every purchase</span></li>
-          <li><span class="hf-check">✓</span><span data-en="Spot stress-spending triggers" data-es="Detecta los disparadores de gasto por estrés">Spot stress-spending triggers</span></li>
-          <li><span class="hf-check">✓</span><span data-en="Private journal notes" data-es="Notas de diario privadas">Private journal notes</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Row 3: Goals, text left, phone right -->
-    <div class="home-feat-row fade-in">
-      <div class="home-feat-text">
-        <span class="home-feat-kicker" data-en="Goals" data-es="Metas">Goals</span>
-        <h3 data-en="Save at your own pace,<br>without the pressure" data-es="Ahorra a tu ritmo,<br>sin presión">Save at your own pace,<br>without the pressure</h3>
-        <p data-en="Set savings goals and watch your progress fill up, visually. Every goal remembers how you felt — so Reports can show you what really moves you forward." data-es="Crea metas de ahorro y mirá tu progreso llenarse, visualmente. Cada meta recuerda cómo te sentías — así Reportes te muestra qué te hace avanzar de verdad.">Set savings goals and watch your progress fill up, visually. Every goal remembers how you felt — so Reports can show you what really moves you forward.</p>
-        <ul class="home-feat-bullets">
-          <li><span class="hf-check">✓</span><span data-en="Watch your progress fill up" data-es="Mirá tu progreso llenarse">Watch your progress fill up</span></li>
-          <li><span class="hf-check">✓</span><span data-en="Mood linked to every goal" data-es="Tu ánimo, conectado a cada meta">Mood linked to every goal</span></li>
-          <li><span class="hf-check">✓</span><span data-en="Wishlist for &ldquo;someday&rdquo; dreams" data-es="Lista de deseos para sueños futuros">Wishlist for &ldquo;someday&rdquo; dreams</span></li>
-        </ul>
-      </div>
-      <div class="home-feat-phone">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <img src="images/goals.PNG?v=2" alt="Finiverse goals view" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center" style="margin-top:48px">
+    <div class="text-center" style="margin-top:32px">
       <a href="features.html" class="btn btn-outline" data-en="See all features →" data-es="Ver todas las funciones →">See all features →</a>
     </div>
   </div>
 </section>
+
 
 <!-- ═══ SAM AI TEASER ═══ -->
 <section class="sam-section" id="sam" style="padding:48px 0">
@@ -529,9 +333,6 @@
     <p class="text-center" style="margin-top:20px;font-size:13px;color:var(--text-light)">
       <a href="privacy.html" style="color:var(--indigo);font-weight:600" data-en="Read our Privacy Policy →" data-es="Lee nuestra Política de Privacidad →">Read our Privacy Policy →</a>
     </p>
-    <p class="text-center" style="margin-top:10px;font-size:13px;color:var(--text-light)">
-      📱 iOS &nbsp;·&nbsp; <a href="waitlist.html?p=android-beta" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px" data-en="Android beta: join testing" data-es="Beta de Android: únete a las pruebas">Android beta: join testing</a> &nbsp;·&nbsp; <a href="waitlist.html?p=desktop" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px" data-en="Desktop in development" data-es="Desktop en desarrollo">Desktop in development</a>
-    </p>
   </div>
 </section>
 
@@ -549,37 +350,30 @@
       <figcaption>Alenoemi <span data-en="· App Store" data-es="· App Store">· App Store</span></figcaption>
     </figure>
 
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px">
-      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-lg" target="_blank" rel="noopener" data-en="Give us a chance →" data-es="Dale una oportunidad →">Give us a chance →</a>
-      <a href="https://apps.apple.com/app/finiverse/id6648789225?action=write-review" class="btn btn-ghost btn-lg" target="_blank" rel="noopener" data-en="Already using it? Leave a review" data-es="¿Ya la usas? Deja una reseña">Already using it? Leave a review</a>
-    </div>
-    <p style="margin-top:12px;font-size:13px;color:var(--text-light)" data-en="A review takes 30 seconds. Means the world to us." data-es="Una reseña toma 30 segundos. Significa todo para nosotros.">A review takes 30 seconds. Means the world to us.</p>
-  </div>
-</section>
-
-
-<!-- ═══ CTA ═══ -->
-<section class="cta-section">
-  <div class="container" style="position:relative;z-index:1">
-    <h2 data-en="Ready to understand your money?" data-es="¿Listo para entender tu dinero?">Ready to understand your money?</h2>
-    <p data-en="Be part of the early community building better financial habits, one day at a time." data-es="Sé parte de la comunidad que está construyendo mejores hábitos financieros, un día a la vez.">Be part of the early community building better financial habits, one day at a time.</p>
-    <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener" style="margin:0 auto;max-width:220px">
+    <h3 style="font-size:22px;font-weight:800;color:var(--text-dark);margin-top:40px" data-en="Ready to understand your money?" data-es="¿Lista/o para entender tu dinero?">Ready to understand your money?</h3>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+    <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener" style="max-width:220px">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <span class="store-btn-text">
         <small data-en="Download on the" data-es="Descarga en el">Download on the</small>
         <strong>App Store</strong>
       </span>
     </a>
-    <a href="waitlist.html?p=android-beta" class="store-btn store-btn-android" style="margin:12px auto 0;max-width:220px">
+    <a href="waitlist.html?p=android-beta" class="store-btn store-btn-android" style="max-width:220px">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.64.64 0 0 0-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
       <span class="store-btn-text">
         <small data-en="Android · Beta" data-es="Android · Beta">Android · Beta</small>
         <strong data-en="Become a tester" data-es="Sé tester">Become a tester</strong>
       </span>
     </a>
-    <p style="color:var(--text-light);font-size:13px;margin-top:16px" data-en="Free · iOS + Android beta · No credit card" data-es="Gratis · iOS + beta de Android · Sin tarjeta">Free · iOS + Android beta · No credit card</p>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--text-light)" data-en="Free · No credit card" data-es="Gratis · Sin tarjeta">Free · No credit card</p>
+    <p style="margin-top:20px;font-size:14px">
+      <a href="https://apps.apple.com/app/finiverse/id6648789225?action=write-review" target="_blank" rel="noopener" style="color:var(--indigo);font-weight:600" data-en="Already using it? Leave a review — it takes 30 seconds →" data-es="¿Ya la usas? Deja una reseña — toma 30 segundos →">Already using it? Leave a review — it takes 30 seconds →</a>
+    </p>
   </div>
 </section>
+
 
 <!-- ═══ FOOTER ═══ -->
 <footer id="site-footer" class="footer"></footer>

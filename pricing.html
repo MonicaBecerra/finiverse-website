@@ -238,58 +238,8 @@
   </div>
 </div>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ng" cx="40%" cy="35%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#3b0764"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#ng)"/><path d="M22 72 Q35 30 50 50 Q65 70 78 28" stroke="#00D4C8" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="78" cy="28" r="6" fill="#00D4C8"/></svg>
-      <span class="nav-logo-text">Finiverse</span>
-    </a>
-        <div class="nav-links" id="navMenu">
-      <a href="/" data-en="Home" data-es="Inicio">Home</a>
-
-      <!-- Product dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Product" data-es="Producto">Product</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
-          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
-          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
-        </div>
-      </div>
-
-      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
-
-      <!-- Resources dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Resources" data-es="Recursos">Resources</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
-          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
-          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
-          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
-        </div>
-      </div>
-
-      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
-      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
-
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
-      <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
+<nav class="nav" id="site-nav"></nav>
+<script src="header.js"></script>
 
 <!-- Hero -->
 <section class="page-hero" style="text-align:center">
@@ -337,27 +287,6 @@
         <p style="font-size:12px;color:var(--text-light);margin-top:14px" data-en="After 7 days, you keep the Free plan unless you choose to subscribe. Sam AI is powered by Claude (Anthropic)." data-es="Después de 7 días, conservas el plan Gratis a menos que elijas suscribirte. Sam IA está impulsado por Claude (Anthropic).">After 7 days, you keep the Free plan unless you choose to subscribe. Sam AI is powered by Claude (Anthropic).</p>
       </div>
 
-      <!-- Quick decision guide -->
-      <div style="max-width:760px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px" class="decide-grid">
-        <div style="background:#fff;border:1px solid var(--card-border);border-radius:16px;padding:18px 16px;text-align:center">
-          <div style="font-size:22px;margin-bottom:8px">🌱</div>
-          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px" data-en="Just starting out?" data-es="¿Apenas comienzas?">Just starting out?</div>
-          <div style="font-size:12px;color:var(--text-mid)" data-en="Start with Free — includes 7-day full trial automatically." data-es="Empieza gratis — incluye prueba de 7 días automáticamente.">Start with Free — includes 7-day full trial automatically.</div>
-        </div>
-        <div style="background:#fff;border:1px solid var(--card-border);border-radius:16px;padding:18px 16px;text-align:center">
-          <div style="font-size:22px;margin-bottom:8px">💜</div>
-          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px" data-en="Want advanced tracking?" data-es="¿Quieres seguimiento avanzado?">Want advanced tracking?</div>
-          <div style="font-size:12px;color:var(--text-mid)" data-en="Premium gives you multi-currency, PDF export, and 100 Sam chats/month." data-es="Premium incluye multi-moneda, PDF y 100 chats con Sam/mes.">Premium gives you multi-currency, PDF export, and 100 Sam chats/month.</div>
-        </div>
-        <div style="background:var(--indigo-light);border:1.5px solid rgba(91,78,232,.3);border-radius:16px;padding:18px 16px;text-align:center;position:relative">
-          <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--indigo);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:100px;white-space:nowrap" data-en="Finiverse Pick" data-es="Recomendación">Finiverse Pick</div>
-          <div style="font-size:22px;margin-bottom:8px">🤖</div>
-          <div style="font-size:13px;font-weight:700;color:var(--indigo);margin-bottom:4px" data-en="Want the full experience?" data-es="¿Quieres la experiencia completa?">Want the full experience?</div>
-          <div style="font-size:12px;color:var(--text-mid)" data-en="Sam AI is the plan Finiverse is built around — unlimited conversations, context, and simulations." data-es="Sam IA es el plan para el que fue diseñado Finiverse — conversaciones ilimitadas, contexto y simulaciones.">Sam AI is the plan Finiverse is built around — unlimited conversations, context, and simulations.</div>
-        </div>
-      </div>
-      <style>@media(max-width:600px){.decide-grid{grid-template-columns:1fr!important}}</style>
-
       <div class="plans-grid">
 
         <!-- FREE -->
@@ -372,7 +301,7 @@
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Unlimited income & expenses" data-es="Ingresos y gastos ilimitados">Unlimited income & expenses</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Basic financial dashboard" data-es="Dashboard financiero básico">Basic financial dashboard</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="5 mood check-ins / month" data-es="5 registros de ánimo / mes">5 mood check-ins / month</span></li>
-            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Up to 3 wish list items" data-es="Hasta 3 deseos en lista">Up to 3 wish list items</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Up to 5 wish list items" data-es="Hasta 5 deseos en lista">Up to 5 wish list items</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Silver medals 🥈" data-es="Medallas de Plata 🥈">Silver medals 🥈</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Seasonal events 🌟" data-es="Eventos estacionales 🌟">Seasonal events 🌟</span></li>
             <li class="plan-feature"><span class="fi fi-no">✕</span><span style="color:var(--text-light)" data-en="Sam AI" data-es="Sam IA">Sam AI</span></li>
@@ -394,11 +323,10 @@
             <li class="plan-feature inherit"><span class="fi fi-yes">✓</span><span data-en="Everything in Free" data-es="Todo lo de Gratis">Everything in Free</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Unlimited mood check-ins" data-es="Registros de ánimo ilimitados">Unlimited mood check-ins</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="ML-powered recommendations" data-es="Recomendaciones ML">ML-powered recommendations</span></li>
-            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="10 wish list items" data-es="10 deseos en lista">10 wish list items</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Priority support" data-es="Soporte prioritario">Priority support</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Gold medals 🥇 + 2 avatars 🎮" data-es="Medallas Oro 🥇 + 2 avatares 🎮">Gold medals 🥇 + 2 avatars 🎮</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Sam AI, 30 chats/month" data-es="Sam IA, 30 chats/mes">Sam AI, 30 chats/month</span></li>
-            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="1 connected bank account 🏦" data-es="1 cuenta bancaria conectada 🏦">1 connected bank account 🏦</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="1 card 💳" data-es="1 tarjeta 💳">1 card 💳</span></li>
             <li class="plan-feature"><span class="fi fi-no">✕</span><span style="color:var(--text-light)" data-en="Multi-currency · PDF export" data-es="Multi-moneda · Exportar PDF">Multi-currency · PDF export</span></li>
           </ul>
           <a href="https://apps.apple.com/app/finiverse/id6648789225" class="plan-cta cta-outline" target="_blank" rel="noopener" data-track-event="plan_cta_click" data-track-label="early_bird" data-en="Get Early Bird →" data-es="Obtener Early Bird →">Get Early Bird →</a>
@@ -410,15 +338,16 @@
           <div class="plan-icon">💜</div>
           <div class="plan-name">Premium</div>
           <div class="plan-tagline" data-en="Full power, your way" data-es="Todo el poder, a tu manera">Full power, your way</div>
-          <div class="plan-price" id="pr-price-display"><sup>$</sup><span class="price-num">9.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-price" id="pr-price-display"><sup>$</sup><span class="price-num">5.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
           <div class="plan-billing" id="pr-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
             <li class="plan-feature inherit"><span class="fi fi-yes">✓</span><span data-en="Everything in Early Bird" data-es="Todo lo de Early Bird">Everything in Early Bird</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Sam AI, 100 chats/month" data-es="Sam IA, 100 chats/mes">Sam AI, 100 chats/month</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="10 wish list items" data-es="10 deseos en lista">10 wish list items</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Multi-currency support" data-es="Soporte multi-moneda">Multi-currency support</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Export PDF reports" data-es="Exportar reportes PDF">Export PDF reports</span></li>
-            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="3 connected bank accounts 🏦" data-es="3 cuentas bancarias conectadas 🏦">3 connected bank accounts 🏦</span></li>
+            <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="3 cards 💳" data-es="3 tarjetas 💳">3 cards 💳</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="SOS button 🆘" data-es="Botón SOS 🆘">SOS button 🆘</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Social leaderboard 🏆" data-es="Leaderboard social 🏆">Social leaderboard 🏆</span></li>
             <li class="plan-feature"><span class="fi fi-yes">✓</span><span data-en="Diamond medals 💎 + 4 avatars 🎮" data-es="Medallas Diamante 💎 + 4 avatares 🎮">Diamond medals 💎 + 4 avatars 🎮</span></li>
@@ -435,7 +364,7 @@
           </div>
           <div class="plan-name">Sam AI</div>
           <div class="plan-tagline" data-en="Your full AI financial companion" data-es="Tu compañero financiero IA completo">Your full AI financial companion</div>
-          <div class="plan-price" id="sa-price-display"><sup>$</sup><span class="price-num">14.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
+          <div class="plan-price" id="sa-price-display"><sup>$</sup><span class="price-num">9.99</span><span class="price-unit" data-en="/mo" data-es="/mes">/mo</span></div>
           <div class="plan-billing" id="sa-billing" data-en="Monthly subscription via App Store" data-es="Suscripción mensual via App Store">Monthly subscription via App Store</div>
           <div class="plan-divider"></div>
           <ul class="plan-features">
@@ -443,7 +372,8 @@
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Unlimited Sam AI conversations" data-es="Conversaciones Sam IA ilimitadas">Unlimited Sam AI conversations</span></li>
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Personalized financial context" data-es="Contexto financiero personalizado">Personalized financial context</span></li>
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="What-if simulations" data-es="Simulaciones hipotéticas">What-if simulations</span></li>
-            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Unlimited connected bank accounts 🏦" data-es="Cuentas bancarias conectadas ilimitadas 🏦">Unlimited connected bank accounts 🏦</span></li>
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Unlimited wish list" data-es="Lista de deseos ilimitada">Unlimited wish list</span></li>
+            <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Unlimited cards 💳" data-es="Tarjetas ilimitadas 💳">Unlimited cards 💳</span></li>
             <li class="plan-feature"><span class="fi fi-cyan">✓</span><span data-en="Early access to new features" data-es="Acceso anticipado a nuevas funciones">Early access to new features</span></li>
             <li class="plan-feature"><span class="fi fi-game">🎮</span><span data-en="6+ avatars with voice" data-es="6+ avatares con voz">6+ avatars with voice</span></li>
             <li class="plan-feature"><span class="fi fi-game">🎮</span><span data-en="Exclusive Sam AI events" data-es="Eventos exclusivos Sam IA">Exclusive Sam AI events</span></li>
@@ -499,7 +429,7 @@
               </tr>
               <tr>
                 <td data-en="🎁 Wish list items" data-es="🎁 Deseos en lista">🎁 Wish list items</td>
-                <td>3</td><td>10</td><td>10</td><td class="sam-col">10</td>
+                <td>5</td><td>5</td><td>10</td><td class="sam-col" style="color:var(--indigo);font-weight:700" data-en="Unlimited" data-es="Ilimitada">Unlimited</td>
               </tr>
               <tr class="compare-group"><td colspan="5" data-en="Sam AI &amp; insights" data-es="Sam IA e insights">Sam AI &amp; insights</td></tr>
               <tr>
@@ -528,7 +458,7 @@
                 <td class="g-no">✕</td><td class="g-no">✕</td><td class="g-yes">✓</td><td class="sam-col g-yes">✓</td>
               </tr>
               <tr>
-                <td data-en="🏦 Connected bank accounts" data-es="🏦 Cuentas bancarias conectadas">🏦 Connected bank accounts</td>
+                <td data-en="💳 Cards (added manually)" data-es="💳 Tarjetas (agregadas a mano)">💳 Cards (added manually)</td>
                 <td class="g-no">✕</td><td>1</td><td>3</td><td class="sam-col" style="color:var(--indigo);font-weight:700" data-en="Unlimited" data-es="Ilimitadas">Unlimited</td>
               </tr>
               <tr>
@@ -578,28 +508,11 @@
       </div>
     </div>
 
-    <!-- FAQ -->
-    <div style="max-width:640px;margin:72px auto 0">
-      <h2 style="font-size:24px;font-weight:800;color:var(--text-dark);margin-bottom:28px;text-align:center" data-en="Questions" data-es="Preguntas">Questions</h2>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div class="card">
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="How do I cancel?" data-es="¿Cómo cancelo?">How do I cancel?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Go to Settings → Apple ID → Subscriptions on your iPhone. Cancel anytime, no fees." data-es="Ve a Ajustes → Apple ID → Suscripciones en tu iPhone. Cancela cuando quieras, sin cargos.">Go to Settings → Apple ID → Subscriptions on your iPhone. Cancel anytime, no fees.</p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="Can I switch plans?" data-es="¿Puedo cambiar de plan?">Can I switch plans?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Yes, upgrade or downgrade anytime. Changes take effect at the next billing cycle." data-es="Sí, actualiza o reduce tu plan cuando quieras. Los cambios surten efecto en el próximo ciclo de facturación.">Yes, upgrade or downgrade anytime. Changes take effect at the next billing cycle.</p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="What is Sam AI, really?" data-es="¿Qué es Sam IA, en realidad?">What is Sam AI, really?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Sam is powered by Claude AI (Anthropic) and knows your full financial context, your records, emotions, and goals. It's not a scripted chatbot. Note: Sam does not give certified financial advice." data-es="Sam está impulsado por Claude AI (Anthropic) y conoce tu contexto financiero completo, tus registros, emociones y metas. No es un chatbot guionado. Nota: Sam no da asesoramiento financiero certificado.">Sam is powered by Claude AI (Anthropic) and knows your full financial context, your records, emotions, and goals. It's not a scripted chatbot. Note: Sam does not give certified financial advice.</p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:15px;font-weight:700;margin-bottom:6px" data-en="Is there a student or family discount?" data-es="¿Hay descuento para estudiantes o familias?">Is there a student or family discount?</h3>
-          <p style="font-size:14px;color:var(--text-mid)" data-en="Not yet, but it's on our roadmap. Join the waitlist to be the first to know." data-es="Todavía no, pero está en nuestro roadmap. Únete a la lista de espera para ser el primero en saber.">Not yet, but it's on our roadmap. <a href="waitlist.html">Join the waitlist</a> to be the first to know.</p>
-        </div>
-      </div>
-    </div>
+    <!-- Plan questions live in the Help Center (help.html#plans) -->
+    <p style="text-align:center;margin-top:56px;font-size:15px;color:var(--text-mid)">
+      <span data-en="Questions about cancelling, switching or discounts?" data-es="¿Dudas sobre cancelar, cambiar de plan o descuentos?">Questions about cancelling, switching or discounts?</span>
+      <a href="help.html#plans" style="color:var(--indigo);font-weight:700" data-en="See plan answers →" data-es="Ver respuestas sobre planes →">See plan answers →</a>
+    </p>
 
   </div>
 </section>
@@ -658,10 +571,11 @@
   }
 
   /* ── Monthly / Yearly toggle ── */
-  /* Monthly prices (USD): Early Bird $4.99 · Premium $9.99 · Sam AI $14.99
-     Annual saves ~15%, exact annual price shown in App Store by Apple      */
-  const MONTHLY = { eb: 4.99, pr: 9.99, sa: 14.99 };
-  const SAVINGS  = 0.15; // ~15% off annual
+  /* App Store prices (USD), same as the in-app purchases listed on the App Store page:
+     monthly  Early Bird $4.99  · Premium $5.99  · Sam AI $9.99
+     yearly   Early Bird $50.99 · Premium $59.99 · Sam AI $99.99  (~15% less than 12 months) */
+  const MONTHLY = { eb: 4.99,  pr: 5.99,  sa: 9.99 };
+  const YEARLY  = { eb: 50.99, pr: 59.99, sa: 99.99 };
 
   let isYearly = false;
 
@@ -669,22 +583,21 @@
   const lblM = document.getElementById('lblMonthly');
   const lblY = document.getElementById('lblYearly');
 
-  function fmtPrice(monthly) {
-    return isYearly ? (monthly * (1 - SAVINGS)).toFixed(2) : monthly.toFixed(2);
+  // Yearly shows the per-month equivalent; the billing line below shows the real yearly charge.
+  function fmtPrice(k) {
+    return isYearly ? (YEARLY[k] / 12).toFixed(2) : MONTHLY[k].toFixed(2);
   }
 
   function applyToggle() {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    const billingNote = isYearly
-      ? (lang === 'es' ? 'Facturado anual · Ahorra ~15%' : 'Billed annually · Save ~15%')
-      : (lang === 'es' ? 'Suscripción mensual via App Store' : 'Monthly subscription via App Store');
-
     // Update displayed prices
     ['eb','pr','sa'].forEach(k => {
       const el = document.querySelector(`#${k}-price-display .price-num`);
-      if (el) el.textContent = fmtPrice(MONTHLY[k]);
+      if (el) el.textContent = fmtPrice(k);
       const bill = document.getElementById(`${k}-billing`);
-      if (bill) bill.textContent = billingNote;
+      if (bill) bill.textContent = isYearly
+        ? (lang === 'es' ? `$${YEARLY[k]} al año via App Store` : `$${YEARLY[k]} billed yearly via App Store`)
+        : (lang === 'es' ? 'Suscripción mensual via App Store' : 'Monthly subscription via App Store');
     });
 
     lblM.classList.toggle('active', !isYearly);

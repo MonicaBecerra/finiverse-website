@@ -255,52 +255,8 @@
   </div>
 </div>
 
-<nav class="nav" role="navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
-      <span class="nav-logo-text">Finiverse</span>
-    </a>
-    <div class="nav-links" id="navMenu">
-      <a href="/" data-en="Home" data-es="Inicio">Home</a>
-
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Product" data-es="Producto">Product</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
-          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
-          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
-        </div>
-      </div>
-      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Resources" data-es="Recursos">Resources</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
-          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
-          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
-          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
-        </div>
-      </div>
-      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
-      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
-      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
+<nav class="nav" id="site-nav"></nav>
+<script src="header.js"></script>
 
 <!-- Page header -->
 <section class="page-hero" style="padding-bottom:40px">
@@ -312,7 +268,7 @@
 </section>
 
 <!-- ═══ ROADMAP ═══ -->
-<section class="section" style="background:#F8F8FB;padding:24px 24px 64px">
+<section class="section" id="roadmap" style="background:#F8F8FB;padding:24px 24px 64px">
   <div style="max-width:900px;margin:0 auto">
     <div class="pitch-label" data-en="Roadmap" data-es="Roadmap">Roadmap</div>
     <h2 style="font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--text-dark);letter-spacing:-.02em;margin-bottom:4px" data-en="Where we are. Where we're going." data-es="Dónde estamos. A dónde vamos.">Where we are. Where we're going.</h2>
@@ -332,10 +288,10 @@
         <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Next 6 months" data-es="Próximos 6 meses">Next 6 months</span></div>
         <h3 data-en="Growth Phase" data-es="Fase de Crecimiento">Growth Phase</h3>
         <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Android launch" data-es="Lanzamiento Android">Android launch</span><span class="ri-status ri-planned" data-en="Planned" data-es="Planificado">Planned</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Android app" data-es="App Android">Android app</span><span class="ri-status ri-indev" data-en="Open beta" data-es="Beta abierta">Open beta</span></div>
           <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Bank connection (read-only import)" data-es="Conexión bancaria (importación de solo lectura)">Bank connection (read-only import)</span><span class="ri-status ri-indev" data-en="In development" data-es="En desarrollo">In development</span></div>
           <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Community & social features" data-es="Funciones comunitarias y sociales">Community & social features</span><span class="ri-status ri-planned" data-en="Planned" data-es="Planificado">Planned</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="FR, PT language support" data-es="Soporte FR, PT">FR, PT language support</span><span class="ri-status ri-planned" data-en="Planned" data-es="Planificado">Planned</span></div>
+          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Desktop & web app" data-es="App de escritorio y web">Desktop & web app</span><span class="ri-status ri-indev" data-en="In development" data-es="En desarrollo">In development</span></div>
         </div>
       </div>
       <div class="roadmap-card fade-in">
@@ -345,7 +301,6 @@
           <div class="roadmap-item"><div class="ri-dot"></div><span data-en="B2B: Mental health orgs & employers" data-es="B2B: Organizaciones de salud mental y empresas">B2B: Mental health orgs & employers</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
           <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial advisor integrations" data-es="Integraciones con asesores financieros">Financial advisor integrations</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
           <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Family & caregiver plans" data-es="Planes familiares y de cuidadores">Family & caregiver plans</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Web app & desktop" data-es="App web y escritorio">Web app & desktop</span><span class="ri-status ri-exploring" data-en="Exploring" data-es="Explorando">Exploring</span></div>
         </div>
       </div>
     </div>
@@ -388,6 +343,78 @@
          EMPIEZA A COPIAR DESDE AQUÍ PARA NUEVA VERSIÓN
          ══════════════════════════════════════════════ -->
 
+    <!-- ── v1.10.8 — Offline mode ── -->
+    <div class="cl-entry fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.8</span>
+        <span class="cl-date" data-en="September 2026" data-es="Septiembre 2026">September 2026</span>
+        <span class="cl-badge cl-badge-new" data-en="New" data-es="Nuevo">New</span>
+        <span class="cl-badge cl-badge-improve" data-en="Improvement" data-es="Mejora">Improvement</span>
+      </div>
+      <ul class="cl-items">
+        <li class="new" data-en="Offline mode: add or delete records without internet. They sync automatically once you're back online." data-es="Modo sin conexión: agrega o borra registros sin internet. Se sincronizan solos cuando vuelves a conectarte.">Offline mode: add or delete records without internet. They sync automatically once you're back online.</li>
+        <li class="new" data-en="Sam keeps working offline, with some limits" data-es="Sam sigue funcionando sin conexión, con algunos límites">Sam keeps working offline, with some limits</li>
+        <li class="new" data-en="New app icon designs to choose from" data-es="Nuevos diseños de ícono de la app para elegir">New app icon designs to choose from</li>
+        <li data-en="Cleaner design and extra tools" data-es="Diseño más limpio y herramientas extra">Cleaner design and extra tools</li>
+        <li class="fix" data-en="Bug fixes and performance tuning for a more stable app" data-es="Correcciones y ajustes de rendimiento para una app más estable">Bug fixes and performance tuning for a more stable app</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.10.7 — Bug fix ── -->
+    <div class="cl-entry fix fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.7</span>
+        <span class="cl-date" data-en="July 2026" data-es="Julio 2026">July 2026</span>
+        <span class="cl-badge cl-badge-fix" data-en="Bug fix" data-es="Corrección">Bug fix</span>
+      </div>
+      <ul class="cl-items">
+        <li class="fix" data-en="Bug fixes and stability improvements for a smoother experience" data-es="Correcciones y mejoras de estabilidad para una experiencia más fluida">Bug fixes and stability improvements for a smoother experience</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.10.5 – v1.10.6 — Transfers & redesign ── -->
+    <div class="cl-entry fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.5 – 1.10.6</span>
+        <span class="cl-date" data-en="July 2026" data-es="Julio 2026">July 2026</span>
+        <span class="cl-badge cl-badge-new" data-en="New" data-es="Nuevo">New</span>
+        <span class="cl-badge cl-badge-improve" data-en="Improvement" data-es="Mejora">Improvement</span>
+      </div>
+      <ul class="cl-items">
+        <li class="new" data-en="Currency exchange and transfers between your own accounts, inside the app" data-es="Cambio de moneda y transferencias entre tus propias cuentas, dentro de la app">Currency exchange and transfers between your own accounts, inside the app</li>
+        <li data-en="Layouts redesigned with cognitive design principles, so screens are easier to follow" data-es="Pantallas rediseñadas con principios de diseño cognitivo, más fáciles de seguir">Layouts redesigned with cognitive design principles, so screens are easier to follow</li>
+        <li class="perf" data-en="Sam is faster and more accurate" data-es="Sam es más rápido y preciso">Sam is faster and more accurate</li>
+        <li class="fix" data-en="Bug fixes and stability improvements" data-es="Correcciones y mejoras de estabilidad">Bug fixes and stability improvements</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.10.4 — Performance ── -->
+    <div class="cl-entry fix fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.4</span>
+        <span class="cl-date" data-en="June 2026" data-es="Junio 2026">June 2026</span>
+        <span class="cl-badge cl-badge-perf" data-en="Performance" data-es="Rendimiento">Performance</span>
+      </div>
+      <ul class="cl-items">
+        <li class="perf" data-en="Sam's chat is faster and more accurate" data-es="El chat de Sam es más rápido y preciso">Sam's chat is faster and more accurate</li>
+        <li class="perf" data-en="Better overall performance and stability" data-es="Mejor rendimiento y estabilidad en general">Better overall performance and stability</li>
+      </ul>
+    </div>
+
+    <!-- ── v1.10.3 — Budgets ── -->
+    <div class="cl-entry fade-in">
+      <div class="cl-meta">
+        <span class="cl-version">v1.10.3</span>
+        <span class="cl-date" data-en="June 2026" data-es="Junio 2026">June 2026</span>
+        <span class="cl-badge cl-badge-new" data-en="New" data-es="Nuevo">New</span>
+      </div>
+      <ul class="cl-items">
+        <li class="new" data-en="Budgets: set spending limits in Records → Expenses" data-es="Presupuestos: pon límites de gasto en Registros → Gastos">Budgets: set spending limits in Records → Expenses</li>
+        <li class="perf" data-en="Faster Sam chat" data-es="Chat de Sam más rápido">Faster Sam chat</li>
+        <li class="perf" data-en="Better performance and stability" data-es="Mejor rendimiento y estabilidad">Better performance and stability</li>
+      </ul>
+    </div>
+
     <!-- ── v1.10.2 — Bug fix ── -->
     <div class="cl-entry fix fade-in">
       <div class="cl-meta">
@@ -421,11 +448,13 @@
       </ul>
     </div>
 
+    <div class="cl-year-divider">2025</div>
+
     <!-- ── v1.9.0 — Cards & multi-currency ── -->
     <div class="cl-entry fade-in">
       <div class="cl-meta">
         <span class="cl-version">v1.9.0</span>
-        <span class="cl-date" data-en="March 2026" data-es="Marzo 2026">March 2026</span>
+        <span class="cl-date" data-en="March 2025" data-es="Marzo 2025">March 2025</span>
         <span class="cl-badge cl-badge-new" data-en="New" data-es="Nuevo">New</span>
       </div>
       <ul class="cl-items">
@@ -435,6 +464,8 @@
         <li class="perf" data-en="Faster loading times across all main tabs" data-es="Tiempos de carga más rápidos en todas las pestañas principales">Faster loading times across all main tabs</li>
       </ul>
     </div>
+
+    <div class="cl-year-divider">2024</div>
 
     <!-- ── v1.0.0 — Initial launch ── -->
     <div class="cl-entry fade-in">

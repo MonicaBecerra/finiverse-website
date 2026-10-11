@@ -233,58 +233,8 @@
   </div>
 </div>
 
-<nav class="nav" role="navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
-      <span class="nav-logo-text">Finiverse</span>
-    </a>
-    <div class="nav-links" id="navMenu">
-      <a href="/" data-en="Home" data-es="Inicio">Home</a>
-
-      <!-- Product dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Product" data-es="Producto">Product</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
-          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
-          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
-        </div>
-      </div>
-
-      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
-
-      <!-- Resources dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Resources" data-es="Recursos">Resources</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
-          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
-          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
-          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
-        </div>
-      </div>
-
-      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
-      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
-
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-en="Download" data-es="Descargar">Download</a>
-      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
+<nav class="nav" id="site-nav"></nav>
+<script src="header.js"></script>
 
 <!-- ═══ HERO ═══ -->
 <section class="page-hero">
@@ -307,19 +257,19 @@
 
 <div style="max-width:var(--max-w);margin:0 auto;padding:0 24px">
 
-  <!-- ═══ LATEST ARTICLES ═══
-       Published posts only, sorted newest first. Add new ones at the TOP
-       of this .article-grid, right below the comment, when something new
-       goes live. Move the matching "Coming soon" card out of its category
-       section below so it doesn't appear twice. ═══ -->
+  <!-- ═══ ARTICLES ═══
+       Published posts only, sorted newest first. Each article appears ONCE:
+       add new ones at the TOP of this .article-grid with data-cat set to the
+       filter it belongs to (adhd-money, anxiety-finance, dyscalculia,
+       getting-started, science). The category buttons filter this list. ═══ -->
   <section class="res-section fade-in" data-category="all">
     <div class="res-section-label">
       <h2 data-en="Latest Articles" data-es="Últimos Artículos">Latest Articles</h2>
-      <span class="cat-badge badge-general" data-en="5 articles" data-es="5 artículos">5 articles</span>
+      <span class="cat-badge badge-general" id="articleCount" data-en="5 articles" data-es="5 artículos">5 articles</span>
     </div>
     <div class="article-grid">
 
-      <a href="blog-anxiety-bank.html" class="article-card fade-in" style="text-decoration:none;display:block">
+      <a href="blog-anxiety-bank.html" class="article-card fade-in" data-cat="anxiety-finance" style="text-decoration:none;display:block">
         <span class="article-emoji">📊</span>
         <div class="article-cat" data-en="Anxiety &amp; Finance" data-es="Ansiedad y Finanzas">Anxiety &amp; Finance</div>
         <div class="article-title" data-en="How to Check Your Bank Account Without Spiraling" data-es="Cómo revisar tu cuenta bancaria sin entrar en espiral">How to Check Your Bank Account Without Spiraling</div>
@@ -327,7 +277,7 @@
         <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
       </a>
 
-      <a href="blog-adhd-money.html" class="article-card fade-in" style="text-decoration:none;display:block">
+      <a href="blog-adhd-money.html" class="article-card fade-in" data-cat="adhd-money" style="text-decoration:none;display:block">
         <span class="article-emoji">🧠</span>
         <div class="article-cat" data-en="ADHD &amp; Money" data-es="TDAH y Dinero">ADHD &amp; Money</div>
         <div class="article-title" data-en="Why ADHD Makes Budgeting Hard (And What Actually Helps)" data-es="Por qué el TDAH hace que presupuestar sea difícil (y qué ayuda de verdad)">Why ADHD Makes Budgeting Hard (And What Actually Helps)</div>
@@ -335,7 +285,7 @@
         <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
       </a>
 
-      <a href="blog-anti-budget.html" class="article-card fade-in" style="text-decoration:none;display:block">
+      <a href="blog-anti-budget.html" class="article-card fade-in" data-cat="getting-started" style="text-decoration:none;display:block">
         <span class="article-emoji">🗺️</span>
         <div class="article-cat" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</div>
         <div class="article-title" data-en="The Anti-Budget: How to Start Tracking Money When Spreadsheets Fail" data-es="El anti-presupuesto: cómo empezar cuando las hojas de cálculo fallan">The Anti-Budget: How to Start Tracking Money When Spreadsheets Fail</div>
@@ -343,7 +293,7 @@
         <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
       </a>
 
-      <a href="blog-fdr-methodology.html" class="article-card fade-in" style="text-decoration:none;display:block">
+      <a href="blog-fdr-methodology.html" class="article-card fade-in" data-cat="science" style="text-decoration:none;display:block">
         <span class="article-emoji">📐</span>
         <div class="article-cat" data-en="Behind the Science" data-es="Detrás de la Ciencia">Behind the Science</div>
         <div class="article-title" data-en="Most Finance Apps Show You Noise and Call It Insight." data-es="La Mayoría de las Apps de Finanzas Te Muestran Ruido y le Dicen Insight.">Most Finance Apps Show You Noise and Call It Insight.</div>
@@ -351,7 +301,7 @@
         <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
       </a>
 
-      <a href="blog-neurodivergent-finance.html" class="article-card fade-in" style="text-decoration:none;display:block">
+      <a href="blog-neurodivergent-finance.html" class="article-card fade-in" data-cat="getting-started" style="text-decoration:none;display:block">
         <span class="article-emoji">📣</span>
         <div class="article-cat" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</div>
         <div class="article-title" data-en="Why Traditional Finance Advice Ignores Neurodivergent People" data-es="Por qué los consejos financieros tradicionales ignoran a las personas neurodivergentes">Why Traditional Finance Advice Ignores Neurodivergent People</div>
@@ -362,135 +312,14 @@
     </div>
   </section>
 
-  <hr class="res-divider" />
-
-  <!-- ═══ ADHD & MONEY ═══ -->
-  <section class="res-section fade-in" data-category="adhd-money">
-    <div class="res-section-label">
-      <h2 data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</h2>
-      <span class="cat-badge badge-adhd" data-en="1 article" data-es="1 artículo">1 article</span>
-    </div>
-    <div class="article-grid">
-
-      <a href="blog-adhd-money.html" class="article-card featured fade-in" style="text-decoration:none;display:block">
-        <span class="article-emoji">🧠</span>
-        <div class="article-cat" data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</div>
-        <div class="article-title" data-en="Why ADHD Makes Budgeting Hard (And What Actually Helps)" data-es="Por qué el TDAH dificulta el presupuesto (y qué realmente ayuda)">Why ADHD Makes Budgeting Hard (And What Actually Helps)</div>
-        <p class="article-excerpt" data-en="Executive dysfunction, time blindness, and dopamine-driven spending aren't character flaws. Here's how your brain actually works with money, and how to build a system that works with it, not against it." data-es="La disfunción ejecutiva, la ceguera al tiempo y el gasto por dopamina no son defectos de carácter. Así funciona realmente tu cerebro con el dinero.">Executive dysfunction, time blindness, and dopamine-driven spending aren't character flaws. Here's how your brain actually works with money, and how to build a system that works with it, not against it.</p>
-        <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
-      </a>
-
-      <div class="article-card fade-in" style="display:none">
-        <span class="article-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
-        <span class="article-emoji">⏱️</span>
-        <div class="article-cat" data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</div>
-        <div class="article-title" data-en="The 5-Minute Money Check-In for ADHD Brains" data-es="El chequeo de 5 minutos para cerebros con TDAH">The 5-Minute Money Check-In for ADHD Brains</div>
-        <p class="article-excerpt" data-en="Long monthly budgeting sessions don't work for ADHD. This micro-habit does." data-es="Las sesiones largas de presupuesto mensual no funcionan con TDAH. Este micro-hábito sí.">Long monthly budgeting sessions don't work for ADHD. This micro-habit does.</p>
-      </div>
-
-      <div class="article-card fade-in" style="display:none">
-        <span class="article-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
-        <span class="article-emoji">🛒</span>
-        <div class="article-cat" data-en="ADHD & Money" data-es="TDAH y Dinero">ADHD & Money</div>
-        <div class="article-title" data-en="Impulse Buying and ADHD: Understanding Your Spending Triggers" data-es="Compras impulsivas y TDAH: entiende tus detonadores">Impulse Buying and ADHD: Understanding Your Spending Triggers</div>
-        <p class="article-excerpt" data-en="Dopamine drops, boredom loops, and emotional spending, decoded. Plus how Finiverse's Wishlist feature adds friction before you checkout." data-es="Caídas de dopamina, ciclos de aburrimiento y gastos emocionales, descifrados.">Dopamine drops, boredom loops, and emotional spending, decoded. Plus how Finiverse's Wishlist feature adds friction before you checkout.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="res-divider" />
-
-  <!-- ═══ ANXIETY & FINANCE ═══ -->
-  <section class="res-section fade-in" data-category="anxiety-finance">
-    <div class="res-section-label">
-      <h2 data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</h2>
-      <span class="cat-badge badge-anxiety" data-en="1 article" data-es="1 artículo">1 article</span>
-    </div>
-    <div class="article-grid">
-
-      <div class="article-card fade-in" style="display:none">
-        <span class="article-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
-        <span class="article-emoji">💚</span>
-        <div class="article-cat" data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</div>
-        <div class="article-title" data-en="Financial Anxiety Isn't a Character Flaw" data-es="La ansiedad financiera no es un defecto de carácter">Financial Anxiety Isn't a Character Flaw</div>
-        <p class="article-excerpt" data-en="Avoiding your bank account isn't laziness. It's a stress response. Here's how to gently break the avoidance loop." data-es="Evitar tu cuenta bancaria no es pereza. Es una respuesta al estrés. Así puedes romper suavemente ese ciclo.">Avoiding your bank account isn't laziness. It's a stress response. Here's how to gently break the avoidance loop.</p>
-      </div>
-
-      <a href="blog-anxiety-bank.html" class="article-card fade-in" style="text-decoration:none;display:block">
-        <span class="article-emoji">📊</span>
-        <div class="article-cat" data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</div>
-        <div class="article-title" data-en="How to Check Your Bank Account Without Spiraling" data-es="Cómo revisar tu cuenta sin caer en espiral">How to Check Your Bank Account Without Spiraling</div>
-        <p class="article-excerpt" data-en="A step-by-step ritual for people who feel dread every time they open their banking app." data-es="Un ritual paso a paso para quienes sienten angustia cada vez que abren su app bancaria.">A step-by-step ritual for people who feel dread every time they open their banking app.</p>
-        <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
-      </a>
-
-      <div class="article-card fade-in" style="display:none">
-        <span class="article-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
-        <span class="article-emoji">🛡️</span>
-        <div class="article-cat" data-en="Anxiety & Finance" data-es="Ansiedad y Finanzas">Anxiety & Finance</div>
-        <div class="article-title" data-en="Setting Up Money Buffers to Reduce Financial Anxiety" data-es="Crear colchones financieros para reducir la ansiedad">Setting Up Money Buffers to Reduce Financial Anxiety</div>
-        <p class="article-excerpt" data-en="Small emergency funds, subscription tracking, and spending cushions, the unglamorous tools that actually calm money anxiety." data-es="Fondos de emergencia pequeños, seguimiento de suscripciones y colchones de gasto, las herramientas que realmente calman la ansiedad financiera.">Small emergency funds, subscription tracking, and spending cushions, the unglamorous tools that actually calm money anxiety.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ DYSCALCULIA — hidden until articles are published ═══ -->
-  <section class="res-section fade-in" data-category="dyscalculia" style="display:none">
-    <div class="res-section-label">
-      <h2 data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</h2>
-      <span class="cat-badge badge-dyscalculia" data-en="2 articles" data-es="2 artículos">2 articles</span>
-    </div>
-    <div class="article-grid">
-
-      <div class="article-card featured fade-in">
-        <span class="article-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
-        <span class="article-emoji">🔢</span>
-        <div class="article-cat" data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</div>
-        <div class="article-title" data-en="Dyscalculia and Money: You're Not Bad at Math, Your Brain Just Works Differently" data-es="Discalculia y dinero: no eres malo en matemáticas, tu cerebro funciona diferente">Dyscalculia and Money: You're Not Bad at Math, Your Brain Just Works Differently</div>
-        <p class="article-excerpt" data-en="Numbers feel slippery. Totals don't stick. Percentages make no sense. If this is you, you might have dyscalculia, and Finiverse was built with you in mind." data-es="Los números se escurren. Los totales no quedan. Los porcentajes no tienen sentido. Si esto eres tú, quizás tienes discalculia.">Numbers feel slippery. Totals don't stick. Percentages make no sense. If this is you, you might have dyscalculia, and Finiverse was built with you in mind.</p>
-      </div>
-
-      <div class="article-card fade-in">
-        <span class="article-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
-        <span class="article-emoji">🎨</span>
-        <div class="article-cat" data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</div>
-        <div class="article-title" data-en="Visual Budgeting for Dyscalculia: Seeing Money Instead of Counting It" data-es="Presupuesto visual para discalculia: ver el dinero en lugar de contarlo">Visual Budgeting for Dyscalculia: Seeing Money Instead of Counting It</div>
-        <p class="article-excerpt" data-en="Charts, colours, and progress bars work better than spreadsheet cells when your brain processes numbers visually." data-es="Los gráficos, colores y barras de progreso funcionan mejor que celdas de hoja de cálculo cuando tu cerebro procesa números visualmente.">Charts, colours, and progress bars work better than spreadsheet cells when your brain processes numbers visually.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="res-divider" />
-
-  <!-- ═══ GETTING STARTED ═══ -->
-  <section class="res-section fade-in" data-category="getting-started">
-    <div class="res-section-label">
-      <h2 data-en="Getting Started" data-es="Primeros Pasos">Getting Started</h2>
-      <span class="cat-badge badge-general" data-en="2 articles" data-es="2 artículos">2 articles</span>
-    </div>
-    <div class="article-grid">
-
-      <a href="blog-neurodivergent-finance.html" class="article-card featured fade-in" style="text-decoration:none;display:block">
-        <span class="article-emoji">📣</span>
-        <div class="article-cat" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</div>
-        <div class="article-title" data-en="Why Traditional Finance Advice Ignores Neurodivergent People" data-es="Por qué los consejos financieros tradicionales ignoran a las personas neurodivergentes">Why Traditional Finance Advice Ignores Neurodivergent People</div>
-        <p class="article-excerpt" data-en="&ldquo;Just track every expense.&rdquo; &ldquo;Automate your savings.&rdquo; Standard advice assumes a neurotypical brain. Here's why that's a problem, and what actually works." data-es="&ldquo;Solo registra cada gasto.&rdquo; &ldquo;Automatiza tus ahorros.&rdquo; El consejo estándar asume un cerebro neurotípico. Aquí explicamos por qué eso es un problema.">&ldquo;Just track every expense.&rdquo; &ldquo;Automate your savings.&rdquo; Standard advice assumes a neurotypical brain. Here's why that's a problem, and what actually works.</p>
-        <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
-      </a>
-
-      <a href="blog-anti-budget.html" class="article-card fade-in" style="text-decoration:none;display:block">
-        <span class="article-emoji">🗺️</span>
-        <div class="article-cat" data-en="Getting Started" data-es="Primeros Pasos">Getting Started</div>
-        <div class="article-title" data-en="The Anti-Budget: How to Start Tracking Money When Spreadsheets Fail" data-es="El anti-presupuesto: cómo empezar cuando las hojas de cálculo fallan">The Anti-Budget: How to Start Tracking Money When Spreadsheets Fail</div>
-        <p class="article-excerpt" data-en="Skip the categories and the weekly reviews. Start by just noticing. The lowest-friction way to begin building financial awareness." data-es="Olvida las categorías y las revisiones semanales. Empieza solo notando. La forma de menor fricción para empezar.">Skip the categories and the weekly reviews. Start by just noticing. The lowest-friction way to begin building financial awareness.</p>
-        <span class="article-meta" data-en="Read article →" data-es="Leer artículo →">Read article →</span>
-      </a>
-
-    </div>
-  </section>
+  <!-- Draft article ideas (not published yet; add a card above when one goes live):
+       - The 5-Minute Money Check-In for ADHD Brains
+       - Impulse Buying and ADHD: Understanding Your Spending Triggers
+       - Financial Anxiety Isn't a Character Flaw
+       - Setting Up Money Buffers to Reduce Financial Anxiety
+       - Dyscalculia and Money: You're Not Bad at Math, Your Brain Just Works Differently
+       - Visual Budgeting for Dyscalculia: Seeing Money Instead of Counting It
+  -->
 
   <!-- ═══ SAM CTA ═══ -->
   <div class="sam-cta-banner fade-in">
@@ -521,9 +350,9 @@
 <script>
 /* ── Category filter buttons ── */
 (function () {
-  var btns = document.querySelectorAll('.res-cat-btn');
-  var sections = document.querySelectorAll('.res-section[data-category]');
-  var dividers = document.querySelectorAll('.res-divider');
+  var btns  = document.querySelectorAll('.res-cat-btn');
+  var cards = document.querySelectorAll('.article-grid .article-card[data-cat]');
+  var count = document.getElementById('articleCount');
 
   btns.forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -531,25 +360,20 @@
       btn.classList.add('active');
 
       var filter = btn.getAttribute('data-filter') || 'all';
-      var showAll = filter === 'all';
-
-      sections.forEach(function (sec) {
-        var cat = sec.getAttribute('data-category');
-        if (showAll || cat === 'all' || cat === filter) {
-          sec.style.display = '';
-        } else {
-          sec.style.display = 'none';
-        }
+      var shown = 0;
+      cards.forEach(function (card) {
+        var show = filter === 'all' || card.getAttribute('data-cat') === filter;
+        card.style.display = show ? 'block' : 'none';
+        if (show) shown++;
       });
 
-      dividers.forEach(function (hr) {
-        var prev = hr.previousElementSibling;
-        var next = hr.nextElementSibling;
-        hr.style.display = (
-          (prev && prev.style.display === 'none') ||
-          (next && next.style.display === 'none')
-        ) ? 'none' : '';
-      });
+      if (count) {
+        var en = shown + (shown === 1 ? ' article' : ' articles');
+        var es = shown + (shown === 1 ? ' artículo' : ' artículos');
+        count.setAttribute('data-en', en);
+        count.setAttribute('data-es', es);
+        count.textContent = document.documentElement.getAttribute('data-lang') === 'es' ? es : en;
+      }
     });
   });
 })();

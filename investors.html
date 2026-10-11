@@ -504,51 +504,8 @@
   </div>
 </div>
 
-<nav class="nav" role="navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="images/app-icon.png" alt="Finiverse" width="32" height="32" style="border-radius:8px;object-fit:cover" />
-      <span class="nav-logo-text">Finiverse</span>
-    </a>
-    <div class="nav-links" id="navMenu">
-      <a href="/" data-en="Home" data-es="Inicio">Home</a>
-
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Product" data-es="Producto">Product</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="features.html" data-en="Features" data-es="Funciones">Features</a>
-          <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>
-          <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>
-        </div>
-      </div>
-      <a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
-          <span data-en="Resources" data-es="Recursos">Resources</span>
-          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-panel">
-          <a href="help.html" data-en="Help Center" data-es="Centro de Ayuda">Help Center</a>
-          <a href="faq.html" data-en="FAQ" data-es="FAQ">FAQ</a>
-          <a href="resources.html" data-en="Guides &amp; Articles" data-es="Guías y Artículos">Guides &amp; Articles</a>
-          <a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a>
-        </div>
-      </div>
-      <a href="about.html" data-en="About" data-es="Nosotros">About</a>
-      <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-      <button class="nav-burger" id="navBurger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
+<nav class="nav" id="site-nav" data-cta="none"></nav>
+<script src="header.js"></script>
 
 <!-- ═══ PRODUCT TABS ═══ -->
 <div class="tabs-bar" style="margin:0 auto; margin-top:calc(var(--nav-h) + 24px)">
@@ -737,39 +694,14 @@
       <div class="pitch-label" data-en="Roadmap" data-es="Roadmap">Roadmap</div>
       <h2 data-en="Where we are.<br><span>Where we're going.</span>" data-es="Dónde estamos.<br><span>A dónde vamos.</span>">Where we are.<br><span>Where we're going.</span></h2>
     </div>
-    <div class="roadmap-row">
-      <div class="roadmap-card active fade-in">
-        <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Now · Live" data-es="Ahora · En Vivo">Now · Live</span></div>
-        <h3 data-en="iOS App" data-es="App iOS">iOS App</h3>
-        <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial tracking (expenses, income, loans, goals)" data-es="Seguimiento financiero (gastos, ingresos, préstamos, metas)">Financial tracking (expenses, income, loans, goals)</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Sam AI, Claude-powered, personal context" data-es="Sam IA, con Claude, contexto personal">Sam AI, Claude-powered, personal context</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Emotion × Finance daily check-in" data-es="Emoción × Finanzas, check-in diario">Emotion × Finance daily check-in</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Cards & multi-currency" data-es="Tarjetas y multi-moneda">Cards & multi-currency</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="EN + ES, App Store subscription" data-es="EN + ES, suscripción en App Store">EN + ES, App Store subscription</span></div>
-        </div>
-      </div>
-      <div class="roadmap-card fade-in">
-        <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="Next 6 months" data-es="Próximos 6 meses">Next 6 months</span></div>
-        <h3 data-en="Growth Phase" data-es="Fase de Crecimiento">Growth Phase</h3>
-        <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Android launch" data-es="Lanzamiento Android">Android launch</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Bank connection (read-only import)" data-es="Conexión bancaria (importación de solo lectura)">Bank connection (read-only import)</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Community & social features" data-es="Funciones comunitarias y sociales">Community & social features</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="FR, PT language support" data-es="Soporte FR, PT">FR, PT language support</span></div>
-        </div>
-      </div>
-      <div class="roadmap-card fade-in">
-        <div class="roadmap-phase"><span class="roadmap-phase-dot"></span><span data-en="12+ months" data-es="12+ meses">12+ months</span></div>
-        <h3 data-en="Scale Phase" data-es="Fase de Escala">Scale Phase</h3>
-        <div class="roadmap-items">
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Open the brand to the general personal finance market" data-es="Abrir la marca al mercado general de finanzas personales">Open the brand to the general personal finance market</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="B2B: Mental health orgs & employers" data-es="B2B: Organizaciones de salud mental y empresas">B2B: Mental health orgs & employers</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Financial advisor integrations" data-es="Integraciones con asesores financieros">Financial advisor integrations</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Family & caregiver plans" data-es="Planes familiares y de cuidadores">Family & caregiver plans</span></div>
-          <div class="roadmap-item"><div class="ri-dot"></div><span data-en="Web app & desktop" data-es="App web y escritorio">Web app & desktop</span></div>
-        </div>
-      </div>
+    <!-- Short version; the full roadmap lives on changelog.html#roadmap so it's kept in one place -->
+    <ul class="fade-in" style="list-style:none;padding:0;margin:24px auto 0;max-width:640px;display:flex;flex-direction:column;gap:12px;text-align:left">
+      <li style="font-size:15px;color:var(--text-mid)"><strong style="color:var(--text-dark)" data-en="Now:" data-es="Ahora:">Now:</strong> <span data-en="iOS app live, with Sam AI and the emotion × money check-in." data-es="App iOS en vivo, con Sam IA y el check-in emoción × dinero.">iOS app live, with Sam AI and the emotion × money check-in.</span></li>
+      <li style="font-size:15px;color:var(--text-mid)"><strong style="color:var(--text-dark)" data-en="Next:" data-es="Siguiente:">Next:</strong> <span data-en="Android (open beta), desktop &amp; web, optional bank import." data-es="Android (beta abierta), escritorio y web, importación bancaria opcional.">Android (open beta), desktop &amp; web, optional bank import.</span></li>
+      <li style="font-size:15px;color:var(--text-mid)"><strong style="color:var(--text-dark)" data-en="Later:" data-es="Después:">Later:</strong> <span data-en="The wider personal finance market, and B2B with mental health orgs and employers." data-es="El mercado general de finanzas personales, y B2B con organizaciones de salud mental y empresas.">The wider personal finance market, and B2B with mental health orgs and employers.</span></li>
+    </ul>
+    <div style="text-align:center;margin-top:24px">
+      <a href="changelog.html#roadmap" class="btn btn-outline" data-en="See the full roadmap →" data-es="Ver el roadmap completo →">See the full roadmap →</a>
     </div>
   </div>
 </section>
