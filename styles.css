@@ -2081,7 +2081,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.08); }
 }
-.hero-how { color: var(--indigo); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.hero-how { display: inline-block; margin-top: 6px; color: var(--indigo); font-weight: 600; text-decoration: none; white-space: nowrap; }
 .hero-how:hover { text-decoration: underline; }
 
 .hero-stage { min-height: 580px; }
@@ -2145,7 +2145,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .hero-float-emoji { font-size: 24px; }
 .hero-float-mood { top: 16%; left: 0; }
 .hero-float-sam {
-  bottom: 12%; left: -12px;
+  bottom: 2%; left: -40px;
   max-width: 230px;
   font-weight: 600;
   animation-delay: -3s;
