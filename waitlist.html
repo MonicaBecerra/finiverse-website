@@ -146,9 +146,9 @@
     <img src="images/sam-robot.png" alt="" width="160" style="transform:scaleX(-1) rotate(6deg)" aria-hidden="true" />
   </div>
   <div class="container" style="position:relative;z-index:1">
-    <div class="section-label" data-en="Coming soon" data-es="Próximamente">Coming soon</div>
+    <div class="section-label" data-en="Android beta" data-es="Beta de Android">Android beta</div>
     <h1 data-en="Finiverse is <span>expanding</span>." data-es="Finiverse está <span>creciendo</span>.">Finiverse is <span>expanding</span>.</h1>
-    <p style="max-width:500px;margin:0 auto" data-en="Android and Desktop versions are in development. Join the waitlist and be the first to know, plus get early access when they launch." data-es="Las versiones de Android y Escritorio están en desarrollo. Únete a la lista de espera y sé el primero en saber, además obtén acceso anticipado cuando lancen.">Android and Desktop versions are in development. Join the waitlist and be the first to know, plus get early access when they launch.</p>
+    <p style="max-width:520px;margin:0 auto" data-en="The Android version is finished and on its way to Google Play. Want to try it first? Sign up as a beta tester and tell us what to improve. Desktop is still in development." data-es="La versión de Android está terminada y en proceso de publicación en Google Play. ¿Quieres probarla antes? Regístrate como tester de la beta y cuéntanos qué mejorar. Escritorio sigue en desarrollo.">The Android version is finished and on its way to Google Play. Want to try it first? Sign up as a beta tester and tell us what to improve. Desktop is still in development.</p>
   </div>
 </section>
 
@@ -164,7 +164,7 @@
         <div class="platform-card selected" id="card-android" onclick="togglePlatform(this, 'android')">
           <div class="platform-icon">🤖</div>
           <div>
-            <div class="platform-title">Android</div>
+            <div class="platform-title">Android <span style="font-size:11px;font-weight:800;color:var(--indigo);background:var(--indigo-light);border-radius:100px;padding:2px 8px;margin-left:6px;vertical-align:middle" data-en="Beta open" data-es="Beta abierta">Beta open</span></div>
             <div class="platform-sub" data-en="Same Sam AI, check-ins, gamification, on Android" data-es="Mismo Sam IA, check-ins, gamificación, en Android">Same Sam AI, check-ins, gamification, on Android</div>
           </div>
           <div class="platform-check"></div>
@@ -247,6 +247,18 @@
               </div>
             </div>
 
+            <div class="form-group" id="betaGroup" style="background:var(--indigo-light);border-radius:14px;padding:14px">
+              <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:700;color:var(--text-dark);cursor:pointer">
+                <input type="checkbox" id="chk-beta" onchange="syncBeta()" style="accent-color:var(--indigo);margin-top:2px" />
+                <span data-en="I want to test the Android beta and give feedback" data-es="Quiero probar la beta de Android y dar feedback">I want to test the Android beta and give feedback</span>
+              </label>
+              <div id="playEmailWrap" style="display:none;margin-top:12px">
+                <label class="form-label" for="wl-play-email" data-en="Google Play email (if different)" data-es="Correo de Google Play (si es distinto)">Google Play email (if different)</label>
+                <input type="email" id="wl-play-email" class="form-input" placeholder="you@gmail.com" />
+                <p style="font-size:11px;color:var(--text-mid);margin-top:6px" data-en="The Google account on your Android phone. We use it to send the test invite." data-es="La cuenta de Google de tu Android. La usamos para enviarte la invitación de prueba.">The Google account on your Android phone. We use it to send the test invite.</p>
+              </div>
+            </div>
+
             <button type="submit" id="wlSubmit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" data-en="Notify me →" data-es="Notificarme →">Notify me →</button>
             <div id="wlError" style="display:none;margin-top:10px;padding:10px 14px;background:#FEE2E2;border-radius:10px;font-size:13px;color:#991B1B">
               Something went wrong. Email us at <a href="mailto:hello@finiverseapp.com" style="color:#991B1B;font-weight:600">hello@finiverseapp.com</a>
@@ -258,7 +270,8 @@
         <div id="successState">
           <div style="font-size:56px;margin-bottom:16px">🎉</div>
           <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="You're on the list!" data-es="¡Estás en la lista!">You're on the list!</h3>
-          <p style="font-size:14px;color:var(--text-mid);line-height:1.65" data-en="We'll send you one email the moment your platform is ready. Sam is excited to meet you on a new device." data-es="Te enviaremos un correo en el momento en que tu plataforma esté lista. Sam está emocionado de conocerte en un nuevo dispositivo.">We'll send you one email the moment your platform is ready. Sam is excited to meet you on a new device.</p>
+          <p id="successMsg" style="font-size:14px;color:var(--text-mid);line-height:1.65" data-en="We'll send you one email the moment your platform is ready. Sam is excited to meet you on a new device." data-es="Te enviaremos un correo en el momento en que tu plataforma esté lista. Sam está emocionado de conocerte en un nuevo dispositivo.">We'll send you one email the moment your platform is ready. Sam is excited to meet you on a new device.</p>
+          <p id="successBetaMsg" style="display:none;font-size:14px;color:var(--text-mid);line-height:1.65" data-en="You're signed up as an Android beta tester. We'll email you the Google Play test invite soon. Thank you for helping!" data-es="Quedaste registrado como tester de la beta de Android. Pronto te enviaremos la invitación de prueba de Google Play. ¡Gracias por ayudarnos!">You're signed up as an Android beta tester. We'll email you the Google Play test invite soon. Thank you for helping!</p>
           <div style="margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
             <a href="/" class="btn btn-primary btn-sm" data-en="Back to home" data-es="Volver al inicio">Back to home</a>
             <a href="https://apps.apple.com/app/finiverse/id6648789225" class="btn btn-ghost btn-sm" target="_blank" rel="noopener" data-en="Try iOS now" data-es="Probar iOS ahora">Try iOS now</a>
@@ -296,7 +309,29 @@ function syncPlatforms() {
   if (android) parts.push('Android');
   if (desktop) parts.push('Desktop/Web');
   document.getElementById('platformsField').value = parts.join(', ') || 'None selected';
+  document.getElementById('betaGroup').style.display = android ? 'block' : 'none';
+  if (!android) { document.getElementById('chk-beta').checked = false; syncBeta(); }
 }
+
+function syncBeta() {
+  document.getElementById('playEmailWrap').style.display =
+    document.getElementById('chk-beta').checked ? 'block' : 'none';
+}
+
+// ?p=android-beta → tester marcado; ?p=desktop → solo Desktop
+(function () {
+  const p = new URLSearchParams(location.search).get('p');
+  if (p === 'android-beta') {
+    document.getElementById('chk-beta').checked = true;
+    syncBeta();
+  } else if (p === 'desktop') {
+    document.getElementById('chk-android').checked = false;
+    document.getElementById('chk-desktop').checked = true;
+    selectedPlatforms.delete('android');
+    selectedPlatforms.add('desktop');
+    syncPlatforms();
+  }
+})();
 
 const PROJ = 'fintrack-6948a';
 const KEY  = 'AIzaSyDqeIpLSJ3yc0kA2l9rhDmOvNiAmDPoAks';
@@ -315,6 +350,8 @@ form.addEventListener('submit', async (e) => {
   const platforms = document.getElementById('platformsField').value;
   const lang       = document.documentElement.getAttribute('data-lang') || 'en';
   const docId     = email.replace(/[^a-zA-Z0-9]/g, '_') + '_' + Date.now().toString(36);
+  const beta      = document.getElementById('chk-beta').checked;
+  const playEmail = document.getElementById('wl-play-email').value.trim();
 
   const doc = {
     fields: {
@@ -326,6 +363,10 @@ form.addEventListener('submit', async (e) => {
       submittedAt: { timestampValue: new Date().toISOString() }
     }
   };
+  if (beta) {
+    doc.fields.androidBetaTester = { booleanValue: true };
+    doc.fields.playEmail = { stringValue: playEmail || email };
+  }
 
   try {
     const res = await fetch(BASE + docId + '?key=' + KEY, {
@@ -336,6 +377,10 @@ form.addEventListener('submit', async (e) => {
     if (res.ok) {
       document.getElementById('formState').style.display = 'none';
       document.getElementById('successState').style.display = 'block';
+      if (beta) {
+        document.getElementById('successMsg').style.display = 'none';
+        document.getElementById('successBetaMsg').style.display = 'block';
+      }
     } else {
       document.getElementById('wlError').style.display = 'block';
       btn.disabled = false;
