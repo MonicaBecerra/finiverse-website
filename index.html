@@ -58,6 +58,182 @@
   <!-- Analytics: consent-gated via consent.js -->
   <script src="consent.js"></script>
   <script src="track.js"></script>
+  <style>
+    /* ═══ Home 2026-10: colour "chapters" (ideas from Tiimo, Goodnotes, Gentler Streak).
+       Purples stay soft on purpose: big areas use pastels, never full-strength indigo. ═══ */
+    :root {
+      --hm-accent: #6E64D8;       /* links and small text */
+      --hm-accent-big: #7A71D9;   /* big headline accents */
+      --hm-lav: #F1EEFF;
+      --hm-lav-2: #E9E5FF;
+      --hm-pale: #FAFAFF;
+      --hm-mint: #E3F8EF;
+      --hm-sky: #E6F2FF;
+      --hm-butter: #FFF5DA;
+      --hm-peach: #FFEFE8;
+      --hm-cyan-soft: #DDF6F3;
+      --hm-cyan-ink: #0F5E59;
+      --hm-ink: var(--text-dark);
+    }
+    .hm-section { padding: 104px 0; position: relative; }
+    .hm-h2 { font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; color: var(--hm-ink); text-wrap: balance; }
+    .hm-link { font-weight: 700; color: var(--hm-accent); text-decoration: none; }
+    .hm-link:hover { text-decoration: underline; }
+    .hm-center { text-align: center; }
+    .hm-phone { flex: none; border: 7px solid #14122B; background: #14122B; border-radius: 40px; overflow: hidden; box-shadow: 0 28px 56px rgba(42,35,112,.16); max-width: 100%; }
+    .hm-phone img { width: 100%; height: auto; display: block; }
+    .hm-sam-bot, .hm-close img.mini, .hm-founder img, .hm-float img { height: auto; }  /* width/height attrs are only for layout reservation */
+    .hm-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #FEF3C7; color: #92400E; letter-spacing: 0; text-transform: none; vertical-align: middle; }
+
+    /* Hero */
+    .hm-hero { background: linear-gradient(180deg, var(--hm-lav) 0%, #F8F7FF 100%); padding-top: calc(var(--nav-h) + 56px); overflow: hidden; }
+    .hm-hero-copy { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+    .hm-hero h1 { font-size: clamp(44px, 7vw, 84px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.02; color: var(--hm-ink); text-wrap: balance; }
+    .hm-hero h1 span { color: var(--hm-accent-big); }
+    .hm-hero-sub { font-size: clamp(17px, 2vw, 20px); color: var(--text-mid); max-width: 32ch; line-height: 1.5; }
+    .hm-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+    .hm-platforms { font-size: 13px; color: var(--text-light); font-weight: 500; }
+    .hm-fan-wrap { position: relative; margin-top: 44px; }
+    .hm-fan { display: flex; justify-content: center; align-items: flex-start; gap: 20px; height: 440px; overflow: hidden; }
+    .hm-fan .p-outer { width: 190px; margin-top: 130px; }
+    .hm-fan .p-mid { width: 215px; margin-top: 64px; }
+    .hm-fan .p-center { width: 255px; }
+    .hm-float { position: absolute; display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 18px; padding: 10px 14px; box-shadow: 0 14px 36px rgba(42,35,112,.14); font-size: 13px; line-height: 1.3; color: var(--hm-ink); text-align: left; }
+    .hm-float img { width: 40px; height: auto; }
+    .hm-float-sam { top: 26px; left: calc(50% + 150px); max-width: 230px; }
+    .hm-float-mood { top: 120px; right: calc(50% + 150px); }
+    .hm-float-mood .emo { font-size: 26px; }
+    .hm-float-mood small { display: block; color: var(--text-light); }
+
+    /* Who it's for: slow marquee */
+    .hm-marquee { border-block: 1px solid var(--card-border); overflow: hidden; padding: 22px 0; background: #fff; }
+    .hm-marquee-track { display: flex; width: max-content; animation: hm-slide 42s linear infinite; }
+    .hm-marquee-track span { font-size: 22px; font-weight: 700; color: var(--text-mid); white-space: nowrap; padding-inline: 22px; display: inline-flex; gap: 44px; align-items: center; }
+    .hm-marquee-track span::after { content: "✦"; color: #B3ADEB; font-size: 16px; }
+    @keyframes hm-slide { to { transform: translateX(-50%); } }
+
+    /* Big statements */
+    .hm-statements { padding: 110px 0 90px; text-align: center; }
+    .hm-statements .list { display: flex; flex-direction: column; gap: 40px; max-width: 900px; margin: 0 auto; }
+    .hm-statements p { font-size: clamp(28px, 4.2vw, 46px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--hm-ink); text-wrap: balance; }
+    .hm-statements p b { color: var(--hm-accent-big); font-weight: 800; }
+
+    /* Sound familiar */
+    .hm-pain { padding: 0 0 110px; }
+    .hm-pain .hm-h2 { font-size: clamp(28px, 3.4vw, 38px); text-align: center; margin-bottom: 32px; }
+    .hm-pain-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .hm-pain-card { border-radius: 24px; padding: 26px 24px; min-height: 210px; display: flex; flex-direction: column; gap: 12px; font-size: 18px; font-weight: 600; line-height: 1.35; color: var(--hm-ink); }
+    .hm-pain-card::before { content: "\201C"; font-size: 54px; line-height: .6; font-weight: 900; color: var(--hm-accent); opacity: .4; }
+    .hm-pain-card:nth-child(1) { background: var(--hm-lav); }
+    .hm-pain-card:nth-child(2) { background: var(--hm-mint); }
+    .hm-pain-card:nth-child(3) { background: var(--hm-sky); }
+    .hm-pain-card:nth-child(4) { background: var(--hm-butter); }
+    .hm-pain-close { text-align: center; margin-top: 28px; font-weight: 700; color: var(--hm-accent); font-size: 17px; }
+
+    /* How it works: tabs swap the screenshot */
+    .hm-how { background: var(--hm-pale); }
+    .hm-how-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+    .hm-how .lede { color: var(--text-mid); font-size: 18px; margin-top: 10px; }
+    .hm-tabs { display: flex; flex-direction: column; gap: 8px; margin-top: 32px; }
+    .hm-tab { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 36px 1fr; column-gap: 14px; align-items: center; padding: 16px 18px; border-radius: 18px; color: var(--text-light); transition: background .2s, color .2s; }
+    .hm-tab:focus-visible { outline: 3px solid var(--hm-accent); outline-offset: 2px; }
+    .hm-tab .n { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 15px; background: var(--card-border); color: var(--text-mid); }
+    .hm-tab .t { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+    .hm-tab .d { grid-column: 2; font-size: 16px; color: var(--text-mid); display: none; margin-top: 2px; }
+    .hm-tab[aria-selected="true"] { background: #fff; color: var(--hm-ink); box-shadow: 0 6px 24px rgba(42,35,112,.07); }
+    .hm-tab[aria-selected="true"] .n { background: var(--hm-lav-2); color: var(--hm-accent); }
+    .hm-tab[aria-selected="true"] .d { display: block; }
+    .hm-tab:hover { color: var(--hm-ink); }
+    .hm-how .hm-link { display: inline-block; margin-top: 22px; padding-left: 18px; }
+    .hm-stage { position: relative; display: grid; place-items: center; min-height: 560px; }
+    .hm-stage::before { content: ""; position: absolute; width: 420px; height: 420px; max-width: 100%; border-radius: 50%; background: radial-gradient(circle, var(--hm-lav) 0%, transparent 70%); }
+    .hm-stage .hm-phone { width: 270px; position: relative; }
+    .hm-stage img { transition: opacity .25s ease; }
+
+    /* Sam: soft sky → lavender, the mascot is the hero of this chapter */
+    .hm-sam { background: linear-gradient(160deg, #EAF6FF 0%, var(--hm-lav) 100%); overflow: hidden; }
+    .hm-sam-grid { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 48px; align-items: center; }
+    .hm-sam-bot { width: 280px; margin: 0 auto; animation: hm-bob 4s ease-in-out infinite; }
+    @keyframes hm-bob { 50% { transform: translateY(-12px); } }
+    .hm-eyebrow { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--hm-cyan-ink); letter-spacing: .04em; text-transform: uppercase; }
+    .hm-sam .hm-h2 { margin-top: 14px; }
+    .hm-bubbles { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; max-width: 520px; }
+    .hm-bubble { background: #fff; border-radius: 20px 20px 20px 6px; padding: 14px 18px; font-size: 16px; line-height: 1.45; color: var(--hm-ink); box-shadow: 0 6px 20px rgba(42,35,112,.06); }
+    .hm-bubble.hi { background: var(--hm-cyan-soft); color: var(--hm-cyan-ink); font-weight: 600; }
+    .hm-btn-ink { display: inline-flex; align-items: center; margin-top: 28px; background: var(--hm-ink); color: #fff; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 999px; text-decoration: none; }
+    .hm-btn-ink:hover { transform: translateY(-1px); }
+
+    /* Everything else: pastel bento */
+    .hm-bento-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
+    .hm-bento-card { border-radius: 28px; padding: 30px 30px 0; height: 400px; overflow: hidden; display: flex; flex-direction: column; gap: 6px; }
+    .hm-bento-card h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--hm-ink); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hm-bento-card p { color: var(--text-mid); font-size: 16px; }
+    .hm-bento-card .hm-phone { width: 220px; margin: 26px auto 0; }
+    .hm-bento-card:nth-child(1) { background: var(--hm-mint); }
+    .hm-bento-card:nth-child(2) { background: var(--hm-sky); }
+    .hm-bento-card:nth-child(3) { background: var(--hm-butter); }
+    .hm-bento-card:nth-child(4) { background: var(--hm-peach); }
+    .hm-more { text-align: center; margin-top: 30px; }
+
+    /* Trust: one sentence + icons */
+    .hm-trust { background: var(--hm-pale); text-align: center; }
+    .hm-trust-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+    .hm-trust-item { display: flex; flex-direction: column; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; color: var(--hm-ink); }
+    .hm-trust-item svg { width: 52px; height: 52px; padding: 13px; border-radius: 16px; background: #fff; color: var(--hm-accent); box-shadow: 0 6px 20px rgba(42,35,112,.07); }
+
+    /* Real people: founder + real review */
+    .hm-human-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+    .hm-founder { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; align-items: center; background: var(--hm-lav); border-radius: 28px; padding: 28px; }
+    .hm-founder img { border-radius: 20px; aspect-ratio: 4/5; object-fit: cover; width: 150px; }
+    .hm-founder h3, .hm-review h3 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--hm-ink); }
+    .hm-founder p { color: var(--text-mid); margin-top: 10px; }
+    .hm-founder .hm-link, .hm-review .hm-link { display: inline-block; margin-top: 14px; }
+    .hm-review { margin: 0; border: 1px solid var(--card-border); border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .hm-stars { color: #F2A60C; letter-spacing: 2px; font-size: 18px; }
+    .hm-review blockquote { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.4; color: var(--hm-ink); }
+    .hm-review figcaption { font-size: 14px; color: var(--text-light); }
+
+    /* Closing: soft lavender band, one sentence + buttons */
+    .hm-close { background: var(--hm-lav); text-align: center; overflow: hidden; }
+    .hm-close .inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .hm-close img.mini { width: 96px; }
+    .hm-close h2 { font-size: clamp(36px, 5.4vw, 64px); font-weight: 900; letter-spacing: -0.035em; line-height: 1.05; color: var(--hm-ink); text-wrap: balance; }
+    .hm-close p { font-size: 18px; color: var(--text-mid); }
+    .hm-close .hm-review-ask { font-size: 14px; margin-top: 6px; }
+
+    @media (max-width: 920px) {
+      .hm-fan .p-outer { display: none; }
+      .hm-float-sam { left: auto; right: 12px; }
+      .hm-float-mood { right: auto; left: 12px; }
+      .hm-pain-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hm-how-grid, .hm-sam-grid, .hm-human-grid { grid-template-columns: minmax(0, 1fr); }
+      .hm-sam-bot { width: 190px; }
+      .hm-stage { min-height: 0; }
+      .hm-trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .hm-section { padding: 80px 0; }
+      .hm-fan { height: 360px; gap: 12px; }
+      .hm-fan .p-center { width: 200px; }
+      .hm-fan .p-mid { width: 160px; margin-top: 56px; }
+      .hm-float-mood { display: none; }
+      .hm-float-sam { top: 190px; max-width: 210px; }
+      .hm-statements { padding: 80px 0 60px; }
+      .hm-pain-row { grid-template-columns: minmax(0, 1fr); }
+      .hm-pain-card { min-height: 0; }
+      .hm-bento-grid { grid-template-columns: minmax(0, 1fr); }
+      .hm-bento-card { height: 360px; }
+      .hm-founder { grid-template-columns: minmax(0, 1fr); }
+      .hm-founder img { width: 120px; }
+      .hm-stage .hm-phone { width: 230px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hm-marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+      .hm-marquee-track span[aria-hidden="true"] { display: none; }
+      .hm-sam-bot { animation: none; }
+      .hm-stage img { transition: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -88,289 +264,227 @@
 <script src="header.js?v=20261012"></script>
 
 <!-- ═══ HERO ═══ -->
-<section class="hero hero-centered" aria-label="Hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag" style="text-transform:none;letter-spacing:.02em;font-size:13px">✦ <span data-en="One of the few apps that tracks emotion × money together." data-es="Una de las pocas apps que conecta emoción × dinero.">One of the few apps that tracks emotion × money together.</span></div>
-      <h1 class="hero-title" data-en="Finance for <span>your</span> brain." data-es="Finanzas para <span>tu</span> cerebro.">Finance for <span>your</span> brain.</h1>
-      <p class="hero-sub" data-en="Log a purchase. Tap how you feel. Sam quietly learns your patterns&nbsp;— and never, ever lectures you." data-es="Registra un gasto. Di cómo te sientes. Sam aprende tus patrones&nbsp;— y jamás te regaña.">Log a purchase. Tap how you feel. Sam quietly learns your patterns&nbsp;— and never, ever lectures you.</p>
-      <div class="hero-actions">
-        <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener" aria-label="Download on the App Store">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span class="store-btn-text">
-            <small data-en="Download on the" data-es="Descarga en el">Download on the</small>
-            <strong>App Store</strong>
-          </span>
-        </a>
-        <a href="waitlist.html?p=android-beta" class="store-btn store-btn-android" aria-label="Android beta: become a tester">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.64.64 0 0 0-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-          <span class="store-btn-text">
-            <small data-en="Android · Beta" data-es="Android · Beta">Android · Beta</small>
-            <strong data-en="Become a tester" data-es="Sé tester">Become a tester</strong>
-          </span>
-          <span class="store-btn-new" data-en="New" data-es="Nuevo">New</span>
-        </a>
-      </div>
-
-      <p class="hero-note"><a href="#the-system" class="hero-how" data-en="See how it works ↓" data-es="Ver cómo funciona ↓">See how it works ↓</a></p>
+<section class="hm-hero" aria-label="Hero">
+  <div class="container hm-hero-copy">
+    <h1 data-en="Finance for <span>your</span> brain." data-es="Finanzas para <span>tu</span> cerebro.">Finance for <span>your</span> brain.</h1>
+    <p class="hm-hero-sub" data-en="Log it. Tap how you feel. Sam spots the pattern." data-es="Registra. Di cómo te sientes. Sam ve el patrón.">Log it. Tap how you feel. Sam spots the pattern.</p>
+    <div class="hm-ctas">
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="store-btn-text">
+          <small data-en="Download on the" data-es="Descarga en el">Download on the</small>
+          <strong>App Store</strong>
+        </span>
+      </a>
+      <a href="waitlist.html?p=android-beta" class="store-btn store-btn-android" aria-label="Android beta: become a tester">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.64.64 0 0 0-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+        <span class="store-btn-text">
+          <small data-en="Android · Beta" data-es="Android · Beta">Android · Beta</small>
+          <strong data-en="Become a tester" data-es="Sé tester">Become a tester</strong>
+        </span>
+        <span class="store-btn-new" data-en="New" data-es="Nuevo">New</span>
+      </a>
     </div>
+    <p class="hm-platforms" data-en="Free · iPhone · Android beta · English and Spanish" data-es="Gratis · iPhone · Android beta · Español e inglés">Free · iPhone · Android beta · English and Spanish</p>
+  </div>
 
-    <div class="phone-wrap hero-stage" aria-hidden="true">
-      <div class="phone-glow"></div>
-      <div class="phone-frame phone-android">
-        <div class="phone-screen" style="overflow:hidden">
-          <img src="images/sam.PNG" alt=""
-               style="width:100%;height:100%;object-fit:cover;object-position:top;display:block" />
-        </div>
-        <span class="android-sticker" data-en="Android beta" data-es="Android beta">Android beta</span>
-      </div>
-      <div class="phone-frame phone-ios">
-        <div class="phone-screen" style="overflow:hidden;border-radius:inherit">
-          <img src="images/home.PNG" alt="Finiverse home screen"
-               style="width:100%;height:100%;object-fit:cover;object-position:top;display:block" />
-        </div>
-      </div>
-      <div class="phone-frame phone-side">
-        <div class="phone-screen" style="overflow:hidden;border-radius:inherit">
-          <img src="images/emotions.PNG" alt=""
-               style="width:100%;height:100%;object-fit:cover;object-position:top;display:block" />
-        </div>
-      </div>
-      <div class="hero-float hero-float-mood">
-        <span class="hero-float-emoji">😮‍💨</span>
-        <span><b data-en="Tired" data-es="Cansancio">Tired</b><small data-en="→ $38 takeout" data-es="→ $38 en delivery">→ $38 takeout</small></span>
-      </div>
-      <div class="hero-float hero-float-sam">
-        <img src="images/sam-robot.png" alt="" width="34" height="34" />
-        <span data-en="Tired days = more takeout.<br>Pause first?" data-es="Días cansados = más delivery.<br>¿Pausa primero?">Tired days = more takeout.<br>Pause first?</span>
-      </div>
+  <div class="hm-fan-wrap">
+    <div class="hm-fan" aria-hidden="true">
+      <div class="hm-phone p-outer"><img src="images/screens/goals.jpg" alt="" width="600" height="1304"></div>
+      <div class="hm-phone p-mid"><img src="images/screens/emotions.jpg" alt="" width="600" height="1304"></div>
+      <div class="hm-phone p-center"><img src="images/screens/home.jpg" alt="" width="600" height="1304"></div>
+      <div class="hm-phone p-mid"><img src="images/screens/sam.jpg" alt="" width="600" height="1304"></div>
+      <div class="hm-phone p-outer"><img src="images/screens/analytics.jpg" alt="" width="600" height="1304"></div>
+    </div>
+    <div class="hm-float hm-float-mood">
+      <span class="emo">😮‍💨</span>
+      <span><b data-en="Tired" data-es="Cansancio">Tired</b><small data-en="→ $38 takeout" data-es="→ $38 en delivery">→ $38 takeout</small></span>
+    </div>
+    <div class="hm-float hm-float-sam">
+      <img src="images/sam-mascot.png" alt="" width="40" height="59" />
+      <span data-en="Tired days = more takeout. Pause first?" data-es="Días cansados = más delivery. ¿Pausa primero?">Tired days = more takeout. Pause first?</span>
     </div>
   </div>
 </section>
 
-<!-- ═══ TRUST BAR ═══ -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="trust-item"><span class="dot"></span><span data-en="Free to download" data-es="Gratis para descargar">Free to download</span></div>
-    <div class="trust-item"><span class="dot"></span><span data-en="iOS · Android beta" data-es="iOS · Android beta">iOS · Android beta</span></div>
-    <div class="trust-item"><span class="dot"></span><span data-en="English + Spanish" data-es="Inglés + Español">English + Spanish</span></div>
-    <div class="trust-item"><span class="dot"></span><span data-en="No shame, no judgment" data-es="Sin vergüenza, sin juicios">No shame, no judgment</span></div>
-    <div class="trust-item"><span class="dot"></span><span data-en="UK registered company" data-es="Empresa registrada en UK">UK registered company</span></div>
+<!-- ═══ WHO IT'S FOR ═══ -->
+<div class="hm-marquee" aria-label="Who it's for">
+  <div class="hm-marquee-track">
+    <span data-en="ADHD" data-es="TDAH">ADHD</span><span data-en="Anxiety" data-es="Ansiedad">Anxiety</span><span data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</span><span data-en="Autism" data-es="Autismo">Autism</span><span>AuDHD</span><span data-en="Overwhelmed by money" data-es="Abrumada/o con el dinero">Overwhelmed by money</span>
+    <span aria-hidden="true" data-en="ADHD" data-es="TDAH">ADHD</span><span aria-hidden="true" data-en="Anxiety" data-es="Ansiedad">Anxiety</span><span aria-hidden="true" data-en="Dyscalculia" data-es="Discalculia">Dyscalculia</span><span aria-hidden="true" data-en="Autism" data-es="Autismo">Autism</span><span aria-hidden="true">AuDHD</span><span aria-hidden="true" data-en="Overwhelmed by money" data-es="Abrumada/o con el dinero">Overwhelmed by money</span>
   </div>
 </div>
 
-<!-- ═══ SOCIAL PROOF ═══ -->
-<section class="section" id="for-you">
+<!-- ═══ BIG STATEMENTS ═══ -->
+<section class="hm-statements" id="for-you">
+  <div class="container list">
+    <p data-en="<b>No lectures.</b> Sam never scolds you." data-es="<b>Sin sermones.</b> Sam nunca te regaña."><b>No lectures.</b> Sam never scolds you.</p>
+    <p data-en="<b>No spreadsheets.</b> Emoji and color, not tables." data-es="<b>Sin hojas de cálculo.</b> Emoji y color, no tablas."><b>No spreadsheets.</b> Emoji and color, not tables.</p>
+    <p data-en="<b>No guilt.</b> Encouragement, not shame." data-es="<b>Sin culpa.</b> Ánimo, no vergüenza."><b>No guilt.</b> Encouragement, not shame.</p>
+  </div>
+</section>
+
+<!-- ═══ SOUND FAMILIAR ═══ -->
+<section class="hm-pain">
   <div class="container">
-
-    <div class="recognition-banner fade-in">
-      <h2 data-en="You're not bad with money.<br><span>The app just wasn't built for you.</span>" data-es="No eres malo con el dinero.<br><span>La app simplemente no fue hecha para ti.</span>">You're not bad with money.<br><span>The app just wasn't built for you.</span></h2>
-      <p data-en="Traditional finance apps track numbers. Finiverse tracks numbers <em>and</em> how you feel&nbsp;— then shows you the connection. Designed from scratch for ADHD, anxiety, dyscalculia, and autism." data-es="Las apps de finanzas tradicionales registran números. Finiverse registra números <em>y</em> cómo te sientes&nbsp;— y luego te muestra la conexión. Diseñada desde cero para TDAH, ansiedad, discalculia y autismo.">Traditional finance apps track numbers. Finiverse tracks numbers <em>and</em> how you feel&nbsp;— then shows you the connection. Designed from scratch for ADHD, anxiety, dyscalculia, and autism.</p>
-      <div class="audience-row">
-        <span class="audience-badge primary">ADHD</span>
-        <span class="audience-badge primary">Anxiety</span>
-        <span class="audience-badge primary">Dyscalculia</span>
-        <span class="audience-badge primary">Autism · AuDHD</span>
-        <span class="audience-badge" data-en="Just overwhelmed with money" data-es="Solo abrumada/o con el dinero">Just overwhelmed with money</span>
-      </div>
+    <h2 class="hm-h2" data-en="Sound familiar?" data-es="¿Te suena?">Sound familiar?</h2>
+    <div class="hm-pain-row">
+      <div class="hm-pain-card" data-en="I avoid checking my balance. It gives me anxiety." data-es="Evito ver mi cuenta porque me da ansiedad.">I avoid checking my balance. It gives me anxiety.</div>
+      <div class="hm-pain-card" data-en="I bought it on impulse and felt awful 3 days later." data-es="Lo compré por impulso y a los 3 días me sentí fatal.">I bought it on impulse and felt awful 3 days later.</div>
+      <div class="hm-pain-card" data-en="Budget spreadsheets make my brain shut down." data-es="Las hojas de cálculo me apagan el cerebro.">Budget spreadsheets make my brain shut down.</div>
+      <div class="hm-pain-card" data-en="I know I should track money. I just can't start." data-es="Sé que debería anotar mis gastos, pero no logro empezar.">I know I should track money. I just can't start.</div>
     </div>
+    <p class="hm-pain-close" data-en="Finiverse was built for exactly this." data-es="Finiverse fue hecha exactamente para esto.">Finiverse was built for exactly this.</p>
+  </div>
+</section>
 
-    <div class="text-center mb-48">
-      <h2 class="section-title" data-en="If any of these feel like <span>you</span>…" data-es="Si algo de esto se siente como <span>tú</span>…">If any of these feel like <span>you</span>…</h2>
+<!-- ═══ HOW IT WORKS (tabs swap the screenshot) ═══ -->
+<section class="hm-section hm-how" id="the-system">
+  <div class="container hm-how-grid">
+    <div>
+      <h2 class="hm-h2" data-en="How it works." data-es="Así funciona.">How it works.</h2>
+      <p class="lede" data-en="One loop. Four steps." data-es="Un ciclo. Cuatro pasos.">One loop. Four steps.</p>
+      <div class="hm-tabs" role="tablist" aria-label="Steps">
+        <button class="hm-tab" type="button" role="tab" id="hm-tab-1" aria-selected="true" aria-controls="hm-stage" data-img="images/screens/emotions.jpg">
+          <span class="n">1</span><span class="t" data-en="Detect" data-es="Detectar">Detect</span>
+          <span class="d" data-en="Mood and spending in seconds." data-es="Ánimo y gasto en segundos.">Mood and spending in seconds.</span>
+        </button>
+        <button class="hm-tab" type="button" role="tab" id="hm-tab-2" aria-selected="false" aria-controls="hm-stage" tabindex="-1" data-img="images/screens/analytics.jpg">
+          <span class="n">2</span><span class="t" data-en="Understand" data-es="Entender">Understand</span>
+          <span class="d" data-en="What your mood does to your money." data-es="Qué hace tu ánimo con tu dinero.">What your mood does to your money.</span>
+        </button>
+        <button class="hm-tab" type="button" role="tab" id="hm-tab-3" aria-selected="false" aria-controls="hm-stage" tabindex="-1" data-img="images/screens/sam.jpg">
+          <span class="n">3</span><span class="t" data-en="Pause" data-es="Pausar">Pause</span>
+          <span class="d" data-en="Wishlist + a wait. Still want it?" data-es="Wishlist + espera. ¿Aún lo quieres?">Wishlist + a wait. Still want it?</span>
+        </button>
+        <button class="hm-tab" type="button" role="tab" id="hm-tab-4" aria-selected="false" aria-controls="hm-stage" tabindex="-1" data-img="images/screens/levels.jpg">
+          <span class="n">4</span><span class="t" data-en="Change" data-es="Cambiar">Change</span>
+          <span class="d" data-en="Fewer impulses. Habits that stick." data-es="Menos impulsos. Hábitos que duran.">Fewer impulses. Habits that stick.</span>
+        </button>
+      </div>
+      <a href="features.html" class="hm-link" data-en="See all features →" data-es="Ver todas las funciones →">See all features →</a>
     </div>
-
-    <ul class="pain-list fade-in">
-      <li><span data-en="&ldquo;I avoid checking my balance because it gives me anxiety.&rdquo;" data-es="&ldquo;Evito revisar mi cuenta porque me da ansiedad.&rdquo;">&ldquo;I avoid checking my balance because it gives me anxiety.&rdquo;</span></li>
-      <li><span data-en="&ldquo;I bought it impulsively and felt awful about it three days later.&rdquo;" data-es="&ldquo;Lo compré impulsivamente y me sentí terrible tres días después.&rdquo;">&ldquo;I bought it impulsively and felt awful about it three days later.&rdquo;</span></li>
-      <li><span data-en="&ldquo;I have subscriptions charging me that I completely forgot about.&rdquo;" data-es="&ldquo;Tengo suscripciones cobrándome que olvidé por completo.&rdquo;">&ldquo;I have subscriptions charging me that I completely forgot about.&rdquo;</span></li>
-      <li><span data-en="&ldquo;Budget spreadsheets make my brain shut down immediately.&rdquo;" data-es="&ldquo;Las hojas de cálculo de presupuesto hacen que mi cerebro se apague.&rdquo;">&ldquo;Budget spreadsheets make my brain shut down immediately.&rdquo;</span></li>
-      <li><span data-en="&ldquo;I know I should track money but I just can&rsquo;t seem to start.&rdquo;" data-es="&ldquo;Sé que debería registrar el dinero pero simplemente no puedo empezar.&rdquo;">&ldquo;I know I should track money but I just can&rsquo;t seem to start.&rdquo;</span></li>
-      <li><span data-en="&ldquo;Numbers don&rsquo;t stick no matter how many times I look at them.&rdquo;" data-es="&ldquo;Los números no se quedan sin importar cuántas veces los miro.&rdquo;">&ldquo;Numbers don&rsquo;t stick no matter how many times I look at them.&rdquo;</span></li>
-    </ul>
-
-    <p class="text-center pain-close" data-en="→ Finiverse was built for exactly this." data-es="→ Finiverse fue hecha exactamente para esto.">→ Finiverse was built for exactly this.</p>
-
-    <!-- Before / after: same message as the banner above, shown instead of told again -->
-    <div class="ba-wrap" id="compare" style="margin-top:48px">
-      <div class="ba-card ba-bad fade-in">
-        <div class="ba-badge"><span data-en="Other finance apps" data-es="Otras apps de finanzas">Other finance apps</span></div>
-        <h4 data-en="Feels like filing taxes while anxious" data-es="Se siente como hacer impuestos con ansiedad">Feels like filing taxes while anxious</h4>
-        <ul class="ba-list">
-          <li><span>😵</span><span data-en="Walls of numbers with no context" data-es="Montones de números sin contexto">Walls of numbers with no context</span></li>
-          <li><span>⚠️</span><span data-en="Red warnings that trigger shame spirals" data-es="Alertas rojas que generan vergüenza">Red warnings that trigger shame spirals</span></li>
-          <li><span>📊</span><span data-en="Charts that require a finance degree" data-es="Gráficas que requieren una carrera de finanzas">Charts that require a finance degree</span></li>
-          <li><span>🤷</span><span data-en="No understanding of your unique brain" data-es="Sin entender tu cerebro único">No understanding of your unique brain</span></li>
-          <li><span>😞</span><span data-en="You open it once, feel bad, close it" data-es="Lo abres, te sientes mal, lo cierras">You open it once, feel bad, close it</span></li>
-        </ul>
-      </div>
-
-      <div class="ba-card ba-good fade-in">
-        <div class="ba-badge">✓ <span>Finiverse</span></div>
-        <h4 data-en="Feels like a patient, judgment-free friend" data-es="Se siente como un amigo paciente y sin juicios">Feels like a patient, judgment-free friend</h4>
-        <ul class="ba-list">
-          <li><span>😌</span><span data-en="Calm, visual-first interface" data-es="Interfaz visual y tranquila">Calm, visual-first interface</span></li>
-          <li><span>💚</span><span data-en="Encouragement, not shame" data-es="Motivación, no vergüenza">Encouragement, not shame</span></li>
-          <li><span>🧠</span><span data-en="Designed for ADHD, anxiety, dyscalculia &amp; more" data-es="Diseñada para TDAH, ansiedad, discalculia y más">Designed for ADHD, anxiety, dyscalculia &amp; more</span></li>
-          <li><span>❤️</span><span data-en="Tracks how you feel, not just what you spend" data-es="Rastrea cómo te sientes, no solo lo que gastas">Tracks how you feel, not just what you spend</span></li>
-        </ul>
-        <div class="ba-sam-row">
-          <img src="images/sam-animated.gif" alt="Sam" onerror="this.style.display='none'">
-          <div class="ba-sam-bubble" data-en="You saved $12 more than last week. That's real progress, I'm proud of you 🌟" data-es="Ahorraste $12 más que la semana pasada. Eso es progreso real, estoy orgulloso de ti 🌟">You saved $12 more than last week. That's real progress, I'm proud of you 🌟</div>
-        </div>
-      </div>
+    <div class="hm-stage" id="hm-stage" role="tabpanel" aria-labelledby="hm-tab-1">
+      <div class="hm-phone"><img id="hm-stage-img" src="images/screens/emotions.jpg" alt="Finiverse app screen" width="600" height="1304"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ THE LOOP ═══ -->
-<section class="section" id="the-system" style="padding:80px 0">
-  <div class="container">
-    <div class="text-center mb-48">
-      <h2 class="section-title"
-          data-en="Not just a tracker.<br><span>A behavioral system.</span>"
-          data-es="No es solo un tracker.<br><span>Es un sistema de comportamiento.</span>">Not just a tracker.<br><span>A behavioral system.</span></h2>
-      <p class="section-sub" style="margin:14px auto 0"
-         data-en="One loop that connects how you feel with what you do with money."
-         data-es="Un ciclo que conecta cómo te sientes con lo que haces con tu dinero.">One loop that connects how you feel with what you do with money.</p>
-    </div>
-
-    <div class="loop-shots">
-      <div class="loop-shot fade-in">
-        <div class="loop-shot-img"><img src="images/emotions.PNG" alt="Mood check-in" loading="lazy"></div>
-        <div class="loop-shot-step"><span>1</span><b data-en="Detect" data-es="Detectar">Detect</b></div>
-        <p data-en="Log mood and spending in seconds." data-es="Registra ánimo y gasto en segundos.">Log mood and spending in seconds.</p>
+<!-- ═══ SAM ═══ -->
+<section class="hm-section hm-sam" id="sam">
+  <div class="container hm-sam-grid">
+    <img class="hm-sam-bot" src="images/sam-mascot.png" alt="Sam, the Finiverse robot" width="433" height="640" loading="lazy">
+    <div>
+      <div class="hm-eyebrow"><span data-en="Meet Sam" data-es="Conoce a Sam">Meet Sam</span><span class="hm-pill">Early Bird+</span></div>
+      <h2 class="hm-h2" data-en="Knows your money and your mood." data-es="Conoce tu dinero y tu ánimo.">Knows your money and your mood.</h2>
+      <div class="hm-bubbles">
+        <div class="hm-bubble" data-en="I noticed you spend more on Fridays when you're anxious. Want help building a buffer for those days?" data-es="Noté que gastas más los viernes cuando estás ansiosa/o. ¿Te ayudo a crear un colchón para esos días?">I noticed you spend more on Fridays when you're anxious. Want help building a buffer for those days?</div>
+        <div class="hm-bubble hi" data-en="You saved $12 more than last week. That's real progress 🌟" data-es="Ahorraste $12 más que la semana pasada. Eso es progreso real 🌟">You saved $12 more than last week. That's real progress 🌟</div>
       </div>
-      <div class="loop-shot fade-in">
-        <div class="loop-shot-img"><img src="images/analytics.PNG" alt="Analysis: emotion × finance" loading="lazy"></div>
-        <div class="loop-shot-step"><span>2</span><b data-en="Understand" data-es="Entender">Understand</b></div>
-        <p data-en="See what your mood does to your money." data-es="Mira qué hace tu ánimo con tu dinero.">See what your mood does to your money.</p>
-      </div>
-      <div class="loop-shot fade-in">
-        <div class="loop-shot-img"><img src="images/sam.PNG" alt="Sam chat" loading="lazy"></div>
-        <div class="loop-shot-step"><span>3</span><b data-en="Intervene" data-es="Intervenir">Intervene</b></div>
-        <p data-en="Wishlist + waiting time. Sam asks: still want it?" data-es="Wishlist + tiempo de espera. Sam pregunta: ¿aún lo quieres?">Wishlist + waiting time. Sam asks: still want it?</p>
-      </div>
-      <div class="loop-shot loop-shot-accent fade-in">
-        <div class="loop-shot-img"><img src="images/levels.PNG" alt="Progress and levels" loading="lazy"></div>
-        <div class="loop-shot-step"><span>4</span><b data-en="Change" data-es="Cambiar">Change</b></div>
-        <p data-en="Fewer impulses. Habits that stick." data-es="Menos impulsos. Hábitos que duran.">Fewer impulses. Habits that stick.</p>
-      </div>
-    </div>
-
-    <p style="text-align:center;margin-top:40px;font-size:14px;font-weight:600;color:var(--text-light);letter-spacing:.04em"
-       data-en="Detect → Understand → Intervene → Change → repeat, every day."
-       data-es="Detectar → Entender → Intervenir → Cambiar → repetir, cada día.">Detect → Understand → Intervene → Change → repeat, every day.</p>
-
-    <div class="text-center" style="margin-top:32px">
-      <a href="features.html" class="btn btn-outline" data-en="See all features →" data-es="Ver todas las funciones →">See all features →</a>
+      <a href="features.html#sam-ai" class="hm-btn-ink" data-en="Meet Sam →" data-es="Conoce a Sam →">Meet Sam →</a>
     </div>
   </div>
 </section>
 
-
-<!-- ═══ SAM AI TEASER ═══ -->
-<section class="sam-section" id="sam" style="padding:48px 0">
+<!-- ═══ EVERYTHING ELSE ═══ -->
+<section class="hm-section">
   <div class="container">
-    <div style="display:flex;align-items:center;gap:32px;background:#fff;border:1px solid var(--card-border);border-radius:24px;padding:32px;flex-wrap:wrap;box-shadow:var(--card-shadow)">
-      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0">
-        <div class="chat-avatar" style="width:52px;height:52px;background:transparent;overflow:hidden;padding:0;flex-shrink:0">
-          <img src="images/sam-animated.gif" alt="Sam" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.parentElement.style.background='linear-gradient(135deg,#00D4C8,#5B4EE8)';this.style.display='none'" />
-        </div>
-        <div>
-          <div style="font-weight:700;color:var(--text-dark);font-size:16px">Sam</div>
-          <div style="font-size:12px;color:#0D9488;display:flex;align-items:center;gap:4px"><span style="width:6px;height:6px;background:#00D4C8;border-radius:50%;display:inline-block"></span><span data-en="AI Financial Companion" data-es="Compañero Financiero IA">AI Financial Companion</span></div>
-        </div>
+    <h2 class="hm-h2 hm-center" data-en="And everything else." data-es="Y todo lo demás.">And everything else.</h2>
+    <div class="hm-bento-grid">
+      <div class="hm-bento-card">
+        <h3 data-en="Goals" data-es="Metas">Goals</h3>
+        <p data-en="A jar that fills up." data-es="Un frasco que se llena.">A jar that fills up.</p>
+        <div class="hm-phone"><img src="images/screens/goals.jpg" alt="Savings goal jar" width="600" height="1304" loading="lazy"></div>
       </div>
-      <div style="flex:1;min-width:200px">
-        <div class="chat-bubble bubble-highlight" style="margin:0;max-width:100%" data-en="💡 I noticed you spend more on Fridays when you're anxious. Want me to help build a buffer for those days?" data-es="💡 Noté que gastas más los viernes cuando estás ansioso/a. ¿Te ayudo a crear un colchón para esos días?">💡 I noticed you spend more on Fridays when you're anxious. Want me to help build a buffer for those days?</div>
+      <div class="hm-bento-card">
+        <h3 data-en="Records" data-es="Registros">Records</h3>
+        <p data-en="Everything in one place." data-es="Todo en un lugar.">Everything in one place.</p>
+        <div class="hm-phone"><img src="images/screens/records.jpg" alt="Records list" width="600" height="1304" loading="lazy"></div>
       </div>
-      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-        <p style="font-size:13px;color:var(--text-light);max-width:200px;text-align:right;line-height:1.5" data-en="Your AI companion that knows your finances and your feelings." data-es="Tu compañero IA que conoce tus finanzas y tus emociones.">Your AI companion that knows your finances and your feelings.</p>
-        <a href="features.html#sam-ai" class="btn btn-primary btn-sm" data-en="Meet Sam →" data-es="Conoce a Sam →">Meet Sam →</a>
+      <div class="hm-bento-card">
+        <h3 data-en="Levels" data-es="Niveles">Levels</h3>
+        <p data-en="Level up as you log." data-es="Avanzas con cada registro.">Level up as you log.</p>
+        <div class="hm-phone"><img src="images/screens/levels.jpg" alt="Levels and progress" width="600" height="1304" loading="lazy"></div>
+      </div>
+      <div class="hm-bento-card">
+        <h3><span data-en="Cards" data-es="Tarjetas">Cards</span><span class="hm-pill">Early Bird+</span></h3>
+        <p data-en="Every card's balance, at hand." data-es="Saldo de cada tarjeta, a mano.">Every card's balance, at hand.</p>
+        <div class="hm-phone"><img src="images/screens/cards.jpg" alt="My cards" width="600" height="1304" loading="lazy"></div>
       </div>
     </div>
+    <p class="hm-more"><a href="features.html" class="hm-link" data-en="See all features →" data-es="Ver todas las funciones →">See all features →</a></p>
   </div>
 </section>
-
 
 <!-- ═══ TRUST ═══ -->
-<section class="section bg-soft" id="trust">
+<section class="hm-section hm-trust" id="trust">
   <div class="container">
-    <div class="text-center" style="margin-bottom:32px">
-      <div class="section-label" data-en="Your data, your rules" data-es="Tus datos, tus reglas">Your data, your rules</div>
-      <h2 class="section-title" data-en="A finance app you can<br><span>actually trust.</span>" data-es="Una app de finanzas en la que<br><span>realmente puedes confiar.</span>">A finance app you can<br><span>actually trust.</span></h2>
-    </div>
-    <div class="trust-strip fade-in">
-      <div class="trust-item">
-        <span class="trust-ico">🏦</span>
-        <div>
-          <div class="trust-label" data-en="Manual-first. Bank sync optional." data-es="Manual primero. Banco opcional.">Manual-first. Bank sync optional.</div>
-          <div class="trust-sub" data-en="In development, always optional — you choose if and when to connect." data-es="En desarrollo, siempre opcional — tú decides si y cuándo conectar.">In development, always optional — you choose if and when to connect.</div>
-        </div>
+    <h2 class="hm-h2" data-en="Your data. Your rules." data-es="Tus datos. Tus reglas.">Your data. Your rules.</h2>
+    <div class="hm-trust-row">
+      <div class="hm-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span data-en="AES-256 encryption" data-es="Cifrado AES-256">AES-256 encryption</span>
       </div>
-      <div class="trust-item">
-        <span class="trust-ico">☁️</span>
-        <div>
-          <div class="trust-label" data-en="Your data, your account" data-es="Tus datos, tu cuenta">Your data, your account</div>
-          <div class="trust-sub" data-en="Securely stored and synced to your private account, encrypted, and controlled only by you." data-es="Guardados y sincronizados de forma segura en tu cuenta privada, cifrados y controlados solo por ti.">Securely stored and synced to your private account, encrypted, and controlled only by you.</div>
-        </div>
+      <div class="hm-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>
+        <span data-en="No ads" data-es="Sin anuncios">No ads</span>
       </div>
-      <div class="trust-item">
-        <span class="trust-ico">🚫</span>
-        <div>
-          <div class="trust-label" data-en="We never sell your data" data-es="Nunca vendemos tus datos">We never sell your data</div>
-          <div class="trust-sub" data-en="No ads. No data brokers. No exceptions." data-es="Sin anuncios. Sin intermediarios de datos. Sin excepciones.">No ads. No data brokers. No exceptions.</div>
-        </div>
+      <div class="hm-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span data-en="We never sell data" data-es="Nunca vendemos datos">We never sell data</span>
       </div>
-      <div class="trust-item">
-        <span class="trust-ico">🔐</span>
-        <div>
-          <div class="trust-label" data-en="Encrypted &amp; private" data-es="Cifrada y privada">Encrypted &amp; private</div>
-          <div class="trust-sub" data-en="Sensitive data protected with AES-256 encryption, always." data-es="Datos sensibles protegidos con cifrado AES-256, siempre.">Sensitive data protected with AES-256 encryption, always.</div>
-        </div>
+      <div class="hm-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+        <span data-en="Manual-first" data-es="Manual primero">Manual-first</span>
       </div>
     </div>
-    <p class="text-center" style="margin-top:20px;font-size:13px;color:var(--text-light)">
-      <a href="privacy.html" style="color:var(--indigo);font-weight:600" data-en="Read our Privacy Policy →" data-es="Lee nuestra Política de Privacidad →">Read our Privacy Policy →</a>
-    </p>
+    <p class="hm-more"><a href="privacy.html" class="hm-link" data-en="Privacy Policy →" data-es="Política de privacidad →">Privacy Policy →</a></p>
   </div>
 </section>
 
-<!-- ═══ HONEST ASK + REVIEW ═══ -->
-<section class="section" style="background:var(--indigo-light)">
-  <div class="container text-center" style="max-width:720px">
-    <div class="section-label" data-en="An honest ask" data-es="Una petición honesta">An honest ask</div>
-    <h2 class="section-title" data-en="We know we're new." data-es="Sabemos que somos nuevos.">We know we're new.</h2>
-    <p class="section-sub" style="margin:16px auto 0" data-en="No thousands of reviews yet. Just real care in every detail, and early users who tell us how it's going." data-es="Todavía no hay miles de reseñas. Solo cuidado real en cada detalle, y primeros usuarios que nos cuentan cómo les va.">No thousands of reviews yet. Just real care in every detail, and early users who tell us how it's going.</p>
-
-    <figure class="honest-review fade-in">
-      <div class="honest-review-stars" aria-label="5 stars">★★★★★</div>
-      <blockquote data-en="&ldquo;This new app has helped me balance my finances and save in the short and medium term. It&rsquo;s very comprehensive, user friendly, and the best part is that it reminds me of my fixed payments and makes me aware of my expenses.&rdquo;"
-                  data-es="&ldquo;Esta app me ha ayudado a balancear mis finanzas y ahorrar. Es muy completa, fácil de usar, y lo mejor es que me recuerda mis pagos fijos y me hace consciente de mis gastos.&rdquo;">&ldquo;This new app has helped me balance my finances and save in the short and medium term. It&rsquo;s very comprehensive, user friendly, and the best part is that it reminds me of my fixed payments and makes me aware of my expenses.&rdquo;</blockquote>
-      <figcaption>Alenoemi <span data-en="· App Store" data-es="· App Store">· App Store</span></figcaption>
-    </figure>
-
-    <h3 style="font-size:22px;font-weight:800;color:var(--text-dark);margin-top:40px" data-en="Ready to understand your money?" data-es="¿Lista/o para entender tu dinero?">Ready to understand your money?</h3>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px">
-    <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener" style="max-width:220px">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <span class="store-btn-text">
-        <small data-en="Download on the" data-es="Descarga en el">Download on the</small>
-        <strong>App Store</strong>
-      </span>
-    </a>
-    <a href="waitlist.html?p=android-beta" class="store-btn store-btn-android" style="max-width:220px">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.64.64 0 0 0-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-      <span class="store-btn-text">
-        <small data-en="Android · Beta" data-es="Android · Beta">Android · Beta</small>
-        <strong data-en="Become a tester" data-es="Sé tester">Become a tester</strong>
-      </span>
-    </a>
+<!-- ═══ REAL PEOPLE ═══ -->
+<section class="hm-section">
+  <div class="container hm-human-grid">
+    <div class="hm-founder">
+      <img src="images/monica-founder.jpg" alt="Monica Becerra, founder of Finiverse" width="640" height="800" loading="lazy">
+      <div>
+        <h3 data-en="Made by Monica." data-es="Hecha por Monica.">Made by Monica.</h3>
+        <p data-en="She taught herself to code to build the app she couldn't find." data-es="Aprendió a programar para crear la app que no encontraba.">She taught herself to code to build the app she couldn't find.</p>
+        <a href="about.html" class="hm-link" data-en="Our story →" data-es="Nuestra historia →">Our story →</a>
+      </div>
     </div>
-    <p style="margin-top:12px;font-size:13px;color:var(--text-light)" data-en="Free · No credit card" data-es="Gratis · Sin tarjeta">Free · No credit card</p>
-    <p style="margin-top:20px;font-size:14px">
-      <a href="https://apps.apple.com/app/finiverse/id6648789225?action=write-review" target="_blank" rel="noopener" style="color:var(--indigo);font-weight:600" data-en="Already using it? Leave a review — it takes 30 seconds →" data-es="¿Ya la usas? Deja una reseña — toma 30 segundos →">Already using it? Leave a review — it takes 30 seconds →</a>
-    </p>
+    <figure class="hm-review">
+      <h3 data-en="We're new." data-es="Somos nuevos.">We're new.</h3>
+      <div class="hm-stars" aria-label="5 stars">★★★★★</div>
+      <blockquote data-en="&ldquo;This new app has helped me balance my finances and save.&rdquo;" data-es="&ldquo;Esta app me ha ayudado a balancear mis finanzas y ahorrar.&rdquo;">&ldquo;This new app has helped me balance my finances and save.&rdquo;</blockquote>
+      <figcaption>Alenoemi <span data-en="· App Store" data-es="· App Store">· App Store</span></figcaption>
+      <a href="https://apps.apple.com/app/finiverse/id6648789225?action=write-review" target="_blank" rel="noopener" class="hm-link" data-en="Using it? Leave a review →" data-es="¿Ya la usas? Deja una reseña →">Using it? Leave a review →</a>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ CLOSING ═══ -->
+<section class="hm-section hm-close">
+  <div class="container inner">
+    <img class="mini" src="images/sam-mascot.png" alt="" width="433" height="640" loading="lazy">
+    <h2 data-en="Your brain isn't the problem." data-es="Tu cerebro no es el problema.">Your brain isn't the problem.</h2>
+    <p data-en="Free. No credit card." data-es="Gratis. Sin tarjeta de crédito.">Free. No credit card.</p>
+    <div class="hm-ctas">
+      <a href="https://apps.apple.com/app/finiverse/id6648789225" class="store-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="store-btn-text">
+          <small data-en="Download on the" data-es="Descarga en el">Download on the</small>
+          <strong>App Store</strong>
+        </span>
+      </a>
+      <a href="waitlist.html?p=android-beta" class="store-btn store-btn-android">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.64.64 0 0 0-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+        <span class="store-btn-text">
+          <small data-en="Android · Beta" data-es="Android · Beta">Android · Beta</small>
+          <strong data-en="Become a tester" data-es="Sé tester">Become a tester</strong>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -418,6 +532,36 @@
     bar.style.display = 'none';
     sessionStorage.setItem('dlStickyBarDismissed', '1');
   });
+})();
+/* ── How it works: tabs swap the phone screenshot ── */
+(function () {
+  const tabs = Array.from(document.querySelectorAll('.hm-tab'));
+  const img = document.getElementById('hm-stage-img');
+  const stage = document.getElementById('hm-stage');
+  if (!tabs.length || !img || !stage) return;
+  function select(tab) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+    });
+    stage.setAttribute('aria-labelledby', tab.id);
+    img.style.opacity = 0;
+    setTimeout(() => { img.src = tab.dataset.img; img.style.opacity = 1; }, 180);
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      const d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      const next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus();
+      select(next);
+    });
+  });
+  // Preload the other screenshots so switching tabs doesn't flash
+  tabs.forEach(t => { const p = new Image(); p.src = t.dataset.img; });
 })();
 </script>
 </body>
