@@ -1,6 +1,8 @@
 /* ── header.js — shared site nav ──
    Every page has <nav class="nav" id="site-nav"></nav> followed by this script,
    so the menu is written once here instead of copied into each page.
+   Pages load it as header.js?v=YYYYMMDD — bump that date in every page
+   after changing the menu, or browsers keep showing the cached one.
    Optional data-cta on the <nav> picks the right-hand button:
      (none)          → "Download" (App Store)
      "download-ios"  → "Download iOS" (waitlist page)

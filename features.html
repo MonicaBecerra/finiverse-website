@@ -10,24 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── Feature row (alternating) ── */
-    .feat-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      padding: 80px 0;
-      border-bottom: 1px solid var(--card-border);
-    }
-    .feat-row:last-child { border-bottom: none; }
-    .feat-row.reverse .feat-text { order: 2; }
-    .feat-row.reverse .feat-visual { order: 1; }
-    @media (max-width: 860px) {
-      .feat-row { grid-template-columns: 1fr; gap: 40px; padding: 56px 0; }
-      .feat-row.reverse .feat-text  { order: 1; }
-      .feat-row.reverse .feat-visual { order: 2; }
-    }
-
     /* Phone mockup */
     .feat-phone {
       width: 220px;
@@ -51,7 +33,7 @@
       display: block;
     }
 
-    /* Text side */
+    /* Small pill above each panel title */
     .feat-tag {
       display: inline-flex;
       align-items: center;
@@ -64,76 +46,7 @@
       background: var(--indigo-light);
       padding: 4px 12px;
       border-radius: 100px;
-      margin-bottom: 16px;
     }
-    .feat-title {
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 900;
-      color: var(--text-dark);
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .feat-title span { color: var(--indigo); }
-    .feat-desc {
-      font-size: 16px;
-      color: var(--text-mid);
-      line-height: 1.75;
-      margin-bottom: 28px;
-    }
-    .feat-bullets {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 32px;
-    }
-    .feat-bullet {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-mid);
-    }
-    .feat-bullet-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--indigo-light);
-      color: var(--indigo);
-      font-size: 11px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* Feature overview grid */
-    .feat-overview {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 48px;
-    }
-    @media (max-width: 860px) { .feat-overview { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .feat-overview { grid-template-columns: 1fr 1fr; } }
-
-    .feat-chip {
-      background: #fff;
-      border: 1.5px solid var(--card-border);
-      border-radius: 16px;
-      padding: 18px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .2s;
-      text-decoration: none;
-    }
-    .feat-chip:hover { border-color: var(--indigo); background: var(--indigo-light); transform: translateY(-2px); }
-    .feat-chip-icon { font-size: 26px; margin-bottom: 6px; }
-    .feat-chip-name { font-size: 12px; font-weight: 700; color: var(--text-dark); }
-
-    /* "In real life" steps stack on phones */
-    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr !important; max-width: 340px !important; } }
 
     /* Plan pills: which plan (or higher) a feature needs */
     .plan-pill {
@@ -143,53 +56,90 @@
       line-height: 1;
       padding: 4px 8px;
       border-radius: 100px;
-      margin-left: 4px;
       white-space: nowrap;
       vertical-align: 1px;
     }
     .plan-eb { background: #FEF3C7; color: #92400E; }
     .plan-pr { background: #EDE9FE; color: #5B21B6; }
     .plan-sa { background: #E0E7FF; color: #3730A3; }
-    .plan-note { font-size: 13px; color: var(--text-light); margin: -14px 0 24px; line-height: 1.6; }
-    .plan-legend { max-width: 560px; margin: 28px auto 0; font-size: 14px; color: var(--text-mid); line-height: 1.9; }
+    .plan-legend { text-align: center; font-size: 13px; color: var(--text-mid); line-height: 2; margin: 0 auto 40px; max-width: 640px; }
 
-    /* Anchored sections clear the fixed nav */
-    .feat-row, .all-card, #everything { scroll-margin-top: calc(var(--nav-h) + 16px); }
+    /* "In real life" steps stack on phones */
+    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr !important; max-width: 340px !important; } }
 
-    /* Sam's bullets come in three small groups */
-    .feat-group-title {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--text-light);
-      margin: 0 0 10px;
+    /* ── Feature explorer ── */
+    #explore { scroll-margin-top: var(--nav-h); }
+    .fx-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 16px;
+      max-width: 900px;
     }
-    .feat-group-title + .feat-bullets { margin-bottom: 22px; }
-
-    /* "More features" chips: 4 across, 2 across on phones */
-    .feat-overview.more-chips { max-width: 640px; margin: 0 auto; grid-template-columns: repeat(4, 1fr); }
-    @media (max-width: 480px) {
-      .feat-overview.more-chips { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .feat-overview.more-chips .feat-chip { display: flex; align-items: center; gap: 8px; padding: 10px 12px; text-align: left; }
-      .feat-overview.more-chips .feat-chip-icon { font-size: 20px; margin: 0; }
+    .fx-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 100px;
+      border: 1.5px solid var(--card-border);
+      background: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .fx-tab:hover { border-color: var(--indigo); }
+    .fx-tab[aria-selected="true"] { background: var(--indigo); border-color: var(--indigo); color: #fff; }
+    .fx-tab:focus-visible { outline: 3px solid var(--indigo-light); outline-offset: 2px; }
+    @media (max-width: 720px) {
+      .fx-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none;
+                 margin: 0 -16px 16px; padding: 2px 16px 6px; scroll-snap-type: x proximity; }
+      .fx-tabs::-webkit-scrollbar { display: none; }
+      .fx-tab { scroll-snap-align: start; }
     }
 
-    /* Everything else */
-    .all-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    @media (max-width: 860px) { .all-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .all-grid { grid-template-columns: 1fr; } }
-    .all-card {
+    .fx-panel { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; }
+    .fx-panel[hidden] { display: none; }
+    .fx-panel-more { display: block; }
+    @media (max-width: 860px) {
+      .fx-panel { grid-template-columns: 1fr; gap: 32px; }
+      .fx-visual { order: 2; }
+      .fx-visual .feat-phone { width: 190px; }
+    }
+    .fx-title { font-size: clamp(26px, 4vw, 38px); font-weight: 900; color: var(--text-dark); line-height: 1.15; margin: 14px 0 8px; }
+    .fx-title span { color: var(--indigo); }
+    .fx-sub { font-size: 17px; color: var(--text-mid); margin: 0 0 24px; }
+    .fx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .fx-tile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       background: #fff;
       border: 1.5px solid var(--card-border);
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.35;
     }
-    .all-card-icon { font-size: 28px; }
-    .all-card h3 { font-size: 18px; font-weight: 800; color: var(--text-dark); margin: 8px 0 14px; }
-    .all-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; }
-    .all-card li { font-size: 14px; color: var(--text-mid); line-height: 1.5; padding-left: 16px; position: relative; }
-    .all-card li::before { content: ''; position: absolute; left: 2px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); }
+    .fx-tile-icon { font-size: 20px; flex-shrink: 0; }
+    .fx-tile-label .plan-pill { margin-left: 4px; }
+    @media (max-width: 400px) { .fx-tile { padding: 10px 10px; font-size: 13px; gap: 8px; } .fx-tile-icon { font-size: 18px; } }
+    .fx-note { font-size: 13px; color: var(--text-light); margin: 14px 0 0; }
+
+    .fx-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+    @media (max-width: 860px) { .fx-groups { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .fx-groups { grid-template-columns: 1fr; } }
+    .fx-group { background: #fff; border: 1.5px solid var(--card-border); border-radius: 18px; padding: 20px; }
+    .fx-group h3 { font-size: 16px; font-weight: 800; color: var(--text-dark); margin: 0 0 12px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .fx-group ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .fx-group li { font-size: 13px; font-weight: 600; color: var(--text-mid); background: var(--indigo-light); border-radius: 100px; padding: 6px 10px; }
 
     /* Wishlist, no screenshot, use decorative card */
     .wishlist-card {
@@ -258,7 +208,7 @@
 </div>
 
 <nav class="nav" id="site-nav"></nav>
-<script src="header.js"></script>
+<script src="header.js?v=20261012"></script>
 
 <!-- Hero -->
 <section class="page-hero" style="text-align:center;position:relative;overflow:hidden">
@@ -268,60 +218,8 @@
   <div class="container" style="position:relative;z-index:1">
     <div class="section-label" data-en="Features" data-es="Funciones">Features</div>
     <h1 data-en="Built different. <span>By design.</span>" data-es="Construida diferente. <span>A propósito.</span>">Built different. <span>By design.</span></h1>
-    <p style="max-width:560px;margin:0 auto" data-en="Every feature in Finiverse was designed for minds that work differently: ADHD, anxiety, dyscalculia, autism, and more. No overwhelm. No judgment." data-es="Cada función de Finiverse fue diseñada para mentes que funcionan diferente: TDAH, ansiedad, discalculia, autismo y más. Sin agobio. Sin juicios.">Every feature in Finiverse was designed for minds that work differently: ADHD, anxiety, dyscalculia, autism, and more. No overwhelm. No judgment.</p>
-
-    <!-- Feature overview chips -->
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin:48px 0 10px" data-en="Three core pillars" data-es="Tres pilares principales">Three core pillars</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:600px;margin:0 auto 10px">
-      <a href="#checkin" class="feat-chip" style="padding:22px 16px">
-        <div class="feat-chip-icon" style="font-size:32px">💜</div>
-        <div class="feat-chip-name" style="font-size:13px" data-en="Emotion × Finance" data-es="Emoción × Finanzas">Emotion × Finance</div>
-      </a>
-      <a href="#sam-ai" class="feat-chip" style="padding:22px 16px">
-        <div class="feat-chip-icon" style="font-size:32px">🤖</div>
-        <div class="feat-chip-name" style="font-size:13px" data-en="Sam AI" data-es="Sam IA">Sam AI</div>
-      </a>
-      <a href="#wishlist" class="feat-chip" style="padding:22px 16px">
-        <div class="feat-chip-icon" style="font-size:32px">✨</div>
-        <div class="feat-chip-name" style="font-size:13px" data-en="Impulse Control" data-es="Control de Impulso">Impulse Control</div>
-      </a>
-    </div>
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin:20px 0 10px" data-en="More features" data-es="Más funciones">More features</div>
-    <div class="feat-overview more-chips">
-      <a href="#home" class="feat-chip">
-        <div class="feat-chip-icon">🏠</div>
-        <div class="feat-chip-name" data-en="Home" data-es="Inicio">Home</div>
-      </a>
-      <a href="#records" class="feat-chip">
-        <div class="feat-chip-icon">📋</div>
-        <div class="feat-chip-name" data-en="Records" data-es="Registros">Records</div>
-      </a>
-      <a href="#analysis" class="feat-chip">
-        <div class="feat-chip-icon">📊</div>
-        <div class="feat-chip-name" data-en="Analysis" data-es="Análisis">Analysis</div>
-      </a>
-      <a href="#cards" class="feat-chip">
-        <div class="feat-chip-icon">💳</div>
-        <div class="feat-chip-name" data-en="Cards" data-es="Tarjetas">Cards</div>
-      </a>
-      <a href="#goals" class="feat-chip">
-        <div class="feat-chip-icon">🎯</div>
-        <div class="feat-chip-name" data-en="Goals" data-es="Metas">Goals</div>
-      </a>
-      <a href="#gamification" class="feat-chip">
-        <div class="feat-chip-icon">🏆</div>
-        <div class="feat-chip-name" data-en="Levels" data-es="Niveles">Levels</div>
-      </a>
-      <a href="#accessibility" class="feat-chip">
-        <div class="feat-chip-icon">♿</div>
-        <div class="feat-chip-name" data-en="Accessibility" data-es="Accesibilidad">Accessibility</div>
-      </a>
-      <a href="#everything" class="feat-chip">
-        <div class="feat-chip-icon">✨</div>
-        <div class="feat-chip-name" data-en="Everything else" data-es="Todo lo demás">Everything else</div>
-      </a>
-    </div>
-    <p class="plan-legend" data-en="Finiverse is free to start. Labels like <b class='plan-pill plan-eb'>Early Bird+</b> <b class='plan-pill plan-pr'>Premium+</b> <b class='plan-pill plan-sa'>Sam AI</b> mark what needs a paid plan, that one or higher. <a href='pricing.html' style='color:var(--indigo);font-weight:700;white-space:nowrap'>Compare plans →</a>" data-es="Finiverse es gratis para empezar. Etiquetas como <b class='plan-pill plan-eb'>Early Bird+</b> <b class='plan-pill plan-pr'>Premium+</b> <b class='plan-pill plan-sa'>Sam IA</b> marcan lo que requiere un plan de pago, ese o uno superior. <a href='pricing.html' style='color:var(--indigo);font-weight:700;white-space:nowrap'>Compara los planes →</a>">Finiverse is free to start. Labels like <b class='plan-pill plan-eb'>Early Bird+</b> <b class='plan-pill plan-pr'>Premium+</b> <b class='plan-pill plan-sa'>Sam AI</b> mark what needs a paid plan, that one or higher. <a href='pricing.html' style='color:var(--indigo);font-weight:700;white-space:nowrap'>Compare plans →</a></p>
+    <p style="max-width:520px;margin:0 auto" data-en="For ADHD, anxiety, dyscalculia, autism, and more. No overwhelm. No judgment." data-es="Para TDAH, ansiedad, discalculia, autismo y más. Sin agobio. Sin juicios.">For ADHD, anxiety, dyscalculia, autism, and more. No overwhelm. No judgment.</p>
+    <a href="#explore" class="btn btn-primary" style="margin-top:28px" data-en="Explore the app ↓" data-es="Explora la app ↓">Explore the app ↓</a>
   </div>
 </section>
 
@@ -364,101 +262,78 @@
   </div>
 </section>
 
-<!-- Feature rows -->
-<section class="section">
+<!-- Feature explorer: one area at a time -->
+<section class="section" id="explore">
   <div class="container">
+    <div class="fx-tabs" role="tablist" aria-label="Feature areas">
+      <button class="fx-tab" role="tab" id="tab-checkin" aria-controls="checkin" aria-selected="true" tabindex="0"><span aria-hidden="true">💜</span> <span data-en="Emotions" data-es="Emociones">Emotions</span></button>
+      <button class="fx-tab" role="tab" id="tab-sam-ai" aria-controls="sam-ai" aria-selected="false" tabindex="-1"><span aria-hidden="true">🤖</span> <span data-en="Sam AI" data-es="Sam IA">Sam AI</span></button>
+      <button class="fx-tab" role="tab" id="tab-wishlist" aria-controls="wishlist" aria-selected="false" tabindex="-1"><span aria-hidden="true">✨</span> <span data-en="Impulses" data-es="Impulsos">Impulses</span></button>
+      <button class="fx-tab" role="tab" id="tab-home" aria-controls="home" aria-selected="false" tabindex="-1"><span aria-hidden="true">🏠</span> <span data-en="Home" data-es="Inicio">Home</span></button>
+      <button class="fx-tab" role="tab" id="tab-records" aria-controls="records" aria-selected="false" tabindex="-1"><span aria-hidden="true">📋</span> <span data-en="Records" data-es="Registros">Records</span></button>
+      <button class="fx-tab" role="tab" id="tab-analysis" aria-controls="analysis" aria-selected="false" tabindex="-1"><span aria-hidden="true">📊</span> <span data-en="Analysis" data-es="Análisis">Analysis</span></button>
+      <button class="fx-tab" role="tab" id="tab-cards" aria-controls="cards" aria-selected="false" tabindex="-1"><span aria-hidden="true">💳</span> <span data-en="Cards" data-es="Tarjetas">Cards</span></button>
+      <button class="fx-tab" role="tab" id="tab-goals" aria-controls="goals" aria-selected="false" tabindex="-1"><span aria-hidden="true">🎯</span> <span data-en="Goals" data-es="Metas">Goals</span></button>
+      <button class="fx-tab" role="tab" id="tab-gamification" aria-controls="gamification" aria-selected="false" tabindex="-1"><span aria-hidden="true">🏆</span> <span data-en="Levels" data-es="Niveles">Levels</span></button>
+      <button class="fx-tab" role="tab" id="tab-everything" aria-controls="everything" aria-selected="false" tabindex="-1"><span aria-hidden="true">➕</span> <span data-en="More" data-es="Más">More</span></button>
+    </div>
+    <p class="plan-legend" data-en="Free to start. <b class='plan-pill plan-eb'>Early Bird+</b> <b class='plan-pill plan-pr'>Premium+</b> <b class='plan-pill plan-sa'>Sam AI</b> = needs that plan or higher. <a href='pricing.html' style='color:var(--indigo);font-weight:700;white-space:nowrap'>Compare plans →</a>" data-es="Gratis para empezar. <b class='plan-pill plan-eb'>Early Bird+</b> <b class='plan-pill plan-pr'>Premium+</b> <b class='plan-pill plan-sa'>Sam IA</b> = requiere ese plan o uno superior. <a href='pricing.html' style='color:var(--indigo);font-weight:700;white-space:nowrap'>Compara los planes →</a>">Free to start. <b class='plan-pill plan-eb'>Early Bird+</b> <b class='plan-pill plan-pr'>Premium+</b> <b class='plan-pill plan-sa'>Sam AI</b> = needs that plan or higher. <a href='pricing.html' style='color:var(--indigo);font-weight:700;white-space:nowrap'>Compare plans →</a></p>
 
-    <!-- EMOTION × FINANCE (Pillar 1) -->
-    <div class="feat-row" id="checkin">
-      <div class="feat-text fade-in">
-        <div class="feat-tag" style="background:rgba(139,92,246,.12);color:#6D28D9">💜 <span data-en="Pillar 1 · Emotion × Finance" data-es="Pilar 1 · Emoción × Finanzas">Pillar 1 · Emotion × Finance</span></div>
-        <h2 class="feat-title" data-en="Your feelings <span>are financial data</span>." data-es="Tus emociones <span>son datos financieros</span>.">Your feelings <span>are financial data</span>.</h2>
-        <p class="feat-desc" data-en="The daily check-in takes a few seconds: how you feel and how focused you are, on one pad you tap or drag. Sam connects those signals with your spending, and shows you patterns you'd never notice on your own." data-es="El check-in diario toma unos segundos: cómo te sientes y tu nivel de enfoque, en un solo panel que tocas o arrastras. Sam conecta esas señales con tu gasto, y te muestra patrones que nunca notarías por tu cuenta.">The daily check-in takes a few seconds: how you feel and how focused you are, on one pad you tap or drag. Sam connects those signals with your spending, and shows you patterns you'd never notice on your own.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Mood and focus in one tap. Add energy and stress whenever you want" data-es="Ánimo y enfoque en un toque. Suma energía y estrés cuando quieras">Mood and focus in one tap. Add energy and stress whenever you want</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sleep stages, heart-rate variability and State of Mind from Apple Health, if you allow it" data-es="Fases de sueño, variabilidad cardíaca y estado de ánimo desde Apple Salud, si lo permites">Sleep stages, heart-rate variability and State of Mind from Apple Health, if you allow it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="An optional note, with gentle prompts like “Something small to celebrate?”" data-es="Una nota opcional, con preguntas suaves como “¿Algo pequeño para celebrar?”">An optional note, with gentle prompts like “Something small to celebrate?”</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Add a mood to any expense, too" data-es="También puedes ponerle un ánimo a cualquier gasto">Add a mood to any expense, too</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Your streak and full history, and you can edit any day" data-es="Tu racha y todo tu historial, y puedes editar cualquier día">Your streak and full history, and you can edit any day</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam links emotions to spending: “You tend to spend more on anxious Fridays”" data-es="Sam vincula emociones con gasto: “Tiendes a gastar más los viernes ansiosos”">Sam links emotions to spending: “You tend to spend more on anxious Fridays”</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="“I don’t know / Skip” on every question. No wrong answers." data-es="“No sé / Saltar” en cada pregunta. No hay respuestas incorrectas.">“I don’t know / Skip” on every question. No wrong answers.</span></li>
-        </ul>
-        <p class="plan-note" data-en="Free includes 5 check-ins a month. Unlimited from Early Bird." data-es="Free incluye 5 check-ins al mes. Ilimitados desde Early Bird.">Free includes 5 check-ins a month. Unlimited from Early Bird.</p>
-      </div>
-      <div class="feat-visual fade-in">
+    <div class="fx-panel" role="tabpanel" id="checkin" aria-labelledby="tab-checkin">
+      <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/emotions.PNG" alt="Emotional check-in" />
+            <img src="images/emotions.PNG" alt="Emotional check-in" loading="lazy" />
           </div>
         </div>
       </div>
+      <div class="fx-text">
+        <div class="feat-tag">💜 <span data-en="Emotions" data-es="Emociones">Emotions</span></div>
+        <h2 class="fx-title" data-en="Your feelings <span>are financial data</span>." data-es="Tus emociones <span>son datos financieros</span>.">Your feelings <span>are financial data</span>.</h2>
+        <p class="fx-sub" data-en="A few seconds a day. Sam finds the patterns." data-es="Unos segundos al día. Sam encuentra los patrones.">A few seconds a day. Sam finds the patterns.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">😊</span><span class="fx-tile-label" data-en="Mood &amp; focus, one tap" data-es="Ánimo y enfoque, un toque">Mood &amp; focus, one tap</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⚡</span><span class="fx-tile-label" data-en="Energy &amp; stress, optional" data-es="Energía y estrés, opcional">Energy &amp; stress, optional</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">😴</span><span class="fx-tile-label" data-en="Sleep from Apple Health" data-es="Sueño desde Apple Salud">Sleep from Apple Health</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📝</span><span class="fx-tile-label" data-en="Optional note" data-es="Nota opcional">Optional note</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🏷️</span><span class="fx-tile-label" data-en="Mood on any expense" data-es="Ánimo en cada gasto">Mood on any expense</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔥</span><span class="fx-tile-label" data-en="Streak &amp; history" data-es="Racha e historial">Streak &amp; history</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔗</span><span class="fx-tile-label" data-en="Mood ↔ spending patterns" data-es="Patrones ánimo ↔ gasto">Mood ↔ spending patterns</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⏭️</span><span class="fx-tile-label" data-en="Skip any question" data-es="Salta cualquier pregunta">Skip any question</span></div>
+        </div>
+        <p class="fx-note" data-en="Free: 5 check-ins a month." data-es="Free: 5 check-ins al mes.">Free: 5 check-ins a month.</p>
+      </div>
     </div>
-
-    <!-- SAM AI (Pillar 2) -->
-    <div class="feat-row reverse" id="sam-ai">
-      <div class="feat-visual fade-in">
+    <div class="fx-panel" role="tabpanel" id="sam-ai" aria-labelledby="tab-sam-ai" hidden>
+      <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/sam.PNG" alt="Sam AI chat" />
+            <img src="images/sam.PNG" alt="Sam AI chat" loading="lazy" />
           </div>
         </div>
       </div>
-      <div class="feat-text fade-in">
-        <div class="feat-tag">🤖 <span data-en="Pillar 2 · Sam AI" data-es="Pilar 2 · Sam IA">Pillar 2 · Sam AI</span></div> <b class='plan-pill plan-eb'>Early Bird+</b>
-        <h2 class="feat-title" data-en="Your AI that <span>actually knows you</span>." data-es="Tu IA que <span>realmente te conoce</span>.">Your AI that <span>actually knows you</span>.</h2>
-        <p class="feat-desc" data-en="Sam is not a generic chatbot. Sam reads your records, check-ins and goals, and gives you answers that make sense for your life. Powered by Claude AI (Anthropic)." data-es="Sam no es un chatbot genérico. Sam lee tus registros, check-ins y metas, y te da respuestas que tienen sentido para tu vida. Impulsado por Claude AI (Anthropic).">Sam is not a generic chatbot. Sam reads your records, check-ins and goals, and gives you answers that make sense for your life. Powered by Claude AI (Anthropic).</p>
-        <div class="feat-group-title" data-en="Talks with you" data-es="Conversa contigo">Talks with you</div>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Plain language, no finance jargon" data-es="Lenguaje simple, sin jerga financiera">Plain language, no finance jargon</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Talk by voice, hands-free, and hear the replies" data-es="Habla por voz, sin tocar botones, y escucha las respuestas">Talk by voice, hands-free, and hear the replies</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Your style: brief, warm, detailed, or like a friend" data-es="Tu estilo: breve, cálido, detallado o como un amigo">Your style: brief, warm, detailed, or like a friend</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Tell Sam about you, and what you’d rather it not mention" data-es="Cuéntale a Sam sobre ti, y qué prefieres que no mencione">Tell Sam about you, and what you’d rather it not mention</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="“Explain it in easy reading” or “Give me just the first step”" data-es="“Explícalo en lectura fácil” o “Dame solo el primer paso”">“Explain it in easy reading” or “Give me just the first step”</span></li>
-        </ul>
-        <div class="feat-group-title" data-en="Does it for you" data-es="Lo hace por ti">Does it for you</div>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Logs expenses, income, loans, goals and check-ins" data-es="Registra gastos, ingresos, préstamos, metas y check-ins">Logs expenses, income, loans, goals and check-ins</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sets payment reminders and recurring bills" data-es="Crea recordatorios de pago y gastos recurrentes">Sets payment reminders and recurring bills</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Adds things to your Wishlist" data-es="Agrega cosas a tu Lista de Deseos">Adds things to your Wishlist</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Changes settings for you: dark mode, larger text, currency…" data-es="Cambia ajustes por ti: modo oscuro, letra grande, moneda…">Changes settings for you: dark mode, larger text, currency…</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Reads receipts, PDFs and links" data-es="Lee tickets, PDFs y enlaces">Reads receipts, PDFs and links</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Tells you which bill or coin is in a photo" data-es="Te dice qué billete o moneda hay en una foto">Tells you which bill or coin is in a photo</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="What-if simulations: “What if I cut my food budget by 20%?” <b class='plan-pill plan-sa'>Sam AI</b>" data-es="Simulaciones: “¿Qué pasa si reduzco mi presupuesto de comida un 20%?” <b class='plan-pill plan-sa'>Sam IA</b>">What-if simulations: “What if I cut my food budget by 20%?” <b class='plan-pill plan-sa'>Sam AI</b></span></li>
-        </ul>
-        <div class="feat-group-title" data-en="Looks after you" data-es="Te cuida">Looks after you</div>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Spots emotional spending patterns" data-es="Detecta patrones de gasto emocional">Spots emotional spending patterns</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Breathing and crisis lines when a day gets heavy <b class='plan-pill plan-pr'>Premium+</b>" data-es="Respiración y líneas de ayuda cuando el día pesa <b class='plan-pill plan-pr'>Premium+</b>">Breathing and crisis lines when a day gets heavy <b class='plan-pill plan-pr'>Premium+</b></span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Finance games and mini-lessons that earn XP" data-es="Juegos y mini-lecciones de finanzas que dan XP">Finance games and mini-lessons that earn XP</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Keeps working offline, with some limits" data-es="Sigue funcionando sin internet, con algunos límites">Keeps working offline, with some limits</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Zero judgment. Always." data-es="Cero juicios. Siempre.">Zero judgment. Always.</span></li>
-        </ul>
-        <p class="plan-note" style="margin-top:0" data-en="Sam's chat comes with Early Bird, Premium and Sam AI. Each plan includes a different number of chats." data-es="El chat con Sam viene con Early Bird, Premium y Sam IA. Cada plan incluye una cantidad distinta de chats.">Sam's chat comes with Early Bird, Premium and Sam AI. Each plan includes a different number of chats.</p>
-        <a href="pricing.html" class="btn btn-primary" data-en="See Sam AI plans →" data-es="Ver planes Sam IA →">See Sam AI plans →</a>
+      <div class="fx-text">
+        <div class="feat-tag">🤖 <span data-en="Sam AI" data-es="Sam IA">Sam AI</span></div>  <b class='plan-pill plan-eb'>Early Bird+</b>
+        <h2 class="fx-title" data-en="Your AI that <span>actually knows you</span>." data-es="Tu IA que <span>realmente te conoce</span>.">Your AI that <span>actually knows you</span>.</h2>
+        <p class="fx-sub" data-en="Knows your numbers. Talks in plain words. Powered by Claude." data-es="Conoce tus números. Habla simple. Con Claude.">Knows your numbers. Talks in plain words. Powered by Claude.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🗣️</span><span class="fx-tile-label" data-en="Talk by voice" data-es="Habla por voz">Talk by voice</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎛️</span><span class="fx-tile-label" data-en="Pick its tone" data-es="Elige su tono">Pick its tone</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">✍️</span><span class="fx-tile-label" data-en="Logs things for you" data-es="Registra por ti">Logs things for you</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⏰</span><span class="fx-tile-label" data-en="Payment reminders" data-es="Recordatorios de pago">Payment reminders</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🧾</span><span class="fx-tile-label" data-en="Reads receipts &amp; PDFs" data-es="Lee tickets y PDFs">Reads receipts &amp; PDFs</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">💵</span><span class="fx-tile-label" data-en="Spots bills &amp; coins" data-es="Reconoce billetes y monedas">Spots bills &amp; coins</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📖</span><span class="fx-tile-label" data-en="Easy-read answers" data-es="Respuestas en lectura fácil">Easy-read answers</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎮</span><span class="fx-tile-label" data-en="Games &amp; mini-lessons" data-es="Juegos y mini-lecciones">Games &amp; mini-lessons</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📴</span><span class="fx-tile-label" data-en="Works offline" data-es="Funciona sin internet">Works offline</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔮</span><span class="fx-tile-label" data-en="What-if simulations <b class='plan-pill plan-sa'>Sam AI</b>" data-es="Simulaciones <b class='plan-pill plan-sa'>Sam IA</b>">What-if simulations <b class='plan-pill plan-sa'>Sam AI</b></span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🫁</span><span class="fx-tile-label" data-en="Breathing &amp; crisis lines <b class='plan-pill plan-pr'>Premium+</b>" data-es="Respiración y líneas de ayuda <b class='plan-pill plan-pr'>Premium+</b>">Breathing &amp; crisis lines <b class='plan-pill plan-pr'>Premium+</b></span></div>
+        </div>
+        <a href="pricing.html" class="btn btn-primary btn-sm" style="margin-top:20px" data-en="See Sam AI plans →" data-es="Ver planes Sam IA →">See Sam AI plans →</a>
       </div>
     </div>
-
-    <!-- WISHLIST + IMPULSE PAUSE (Pillar 3) -->
-    <div class="feat-row" id="wishlist">
-      <div class="feat-text fade-in">
-        <div class="feat-tag" style="background:#FEF3C7;color:#92400E">✨ <span data-en="Pillar 3 · Impulse Control" data-es="Pilar 3 · Control de Impulso">Pillar 3 · Impulse Control</span></div>
-        <h2 class="feat-title" data-en="Want it? <span>Wait first.</span>" data-es="¿Lo quieres? <span>Espera primero.</span>">Want it? <span>Wait first.</span></h2>
-        <p class="feat-desc" data-en="Two tools to break the dopamine-buy cycle. The Wishlist is for things you want: add them, wait, then decide. Impulse Pause is for the urge you feel right now." data-es="Dos herramientas para romper el ciclo de compra por dopamina. La Lista de Deseos es para lo que quieres: lo agregas, esperas y luego decides. La Pausa de impulso es para las ganas que sientes ahora mismo.">Two tools to break the dopamine-buy cycle. The Wishlist is for things you want: add them, wait, then decide. Impulse Pause is for the urge you feel right now.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Wait 1 day, 1 week, 1 month, or follow the 3-month rule" data-es="Espera 1 día, 1 semana, 1 mes o sigue la regla de los 3 meses">Wait 1 day, 1 week, 1 month, or follow the 3-month rule</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Paste a product link and the photo and price fill in by themselves <b class='plan-pill plan-eb'>Early Bird+</b>" data-es="Pega el enlace del producto y la foto y el precio se llenan solos <b class='plan-pill plan-eb'>Early Bird+</b>">Paste a product link and the photo and price fill in by themselves <b class='plan-pill plan-eb'>Early Bird+</b></span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="See the price as things you know, like coffees" data-es="Ve el precio en cosas que conoces, como cafés">See the price as things you know, like coffees</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="…or as hours of your work <b class='plan-pill plan-pr'>Premium+</b>" data-es="…o en horas de tu trabajo <b class='plan-pill plan-pr'>Premium+</b>">…or as hours of your work <b class='plan-pill plan-pr'>Premium+</b></span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Sam reminds you when the wait is over, and asks if you still want it" data-es="Sam te recuerda cuando termina la espera, y te pregunta si aún lo quieres">Sam reminds you when the wait is over, and asks if you still want it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Bought it? Mark it returnable and decide “keep it or return it?” in time" data-es="¿Lo compraste? Márcalo como devolvible y decide a tiempo si te lo quedas o lo devuelves">Bought it? Mark it returnable and decide “keep it or return it?” in time</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Impulse Pause: 10 minutes, 1 hour or 1 day, checked against what you can safely spend" data-es="Pausa de impulso: 10 minutos, 1 hora o 1 día, comparada con lo que puedes gastar con calma">Impulse Pause: 10 minutes, 1 hour or 1 day, checked against what you can safely spend</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="“Help me decide” uses your own past decisions" data-es="“Ayúdame a decidir” usa tus propias decisiones pasadas">“Help me decide” uses your own past decisions</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="See what you resisted and how much you saved" data-es="Ve lo que resististe y cuánto ahorraste">See what you resisted and how much you saved</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="A 10-minute pause before late-night purchases" data-es="Una pausa de 10 minutos antes de compras de noche">A 10-minute pause before late-night purchases</span></li>
-        </ul>
-        <p class="plan-note" data-en="Free and Early Bird include up to 5 wishes, Premium 10, and Sam AI has no limit." data-es="Free y Early Bird incluyen hasta 5 deseos, Premium 10, y Sam IA no tiene límite.">Free and Early Bird include up to 5 wishes, Premium 10, and Sam AI has no limit.</p>
-      </div>
-      <div class="feat-visual fade-in">
+    <div class="fx-panel" role="tabpanel" id="wishlist" aria-labelledby="tab-wishlist" hidden>
+      <div class="fx-visual">
         <div class="wishlist-card">
           <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:16px;display:flex;align-items:center;gap:6px">✨ <span data-en="My Wishlist, 3 items" data-es="Mi Lista de Deseos, 3 artículos">My Wishlist, 3 items</span></div>
 
@@ -492,244 +367,233 @@
           <div style="text-align:center;margin-top:16px;font-size:11px;color:#92400E;opacity:.7" data-en="Pause. Think. Decide with clarity." data-es="Pausa. Piensa. Decide con claridad.">Pause. Think. Decide with clarity.</div>
         </div>
       </div>
+      <div class="fx-text">
+        <div class="feat-tag">✨ <span data-en="Impulses" data-es="Impulsos">Impulses</span></div>
+        <h2 class="fx-title" data-en="Want it? <span>Wait first.</span>" data-es="¿Lo quieres? <span>Espera primero.</span>">Want it? <span>Wait first.</span></h2>
+        <p class="fx-sub" data-en="Wishlist for wants. Impulse Pause for urges." data-es="Lista de Deseos para lo que quieres. Pausa de impulso para las ganas.">Wishlist for wants. Impulse Pause for urges.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⏳</span><span class="fx-tile-label" data-en="Wait a day to 3 months" data-es="Espera de un día a 3 meses">Wait a day to 3 months</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔗</span><span class="fx-tile-label" data-en="Paste a link, it fills in <b class='plan-pill plan-eb'>Early Bird+</b>" data-es="Pega un enlace y se llena <b class='plan-pill plan-eb'>Early Bird+</b>">Paste a link, it fills in <b class='plan-pill plan-eb'>Early Bird+</b></span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">☕</span><span class="fx-tile-label" data-en="Price in coffees" data-es="Precio en cafés">Price in coffees</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⏱️</span><span class="fx-tile-label" data-en="Price in work hours <b class='plan-pill plan-pr'>Premium+</b>" data-es="Precio en horas de trabajo <b class='plan-pill plan-pr'>Premium+</b>">Price in work hours <b class='plan-pill plan-pr'>Premium+</b></span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔔</span><span class="fx-tile-label" data-en="Reminder when ready" data-es="Aviso cuando termina">Reminder when ready</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">↩️</span><span class="fx-tile-label" data-en="Keep it or return it?" data-es="¿Te lo quedas o lo devuelves?">Keep it or return it?</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">✋</span><span class="fx-tile-label" data-en="Impulse Pause" data-es="Pausa de impulso">Impulse Pause</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🤔</span><span class="fx-tile-label" data-en="Help me decide" data-es="Ayúdame a decidir">Help me decide</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🌙</span><span class="fx-tile-label" data-en="Night pause" data-es="Pausa nocturna">Night pause</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">💰</span><span class="fx-tile-label" data-en="What you didn’t spend" data-es="Lo que no gastaste">What you didn’t spend</span></div>
+        </div>
+        <p class="fx-note" data-en="Free: up to 5 wishes." data-es="Free: hasta 5 deseos.">Free: up to 5 wishes.</p>
+      </div>
     </div>
-
-    <!-- MORE FEATURES divider -->
-    <div style="text-align:center;padding:48px 0 16px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light)" data-en="More features" data-es="Más funciones">More features</div>
-      <div style="width:40px;height:2px;background:var(--card-border);margin:10px auto 0;border-radius:2px"></div>
-    </div>
-
-    <!-- HOME -->
-    <div class="feat-row reverse" id="home">
-      <div class="feat-visual fade-in">
+    <div class="fx-panel" role="tabpanel" id="home" aria-labelledby="tab-home" hidden>
+      <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/home.PNG" alt="Home screen" />
+            <img src="images/home.PNG" alt="Home screen" loading="lazy" />
           </div>
         </div>
       </div>
-      <div class="feat-text fade-in">
+      <div class="fx-text">
         <div class="feat-tag">🏠 <span data-en="Home" data-es="Inicio">Home</span></div>
-        <h2 class="feat-title" data-en="What you can spend. <span>Not just what you have.</span>" data-es="Lo que puedes gastar. <span>No solo lo que tienes.</span>">What you can spend. <span>Not just what you have.</span></h2>
-        <p class="feat-desc" data-en="Home starts with one number: your safe-to-spend. It’s your balance minus upcoming bills and the savings you set aside, so “can I afford this?” has a calm answer." data-es="Inicio empieza con un número: lo que puedes gastar con calma. Es tu saldo menos los pagos que vienen y lo que apartaste para ahorrar, para que “¿me alcanza?” tenga una respuesta tranquila.">Home starts with one number: your safe-to-spend. It’s your balance minus upcoming bills and the savings you set aside, so “can I afford this?” has a calm answer.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Upcoming bills, and what’s left until payday" data-es="Los próximos pagos, y lo que te queda hasta el día de cobro">Upcoming bills, and what’s left until payday</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="When a category jumps, it tells you if it was one purchase or many small ones" data-es="Si una categoría se dispara, te dice si fue una compra o muchas pequeñas">When a category jumps, it tells you if it was one purchase or many small ones</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Where you’ll end the month at this pace" data-es="Cómo terminarás el mes a este ritmo">Where you’ll end the month at this pace</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="What you saved today with round-ups and resisted impulses" data-es="Lo que ahorraste hoy con redondeos e impulsos resistidos">What you saved today with round-ups and resisted impulses</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Quick log: an amount and a mood in seconds" data-es="Registro rápido: un monto y un ánimo en segundos">Quick log: an amount and a mood in seconds</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Hide your balances with one tap" data-es="Oculta tus saldos con un toque">Hide your balances with one tap</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- RECORDS + BUDGETS -->
-    <div class="feat-row" id="records">
-      <div class="feat-text fade-in">
-        <div class="feat-tag">📋 <span data-en="Records &amp; Budgets" data-es="Registros y Presupuestos">Records &amp; Budgets</span></div>
-        <h2 class="feat-title" data-en="Track everything. <span>Without the stress.</span>" data-es="Registra todo. <span>Sin el estrés.</span>">Track everything. <span>Without the stress.</span></h2>
-        <p class="feat-desc" data-en="Expenses, income, loans and savings goals, all in one place. Logging by hand builds awareness. On low-energy days, import a statement or let Sam log it for you." data-es="Gastos, ingresos, préstamos y metas de ahorro, todo en un solo lugar. Registrar a mano construye conciencia. En días de poca energía, importa un estado de cuenta o deja que Sam lo registre por ti.">Expenses, income, loans and savings goals, all in one place. Logging by hand builds awareness. On low-energy days, import a statement or let Sam log it for you.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="4 record types: expenses, income, loans and goals" data-es="4 tipos de registro: gastos, ingresos, préstamos y metas">4 record types: expenses, income, loans and goals</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A mood tag on every record" data-es="Una etiqueta de ánimo en cada registro">A mood tag on every record</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Categories that learn from where you shop, plus your own" data-es="Categorías que aprenden de dónde compras, más las tuyas">Categories that learn from where you shop, plus your own</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Monthly budgets per category, and what’s left can roll over" data-es="Presupuestos mensuales por categoría, y lo que sobra puede pasar al mes siguiente">Monthly budgets per category, and what’s left can roll over</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A heads-up when a category goes over its limit" data-es="Un aviso cuando una categoría pasa su límite">A heads-up when a category goes over its limit</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Import bank statements: CSV, PDF or Excel (up to 30 rows at a time on Free)" data-es="Importa estados de cuenta: CSV, PDF o Excel (hasta 30 filas por vez en Free)">Import bank statements: CSV, PDF or Excel (up to 30 rows at a time on Free)</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Search, filter by period, and recategorize or delete many at once" data-es="Busca, filtra por periodo, y recategoriza o borra varios a la vez">Search, filter by period, and recategorize or delete many at once</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Loans shown as a chain of payments, goals as a jar that fills up" data-es="Préstamos como una cadena de pagos, metas como un frasco que se llena">Loans shown as a chain of payments, goals as a jar that fills up</span></li>
-        </ul>
-      </div>
-      <div class="feat-visual fade-in">
-        <div class="feat-phone">
-          <div class="feat-phone-screen">
-            <img src="images/records.PNG" alt="Records screen" />
-          </div>
+        <h2 class="fx-title" data-en="What you can spend. <span>Not just what you have.</span>" data-es="Lo que puedes gastar. <span>No solo lo que tienes.</span>">What you can spend. <span>Not just what you have.</span></h2>
+        <p class="fx-sub" data-en="One calm number: balance minus bills and savings." data-es="Un número tranquilo: saldo menos pagos y ahorro.">One calm number: balance minus bills and savings.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🟢</span><span class="fx-tile-label" data-en="Safe to spend" data-es="Lo que puedes gastar">Safe to spend</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📅</span><span class="fx-tile-label" data-en="Bills coming up" data-es="Próximos pagos">Bills coming up</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">💼</span><span class="fx-tile-label" data-en="Until payday" data-es="Hasta el día de cobro">Until payday</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔍</span><span class="fx-tile-label" data-en="Why a category jumped" data-es="Por qué subió una categoría">Why a category jumped</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📈</span><span class="fx-tile-label" data-en="How the month ends" data-es="Cómo cierras el mes">How the month ends</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🐷</span><span class="fx-tile-label" data-en="Saved today" data-es="Ahorrado hoy">Saved today</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⚡</span><span class="fx-tile-label" data-en="Quick log" data-es="Registro rápido">Quick log</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🙈</span><span class="fx-tile-label" data-en="Hide balances" data-es="Oculta saldos">Hide balances</span></div>
         </div>
       </div>
     </div>
-
-    <!-- ANALYSIS -->
-    <div class="feat-row reverse" id="analysis">
-      <div class="feat-visual fade-in">
+    <div class="fx-panel" role="tabpanel" id="records" aria-labelledby="tab-records" hidden>
+      <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/analytics.PNG" alt="Analysis screen" />
+            <img src="images/records.PNG" alt="Records screen" loading="lazy" />
           </div>
         </div>
       </div>
-      <div class="feat-text fade-in">
+      <div class="fx-text">
+        <div class="feat-tag">📋 <span data-en="Records" data-es="Registros">Records</span></div>
+        <h2 class="fx-title" data-en="Track everything. <span>Without the stress.</span>" data-es="Registra todo. <span>Sin el estrés.</span>">Track everything. <span>Without the stress.</span></h2>
+        <p class="fx-sub" data-en="By hand, by import, or by Sam." data-es="A mano, importando o con Sam.">By hand, by import, or by Sam.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🧾</span><span class="fx-tile-label" data-en="Expenses &amp; income" data-es="Gastos e ingresos">Expenses &amp; income</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔄</span><span class="fx-tile-label" data-en="Loans" data-es="Préstamos">Loans</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎯</span><span class="fx-tile-label" data-en="Savings goals" data-es="Metas de ahorro">Savings goals</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🏷️</span><span class="fx-tile-label" data-en="Smart categories" data-es="Categorías inteligentes">Smart categories</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">✉️</span><span class="fx-tile-label" data-en="Budgets per category" data-es="Presupuestos por categoría">Budgets per category</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">➡️</span><span class="fx-tile-label" data-en="Leftovers roll over" data-es="Lo que sobra se acumula">Leftovers roll over</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📥</span><span class="fx-tile-label" data-en="Import CSV, PDF, Excel" data-es="Importa CSV, PDF, Excel">Import CSV, PDF, Excel</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔎</span><span class="fx-tile-label" data-en="Search &amp; bulk edit" data-es="Busca y edita en lote">Search &amp; bulk edit</span></div>
+        </div>
+        <p class="fx-note" data-en="Free imports up to 30 rows at a time." data-es="Free importa hasta 30 filas por vez.">Free imports up to 30 rows at a time.</p>
+      </div>
+    </div>
+    <div class="fx-panel" role="tabpanel" id="analysis" aria-labelledby="tab-analysis" hidden>
+      <div class="fx-visual">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/analytics.PNG" alt="Analysis screen" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="fx-text">
         <div class="feat-tag">📊 <span data-en="Analysis" data-es="Análisis">Analysis</span></div>
-        <h2 class="feat-title" data-en="See your money <span>and your mind</span>." data-es="Ve tu dinero <span>y tu mente</span>.">See your money <span>and your mind</span>.</h2>
-        <p class="feat-desc" data-en="Finiverse goes beyond a bar chart. The Analysis tab shows the relationship between your emotions and your finances, so you can understand the 'why' behind your spending, not just the 'what'." data-es="Finiverse va más allá de un gráfico de barras. La pestaña de Análisis muestra la relación entre tus emociones y tus finanzas, para que puedas entender el 'por qué' de tu gasto, no solo el 'qué'.">Finiverse goes beyond a bar chart. The Analysis tab shows the relationship between your emotions and your finances, so you can understand the 'why' behind your spending, not just the 'what'.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Your month in review, as a 30-second story" data-es="Tu mes en resumen, como una historia de 30 segundos">Your month in review, as a 30-second story</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Are you on track? Your spending against your usual pace" data-es="¿Vas bien? Tu gasto comparado con tu ritmo habitual">Are you on track? Your spending against your usual pace</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Income vs expenses, week by week" data-es="Ingresos vs gastos, semana a semana">Income vs expenses, week by week</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A financial health score: savings, emergency fund and spare money" data-es="Una puntuación de salud financiera: ahorro, fondo de emergencia y dinero disponible">A financial health score: savings, emergency fund and spare money</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Emotion map: how each day felt, and what you spent" data-es="Mapa emocional: cómo se sintió cada día, y cuánto gastaste">Emotion map: how each day felt, and what you spent</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="The days and hours you spend most, and how sleep plays in" data-es="Los días y horas en que más gastas, y cómo influye el sueño">The days and hours you spend most, and how sleep plays in</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A heads-up on days that look risky for your money" data-es="Un aviso en los días que se ven riesgosos para tu dinero">A heads-up on days that look risky for your money</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Export your full history" data-es="Exporta todo tu historial">Export your full history</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A PDF report to save or share <b class='plan-pill plan-pr'>Premium+</b>" data-es="Un reporte en PDF para guardar o compartir <b class='plan-pill plan-pr'>Premium+</b>">A PDF report to save or share <b class='plan-pill plan-pr'>Premium+</b></span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CARDS -->
-    <div class="feat-row" id="cards">
-      <div class="feat-text fade-in">
-        <div class="feat-tag">💳 <span data-en="Cards &amp; Multi-currency" data-es="Tarjetas y Multi-moneda">Cards &amp; Multi-currency</span></div> <b class='plan-pill plan-eb'>Early Bird+</b>
-        <h2 class="feat-title" data-en="All your cards. <span>One clear view.</span>" data-es="Todas tus tarjetas. <span>Una vista clara.</span>">All your cards. <span>One clear view.</span></h2>
-        <p class="feat-desc" data-en="Add credit, debit and prepaid cards from any bank in the world. Track balances and credit usage, and keep each card in its own currency." data-es="Agrega tarjetas de crédito, débito y prepago de cualquier banco del mundo. Controla saldos y uso de crédito, y deja cada tarjeta en su propia moneda.">Add credit, debit and prepaid cards from any bank in the world. Track balances and credit usage, and keep each card in its own currency.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Scan your card with the camera to fill it in" data-es="Escanea tu tarjeta con la cámara y sus datos se llenan solos">Scan your card with the camera to fill it in</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Balance, limit and credit usage at a glance" data-es="Saldo, límite y uso de crédito de un vistazo">Balance, limit and credit usage at a glance</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Spending per card, with a 7-day trend" data-es="Gasto por tarjeta, con la tendencia de 7 días">Spending per card, with a 7-day trend</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Each card in its own currency, plus pockets in other currencies <b class='plan-pill plan-pr'>Premium+</b>" data-es="Cada tarjeta en su moneda, más bolsillos en otras monedas <b class='plan-pill plan-pr'>Premium+</b>">Each card in its own currency, plus pockets in other currencies <b class='plan-pill plan-pr'>Premium+</b></span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Transfers and currency exchange between your cards, at today’s rate <b class='plan-pill plan-pr'>Premium+</b>" data-es="Transferencias y cambio de moneda entre tus tarjetas, al tipo de cambio de hoy <b class='plan-pill plan-pr'>Premium+</b>">Transfers and currency exchange between your cards, at today’s rate <b class='plan-pill plan-pr'>Premium+</b></span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Import transactions from Apple Wallet (US and UK)" data-es="Importa movimientos de Apple Wallet (EE. UU. y Reino Unido)">Import transactions from Apple Wallet (US and UK)</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Magic sync: log expenses from your bank’s alerts with an iOS Shortcut" data-es="Sincronización mágica: registra gastos desde las alertas de tu banco con un Atajo de iOS">Magic sync: log expenses from your bank’s alerts with an iOS Shortcut</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Connect some US banks with Plaid" data-es="Conecta algunos bancos de EE. UU. con Plaid">Connect some US banks with Plaid</span></li>
-        </ul>
-        <p class="plan-note" data-en="Cards come with a paid plan: Early Bird includes 1, Premium 3, and Sam AI has no limit." data-es="Las tarjetas vienen con un plan de pago: Early Bird incluye 1, Premium 3, y Sam IA no tiene límite.">Cards come with a paid plan: Early Bird includes 1, Premium 3, and Sam AI has no limit.</p>
-      </div>
-      <div class="feat-visual fade-in">
-        <div class="feat-phone">
-          <div class="feat-phone-screen">
-            <img src="images/cards.PNG" alt="Cards screen" />
-          </div>
+        <h2 class="fx-title" data-en="See your money <span>and your mind</span>." data-es="Ve tu dinero <span>y tu mente</span>.">See your money <span>and your mind</span>.</h2>
+        <p class="fx-sub" data-en="The why behind your spending." data-es="El porqué de tu gasto.">The why behind your spending.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎬</span><span class="fx-tile-label" data-en="Your month in review" data-es="Tu mes en resumen">Your month in review</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🧭</span><span class="fx-tile-label" data-en="On track?" data-es="¿Vas bien?">On track?</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📊</span><span class="fx-tile-label" data-en="Income vs expenses" data-es="Ingresos vs gastos">Income vs expenses</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">❤️</span><span class="fx-tile-label" data-en="Financial health" data-es="Salud financiera">Financial health</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🗓️</span><span class="fx-tile-label" data-en="Emotion map" data-es="Mapa emocional">Emotion map</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🕐</span><span class="fx-tile-label" data-en="When you spend most" data-es="Cuándo gastas más">When you spend most</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⚠️</span><span class="fx-tile-label" data-en="Risky-day heads-up" data-es="Aviso de día riesgoso">Risky-day heads-up</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📤</span><span class="fx-tile-label" data-en="Export your history" data-es="Exporta tu historial">Export your history</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📄</span><span class="fx-tile-label" data-en="PDF report <b class='plan-pill plan-pr'>Premium+</b>" data-es="Reporte PDF <b class='plan-pill plan-pr'>Premium+</b>">PDF report <b class='plan-pill plan-pr'>Premium+</b></span></div>
         </div>
       </div>
     </div>
-
-    <!-- GOALS -->
-    <div class="feat-row reverse" id="goals">
-      <div class="feat-visual fade-in">
+    <div class="fx-panel" role="tabpanel" id="cards" aria-labelledby="tab-cards" hidden>
+      <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/goals.PNG?v=2" alt="Goals screen" />
+            <img src="images/cards.PNG" alt="Cards screen" loading="lazy" />
           </div>
         </div>
       </div>
-      <div class="feat-text fade-in">
+      <div class="fx-text">
+        <div class="feat-tag">💳 <span data-en="Cards" data-es="Tarjetas">Cards</span></div>  <b class='plan-pill plan-eb'>Early Bird+</b>
+        <h2 class="fx-title" data-en="All your cards. <span>One clear view.</span>" data-es="Todas tus tarjetas. <span>Una vista clara.</span>">All your cards. <span>One clear view.</span></h2>
+        <p class="fx-sub" data-en="Any bank in the world, added by you." data-es="Cualquier banco del mundo, agregado por ti.">Any bank in the world, added by you.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📷</span><span class="fx-tile-label" data-en="Scan your card" data-es="Escanea tu tarjeta">Scan your card</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📉</span><span class="fx-tile-label" data-en="Balance &amp; credit use" data-es="Saldo y uso de crédito">Balance &amp; credit use</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">📈</span><span class="fx-tile-label" data-en="7-day trend" data-es="Tendencia de 7 días">7-day trend</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🍎</span><span class="fx-tile-label" data-en="Apple Wallet import" data-es="Importa de Apple Wallet">Apple Wallet import</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">✨</span><span class="fx-tile-label" data-en="Magic sync" data-es="Sincronización mágica">Magic sync</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🏦</span><span class="fx-tile-label" data-en="Some US banks (Plaid)" data-es="Bancos de EE. UU. (Plaid)">Some US banks (Plaid)</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🌍</span><span class="fx-tile-label" data-en="Multi-currency <b class='plan-pill plan-pr'>Premium+</b>" data-es="Multi-moneda <b class='plan-pill plan-pr'>Premium+</b>">Multi-currency <b class='plan-pill plan-pr'>Premium+</b></span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🔁</span><span class="fx-tile-label" data-en="Transfers &amp; exchange <b class='plan-pill plan-pr'>Premium+</b>" data-es="Transferencias y cambio <b class='plan-pill plan-pr'>Premium+</b>">Transfers &amp; exchange <b class='plan-pill plan-pr'>Premium+</b></span></div>
+        </div>
+        <p class="fx-note" data-en="Early Bird: 1 card. Premium: 3. Sam AI: no limit." data-es="Early Bird: 1 tarjeta. Premium: 3. Sam IA: sin límite.">Early Bird: 1 card. Premium: 3. Sam AI: no limit.</p>
+      </div>
+    </div>
+    <div class="fx-panel" role="tabpanel" id="goals" aria-labelledby="tab-goals" hidden>
+      <div class="fx-visual">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/goals.PNG?v=2" alt="Goals screen" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="fx-text">
         <div class="feat-tag">🎯 <span data-en="Goals" data-es="Metas">Goals</span></div>
-        <h2 class="feat-title" data-en="Big goals, <span>small steps</span>." data-es="Metas grandes, <span>pasos pequeños</span>.">Big goals, <span>small steps</span>.</h2>
-        <p class="feat-desc" data-en="Set financial goals and track your progress without the anxiety spiral. Whether it's saving for a trip, building an emergency fund, or just making it to payday, Finiverse keeps it visible and calm." data-es="Establece metas financieras y sigue tu progreso sin la espiral de ansiedad. Ya sea ahorrar para un viaje, construir un fondo de emergencia, o simplemente llegar al día de pago, Finiverse lo mantiene visible y tranquilo.">Set financial goals and track your progress without the anxiety spiral. Whether it's saving for a trip, building an emergency fund, or just making it to payday, Finiverse keeps it visible and calm.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Set a target amount and deadline" data-es="Establece un monto objetivo y fecha límite">Set a target amount and deadline</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A savings jar that fills up as you save" data-es="Un frasco de ahorro que se llena mientras ahorras">A savings jar that fills up as you save</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Round-up savings: your purchases round up into a goal" data-es="Redondeo automático: tus compras se redondean hacia una meta">Round-up savings: your purchases round up into a goal</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Note how you feel each time you add to it" data-es="Anota cómo te sientes cada vez que aportas">Note how you feel each time you add to it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="See if you’re on schedule or falling behind" data-es="Ve si vas a tiempo o te estás atrasando">See if you’re on schedule or falling behind</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam gives tips on reaching your goal faster <b class='plan-pill plan-eb'>Early Bird+</b>" data-es="Sam da consejos para alcanzar tu meta más rápido <b class='plan-pill plan-eb'>Early Bird+</b>">Sam gives tips on reaching your goal faster <b class='plan-pill plan-eb'>Early Bird+</b></span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- GAMIFICATION -->
-    <div class="feat-row" id="gamification">
-      <div class="feat-text fade-in">
-        <div class="feat-tag" style="background:#FEF3C7;color:#6B3D00">🏆 <span data-en="Gamification" data-es="Gamificación">Gamification</span></div>
-        <h2 class="feat-title" data-en="Finance that <span>rewards progress</span>." data-es="Finanzas que <span>premian el progreso</span>.">Finance that <span>rewards progress</span>.</h2>
-        <p class="feat-desc" data-en="If motivation and consistency are hard for you, especially with ADHD, Finiverse turns financial habits into a game. XP, levels, weekly missions, seasonal events, every record you log is a win." data-es="Si la motivación y la consistencia se te hacen difíciles, especialmente con TDAH, Finiverse convierte los hábitos financieros en un juego. XP, niveles, misiones semanales, eventos estacionales, cada registro es una victoria.">If motivation and consistency are hard for you, especially with ADHD, Finiverse turns financial habits into a game. XP, levels, weekly missions, seasonal events, every record you log is a win.</p>
-        <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="XP + Levels, unlock avatar styles as you record more (some styles need a paid plan)" data-es="XP + Niveles, desbloquea estilos de avatar al registrar más (algunos estilos requieren un plan de pago)">XP + Levels, unlock avatar styles as you record more (some styles need a paid plan)</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Weekly missions with time-limited challenges" data-es="Misiones semanales con desafíos de tiempo limitado">Weekly missions with time-limited challenges</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Seasonal events, Goals Summer, Savings Winter..." data-es="Eventos estacionales, Verano de Metas, Invierno de Ahorros...">Seasonal events, Goals Summer, Savings Winter...</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Medals: Silver 🥈 on Free, Gold 🥇 from Early Bird, Diamond 💎 from Premium" data-es="Medallas: Plata 🥈 en Free, Oro 🥇 desde Early Bird, Diamante 💎 desde Premium">Medals: Silver 🥈 on Free, Gold 🥇 from Early Bird, Diamond 💎 from Premium</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Four mini-games: memory, odd one out, sequence and quick reflex" data-es="Cuatro minijuegos: memoria, intruso, secuencia y reflejo rápido">Four mini-games: memory, odd one out, sequence and quick reflex</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="12 app icon designs: 2 free, all 12 with Premium" data-es="12 diseños de ícono de la app: 2 gratis, los 12 con Premium">12 app icon designs: 2 free, all 12 with Premium</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="An anonymous leaderboard <b class='plan-pill plan-pr'>Premium+</b>" data-es="Un leaderboard anónimo <b class='plan-pill plan-pr'>Premium+</b>">An anonymous leaderboard <b class='plan-pill plan-pr'>Premium+</b></span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="The exclusive Sam Insider badge <b class='plan-pill plan-sa'>Sam AI</b>" data-es="El badge exclusivo Sam Insider <b class='plan-pill plan-sa'>Sam IA</b>">The exclusive Sam Insider badge <b class='plan-pill plan-sa'>Sam AI</b></span></li>
-        </ul>
-      </div>
-      <div class="feat-visual fade-in">
-        <div class="feat-phone">
-          <div class="feat-phone-screen">
-            <img src="images/levels.PNG" alt="Gamification screen" />
-          </div>
+        <h2 class="fx-title" data-en="Big goals, <span>small steps</span>." data-es="Metas grandes, <span>pasos pequeños</span>.">Big goals, <span>small steps</span>.</h2>
+        <p class="fx-sub" data-en="Progress you can see, without the anxiety." data-es="Progreso que se ve, sin ansiedad.">Progress you can see, without the anxiety.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎯</span><span class="fx-tile-label" data-en="Amount &amp; deadline" data-es="Monto y fecha">Amount &amp; deadline</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🫙</span><span class="fx-tile-label" data-en="Savings jar" data-es="Frasco de ahorro">Savings jar</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🪙</span><span class="fx-tile-label" data-en="Round-up savings" data-es="Redondeo automático">Round-up savings</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">😊</span><span class="fx-tile-label" data-en="Mood at each step" data-es="Ánimo en cada paso">Mood at each step</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⏱️</span><span class="fx-tile-label" data-en="On schedule?" data-es="¿Vas a tiempo?">On schedule?</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">💡</span><span class="fx-tile-label" data-en="Tips from Sam <b class='plan-pill plan-eb'>Early Bird+</b>" data-es="Consejos de Sam <b class='plan-pill plan-eb'>Early Bird+</b>">Tips from Sam <b class='plan-pill plan-eb'>Early Bird+</b></span></div>
         </div>
       </div>
     </div>
-
-  </div>
-</section>
-
-<!-- Everything else -->
-<section class="section" id="everything" style="background:var(--indigo-light)">
-  <div class="container">
-    <div style="text-align:center">
-      <div class="section-label" data-en="And everything around it" data-es="Y todo lo demás">And everything around it</div>
-      <h2 class="section-title" data-en="The rest of the app." data-es="El resto de la app.">The rest of the app.</h2>
-      <p class="section-sub" style="margin:0 auto 40px;text-align:center" data-en="Free unless a label says otherwise. <a href='pricing.html' style='color:var(--indigo);font-weight:700'>Compare plans →</a>" data-es="Gratis, salvo que una etiqueta diga otra cosa. <a href='pricing.html' style='color:var(--indigo);font-weight:700'>Compara los planes →</a>">Free unless a label says otherwise. <a href='pricing.html' style='color:var(--indigo);font-weight:700'>Compare plans →</a></p>
+    <div class="fx-panel" role="tabpanel" id="gamification" aria-labelledby="tab-gamification" hidden>
+      <div class="fx-visual">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/levels.PNG" alt="Gamification screen" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="fx-text">
+        <div class="feat-tag">🏆 <span data-en="Levels" data-es="Niveles">Levels</span></div>
+        <h2 class="fx-title" data-en="Finance that <span>rewards progress</span>." data-es="Finanzas que <span>premian el progreso</span>.">Finance that <span>rewards progress</span>.</h2>
+        <p class="fx-sub" data-en="Every record you log is a win." data-es="Cada registro es una victoria.">Every record you log is a win.</p>
+        <div class="fx-grid">
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">⭐</span><span class="fx-tile-label" data-en="XP &amp; levels" data-es="XP y niveles">XP &amp; levels</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎭</span><span class="fx-tile-label" data-en="Avatar styles" data-es="Estilos de avatar">Avatar styles</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🗓️</span><span class="fx-tile-label" data-en="Weekly missions" data-es="Misiones semanales">Weekly missions</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🌸</span><span class="fx-tile-label" data-en="Seasonal events" data-es="Eventos de temporada">Seasonal events</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🏅</span><span class="fx-tile-label" data-en="Medals" data-es="Medallas">Medals</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🕹️</span><span class="fx-tile-label" data-en="4 mini-games" data-es="4 minijuegos">4 mini-games</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🎨</span><span class="fx-tile-label" data-en="12 app icons" data-es="12 íconos de app">12 app icons</span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🏆</span><span class="fx-tile-label" data-en="Leaderboard <b class='plan-pill plan-pr'>Premium+</b>" data-es="Leaderboard <b class='plan-pill plan-pr'>Premium+</b>">Leaderboard <b class='plan-pill plan-pr'>Premium+</b></span></div>
+          <div class="fx-tile"><span class="fx-tile-icon" aria-hidden="true">🏷️</span><span class="fx-tile-label" data-en="Sam Insider badge <b class='plan-pill plan-sa'>Sam AI</b>" data-es="Badge Sam Insider <b class='plan-pill plan-sa'>Sam IA</b>">Sam Insider badge <b class='plan-pill plan-sa'>Sam AI</b></span></div>
+        </div>
+        <p class="fx-note" data-en="Free: silver medals and 2 icons. More with paid plans." data-es="Free: medallas de plata y 2 íconos. Más con planes de pago.">Free: silver medals and 2 icons. More with paid plans.</p>
+      </div>
     </div>
-    <div class="all-grid">
-      <div class="all-card fade-in" id="reminders">
-        <div class="all-card-icon">🔔</div>
-        <h3 data-en="Subscriptions &amp; reminders" data-es="Suscripciones y recordatorios">Subscriptions &amp; reminders</h3>
-        <ul>
-          <li data-en="Subscriptions and regular payments, detected for you" data-es="Tus suscripciones y pagos regulares, detectados automáticamente">Subscriptions and regular payments, detected for you</li>
-          <li data-en="Recurring income too, like your paycheck" data-es="También ingresos recurrentes, como tu sueldo">Recurring income too, like your paycheck</li>
-          <li data-en="Asks if you still pay for something you stopped logging" data-es="Te pregunta si sigues pagando algo que ya no registras">Asks if you still pay for something you stopped logging</li>
-          <li data-en="Payment reminders a few days before" data-es="Recordatorios de pago unos días antes">Payment reminders a few days before</li>
-          <li data-en="“Did you pay it?” and one tap to mark it paid" data-es="“¿Ya lo pagaste?” y un toque para marcarlo">“Did you pay it?” and one tap to mark it paid</li>
-        </ul>
-      </div>
-      <div class="all-card fade-in" id="accessibility">
-        <div class="all-card-icon">♿</div>
-        <h3 data-en="Accessibility &amp; comfort" data-es="Accesibilidad y comodidad">Accessibility &amp; comfort</h3>
-        <ul>
-          <li data-en="A font made for easier reading (Atkinson Hyperlegible)" data-es="Una letra hecha para leer más fácil (Atkinson Hyperlegible)">A font made for easier reading (Atkinson Hyperlegible)</li>
-          <li data-en="Large text and high contrast" data-es="Letra grande y alto contraste">Large text and high contrast</li>
-          <li data-en="Calm motion and adjustable haptics" data-es="Movimiento calmado y vibración ajustable">Calm motion and adjustable haptics</li>
-          <li data-en="Dark mode" data-es="Modo oscuro">Dark mode</li>
-          <li data-en="Focus mode for a simpler view" data-es="Modo Focus para una vista más simple">Focus mode for a simpler view</li>
-          <li data-en="A neurodivergent profile that tailors your insights" data-es="Un perfil neurodivergente que ajusta tus análisis">A neurodivergent profile that tailors your insights</li>
-          <li data-en="English and Spanish" data-es="Inglés y español">English and Spanish</li>
-        </ul>
-      </div>
-      <div class="all-card fade-in" id="widgets">
-        <div class="all-card-icon">📱</div>
-        <h3 data-en="Widgets &amp; Siri" data-es="Widgets y Siri">Widgets &amp; Siri</h3>
-        <ul>
-          <li data-en="Home Screen widgets in three sizes, plus Lock Screen widgets" data-es="Widgets de inicio en tres tamaños, más widgets de pantalla bloqueada">Home Screen widgets in three sizes, plus Lock Screen widgets</li>
-          <li data-en="Spending today, this week or this month, your streak and budget" data-es="Tu gasto de hoy, de la semana o del mes, tu racha y tu presupuesto">Spending today, this week or this month, your streak and budget</li>
-          <li data-en="How your day is going: mood, sleep, stress and energy" data-es="Cómo va tu día: ánimo, sueño, estrés y energía">How your day is going: mood, sleep, stress and energy</li>
-          <li data-en="Siri and Shortcuts: log an expense or your mood by voice" data-es="Siri y Atajos: registra un gasto o tu ánimo con la voz">Siri and Shortcuts: log an expense or your mood by voice</li>
-        </ul>
-      </div>
-      <div class="all-card fade-in" id="privacy">
-        <div class="all-card-icon">🔒</div>
-        <h3 data-en="Privacy &amp; security" data-es="Privacidad y seguridad">Privacy &amp; security</h3>
-        <ul>
-          <li data-en="Lock the app with Face ID or Touch ID" data-es="Bloquea la app con Face ID o Touch ID">Lock the app with Face ID or Touch ID</li>
-          <li data-en="Sensitive card data and personal notes are encrypted" data-es="Los datos sensibles de tarjetas y tus notas personales van cifrados">Sensitive card data and personal notes are encrypted</li>
-          <li data-en="Download your data or delete your account, right in the app" data-es="Descarga tus datos o borra tu cuenta, desde la app">Download your data or delete your account, right in the app</li>
-          <li data-en="Works offline, and syncs when you’re back online" data-es="Funciona sin internet, y se sincroniza al volver">Works offline, and syncs when you’re back online</li>
-          <li data-en="No ads" data-es="Sin anuncios">No ads</li>
-        </ul>
-      </div>
-      <div class="all-card fade-in" id="support">
-        <div class="all-card-icon">💜</div>
-        <h3 data-en="Support on hard days <b class='plan-pill plan-pr'>Premium+</b>" data-es="Apoyo en días difíciles <b class='plan-pill plan-pr'>Premium+</b>">Support on hard days <b class='plan-pill plan-pr'>Premium+</b></h3>
-        <ul>
-          <li data-en="A support button in the check-in and in Sam’s chat" data-es="Un botón de apoyo en el check-in y en el chat con Sam">A support button in the check-in and in Sam’s chat</li>
-          <li data-en="Guided breathing" data-es="Respiración guiada">Guided breathing</li>
-          <li data-en="Crisis lines for the US, Canada and Mexico" data-es="Líneas de crisis de EE. UU., Canadá y México">Crisis lines for the US, Canada and Mexico</li>
-          <li data-en="ADHD resources" data-es="Recursos sobre TDAH">ADHD resources</li>
-        </ul>
-      </div>
-      <div class="all-card fade-in" id="learn">
-        <div class="all-card-icon">📚</div>
-        <h3 data-en="Learn &amp; help" data-es="Aprende y ayuda">Learn &amp; help</h3>
-        <ul>
-          <li data-en="Short reads in “For you” on Home" data-es="Lecturas cortas en “Para ti” en Inicio">Short reads in “For you” on Home</li>
-          <li data-en="An interactive tour of everything Sam can do <b class='plan-pill plan-pr'>Premium+</b>" data-es="Un tour interactivo de todo lo que Sam puede hacer <b class='plan-pill plan-pr'>Premium+</b>">An interactive tour of everything Sam can do <b class='plan-pill plan-pr'>Premium+</b></li>
-          <li data-en="Quick answers in the in-app FAQ" data-es="Respuestas rápidas en las preguntas frecuentes de la app">Quick answers in the in-app FAQ</li>
-          <li data-en="Send feedback and follow it until it’s built" data-es="Envía comentarios y síguelos hasta que se implementan">Send feedback and follow it until it’s built</li>
-        </ul>
+    <div class="fx-panel fx-panel-more" role="tabpanel" id="everything" aria-labelledby="tab-everything" hidden>
+      <h2 class="fx-title" style="text-align:center" data-en="And everything <span>around it</span>." data-es="Y todo lo <span>demás</span>.">And everything <span>around it</span>.</h2>
+      <div class="fx-groups">
+        <div class="fx-group">
+          <h3><span aria-hidden="true">🔔</span> <span data-en="Reminders" data-es="Recordatorios">Reminders</span></h3>
+          <ul>
+            <li data-en="Subscriptions found for you" data-es="Suscripciones detectadas">Subscriptions found for you</li>
+            <li data-en="Recurring income" data-es="Ingresos recurrentes">Recurring income</li>
+            <li data-en="“Still paying this?”" data-es="“¿Sigues pagando esto?”">“Still paying this?”</li>
+            <li data-en="Payment reminders" data-es="Recordatorios de pago">Payment reminders</li>
+            <li data-en="Mark as paid" data-es="Marcar como pagado">Mark as paid</li>
+          </ul>
+        </div>
+        <div class="fx-group">
+          <h3><span aria-hidden="true">♿</span> <span data-en="Accessibility" data-es="Accesibilidad">Accessibility</span></h3>
+          <ul>
+            <li data-en="Easy-read font" data-es="Letra fácil de leer">Easy-read font</li>
+            <li data-en="Large text" data-es="Letra grande">Large text</li>
+            <li data-en="High contrast" data-es="Alto contraste">High contrast</li>
+            <li data-en="Calm motion" data-es="Movimiento calmado">Calm motion</li>
+            <li data-en="Dark mode" data-es="Modo oscuro">Dark mode</li>
+            <li data-en="Focus mode" data-es="Modo Focus">Focus mode</li>
+            <li data-en="Neurodivergent profile" data-es="Perfil neurodivergente">Neurodivergent profile</li>
+            <li data-en="English &amp; Spanish" data-es="Inglés y español">English &amp; Spanish</li>
+          </ul>
+        </div>
+        <div class="fx-group">
+          <h3><span aria-hidden="true">📱</span> <span data-en="Widgets &amp; Siri" data-es="Widgets y Siri">Widgets &amp; Siri</span></h3>
+          <ul>
+            <li data-en="Home Screen widgets" data-es="Widgets de inicio">Home Screen widgets</li>
+            <li data-en="Lock Screen widgets" data-es="Widgets de bloqueo">Lock Screen widgets</li>
+            <li data-en="Siri &amp; Shortcuts" data-es="Siri y Atajos">Siri &amp; Shortcuts</li>
+          </ul>
+        </div>
+        <div class="fx-group">
+          <h3><span aria-hidden="true">🔒</span> <span data-en="Privacy" data-es="Privacidad">Privacy</span></h3>
+          <ul>
+            <li data-en="Face ID lock" data-es="Bloqueo con Face ID">Face ID lock</li>
+            <li data-en="Encrypted notes &amp; card data" data-es="Notas y tarjetas cifradas">Encrypted notes &amp; card data</li>
+            <li data-en="Download or delete your data" data-es="Descarga o borra tus datos">Download or delete your data</li>
+            <li data-en="Works offline" data-es="Funciona sin internet">Works offline</li>
+            <li data-en="No ads" data-es="Sin anuncios">No ads</li>
+          </ul>
+        </div>
+        <div class="fx-group">
+          <h3><span aria-hidden="true">💜</span> <span data-en="Hard days <b class='plan-pill plan-pr'>Premium+</b>" data-es="Días difíciles <b class='plan-pill plan-pr'>Premium+</b>">Hard days <b class='plan-pill plan-pr'>Premium+</b></span></h3>
+          <ul>
+            <li data-en="Support button" data-es="Botón de apoyo">Support button</li>
+            <li data-en="Guided breathing" data-es="Respiración guiada">Guided breathing</li>
+            <li data-en="Crisis lines" data-es="Líneas de crisis">Crisis lines</li>
+            <li data-en="ADHD resources" data-es="Recursos sobre TDAH">ADHD resources</li>
+          </ul>
+        </div>
+        <div class="fx-group">
+          <h3><span aria-hidden="true">📚</span> <span data-en="Learn &amp; help" data-es="Aprende y ayuda">Learn &amp; help</span></h3>
+          <ul>
+            <li data-en="Short reads" data-es="Lecturas cortas">Short reads</li>
+            <li data-en="In-app FAQ" data-es="Preguntas frecuentes">In-app FAQ</li>
+            <li data-en="Feedback you can follow" data-es="Comentarios con seguimiento">Feedback you can follow</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -750,10 +614,50 @@
 
 <footer id="site-footer" class="footer"></footer>
 
-<script src="footer.js"></script>
+<script src="footer.js?v=20261012"></script>
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
 <script src="inapp-notice.js"></script>
+<script>
+/* ── Feature explorer tabs: one area at a time, deep-linkable by #id ── */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.fx-tab'));
+  if (!tabs.length) return;
+  var explore = document.getElementById('explore');
+
+  function select(tab, opts) {
+    opts = opts || {};
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (opts.focus) tab.focus();
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (opts.updateHash) history.replaceState(null, '', '#' + tab.getAttribute('aria-controls'));
+    if (opts.scroll) explore.scrollIntoView();
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab, { updateHash: true }); });
+    tab.addEventListener('keydown', function (e) {
+      var next = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+      if (next === null) return;
+      e.preventDefault();
+      select(tabs[(next + tabs.length) % tabs.length], { focus: true, updateHash: true });
+    });
+  });
+
+  function fromHash() {
+    var id = location.hash.slice(1);
+    var tab = document.getElementById('tab-' + id);
+    if (tab) select(tab, { scroll: true });
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
 <script>
 /* ── Sticky download bar: show after scrolling, dismissible ── */
 (function () {
