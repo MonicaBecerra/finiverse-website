@@ -60,7 +60,6 @@
     '    </div>',
 
     '    <a href="about.html" data-en="About" data-es="Nosotros">About</a>',
-    '    <a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a>',
     '  </div>',
 
     '  <div class="nav-right">',
