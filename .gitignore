@@ -1,0 +1,3 @@
+# macOS junk: the exFAT drive creates AppleDouble ._* files next to every file
+._*
+.DS_Store
