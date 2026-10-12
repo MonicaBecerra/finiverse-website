@@ -68,7 +68,6 @@
     '        <ul>',
     '          <li><a href="about.html" data-en="About" data-es="Nosotros">About</a></li>',
     '          <li><a href="investors.html" data-en="Investors" data-es="Inversionistas">Investors</a></li>',
-    '          <li><a href="careers.html" data-en="Careers" data-es="Trabaja con nosotros">Careers</a></li>',
     '          <li><a href="press.html" data-en="Press Kit" data-es="Kit de Prensa">Press Kit</a></li>',
     '          <li><a href="https://finiverse-erp.web.app/landing" target="_blank" rel="noopener" data-en="For Business <span class=\'footer-ext\'>↗</span>" data-es="Para Empresas <span class=\'footer-ext\'>↗</span>">For Business <span class="footer-ext">↗</span></a></li>',
     '        </ul>',
