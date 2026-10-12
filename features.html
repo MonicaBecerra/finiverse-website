@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Features · Finiverse</title>
-  <meta name="description" content="Every Finiverse feature connects how you feel to how you spend, Sam AI, emotional check-ins, anti-dopamine wishlist, gamification, and more, built for every mind." />
+  <meta name="description" content="Everything Finiverse does: emotional check-ins, Sam AI, Wishlist and Impulse Pause, safe-to-spend, budgets, cards in any currency, reports, goals, widgets and accessibility. Built for every mind." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -132,6 +132,47 @@
     .feat-chip-icon { font-size: 26px; margin-bottom: 6px; }
     .feat-chip-name { font-size: 12px; font-weight: 700; color: var(--text-dark); }
 
+    /* "In real life" steps stack on phones */
+    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr !important; max-width: 340px !important; } }
+
+    /* Anchored sections clear the fixed nav */
+    .feat-row, .all-card, #everything { scroll-margin-top: calc(var(--nav-h) + 16px); }
+
+    /* Sam's bullets come in three small groups */
+    .feat-group-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-light);
+      margin: 0 0 10px;
+    }
+    .feat-group-title + .feat-bullets { margin-bottom: 22px; }
+
+    /* "More features" chips: 4 across, 2 across on phones */
+    .feat-overview.more-chips { max-width: 640px; margin: 0 auto; grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 480px) {
+      .feat-overview.more-chips { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .feat-overview.more-chips .feat-chip { display: flex; align-items: center; gap: 8px; padding: 10px 12px; text-align: left; }
+      .feat-overview.more-chips .feat-chip-icon { font-size: 20px; margin: 0; }
+    }
+
+    /* Everything else */
+    .all-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 860px) { .all-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .all-grid { grid-template-columns: 1fr; } }
+    .all-card {
+      background: #fff;
+      border: 1.5px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .all-card-icon { font-size: 28px; }
+    .all-card h3 { font-size: 18px; font-weight: 800; color: var(--text-dark); margin: 8px 0 14px; }
+    .all-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; }
+    .all-card li { font-size: 14px; color: var(--text-mid); line-height: 1.5; padding-left: 16px; position: relative; }
+    .all-card li::before { content: ''; position: absolute; left: 2px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); }
+
     /* Wishlist, no screenshot, use decorative card */
     .wishlist-card {
       background: linear-gradient(135deg, #FFF7ED, #FEF3C7);
@@ -174,7 +215,7 @@
   <meta name="twitter:image" content="https://finiverseapp.com/images/og-icon.png" />
   <meta property="og:url" content="https://finiverseapp.com/features.html" />
   <meta property="og:title" content="Features · Finiverse" />
-  <meta property="og:description" content="Sam AI, emotional check-ins, visual analytics, cards, goals, wishlist, and gamification. All in one app built for every mind." />
+  <meta property="og:description" content="Emotional check-ins, Sam AI, Wishlist and Impulse Pause, safe-to-spend, budgets, cards, reports, goals and more. All in one app built for every mind." />
   <meta name="twitter:title" content="Features · Finiverse" />
   <meta name="twitter:description" content="Every feature connects how you feel to how you spend, built for every mind." />
   <!-- Analytics: consent-gated via consent.js -->
@@ -228,7 +269,11 @@
       </a>
     </div>
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin:20px 0 10px" data-en="More features" data-es="Más funciones">More features</div>
-    <div class="feat-overview" style="max-width:600px;margin:0 auto;grid-template-columns:repeat(5,1fr)">
+    <div class="feat-overview more-chips">
+      <a href="#home" class="feat-chip">
+        <div class="feat-chip-icon">🏠</div>
+        <div class="feat-chip-name" data-en="Home" data-es="Inicio">Home</div>
+      </a>
       <a href="#records" class="feat-chip">
         <div class="feat-chip-icon">📋</div>
         <div class="feat-chip-name" data-en="Records" data-es="Registros">Records</div>
@@ -249,8 +294,15 @@
         <div class="feat-chip-icon">🏆</div>
         <div class="feat-chip-name" data-en="Levels" data-es="Niveles">Levels</div>
       </a>
+      <a href="#accessibility" class="feat-chip">
+        <div class="feat-chip-icon">♿</div>
+        <div class="feat-chip-name" data-en="Accessibility" data-es="Accesibilidad">Accessibility</div>
+      </a>
+      <a href="#everything" class="feat-chip">
+        <div class="feat-chip-icon">✨</div>
+        <div class="feat-chip-name" data-en="Everything else" data-es="Todo lo demás">Everything else</div>
+      </a>
     </div>
-    <style>@media(max-width:480px){.feat-overview[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}}</style>
   </div>
 </section>
 
@@ -261,7 +313,7 @@
     <h2 class="section-title" style="margin-bottom:8px" data-en="This is all you have to do." data-es="Esto es todo lo que tienes que hacer.">This is all you have to do.</h2>
     <p class="section-sub" style="margin:0 auto 48px;text-align:center" data-en="Three taps. Twenty seconds. Sam handles the rest invisibly." data-es="Tres toques. Veinte segundos. Sam se encarga del resto de forma invisible.">Three taps. Twenty seconds. Sam handles the rest invisibly.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:760px;margin:0 auto 40px">
+    <div class="steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:760px;margin:0 auto 40px">
 
       <!-- Step 1 -->
       <div style="background:#fff;border-radius:20px;padding:28px 20px;box-shadow:0 2px 12px rgba(91,78,232,.08)">
@@ -302,12 +354,15 @@
       <div class="feat-text fade-in">
         <div class="feat-tag" style="background:rgba(139,92,246,.12);color:#6D28D9">💜 <span data-en="Pillar 1 · Emotion × Finance" data-es="Pilar 1 · Emoción × Finanzas">Pillar 1 · Emotion × Finance</span></div>
         <h2 class="feat-title" data-en="Your feelings <span>are financial data</span>." data-es="Tus emociones <span>son datos financieros</span>.">Your feelings <span>are financial data</span>.</h2>
-        <p class="feat-desc" data-en="Every day, log your mood, energy, focus, stress level, and sleep. Sam connects those emotional signals with your spending, and shows you patterns you'd never notice on your own." data-es="Cada día, registra tu ánimo, energía, enfoque, nivel de estrés y sueño. Sam conecta esas señales emocionales con tu gasto, y te muestra patrones que nunca notarías solo.">Every day, log your mood, energy, focus, stress level, and sleep. Sam connects those emotional signals with your spending, and shows you patterns you'd never notice on your own.</p>
+        <p class="feat-desc" data-en="The daily check-in takes a few seconds: how you feel and how focused you are, on one pad you tap or drag. Sam connects those signals with your spending, and shows you patterns you'd never notice on your own." data-es="El check-in diario toma unos segundos: cómo te sientes y tu nivel de enfoque, en un solo panel que tocas o arrastras. Sam conecta esas señales con tu gasto, y te muestra patrones que nunca notarías por tu cuenta.">The daily check-in takes a few seconds: how you feel and how focused you are, on one pad you tap or drag. Sam connects those signals with your spending, and shows you patterns you'd never notice on your own.</p>
         <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Mood, focus, energy, stress, sleep, all in one daily check-in" data-es="Ánimo, enfoque, energía, estrés, sueño, todo en un registro diario">Mood, focus, energy, stress, sleep, all in one daily check-in</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Apple Watch sync, sleep and heart rate imported automatically" data-es="Sincronización con Apple Watch, sueño y frecuencia cardíaca importados automáticamente">Apple Watch sync, sleep and heart rate imported automatically</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam links emotions to spending: 'You tend to spend more on anxious Fridays'" data-es="Sam vincula emociones con gasto: 'Tiendes a gastar más los viernes ansiosos'">Sam links emotions to spending: "You tend to spend more on anxious Fridays"</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="No wrong answers. No pressure." data-es="No hay respuestas incorrectas. Sin presión.">No wrong answers. No pressure.</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Mood and focus in one tap. Add energy and stress whenever you want" data-es="Ánimo y enfoque en un toque. Suma energía y estrés cuando quieras">Mood and focus in one tap. Add energy and stress whenever you want</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sleep stages, heart-rate variability and State of Mind from Apple Health, if you allow it" data-es="Fases de sueño, variabilidad cardíaca y estado de ánimo desde Apple Salud, si lo permites">Sleep stages, heart-rate variability and State of Mind from Apple Health, if you allow it</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="An optional note, with gentle prompts like “Something small to celebrate?”" data-es="Una nota opcional, con preguntas suaves como “¿Algo pequeño para celebrar?”">An optional note, with gentle prompts like “Something small to celebrate?”</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Add a mood to any expense, too" data-es="También puedes ponerle un ánimo a cualquier gasto">Add a mood to any expense, too</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Your streak and full history, and you can edit any day" data-es="Tu racha y todo tu historial, y puedes editar cualquier día">Your streak and full history, and you can edit any day</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam links emotions to spending: “You tend to spend more on anxious Fridays”" data-es="Sam vincula emociones con gasto: “Tiendes a gastar más los viernes ansiosos”">Sam links emotions to spending: “You tend to spend more on anxious Fridays”</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="“I don’t know / Skip” on every question. No wrong answers." data-es="“No sé / Saltar” en cada pregunta. No hay respuestas incorrectas.">“I don’t know / Skip” on every question. No wrong answers.</span></li>
         </ul>
       </div>
       <div class="feat-visual fade-in">
@@ -331,33 +386,53 @@
       <div class="feat-text fade-in">
         <div class="feat-tag">🤖 <span data-en="Pillar 2 · Sam AI" data-es="Pilar 2 · Sam IA">Pillar 2 · Sam AI</span></div>
         <h2 class="feat-title" data-en="Your AI that <span>actually knows you</span>." data-es="Tu IA que <span>realmente te conoce</span>.">Your AI that <span>actually knows you</span>.</h2>
-        <p class="feat-desc" data-en="Sam is not a generic chatbot. Sam reads your full financial history, your emotional data, your goals, and gives you answers that actually make sense for your life. Powered by Claude AI (Anthropic)." data-es="Sam no es un chatbot genérico. Sam lee tu historial financiero completo, tus datos emocionales, tus metas, y te da respuestas que realmente tienen sentido para tu vida. Impulsado por Claude AI (Anthropic).">Sam is not a generic chatbot. Sam reads your full financial history, your emotional data, your goals, and gives you answers that actually make sense for your life. Powered by Claude AI (Anthropic).</p>
+        <p class="feat-desc" data-en="Sam is not a generic chatbot. Sam reads your records, check-ins and goals, and gives you answers that make sense for your life. Powered by Claude AI (Anthropic)." data-es="Sam no es un chatbot genérico. Sam lee tus registros, check-ins y metas, y te da respuestas que tienen sentido para tu vida. Impulsado por Claude AI (Anthropic).">Sam is not a generic chatbot. Sam reads your records, check-ins and goals, and gives you answers that make sense for your life. Powered by Claude AI (Anthropic).</p>
+        <div class="feat-group-title" data-en="Talks with you" data-es="Conversa contigo">Talks with you</div>
         <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Ask anything in plain language, no finance jargon" data-es="Pregunta lo que sea en lenguaje simple, sin jerga financiera">Ask anything in plain language, no finance jargon</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Detects emotional spending patterns automatically" data-es="Detecta patrones de gasto emocional automáticamente">Detects emotional spending patterns automatically</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="What-if simulations: 'What if I cut my food budget by 20%?'" data-es="Simulaciones hipotéticas: '¿Qué pasa si reduzco mi presupuesto de comida un 20%?'">What-if simulations: "What if I cut my food budget by 20%?"</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Voice replies and calm, brief, or motivating tone, your choice" data-es="Respuestas por voz y tono calmado, breve o motivador, tú eliges">Voice replies and calm, brief, or motivating tone, your choice</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Plain language, no finance jargon" data-es="Lenguaje simple, sin jerga financiera">Plain language, no finance jargon</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Talk by voice, hands-free, and hear the replies" data-es="Habla por voz, sin tocar botones, y escucha las respuestas">Talk by voice, hands-free, and hear the replies</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Your style: brief, warm, detailed, or like a friend" data-es="Tu estilo: breve, cálido, detallado o como un amigo">Your style: brief, warm, detailed, or like a friend</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Tell Sam about you, and what you’d rather it not mention" data-es="Cuéntale a Sam sobre ti, y qué prefieres que no mencione">Tell Sam about you, and what you’d rather it not mention</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="“Explain it in easy reading” or “Give me just the first step”" data-es="“Explícalo en lectura fácil” o “Dame solo el primer paso”">“Explain it in easy reading” or “Give me just the first step”</span></li>
+        </ul>
+        <div class="feat-group-title" data-en="Does it for you" data-es="Lo hace por ti">Does it for you</div>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Logs expenses, income, loans, goals and check-ins" data-es="Registra gastos, ingresos, préstamos, metas y check-ins">Logs expenses, income, loans, goals and check-ins</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sets payment reminders and recurring bills" data-es="Crea recordatorios de pago y gastos recurrentes">Sets payment reminders and recurring bills</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Adds things to your Wishlist" data-es="Agrega cosas a tu Lista de Deseos">Adds things to your Wishlist</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Changes settings for you: dark mode, larger text, currency…" data-es="Cambia ajustes por ti: modo oscuro, letra grande, moneda…">Changes settings for you: dark mode, larger text, currency…</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Reads receipts, PDFs and links" data-es="Lee tickets, PDFs y enlaces">Reads receipts, PDFs and links</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Tells you which bill or coin is in a photo" data-es="Te dice qué billete o moneda hay en una foto">Tells you which bill or coin is in a photo</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="What-if simulations: “What if I cut my food budget by 20%?”" data-es="Simulaciones: “¿Qué pasa si reduzco mi presupuesto de comida un 20%?”">What-if simulations: “What if I cut my food budget by 20%?”</span></li>
+        </ul>
+        <div class="feat-group-title" data-en="Looks after you" data-es="Te cuida">Looks after you</div>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Spots emotional spending patterns" data-es="Detecta patrones de gasto emocional">Spots emotional spending patterns</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Breathing and crisis lines when a day gets heavy" data-es="Respiración y líneas de ayuda cuando el día pesa">Breathing and crisis lines when a day gets heavy</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Finance games and mini-lessons that earn XP" data-es="Juegos y mini-lecciones de finanzas que dan XP">Finance games and mini-lessons that earn XP</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Keeps working offline, with some limits" data-es="Sigue funcionando sin internet, con algunos límites">Keeps working offline, with some limits</span></li>
           <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Zero judgment. Always." data-es="Cero juicios. Siempre.">Zero judgment. Always.</span></li>
         </ul>
         <a href="pricing.html" class="btn btn-primary" data-en="See Sam AI plans →" data-es="Ver planes Sam IA →">See Sam AI plans →</a>
       </div>
     </div>
 
-    <!-- WISHLIST (Pillar 3) -->
+    <!-- WISHLIST + IMPULSE PAUSE (Pillar 3) -->
     <div class="feat-row" id="wishlist">
       <div class="feat-text fade-in">
         <div class="feat-tag" style="background:#FEF3C7;color:#92400E">✨ <span data-en="Pillar 3 · Impulse Control" data-es="Pilar 3 · Control de Impulso">Pillar 3 · Impulse Control</span></div>
         <h2 class="feat-title" data-en="Want it? <span>Wait first.</span>" data-es="¿Lo quieres? <span>Espera primero.</span>">Want it? <span>Wait first.</span></h2>
-        <p class="feat-desc" data-en="The Finiverse Wishlist is designed to break the dopamine-buy cycle. Instead of purchasing impulsively, you add items to your list and set a waiting period. If you still want it after that time, it's a real want, not a reaction." data-es="La Lista de Deseos de Finiverse está diseñada para romper el ciclo de compra por dopamina. En lugar de comprar impulsivamente, agregas artículos a tu lista y estableces un período de espera. Si aún lo quieres después de ese tiempo, es un deseo real, no una reacción.">The Finiverse Wishlist is designed to break the dopamine-buy cycle. Instead of purchasing impulsively, you add items to your list and set a waiting period. If you still want it after that time, it's a real want, not a reaction.</p>
+        <p class="feat-desc" data-en="Two tools to break the dopamine-buy cycle. The Wishlist is for things you want: add them, wait, then decide. Impulse Pause is for the urge you feel right now." data-es="Dos herramientas para romper el ciclo de compra por dopamina. La Lista de Deseos es para lo que quieres: lo agregas, esperas y luego decides. La Pausa de impulso es para las ganas que sientes ahora mismo.">Two tools to break the dopamine-buy cycle. The Wishlist is for things you want: add them, wait, then decide. Impulse Pause is for the urge you feel right now.</p>
         <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Add anything you want to buy, before buying it" data-es="Agrega lo que quieras comprar, antes de comprarlo">Add anything you want to buy, before buying it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Set a personal waiting period (24h, 3 days, 1 week)" data-es="Establece un período de espera personal (24h, 3 días, 1 semana)">Set a personal waiting period (24h, 3 days, 1 week)</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Wait 1 day, 1 week, 1 month, or follow the 3-month rule" data-es="Espera 1 día, 1 semana, 1 mes o sigue la regla de los 3 meses">Wait 1 day, 1 week, 1 month, or follow the 3-month rule</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Paste a product link and the photo and price fill in by themselves" data-es="Pega el enlace del producto y la foto y el precio se llenan solos">Paste a product link and the photo and price fill in by themselves</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="See the price as hours of your work, or as things you know, like coffees" data-es="Ve el precio en horas de tu trabajo, o en cosas que conoces, como cafés">See the price as hours of your work, or as things you know, like coffees</span></li>
           <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Sam reminds you when the wait is over, and asks if you still want it" data-es="Sam te recuerda cuando termina la espera, y te pregunta si aún lo quieres">Sam reminds you when the wait is over, and asks if you still want it</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Especially helpful for ADHD and impulsive spending patterns" data-es="Especialmente útil para TDAH y patrones de gasto impulsivo">Especially helpful for ADHD and impulsive spending patterns</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Bought it? Mark it returnable and decide “keep it or return it?” in time" data-es="¿Lo compraste? Márcalo como devolvible y decide a tiempo si te lo quedas o lo devuelves">Bought it? Mark it returnable and decide “keep it or return it?” in time</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="Impulse Pause: 10 minutes, 1 hour or 1 day, checked against what you can safely spend" data-es="Pausa de impulso: 10 minutos, 1 hora o 1 día, comparada con lo que puedes gastar con calma">Impulse Pause: 10 minutes, 1 hour or 1 day, checked against what you can safely spend</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="“Help me decide” uses your own past decisions" data-es="“Ayúdame a decidir” usa tus propias decisiones pasadas">“Help me decide” uses your own past decisions</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#92400E">✓</div><span data-en="See what you resisted and how much you saved" data-es="Ve lo que resististe y cuánto ahorraste">See what you resisted and how much you saved</span></li>
         </ul>
-        <div style="margin-top:8px;padding:14px 16px;background:#FFF7ED;border-radius:12px;border-left:3px solid #F59E0B">
-          <p style="font-size:13px;color:#92400E;font-style:italic;margin:0" data-en="&quot;I added AirPods to my list. 7 days later, I genuinely didn't want them anymore. That's the Wishlist working.&quot;" data-es="&quot;Agregué AirPods a mi lista. 7 días después, ya no los quería. Eso es la Lista de Deseos funcionando.&quot;">"I added AirPods to my list. 7 days later, I genuinely didn't want them anymore. That's the Wishlist working."</p>
-        </div>
       </div>
       <div class="feat-visual fade-in">
         <div class="wishlist-card">
@@ -401,18 +476,45 @@
       <div style="width:40px;height:2px;background:var(--card-border);margin:10px auto 0;border-radius:2px"></div>
     </div>
 
-    <!-- RECORDS -->
+    <!-- HOME -->
+    <div class="feat-row reverse" id="home">
+      <div class="feat-visual fade-in">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/home.PNG" alt="Home screen" />
+          </div>
+        </div>
+      </div>
+      <div class="feat-text fade-in">
+        <div class="feat-tag">🏠 <span data-en="Home" data-es="Inicio">Home</span></div>
+        <h2 class="feat-title" data-en="What you can spend. <span>Not just what you have.</span>" data-es="Lo que puedes gastar. <span>No solo lo que tienes.</span>">What you can spend. <span>Not just what you have.</span></h2>
+        <p class="feat-desc" data-en="Home starts with one number: your safe-to-spend. It’s your balance minus upcoming bills and the savings you set aside, so “can I afford this?” has a calm answer." data-es="Inicio empieza con un número: lo que puedes gastar con calma. Es tu saldo menos los pagos que vienen y lo que apartaste para ahorrar, para que “¿me alcanza?” tenga una respuesta tranquila.">Home starts with one number: your safe-to-spend. It’s your balance minus upcoming bills and the savings you set aside, so “can I afford this?” has a calm answer.</p>
+        <ul class="feat-bullets">
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Upcoming bills, and what’s left until payday" data-es="Los próximos pagos, y lo que te queda hasta el día de cobro">Upcoming bills, and what’s left until payday</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="When a category jumps, it tells you if it was one purchase or many small ones" data-es="Si una categoría se dispara, te dice si fue una compra o muchas pequeñas">When a category jumps, it tells you if it was one purchase or many small ones</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Where you’ll end the month at this pace" data-es="Cómo terminarás el mes a este ritmo">Where you’ll end the month at this pace</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="What you saved today with round-ups and resisted impulses" data-es="Lo que ahorraste hoy con redondeos e impulsos resistidos">What you saved today with round-ups and resisted impulses</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Quick log: an amount and a mood in seconds" data-es="Registro rápido: un monto y un ánimo en segundos">Quick log: an amount and a mood in seconds</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Hide your balances with one tap" data-es="Oculta tus saldos con un toque">Hide your balances with one tap</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RECORDS + BUDGETS -->
     <div class="feat-row" id="records">
       <div class="feat-text fade-in">
-        <div class="feat-tag">📋 <span data-en="Records" data-es="Registros">Records</span></div>
+        <div class="feat-tag">📋 <span data-en="Records &amp; Budgets" data-es="Registros y Presupuestos">Records &amp; Budgets</span></div>
         <h2 class="feat-title" data-en="Track everything. <span>Without the stress.</span>" data-es="Registra todo. <span>Sin el estrés.</span>">Track everything. <span>Without the stress.</span></h2>
-        <p class="feat-desc" data-en="Expenses, income, loans, and savings goals, all in one place. Finiverse is intentionally manual: recording each transaction builds financial awareness, which is especially powerful for neurodivergent users." data-es="Gastos, ingresos, préstamos y metas de ahorro, todo en un solo lugar. Finiverse es intencionalmente manual: registrar cada transacción construye conciencia financiera, especialmente poderosa para usuarios neurodivergentes.">Expenses, income, loans, and savings goals, all in one place. Finiverse is intentionally manual: recording each transaction builds financial awareness, which is especially powerful for neurodivergent users.</p>
+        <p class="feat-desc" data-en="Expenses, income, loans and savings goals, all in one place. Logging by hand builds awareness. On low-energy days, import a statement or let Sam log it for you." data-es="Gastos, ingresos, préstamos y metas de ahorro, todo en un solo lugar. Registrar a mano construye conciencia. En días de poca energía, importa un estado de cuenta o deja que Sam lo registre por ti.">Expenses, income, loans and savings goals, all in one place. Logging by hand builds awareness. On low-energy days, import a statement or let Sam log it for you.</p>
         <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Expenses, Income, Loans, Goals, 4 record types in one tap" data-es="Gastos, Ingresos, Préstamos, Metas, 4 tipos de registro en un toque">Expenses, Income, Loans, Goals, 4 record types in one tap</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Add an emotion tag to every record" data-es="Agrega una etiqueta emocional a cada registro">Add an emotion tag to every record</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Smart categories with color-coded icons" data-es="Categorías inteligentes con iconos en color">Smart categories with color-coded icons</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Filter by Today, This Week, This Month, or All time" data-es="Filtra por Hoy, Esta Semana, Este Mes o Todo">Filter by Today, This Week, This Month, or All time</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Search and edit any record at any time" data-es="Busca y edita cualquier registro en cualquier momento">Search and edit any record at any time</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="4 record types: expenses, income, loans and goals" data-es="4 tipos de registro: gastos, ingresos, préstamos y metas">4 record types: expenses, income, loans and goals</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A mood tag on every record" data-es="Una etiqueta de ánimo en cada registro">A mood tag on every record</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Categories that learn from where you shop, plus your own" data-es="Categorías que aprenden de dónde compras, más las tuyas">Categories that learn from where you shop, plus your own</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Monthly budgets per category, and what’s left can roll over" data-es="Presupuestos mensuales por categoría, y lo que sobra puede pasar al mes siguiente">Monthly budgets per category, and what’s left can roll over</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A heads-up when a category goes over its limit" data-es="Un aviso cuando una categoría pasa su límite">A heads-up when a category goes over its limit</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Import bank statements: CSV, PDF or Excel" data-es="Importa estados de cuenta: CSV, PDF o Excel">Import bank statements: CSV, PDF or Excel</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Search, filter by period, and recategorize or delete many at once" data-es="Busca, filtra por periodo, y recategoriza o borra varios a la vez">Search, filter by period, and recategorize or delete many at once</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Loans shown as a chain of payments, goals as a jar that fills up" data-es="Préstamos como una cadena de pagos, metas como un frasco que se llena">Loans shown as a chain of payments, goals as a jar that fills up</span></li>
         </ul>
       </div>
       <div class="feat-visual fade-in">
@@ -438,11 +540,14 @@
         <h2 class="feat-title" data-en="See your money <span>and your mind</span>." data-es="Ve tu dinero <span>y tu mente</span>.">See your money <span>and your mind</span>.</h2>
         <p class="feat-desc" data-en="Finiverse goes beyond a bar chart. The Analysis tab shows the relationship between your emotions and your finances, so you can understand the 'why' behind your spending, not just the 'what'." data-es="Finiverse va más allá de un gráfico de barras. La pestaña de Análisis muestra la relación entre tus emociones y tus finanzas, para que puedas entender el 'por qué' de tu gasto, no solo el 'qué'.">Finiverse goes beyond a bar chart. The Analysis tab shows the relationship between your emotions and your finances, so you can understand the 'why' behind your spending, not just the 'what'.</p>
         <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Emotion × Finance relationship view" data-es="Vista de relación Emoción × Finanzas">Emotion × Finance relationship view</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Income vs Expenses weekly flow chart" data-es="Gráfico de flujo semanal Ingresos vs Gastos">Income vs Expenses weekly flow chart</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Top spending categories with percentages" data-es="Principales categorías de gasto con porcentajes">Top spending categories with percentages</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Financial health score from Sam" data-es="Puntuación de salud financiera de Sam">Financial health score from Sam</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Pattern detection: 'High spending this week, 25 anxiety days this month'" data-es="Detección de patrones: 'Alto gasto esta semana, 25 días de ansiedad este mes'">Pattern detection: "High spending this week, 25 anxiety days this month"</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Your month in review, as a 30-second story" data-es="Tu mes en resumen, como una historia de 30 segundos">Your month in review, as a 30-second story</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Are you on track? Your spending against your usual pace" data-es="¿Vas bien? Tu gasto comparado con tu ritmo habitual">Are you on track? Your spending against your usual pace</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Income vs expenses, week by week" data-es="Ingresos vs gastos, semana a semana">Income vs expenses, week by week</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A financial health score: savings, emergency fund and spare money" data-es="Una puntuación de salud financiera: ahorro, fondo de emergencia y dinero disponible">A financial health score: savings, emergency fund and spare money</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Emotion map: how each day felt, and what you spent" data-es="Mapa emocional: cómo se sintió cada día, y cuánto gastaste">Emotion map: how each day felt, and what you spent</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="The days and hours you spend most, and how sleep plays in" data-es="Los días y horas en que más gastas, y cómo influye el sueño">The days and hours you spend most, and how sleep plays in</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A heads-up on days that look risky for your money" data-es="Un aviso en los días que se ven riesgosos para tu dinero">A heads-up on days that look risky for your money</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Export a PDF report or your full history" data-es="Exporta un reporte en PDF o todo tu historial">Export a PDF report or your full history</span></li>
         </ul>
       </div>
     </div>
@@ -450,14 +555,18 @@
     <!-- CARDS -->
     <div class="feat-row" id="cards">
       <div class="feat-text fade-in">
-        <div class="feat-tag">💳 <span data-en="Cards & Multi-currency" data-es="Tarjetas y Multi-moneda">Cards & Multi-currency</span></div>
+        <div class="feat-tag">💳 <span data-en="Cards &amp; Multi-currency" data-es="Tarjetas y Multi-moneda">Cards &amp; Multi-currency</span></div>
         <h2 class="feat-title" data-en="All your cards. <span>One clear view.</span>" data-es="Todas tus tarjetas. <span>Una vista clara.</span>">All your cards. <span>One clear view.</span></h2>
-        <p class="feat-desc" data-en="Add your credit and debit cards, track balances, monitor spending by card, and see your credit usage at a glance. Multi-currency support means Finiverse works wherever you are in the world." data-es="Agrega tus tarjetas de crédito y débito, rastrea saldos, monitorea el gasto por tarjeta y ve tu uso de crédito de un vistazo. El soporte multi-moneda significa que Finiverse funciona donde sea que estés en el mundo.">Add your credit and debit cards, track balances, monitor spending by card, and see your credit usage at a glance. Multi-currency support means Finiverse works wherever you are in the world.</p>
+        <p class="feat-desc" data-en="Add credit, debit and prepaid cards from any bank in the world. Track balances and credit usage, and keep each card in its own currency." data-es="Agrega tarjetas de crédito, débito y prepago de cualquier banco del mundo. Controla saldos y uso de crédito, y deja cada tarjeta en su propia moneda.">Add credit, debit and prepaid cards from any bank in the world. Track balances and credit usage, and keep each card in its own currency.</p>
         <ul class="feat-bullets">
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Credit, debit, and prepaid cards" data-es="Tarjetas de crédito, débito y prepago">Credit, debit, and prepaid cards</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Balance, limit, and credit usage tracking" data-es="Seguimiento de saldo, límite y uso de crédito">Balance, limit, and credit usage tracking</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Spending per card with visual breakdown" data-es="Gasto por tarjeta con desglose visual">Spending per card with visual breakdown</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Multi-currency, set any currency as primary" data-es="Multi-moneda, establece cualquier moneda como principal">Multi-currency, set any currency as primary</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Scan your card with the camera to fill it in" data-es="Escanea tu tarjeta con la cámara y sus datos se llenan solos">Scan your card with the camera to fill it in</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Balance, limit and credit usage at a glance" data-es="Saldo, límite y uso de crédito de un vistazo">Balance, limit and credit usage at a glance</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Spending per card, with a 7-day trend" data-es="Gasto por tarjeta, con la tendencia de 7 días">Spending per card, with a 7-day trend</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Each card in its own currency, plus pockets in other currencies" data-es="Cada tarjeta en su moneda, más bolsillos en otras monedas">Each card in its own currency, plus pockets in other currencies</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Transfers and currency exchange between your cards, at today’s rate" data-es="Transferencias y cambio de moneda entre tus tarjetas, al tipo de cambio de hoy">Transfers and currency exchange between your cards, at today’s rate</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Import transactions from Apple Wallet (US and UK)" data-es="Importa movimientos de Apple Wallet (EE. UU. y Reino Unido)">Import transactions from Apple Wallet (US and UK)</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Magic sync: log expenses from your bank’s alerts with an iOS Shortcut" data-es="Sincronización mágica: registra gastos desde las alertas de tu banco con un Atajo de iOS">Magic sync: log expenses from your bank’s alerts with an iOS Shortcut</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Connect some US banks with Plaid" data-es="Conecta algunos bancos de EE. UU. con Plaid">Connect some US banks with Plaid</span></li>
         </ul>
       </div>
       <div class="feat-visual fade-in">
@@ -481,25 +590,20 @@
       <div class="feat-text fade-in">
         <div class="feat-tag">🎯 <span data-en="Goals" data-es="Metas">Goals</span></div>
         <h2 class="feat-title" data-en="Big goals, <span>small steps</span>." data-es="Metas grandes, <span>pasos pequeños</span>.">Big goals, <span>small steps</span>.</h2>
-        <p class="feat-desc" data-en="Set financial goals and track your progress without the anxiety spiral. Whether it's saving for a trip, building an emergency fund, or just making it to payday · Finiverse keeps it visible and calm." data-es="Establece metas financieras y sigue tu progreso sin la espiral de ansiedad. Ya sea ahorrar para un viaje, construir un fondo de emergencia, o simplemente llegar al día de pago · Finiverse lo mantiene visible y tranquilo.">Set financial goals and track your progress without the anxiety spiral. Whether it's saving for a trip, building an emergency fund, or just making it to payday · Finiverse keeps it visible and calm.</p>
+        <p class="feat-desc" data-en="Set financial goals and track your progress without the anxiety spiral. Whether it's saving for a trip, building an emergency fund, or just making it to payday, Finiverse keeps it visible and calm." data-es="Establece metas financieras y sigue tu progreso sin la espiral de ansiedad. Ya sea ahorrar para un viaje, construir un fondo de emergencia, o simplemente llegar al día de pago, Finiverse lo mantiene visible y tranquilo.">Set financial goals and track your progress without the anxiety spiral. Whether it's saving for a trip, building an emergency fund, or just making it to payday, Finiverse keeps it visible and calm.</p>
         <ul class="feat-bullets">
           <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Set a target amount and deadline" data-es="Establece un monto objetivo y fecha límite">Set a target amount and deadline</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Visual progress bar, see how close you are" data-es="Barra de progreso visual, ve qué tan cerca estás">Visual progress bar, see how close you are</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="A savings jar that fills up as you save" data-es="Un frasco de ahorro que se llena mientras ahorras">A savings jar that fills up as you save</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Round-up savings: your purchases round up into a goal" data-es="Redondeo automático: tus compras se redondean hacia una meta">Round-up savings: your purchases round up into a goal</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Note how you feel each time you add to it" data-es="Anota cómo te sientes cada vez que aportas">Note how you feel each time you add to it</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="See if you’re on schedule or falling behind" data-es="Ve si vas a tiempo o te estás atrasando">See if you’re on schedule or falling behind</span></li>
           <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Sam gives tips on reaching your goal faster" data-es="Sam da consejos para alcanzar tu meta más rápido">Sam gives tips on reaching your goal faster</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon">✓</div><span data-en="Linked to your savings records automatically" data-es="Vinculado automáticamente a tus registros de ahorro">Linked to your savings records automatically</span></li>
         </ul>
       </div>
     </div>
 
     <!-- GAMIFICATION -->
-    <div class="feat-row reverse" id="gamification">
-      <div class="feat-visual fade-in">
-        <div class="feat-phone">
-          <div class="feat-phone-screen">
-            <img src="images/levels.PNG" alt="Gamification screen" />
-          </div>
-        </div>
-      </div>
+    <div class="feat-row" id="gamification">
       <div class="feat-text fade-in">
         <div class="feat-tag" style="background:#FEF3C7;color:#6B3D00">🏆 <span data-en="Gamification" data-es="Gamificación">Gamification</span></div>
         <h2 class="feat-title" data-en="Finance that <span>rewards progress</span>." data-es="Finanzas que <span>premian el progreso</span>.">Finance that <span>rewards progress</span>.</h2>
@@ -509,11 +613,99 @@
           <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Weekly missions with time-limited challenges" data-es="Misiones semanales con desafíos de tiempo limitado">Weekly missions with time-limited challenges</span></li>
           <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Seasonal events, Goals Summer, Savings Winter..." data-es="Eventos estacionales, Verano de Metas, Invierno de Ahorros...">Seasonal events, Goals Summer, Savings Winter...</span></li>
           <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Silver, Gold, Diamond medals 🥈🥇💎" data-es="Medallas de Plata, Oro y Diamante 🥈🥇💎">Silver, Gold, Diamond medals 🥈🥇💎</span></li>
-          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Social leaderboard and exclusive Sam Insider badge (Sam AI plan)" data-es="Leaderboard social y badge exclusivo Sam Insider (plan Sam IA)">Social leaderboard and exclusive Sam Insider badge (Sam AI plan)</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="Four mini-games: memory, odd one out, sequence and quick reflex" data-es="Cuatro minijuegos: memoria, intruso, secuencia y reflejo rápido">Four mini-games: memory, odd one out, sequence and quick reflex</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="12 app icon designs to choose from" data-es="12 diseños de ícono de la app para elegir">12 app icon designs to choose from</span></li>
+          <li class="feat-bullet"><div class="feat-bullet-icon" style="background:#FEF3C7;color:#6B3D00">✓</div><span data-en="An anonymous leaderboard and an exclusive Sam Insider badge" data-es="Un leaderboard anónimo y un badge exclusivo Sam Insider">An anonymous leaderboard and an exclusive Sam Insider badge</span></li>
         </ul>
+      </div>
+      <div class="feat-visual fade-in">
+        <div class="feat-phone">
+          <div class="feat-phone-screen">
+            <img src="images/levels.PNG" alt="Gamification screen" />
+          </div>
+        </div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- Everything else -->
+<section class="section" id="everything" style="background:var(--indigo-light)">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-label" data-en="And everything around it" data-es="Y todo lo demás">And everything around it</div>
+      <h2 class="section-title" data-en="The rest of the app." data-es="El resto de la app.">The rest of the app.</h2>
+      <p class="section-sub" style="margin:0 auto 40px;text-align:center" data-en="Some features need a paid plan. <a href='pricing.html' style='color:var(--indigo);font-weight:700'>Compare plans →</a>" data-es="Algunas funciones requieren un plan de pago. <a href='pricing.html' style='color:var(--indigo);font-weight:700'>Compara los planes →</a>">Some features need a paid plan. <a href='pricing.html' style='color:var(--indigo);font-weight:700'>Compare plans →</a></p>
+    </div>
+    <div class="all-grid">
+      <div class="all-card fade-in" id="reminders">
+        <div class="all-card-icon">🔔</div>
+        <h3 data-en="Subscriptions &amp; reminders" data-es="Suscripciones y recordatorios">Subscriptions &amp; reminders</h3>
+        <ul>
+          <li data-en="Subscriptions and regular payments, detected for you" data-es="Tus suscripciones y pagos regulares, detectados automáticamente">Subscriptions and regular payments, detected for you</li>
+          <li data-en="Recurring income too, like your paycheck" data-es="También ingresos recurrentes, como tu sueldo">Recurring income too, like your paycheck</li>
+          <li data-en="Asks if you still pay for something you stopped logging" data-es="Te pregunta si sigues pagando algo que ya no registras">Asks if you still pay for something you stopped logging</li>
+          <li data-en="Payment reminders a few days before" data-es="Recordatorios de pago unos días antes">Payment reminders a few days before</li>
+          <li data-en="“Did you pay it?” and one tap to mark it paid" data-es="“¿Ya lo pagaste?” y un toque para marcarlo">“Did you pay it?” and one tap to mark it paid</li>
+        </ul>
+      </div>
+      <div class="all-card fade-in" id="accessibility">
+        <div class="all-card-icon">♿</div>
+        <h3 data-en="Accessibility &amp; comfort" data-es="Accesibilidad y comodidad">Accessibility &amp; comfort</h3>
+        <ul>
+          <li data-en="A font made for easier reading (Atkinson Hyperlegible)" data-es="Una letra hecha para leer más fácil (Atkinson Hyperlegible)">A font made for easier reading (Atkinson Hyperlegible)</li>
+          <li data-en="Large text and high contrast" data-es="Letra grande y alto contraste">Large text and high contrast</li>
+          <li data-en="Calm motion and adjustable haptics" data-es="Movimiento calmado y vibración ajustable">Calm motion and adjustable haptics</li>
+          <li data-en="Dark mode" data-es="Modo oscuro">Dark mode</li>
+          <li data-en="Focus mode for a simpler view" data-es="Modo Focus para una vista más simple">Focus mode for a simpler view</li>
+          <li data-en="A neurodivergent profile, so Sam adapts to you" data-es="Un perfil neurodivergente, para que Sam se adapte a ti">A neurodivergent profile, so Sam adapts to you</li>
+          <li data-en="English and Spanish" data-es="Inglés y español">English and Spanish</li>
+        </ul>
+      </div>
+      <div class="all-card fade-in" id="widgets">
+        <div class="all-card-icon">📱</div>
+        <h3 data-en="Widgets &amp; Siri" data-es="Widgets y Siri">Widgets &amp; Siri</h3>
+        <ul>
+          <li data-en="Home Screen widgets in three sizes, plus Lock Screen widgets" data-es="Widgets de inicio en tres tamaños, más widgets de pantalla bloqueada">Home Screen widgets in three sizes, plus Lock Screen widgets</li>
+          <li data-en="Spending today, this week or this month, your streak and budget" data-es="Tu gasto de hoy, de la semana o del mes, tu racha y tu presupuesto">Spending today, this week or this month, your streak and budget</li>
+          <li data-en="How your day is going: mood, sleep, stress and energy" data-es="Cómo va tu día: ánimo, sueño, estrés y energía">How your day is going: mood, sleep, stress and energy</li>
+          <li data-en="Siri and Shortcuts: log an expense or your mood by voice" data-es="Siri y Atajos: registra un gasto o tu ánimo con la voz">Siri and Shortcuts: log an expense or your mood by voice</li>
+        </ul>
+      </div>
+      <div class="all-card fade-in" id="privacy">
+        <div class="all-card-icon">🔒</div>
+        <h3 data-en="Privacy &amp; security" data-es="Privacidad y seguridad">Privacy &amp; security</h3>
+        <ul>
+          <li data-en="Lock the app with Face ID or Touch ID" data-es="Bloquea la app con Face ID o Touch ID">Lock the app with Face ID or Touch ID</li>
+          <li data-en="Sensitive card data and personal notes are encrypted" data-es="Los datos sensibles de tarjetas y tus notas personales van cifrados">Sensitive card data and personal notes are encrypted</li>
+          <li data-en="Download your data or delete your account, right in the app" data-es="Descarga tus datos o borra tu cuenta, desde la app">Download your data or delete your account, right in the app</li>
+          <li data-en="Works offline, and syncs when you’re back online" data-es="Funciona sin internet, y se sincroniza al volver">Works offline, and syncs when you’re back online</li>
+          <li data-en="No ads" data-es="Sin anuncios">No ads</li>
+        </ul>
+      </div>
+      <div class="all-card fade-in" id="support">
+        <div class="all-card-icon">💜</div>
+        <h3 data-en="Support on hard days" data-es="Apoyo en días difíciles">Support on hard days</h3>
+        <ul>
+          <li data-en="A support button in the check-in and in Sam’s chat" data-es="Un botón de apoyo en el check-in y en el chat con Sam">A support button in the check-in and in Sam’s chat</li>
+          <li data-en="Guided breathing" data-es="Respiración guiada">Guided breathing</li>
+          <li data-en="Crisis lines for the US, Canada and Mexico" data-es="Líneas de crisis de EE. UU., Canadá y México">Crisis lines for the US, Canada and Mexico</li>
+          <li data-en="ADHD resources" data-es="Recursos sobre TDAH">ADHD resources</li>
+          <li data-en="A 10-minute pause before late-night purchases" data-es="Una pausa de 10 minutos antes de compras de noche">A 10-minute pause before late-night purchases</li>
+        </ul>
+      </div>
+      <div class="all-card fade-in" id="learn">
+        <div class="all-card-icon">📚</div>
+        <h3 data-en="Learn &amp; help" data-es="Aprende y ayuda">Learn &amp; help</h3>
+        <ul>
+          <li data-en="Short reads in “For you” on Home" data-es="Lecturas cortas en “Para ti” en Inicio">Short reads in “For you” on Home</li>
+          <li data-en="An interactive tour of everything Sam can do" data-es="Un tour interactivo de todo lo que Sam puede hacer">An interactive tour of everything Sam can do</li>
+          <li data-en="Quick answers in the in-app FAQ" data-es="Respuestas rápidas en las preguntas frecuentes de la app">Quick answers in the in-app FAQ</li>
+          <li data-en="Send feedback and follow it until it’s built" data-es="Envía comentarios y síguelos hasta que se implementan">Send feedback and follow it until it’s built</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -40,7 +40,6 @@
     '      </button>',
     '      <div class="nav-dropdown-panel">',
     '        <a href="features.html" data-en="Features" data-es="Funciones">Features</a>',
-    '        <a href="features.html#sam-ai" data-en="Sam AI" data-es="Sam IA">Sam AI</a>',
     '        <a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a>',
     '      </div>',
     '    </div>',
