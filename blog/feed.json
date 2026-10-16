@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "dyscalculia-money",
+      "url": "https://finiverseapp.com/blog-dyscalculia-money.html",
+      "emoji": "🔢",
+      "publishedAt": "2026-10-16",
+      "readTime": "7 min",
+      "category": {
+        "es": "Discalculia",
+        "en": "Dyscalculia"
+      },
+      "title": {
+        "es": "Discalculia y dinero: no es falta de inteligencia, tu cerebro procesa los números de otra forma",
+        "en": "Dyscalculia and Money: You're Not Bad at Math, Your Brain Just Works Differently"
+      },
+      "excerpt": {
+        "es": "Contar el cambio con una fila detrás. Dividir una cuenta. Leer tu saldo y no saber si es mucho o poco. Qué es la discalculia, cómo aparece con el dinero y qué ayuda de verdad.",
+        "en": "Counting change with a line behind you. Splitting a bill. Reading a balance and not knowing if it's a lot. What dyscalculia is, how it shows up with money, and what actually helps."
+      }
+    },
+    {
       "id": "fdr-methodology",
       "url": "https://finiverseapp.com/blog-fdr-methodology.html",
       "emoji": "📐",

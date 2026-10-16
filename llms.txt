@@ -1,0 +1,23 @@
+# Finiverse
+
+> Finiverse is a personal finance app for iOS built for neurodivergent people: ADHD, anxiety, dyscalculia, autism, dyslexia, Down syndrome and more. It connects how you feel to what you spend, with emotional check-ins, a Wishlist with waiting periods, Impulse Pause, one calm safe-to-spend number, budgets, goals, and Sam, an AI assistant that explains money in plain words. Available in English and Spanish. Free to download on the App Store: https://apps.apple.com/app/finiverse/id6648789225
+
+Finiverse is made by Finiverse LTD, founded by Monica Becerra. The app is designed so people never have to do mental math, read dense screens, or feel judged about money. Accessibility options include easy-read font, large text, high contrast, calm motion, dark mode, focus mode and a neurodivergent profile.
+
+## Key pages
+
+- [Home](https://finiverseapp.com/): What Finiverse is and who it is for
+- [Features](https://finiverseapp.com/features.html): Emotional check-ins, Sam AI, Wishlist and Impulse Pause, safe-to-spend, budgets, cards, reports, goals, widgets and accessibility
+- [Pricing](https://finiverseapp.com/pricing.html): Free plan and paid plans
+- [Guides & Resources](https://finiverseapp.com/resources.html): Articles about money, ADHD, anxiety, dyscalculia and neurodivergent money habits
+- [Help](https://finiverseapp.com/help.html): How to use the app
+- [About](https://finiverseapp.com/about.html): The founder and why Finiverse exists
+
+## Articles
+
+- [Dyscalculia and Money: You're Not Bad at Math, Your Brain Just Works Differently](https://finiverseapp.com/blog-dyscalculia-money.html): Counting change with a line behind you. Splitting a bill. Reading a balance and not knowing if it's a lot. What dyscalculia is, how it shows up with money, and what actually helps.
+- [How to Check Your Bank Account Without Spiraling](https://finiverseapp.com/blog-anxiety-bank.html): A step-by-step ritual for people who feel dread every time they open their banking app. The avoidance loop explained, and how to gently break it.
+- [Why ADHD Makes Budgeting Hard (And What Actually Helps)](https://finiverseapp.com/blog-adhd-money.html): Executive dysfunction, time blindness, and dopamine-driven spending aren't character flaws. Here's what the research says, and what systems actually hold up.
+- [The Anti-Budget: How to Start Tracking Money When Spreadsheets Fail](https://finiverseapp.com/blog-anti-budget.html): Skip the categories and the weekly reviews. Start by just noticing. Here's the lowest-friction way to begin building financial awareness.
+- [Most Finance Apps Show You Noise and Call It Insight.](https://finiverseapp.com/blog-fdr-methodology.html): Most apps that say “AI-powered insights” never show the statistics behind that sentence. Here's the actual pipeline, day-of-week residualization, outlier capping, and false discovery rate correction, that Finiverse runs before Sam ever mentions a pattern.
+- [Why Traditional Finance Advice Ignores Neurodivergent People](https://finiverseapp.com/blog-neurodivergent-finance.html): “Just track every expense.” “Automate your savings.” Standard advice assumes a neurotypical brain. Here's why that's a problem, and what actually works.

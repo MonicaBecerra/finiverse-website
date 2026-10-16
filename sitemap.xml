@@ -16,4 +16,9 @@
   <url><loc>https://finiverseapp.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://finiverseapp.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://finiverseapp.com/cookies.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://finiverseapp.com/blog-anxiety-bank.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://finiverseapp.com/blog-adhd-money.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://finiverseapp.com/blog-anti-budget.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://finiverseapp.com/blog-neurodivergent-finance.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://finiverseapp.com/blog-dyscalculia-money.html</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
