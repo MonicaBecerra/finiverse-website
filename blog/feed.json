@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "adhd-impulse-triggers",
+      "url": "https://finiverseapp.com/blog-adhd-impulse-triggers.html",
+      "emoji": "⚡",
+      "publishedAt": "2026-10-19",
+      "readTime": "8 min",
+      "category": {
+        "es": "TDAH y Dinero",
+        "en": "ADHD & Money"
+      },
+      "title": {
+        "es": "Compras impulsivas y TDAH: entender qué detona tu gasto",
+        "en": "Impulse Buying and ADHD: Understanding Your Spending Triggers"
+      },
+      "excerpt": {
+        "es": "Lo que compraste casi nunca es la historia. Lo que pasó en los diez minutos anteriores, casi siempre sí. Por qué el cerebro con TDAH siente el impulso más fuerte y cómo encontrar tus propios detonantes.",
+        "en": "The thing you bought is rarely the story. What happened in the ten minutes before it usually is. Why ADHD brains feel the pull harder, and how to find your own triggers."
+      }
+    },
+    {
       "id": "dyscalculia-money",
       "url": "https://finiverseapp.com/blog-dyscalculia-money.html",
       "emoji": "🔢",
