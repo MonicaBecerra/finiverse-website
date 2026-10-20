@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "neurodivergent-debt",
+      "url": "https://finiverseapp.com/blog-neurodivergent-debt.html",
+      "emoji": "📬",
+      "publishedAt": "2026-10-20",
+      "readTime": "11 min",
+      "category": {
+        "es": "Ansiedad y Finanzas",
+        "en": "Anxiety & Finance"
+      },
+      "title": {
+        "es": "Neurodivergencia y deudas: por qué pasa y cómo salir sin culpa",
+        "en": "Neurodivergence and Debt: Why It Happens and How to Get Out Without Shame"
+      },
+      "excerpt": {
+        "es": "Ansiedad, depresión, TOC, TDAH, bipolaridad, autismo, discalculia: cada una puede llevar a la deuda por un camino distinto. Por qué pasa y cómo empezar a salir sin culpa.",
+        "en": "Anxiety, depression, OCD, ADHD, bipolar disorder, autism, dyscalculia: each one can lead to debt by a different route. Why it happens, and how to start getting out without shame."
+      }
+    },
+    {
       "id": "adhd-impulse-triggers",
       "url": "https://finiverseapp.com/blog-adhd-impulse-triggers.html",
       "emoji": "⚡",
