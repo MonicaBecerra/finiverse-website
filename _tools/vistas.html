@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lecturas del blog</title>
+<!-- Private dashboard: _tools/ is not served by GitHub Pages. Open this file
+     locally (double click). It reads the public article_views counters. -->
+<style>
+  :root {
+    --bg: #f6f6fb; --card: #ffffff; --text: #1d1b2e; --muted: #6b6880; --line: #e6e4f0;
+    --accent: #5b5bd6; --accent-soft: #eceefe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14131c; --card: #1e1c29; --text: #f0eef8; --muted: #a29fb5; --line: #2e2b3d;
+      --accent: #8f8ff0; --accent-soft: #2a2944;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .note { background: var(--accent-soft); border-radius: 12px; padding: 12px 16px; font-size: 14px; margin-bottom: 24px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .kpi b { display: block; font-size: 26px; }
+  .kpi span { color: var(--muted); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .card h2 { font-size: 15px; margin: 0 0 12px; }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; margin: 6px 0; font-size: 14px; }
+  .bar { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin-top: -2px; }
+  .bar i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+  .num { color: var(--muted); font-variant-numeric: tabular-nums; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 10px; }
+  summary { cursor: pointer; padding: 14px 16px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+  summary strong { flex: 1; min-width: 220px; }
+  .art-body { padding: 0 16px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .days { display: flex; align-items: flex-end; gap: 3px; height: 60px; }
+  .days i { flex: 1; background: var(--accent); border-radius: 2px 2px 0 0; min-height: 2px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .error { color: #c0392b; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Lecturas del blog</h1>
+  <p class="sub" id="updated">Cargando…</p>
+  <div class="note">Desglose anónimo: sin cookies, sin IP y sin datos personales. El país sale de la zona horaria del navegador, así que es aproximado. Las lecturas de antes del 20 de octubre de 2026 solo tienen el total, sin desglose. Cada lectura se cuenta una vez por sesión del navegador; tus visitas no cuentan en los navegadores donde abriste la web con <code>?fvowner=1</code>.</div>
+  <div class="kpis" id="kpis"></div>
+  <div class="grid" id="totals"></div>
+  <h2 style="font-size:18px">Por artículo</h2>
+  <div id="articles"></div>
+</main>
+<script>
+const PROJ = 'fintrack-6948a';
+const KEY = 'AIzaSyDqeIpLSJ3yc0kA2l9rhDmOvNiAmDPoAks';
+const BASE = `https://firestore.googleapis.com/v1/projects/${PROJ}/databases/(default)/documents/article_views`;
+
+const SOURCES = {
+  google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo', yahoo: 'Yahoo', ecosia: 'Ecosia',
+  chatgpt: 'ChatGPT', perplexity: 'Perplexity', claude: 'Claude', gemini: 'Gemini', copilot: 'Copilot',
+  instagram: 'Instagram', facebook: 'Facebook', tiktok: 'TikTok', x: 'X (Twitter)', linkedin: 'LinkedIn',
+  whatsapp: 'WhatsApp', reddit: 'Reddit', youtube: 'YouTube', pinterest: 'Pinterest', threads: 'Threads',
+  email: 'Correo', finiverse_app: 'App de Finiverse', internal: 'Otra página de finiverseapp.com',
+  direct: 'Directo (link copiado, favorito o app sin origen)', other: 'Otro'
+};
+const DEVICES = { mobile: 'Móvil', desktop: 'Computador', tablet: 'Tablet' };
+const LANGS = { es: 'Español', en: 'Inglés', pt: 'Portugués', fr: 'Francés', de: 'Alemán', it: 'Italiano' };
+const TZ = [
+  [/^america_(mexico_city|monterrey|cancun|merida|tijuana|chihuahua|hermosillo|mazatlan|matamoros|bahia_banderas|ojinaga|ciudad_juarez)$/, 'México'],
+  [/^america_(new_york|chicago|denver|los_angeles|phoenix|anchorage|detroit|boise|indiana_.*|kentucky_.*)$|^pacific_honolulu$/, 'Estados Unidos'],
+  [/^america_(toronto|vancouver|edmonton|winnipeg|halifax|regina|st_johns)$/, 'Canadá'],
+  [/^america_bogota$/, 'Colombia'], [/^america_lima$/, 'Perú'], [/^america_santiago$/, 'Chile'],
+  [/^america_argentina_.*|^america_buenos_aires$/, 'Argentina'], [/^america_caracas$/, 'Venezuela'],
+  [/^america_guayaquil$/, 'Ecuador'], [/^america_montevideo$/, 'Uruguay'], [/^america_la_paz$/, 'Bolivia'],
+  [/^america_asuncion$/, 'Paraguay'], [/^america_costa_rica$/, 'Costa Rica'], [/^america_panama$/, 'Panamá'],
+  [/^america_guatemala$/, 'Guatemala'], [/^america_el_salvador$/, 'El Salvador'], [/^america_tegucigalpa$/, 'Honduras'],
+  [/^america_managua$/, 'Nicaragua'], [/^america_santo_domingo$/, 'República Dominicana'], [/^america_puerto_rico$/, 'Puerto Rico'],
+  [/^america_havana$/, 'Cuba'], [/^america_(sao_paulo|fortaleza|recife|bahia|manaus|belem)$/, 'Brasil'],
+  [/^europe_london$/, 'Reino Unido'], [/^europe_dublin$/, 'Irlanda'], [/^(europe_madrid|atlantic_canary|africa_ceuta)$/, 'España'],
+  [/^europe_lisbon$/, 'Portugal'], [/^europe_paris$/, 'Francia'], [/^europe_berlin$/, 'Alemania'], [/^europe_rome$/, 'Italia'],
+  [/^europe_amsterdam$/, 'Países Bajos'], [/^europe_zurich$/, 'Suiza'], [/^europe_brussels$/, 'Bélgica'],
+  [/^australia_.*/, 'Australia'], [/^asia_(kolkata|calcutta)$/, 'India'], [/^unknown$/, 'Desconocido']
+];
+
+const intOf = v => parseInt((v && (v.integerValue || v.doubleValue)) || 0, 10);
+const mapOf = v => {
+  const out = {};
+  const f = v && v.mapValue && v.mapValue.fields;
+  if (f) for (const k in f) out[k] = intOf(f[k]);
+  return out;
+};
+const add = (into, m) => { for (const k in m) into[k] = (into[k] || 0) + m[k]; return into; };
+const sum = m => Object.values(m).reduce((a, b) => a + b, 0);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = n => n.toLocaleString('es');
+
+function srcLabel(k) {
+  if (SOURCES[k]) return SOURCES[k];
+  if (k.startsWith('site_')) return k.slice(5).replace(/_/g, '.');
+  return k.replace(/_/g, ' ');
+}
+function tzLabel(k) {
+  for (const [re, name] of TZ) if (re.test(k)) return name;
+  const city = k.split('_').slice(1).join(' ');
+  return city ? city.replace(/\b\w/g, c => c.toUpperCase()) + ' (zona)' : k;
+}
+function group(m, labelFn) {
+  const out = {};
+  for (const k in m) { const l = labelFn(k); out[l] = (out[l] || 0) + m[k]; }
+  return out;
+}
+
+function bars(title, m, limit = 8) {
+  const total = sum(m);
+  const rows = Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, limit);
+  if (!rows.length) return `<div><h2>${title}</h2><p class="muted">Todavía sin datos.</p></div>`;
+  return `<div><h2>${title}</h2>` + rows.map(([k, v]) => {
+    const pct = total ? Math.round(v * 100 / total) : 0;
+    return `<div class="row"><span>${esc(k)}</span><span class="num">${fmt(v)} · ${pct}%</span><div class="bar"><i style="width:${pct}%"></i></div></div>`;
+  }).join('') + `</div>`;
+}
+
+function daysChart(day) {
+  const out = [];
+  const now = new Date();
+  for (let i = 13; i >= 0; i--) {
+    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - i));
+    const k = 'd' + d.toISOString().slice(0, 10).replace(/-/g, '');
+    out.push(day[k] || 0);
+  }
+  const max = Math.max(1, ...out);
+  return `<div><h2>Últimos 14 días</h2><div class="days">` +
+    out.map(v => `<i title="${v}" style="height:${Math.round(v * 100 / max)}%"></i>`).join('') +
+    `</div><p class="muted">Hoy: ${out[13]} · Total 14 días: ${out.reduce((a, b) => a + b, 0)}</p></div>`;
+}
+
+async function loadAll() {
+  let docs = [], token = '';
+  do {
+    const r = await fetch(`${BASE}?pageSize=300&key=${KEY}` + (token ? `&pageToken=${token}` : ''));
+    if (!r.ok) throw new Error('Firestore ' + r.status);
+    const j = await r.json();
+    docs = docs.concat(j.documents || []);
+    token = j.nextPageToken || '';
+  } while (token);
+  return docs;
+}
+
+async function loadTitles() {
+  try {
+    const r = await fetch('https://finiverseapp.com/blog/feed.json');
+    const j = await r.json();
+    const t = {};
+    for (const a of j.articles) t[a.url.split('/').pop().split('?')[0].replace('.html', '')] = a.title.es;
+    return t;
+  } catch (_) { return {}; }
+}
+
+(async function () {
+  try {
+    const [docs, titles] = await Promise.all([loadAll(), loadTitles()]);
+    const arts = docs.map(d => {
+      const f = d.fields || {};
+      return {
+        slug: d.name.split('/').pop(), views: intOf(f.views), uniques: intOf(f.uniques),
+        src: mapOf(f.src), tz: mapOf(f.tz), lang: mapOf(f.lang), dev: mapOf(f.dev), day: mapOf(f.day)
+      };
+    }).filter(a => a.slug.startsWith('blog-')).sort((a, b) => b.views - a.views);
+
+    const all = { src: {}, tz: {}, lang: {}, dev: {}, day: {} };
+    let views = 0, uniques = 0;
+    for (const a of arts) {
+      views += a.views; uniques += a.uniques;
+      for (const k of ['src', 'tz', 'lang', 'dev', 'day']) add(all[k], a[k]);
+    }
+    const broken = sum(all.src);
+
+    document.getElementById('updated').textContent =
+      `${arts.length} artículos · actualizado ${new Date().toLocaleString('es')}`;
+    document.getElementById('kpis').innerHTML = [
+      [fmt(views), 'lecturas en total (desde siempre)'],
+      [fmt(broken), 'lecturas con desglose'],
+      [fmt(uniques), 'lectores nuevos con desglose'],
+      [fmt(sum(Object.fromEntries(Object.entries(all.src).filter(([k]) => /chatgpt|perplexity|claude|gemini|copilot/.test(k))))), 'llegaron desde una IA']
+    ].map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join('');
+
+    document.getElementById('totals').innerHTML = [
+      bars('De dónde llegan', group(all.src, srcLabel)),
+      bars('País aproximado', group(all.tz, tzLabel)),
+      bars('Dispositivo', group(all.dev, k => DEVICES[k] || k)),
+      bars('Idioma del navegador', group(all.lang, k => LANGS[k] || k))
+    ].map(h => `<div class="card">${h}</div>`).join('');
+
+    document.getElementById('articles').innerHTML = arts.map(a => `
+      <details>
+        <summary><strong>${esc(titles[a.slug] || a.slug)}</strong>
+          <span class="num">${fmt(a.views)} lecturas · ${fmt(sum(a.src))} con desglose · ${fmt(a.uniques)} lectores nuevos</span></summary>
+        <div class="art-body">
+          ${bars('De dónde llegan', group(a.src, srcLabel), 6)}
+          ${bars('País aproximado', group(a.tz, tzLabel), 6)}
+          ${bars('Dispositivo', group(a.dev, k => DEVICES[k] || k), 3)}
+          ${daysChart(a.day)}
+        </div>
+      </details>`).join('');
+  } catch (e) {
+    document.getElementById('updated').innerHTML = `<span class="error">No se pudo cargar: ${esc(e.message)}</span>`;
+  }
+})();
+</script>
+</body>
+</html>

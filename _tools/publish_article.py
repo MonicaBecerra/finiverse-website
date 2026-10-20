@@ -87,13 +87,16 @@ def update_sitemap(card):
     write("sitemap.xml", s.replace("</urlset>", line + "</urlset>", 1))
 
 
+APP_UTM = "?utm_source=finiverse_app"  # lets article-views.js count reads opened from the app
+
+
 def update_feed(card):
     feed = json.loads(read("blog/feed.json"))
-    if any(a.get("url") == card["url"] for a in feed["articles"]):
+    if any(a.get("url", "").split("?")[0] == card["url"] for a in feed["articles"]):
         return
     p = lambda d: {"es": plain(d["es"]), "en": plain(d["en"])}
     feed["articles"].insert(0, {
-        "id": card["slug"].replace("blog-", ""), "url": card["url"], "emoji": card["emoji"],
+        "id": card["slug"].replace("blog-", ""), "url": card["url"] + APP_UTM, "emoji": card["emoji"],
         "publishedAt": card["date"], "readTime": card["readTime"],
         "category": p(card["category"]), "title": p(card["title"]), "excerpt": p(card["excerpt"]),
     })
