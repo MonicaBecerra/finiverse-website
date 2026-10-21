@@ -1,5 +1,7 @@
-/* article-views.js — read counter for blog articles using Firestore REST API.
-   Besides the total, it keeps an anonymous breakdown per article (no cookies,
+/* article-views.js — read counter for blog articles.
+   Reads are recorded by the recordArticleView Cloud Function (it validates every
+   field; Firestore rules don't let browsers write the counters) and the total is
+   read from Firestore article_views/{slug}. Besides the total, it keeps an anonymous breakdown per article (no cookies,
    no IP, nothing personal): where the reader came from (src), approximate
    region from the browser time zone (tz), language (lang), device (dev),
    reads per day (day) and first-time readers on this browser (uniques).
@@ -12,8 +14,7 @@
   var slug   = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
   var docPath = 'projects/' + PROJ + '/databases/(default)/documents/article_views/' + slug;
   var readUrl  = 'https://firestore.googleapis.com/v1/' + docPath + '?key=' + KEY;
-  var commitUrl = 'https://firestore.googleapis.com/v1/projects/' + PROJ +
-                  '/databases/(default)/documents:commit?key=' + KEY;
+  var recordUrl = 'https://us-central1-' + PROJ + '.cloudfunctions.net/recordArticleView';
 
   function store(kind) {
     try { return window[kind]; } catch (_) { return null; }
@@ -100,44 +101,47 @@
     return true;
   }
 
-  function increments() {
+  function payload() {
     var tz = 'unknown';
     try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'; } catch (_) {}
-    var lang = (navigator.language || 'unknown').slice(0, 2);
-    var d = new Date();
-    var day = 'd' + d.getUTCFullYear() + ('0' + (d.getUTCMonth() + 1)).slice(-2) + ('0' + d.getUTCDate()).slice(-2);
-    var paths = ['views', 'src.' + source(), 'tz.' + key(tz), 'lang.' + key(lang), 'dev.' + device(), 'day.' + day];
-    if (!get('localStorage', 'fv_seen_' + slug)) paths.push('uniques');
-    return paths.map(function (p) { return { fieldPath: p, increment: { integerValue: '1' } }; });
+    return {
+      slug: slug,
+      src: source(),
+      tz: tz,
+      lang: (navigator.language || 'unknown').slice(0, 2),
+      dev: device(),
+      first: !get('localStorage', 'fv_seen_' + slug)
+    };
   }
 
   async function run() {
-    /* 1. Increment atomically (create-or-update via FieldTransform) */
+    /* 1. Record the read (text/plain avoids a CORS preflight) */
+    var count = null;
     if (shouldCount()) {
       try {
-        var res0 = await fetch(commitUrl, {
+        var res0 = await fetch(recordUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            writes: [{
-              transform: { document: docPath, fieldTransforms: increments() }
-            }]
-          })
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload())
         });
         if (res0.ok) {
           set('sessionStorage', 'fv_read_' + slug, '1');
           set('localStorage', 'fv_seen_' + slug, '1');
+          var out = await res0.json();
+          if (typeof out.views === 'number') count = out.views;
         }
-      } catch (_) { /* silently ignore — network or rules error */ }
+      } catch (_) { /* silently ignore — network error */ }
     }
 
-    /* 2. Read updated count and render */
+    /* 2. Render the count (read it if the function didn't return it) */
     try {
-      var res = await fetch(readUrl + '&mask.fieldPaths=views');
-      if (!res.ok) return;
-      var data = await res.json();
-      if (!data.fields || !data.fields.views) return;
-      var count = parseInt(data.fields.views.integerValue || 0, 10);
+      if (count === null) {
+        var res = await fetch(readUrl + '&mask.fieldPaths=views');
+        if (!res.ok) return;
+        var data = await res.json();
+        if (!data.fields || !data.fields.views) return;
+        count = parseInt(data.fields.views.integerValue || 0, 10);
+      }
       var el = document.getElementById('article-view-count');
       if (!el || count < 1) return;
       el.dataset.count = count;
