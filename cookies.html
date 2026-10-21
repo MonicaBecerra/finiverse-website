@@ -4,91 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cookie Policy · Finiverse</title>
-  <meta name="description" content="Finiverse's cookie policy. We keep it simple: no advertising cookies, no third-party tracking. Just the basics." />
+  <meta name="description" content="Finiverse cookie policy and settings: Google Analytics only with your consent, no advertising cookies, and a one-click way to change your choice." />
+  <link rel="canonical" href="https://finiverseapp.com/cookies.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=20261012b" />
-  <style>
-    .legal-body {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 64px 24px 100px;
-    }
-    .legal-body h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin: 48px 0 12px;
-      padding-top: 48px;
-      border-top: 1px solid var(--card-border);
-    }
-    .legal-body h2:first-of-type { border-top: none; padding-top: 0; }
-    .legal-body p {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .legal-body ul {
-      padding-left: 20px;
-      margin-bottom: 16px;
-    }
-    .legal-body ul li {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.8;
-      margin-bottom: 6px;
-    }
-    .legal-date {
-      font-size: 13px;
-      color: var(--text-light);
-      margin-bottom: 40px;
-    }
-    /* Cookie type cards */
-    .cookie-table {
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin: 24px 0;
-    }
-    .cookie-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 80px;
-      gap: 0;
-      border-bottom: 1px solid var(--card-border);
-    }
-    .cookie-row:last-child { border-bottom: none; }
-    .cookie-row.header {
-      background: var(--bg-soft);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--text-light);
-    }
-    .cookie-cell {
-      padding: 14px 18px;
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.5;
-      border-right: 1px solid var(--card-border);
-    }
-    .cookie-cell:last-child { border-right: none; }
-    .cookie-cell.yes { color: #059669; font-weight: 600; }
-    .cookie-cell.no { color: var(--text-light); }
-    .tldr-box {
-      background: var(--indigo-light);
-      border: 1px solid rgba(91,78,232,.15);
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      font-size: 15px;
-      color: var(--text-dark);
-      line-height: 1.7;
-    }
-    .tldr-box strong { color: var(--indigo); }
-  </style>
+  <link rel="stylesheet" href="legal.css?v=20261021" />
   <!-- Favicon -->
   <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
   <link rel="icon" type="image/png" href="https://finiverseapp.com/images/app-icon.png" sizes="32x32" />
@@ -106,9 +28,9 @@
   <meta name="twitter:image" content="https://finiverseapp.com/images/og-icon.png" />
   <meta property="og:url" content="https://finiverseapp.com/cookies.html" />
   <meta property="og:title" content="Cookie Policy · Finiverse" />
-  <meta property="og:description" content="Finiverse's cookie policy. We keep it simple: no advertising cookies, no third-party tracking. Just the basics." />
+  <meta property="og:description" content="Finiverse cookie policy and settings: Google Analytics only with your consent, no advertising cookies, and a one-click way to change your choice." />
   <meta name="twitter:title" content="Cookie Policy · Finiverse" />
-  <meta name="twitter:description" content="Finiverse's cookie policy. We keep it simple: no advertising cookies, no third-party tracking. Just the basics." />
+  <meta name="twitter:description" content="Finiverse cookie policy and settings: Google Analytics only with your consent, no advertising cookies, and a one-click way to change your choice." />
   <!-- Analytics: consent-gated via consent.js -->
   <script src="consent.js"></script>
   <script src="track.js"></script>
@@ -129,110 +51,136 @@
     <button class="dl-sticky-bar-close" id="dlStickyBarClose" aria-label="Close">✕</button>
   </div>
 </div>
+  <nav class="nav" id="site-nav" data-cta="none"></nav>
+  <script src="header.js?v=20261012b"></script>
 
-<nav class="nav" id="site-nav"></nav>
-<script src="header.js?v=20261012b"></script>
+  <main class="legal-page">
+    <div class="legal-container">
 
-<!-- ═══ HERO ═══ -->
-<section class="page-hero">
-  <div style="max-width:var(--max-w);margin:0 auto;padding:0 24px">
-    <h1 class="page-hero-title" data-en="Cookie Policy" data-es="Política de Cookies">Cookie Policy</h1>
-    <p class="page-hero-sub" data-en="Short version: we use as few cookies as possible and none of them are for advertising." data-es="Versión corta: usamos el mínimo de cookies posible y ninguna es para publicidad.">Short version: we use as few cookies as possible and none of them are for advertising.</p>
-  </div>
-</section>
+      <div class="legal-header">
+        <div class="badge-light" data-en="Legal" data-es="Legal">Legal</div>
+        <h1 data-en="Cookie Policy" data-es="Política de Cookies">Cookie Policy</h1>
+        <p class="legal-date" data-en="Last updated: October 21, 2026" data-es="Última actualización: 21 de octubre de 2026">Last updated: October 21, 2026</p>
+        <p data-en="Short version: we use as little as possible, nothing for advertising, and analytics only if you say yes." data-es="Versión corta: usamos lo mínimo posible, nada para publicidad, y analítica solo si dices que sí.">Short version: we use as little as possible, nothing for advertising, and analytics only if you say yes.</p>
+      </div>
 
+<div class="legal-summary">
+  <h2 data-en="At a glance" data-es="En resumen">At a glance</h2>
+<ul>
+  <li data-en="Google Analytics stays off unless you allow it. You can change your mind below at any time." data-es="Google Analytics queda apagado a menos que lo permitas. Puedes cambiar de opinión abajo en cualquier momento.">Google Analytics stays off unless you allow it. You can change your mind below at any time.</li>
+  <li data-en="No advertising cookies, no retargeting, no social media pixels." data-es="Sin cookies publicitarias, sin remarketing, sin píxeles de redes sociales.">No advertising cookies, no retargeting, no social media pixels.</li>
+  <li data-en="Everything else is stored only in your browser to remember things like your language." data-es="Todo lo demás se guarda solo en tu navegador para recordar cosas como tu idioma.">Everything else is stored only in your browser to remember things like your language.</li>
+</ul>
+</div>
+<nav class="legal-toc" aria-label="Contents">
+  <h2 data-en="Contents" data-es="Contenido">Contents</h2>
+  <ol>
+    <li><a href="#settings" data-en="1. Your cookie settings" data-es="1. Tus ajustes de cookies">1. Your cookie settings</a></li>
+    <li><a href="#what" data-en="2. What cookies are" data-es="2. Qué son las cookies">2. What cookies are</a></li>
+    <li><a href="#list" data-en="3. What this website stores" data-es="3. Qué guarda este sitio web">3. What this website stores</a></li>
+    <li><a href="#never" data-en="4. What we never use" data-es="4. Lo que nunca usamos">4. What we never use</a></li>
+    <li><a href="#third" data-en="5. Third-party services" data-es="5. Servicios de terceros">5. Third-party services</a></li>
+    <li><a href="#apps" data-en="6. The iPhone and Android apps" data-es="6. Las apps de iPhone y Android">6. The iPhone and Android apps</a></li>
+    <li><a href="#control" data-en="7. Other ways to control cookies" data-es="7. Otras formas de controlar las cookies">7. Other ways to control cookies</a></li>
+    <li><a href="#changes" data-en="8. Changes and contact" data-es="8. Cambios y contacto">8. Changes and contact</a></li>
+  </ol>
+</nav>
 <div class="legal-body">
-  <p class="legal-date" data-en="Last updated: June 2026" data-es="Última actualización: junio 2026">Last updated: June 2026</p>
-
-  <!-- TL;DR -->
-  <div class="tldr-box">
-    <strong data-en="TL;DR:" data-es="En resumen:">TL;DR:</strong>
-    <span data-en=" This website uses a small number of cookies to remember your language preference and understand basic traffic. We use no advertising cookies, no retargeting, and no cookies that track you across other websites." data-es=" Este sitio web usa una pequeña cantidad de cookies para recordar tu preferencia de idioma y entender el tráfico básico. No usamos cookies publicitarias, remarketing ni cookies que te rastreen en otros sitios."> This website uses a small number of cookies to remember your language preference and understand basic traffic. We use no advertising cookies, no retargeting, and no cookies that track you across other websites.</span>
+<div class="legal-section" id="settings">
+  <h2 data-en="1. Your cookie settings" data-es="1. Tus ajustes de cookies">1. Your cookie settings</h2>
+<p data-en="Choose whether this website may use Google Analytics in this browser. Your choice is saved right away. If you switch analytics off, we stop it on this page and delete the cookies it set." data-es="Elige si este sitio web puede usar Google Analytics en este navegador. Tu elección se guarda al instante. Si desactivas la analítica, la detenemos en esta página y borramos las cookies que había creado.">Choose whether this website may use Google Analytics in this browser. Your choice is saved right away. If you switch analytics off, we stop it on this page and delete the cookies it set.</p>
+<div class="cookie-settings" id="cookie-settings" tabindex="-1">
+  <div class="cs-row">
+    <div class="cs-info">
+      <p class="cs-title" data-en="Strictly necessary" data-es="Estrictamente necesarias">Strictly necessary</p>
+      <p class="cs-desc" data-en="Remember your language and the choice you make here. Stored only in your browser, never used to track you." data-es="Recuerdan tu idioma y la elección que hagas aquí. Se guardan solo en tu navegador y nunca se usan para seguirte.">Remember your language and the choice you make here. Stored only in your browser, never used to track you.</p>
+    </div>
+    <span class="cs-always" data-en="Always on" data-es="Siempre activas">Always on</span>
   </div>
-
-  <h2 data-en="What are cookies?" data-es="¿Qué son las cookies?">What are cookies?</h2>
-  <p data-en="Cookies are small text files stored on your device when you visit a website. They help websites remember things about you, like your language preference or whether you've dismissed a banner, across page loads and visits." data-es="Las cookies son pequeños archivos de texto almacenados en tu dispositivo cuando visitas un sitio web. Ayudan a los sitios web a recordar cosas sobre ti, como tu preferencia de idioma, entre cargas de página y visitas.">Cookies are small text files stored on your device when you visit a website. They help websites remember things about you, like your language preference or whether you've dismissed a banner, across page loads and visits.</p>
-  <p data-en="The Finiverse iOS app itself does not use browser cookies. This policy applies only to this website (finiverseapp.com)." data-es="La app de Finiverse para iOS no usa cookies del navegador. Esta política aplica únicamente a este sitio web (finiverseapp.com).">The Finiverse iOS app itself does not use browser cookies. This policy applies only to this website (finiverseapp.com).</p>
-
-  <h2 data-en="Cookies we use" data-es="Cookies que utilizamos">Cookies we use</h2>
-
-  <div class="cookie-table">
-    <div class="cookie-row header">
-      <div class="cookie-cell" data-en="Cookie" data-es="Cookie">Cookie</div>
-      <div class="cookie-cell" data-en="Purpose" data-es="Propósito">Purpose</div>
-      <div class="cookie-cell" data-en="Used?" data-es="¿Se usa?">Used?</div>
+  <div class="cs-row">
+    <div class="cs-info">
+      <p class="cs-title"><span data-en="Analytics" data-es="Analítica">Analytics</span><span class="cs-status" id="csStatus"><span data-state="granted" hidden data-en="Allowed" data-es="Permitida">Allowed</span><span data-state="denied" hidden data-en="Off" data-es="Desactivada">Off</span><span data-state="none" data-en="Off · not chosen yet" data-es="Desactivada · sin elegir">Off · not chosen yet</span></span></p>
+      <p class="cs-desc" data-en="Google Analytics shows us which pages people visit, roughly from which country and on what kind of device. No advertising, IP addresses are anonymised and Google signals are turned off." data-es="Google Analytics nos muestra qué páginas se visitan, aproximadamente desde qué país y con qué tipo de dispositivo. Sin publicidad, las IP se anonimizan y Google Signals está desactivado.">Google Analytics shows us which pages people visit, roughly from which country and on what kind of device. No advertising, IP addresses are anonymised and Google signals are turned off.</p>
     </div>
-    <div class="cookie-row">
-      <div class="cookie-cell"><strong>finiverse-lang</strong></div>
-      <div class="cookie-cell" data-en="Stores your language choice (EN/ES) using localStorage so it persists on your next visit." data-es="Almacena tu elección de idioma (EN/ES) usando localStorage para que persista en tu próxima visita.">Stores your language choice (EN/ES) using localStorage so it persists on your next visit.</div>
-      <div class="cookie-cell yes" data-en="Yes" data-es="Sí">Yes</div>
-    </div>
-    <div class="cookie-row">
-      <div class="cookie-cell"><strong>_ga, _ga_*</strong><div style="font-size:11px;color:var(--text-light);margin-top:2px">Google Analytics 4</div></div>
-      <div class="cookie-cell" data-en="Aggregate site traffic analytics — pages visited, session duration, country. No advertising. Provided by Google Analytics (tag G-K25B6JP5S6). Data is anonymised before being sent to Google." data-es="Analíticas agregadas del sitio — páginas visitadas, duración de sesión, país. Sin publicidad. Proporcionado por Google Analytics (etiqueta G-K25B6JP5S6). Los datos se anonimizan antes de enviarse a Google.">Aggregate site traffic analytics — pages visited, session duration, country. No advertising. Provided by Google Analytics (tag G-K25B6JP5S6). Data is anonymised before being sent to Google.</div>
-      <div class="cookie-cell yes" data-en="Yes · 2 years" data-es="Sí · 2 años">Yes · 2 years</div>
-    </div>
-    <div class="cookie-row">
-      <div class="cookie-cell"><strong data-en="Advertising / retargeting" data-es="Publicidad / remarketing">Advertising / retargeting</strong></div>
-      <div class="cookie-cell" data-en="Tracking you across websites to show you ads." data-es="Rastrearte en otros sitios para mostrarte anuncios.">Tracking you across websites to show you ads.</div>
-      <div class="cookie-cell no" data-en="Never" data-es="Nunca">Never</div>
-    </div>
-    <div class="cookie-row">
-      <div class="cookie-cell"><strong data-en="Third-party tracking" data-es="Rastreo de terceros">Third-party tracking</strong></div>
-      <div class="cookie-cell" data-en="Cookies from social networks, ad networks, or data brokers." data-es="Cookies de redes sociales, redes publicitarias o corredores de datos.">Cookies from social networks, ad networks, or data brokers.</div>
-      <div class="cookie-cell no" data-en="Never" data-es="Nunca">Never</div>
-    </div>
-    <div class="cookie-row">
-      <div class="cookie-cell"><strong data-en="Session / form" data-es="Sesión / formulario">Session / form</strong></div>
-      <div class="cookie-cell" data-en="Temporary cookies used to process form submissions (contact, waitlist) via Formspree. Deleted after the session." data-es="Cookies temporales para procesar envíos de formularios vía Formspree. Se eliminan tras la sesión.">Temporary cookies used to process form submissions (contact, waitlist) via Formspree. Deleted after the session.</div>
-      <div class="cookie-cell yes" data-en="Yes (temporary)" data-es="Sí (temporales)">Yes (temporary)</div>
+    <div class="cs-actions" role="group" aria-label="Analytics">
+      <button type="button" class="cs-btn" data-consent="deny" aria-pressed="false" data-en="Reject" data-es="Rechazar">Reject</button>
+      <button type="button" class="cs-btn" data-consent="allow" aria-pressed="false" data-en="Allow" data-es="Permitir">Allow</button>
     </div>
   </div>
-
-  <h2 data-en="LocalStorage vs cookies" data-es="LocalStorage vs cookies">LocalStorage vs cookies</h2>
-  <p data-en="Our language preference (finiverse-lang) is actually stored in your browser's localStorage, not as a traditional cookie. It works the same way functionally, it remembers your choice across visits, but it's only readable by this website and is never sent to any server." data-es="Nuestra preferencia de idioma (finiverse-lang) se almacena en el localStorage de tu navegador, no como una cookie tradicional. Funciona igual, recuerda tu elección entre visitas, pero solo puede leerla este sitio web y nunca se envía a ningún servidor.">Our language preference (finiverse-lang) is actually stored in your browser's localStorage, not as a traditional cookie. It works the same way functionally, it remembers your choice across visits, but it's only readable by this website and is never sent to any server.</p>
-
-  <h2 data-en="Third-party services" data-es="Servicios de terceros">Third-party services</h2>
-  <p data-en="This website uses the following third-party services that may set their own cookies:" data-es="Este sitio web usa los siguientes servicios de terceros que pueden establecer sus propias cookies:">This website uses the following third-party services that may set their own cookies:</p>
-  <ul>
-    <li><strong>Google Analytics 4</strong>, <span data-en="Used to measure site traffic (pages viewed, session duration, country). Sets _ga and _ga_* cookies lasting up to 2 years. IP addresses are anonymised. See" data-es="Usado para medir el tráfico del sitio (páginas vistas, duración de sesión, país). Establece cookies _ga y _ga_* con vigencia de hasta 2 años. Las IPs son anonimizadas. Ver">Used to measure site traffic (pages viewed, session duration, country). Sets _ga and _ga_* cookies lasting up to 2 years. IP addresses are anonymised. See</span> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--indigo)">Google's Privacy Policy</a>.</li>
-    <li><strong>Google Fonts</strong>, <span data-en="Loads the Inter typeface. Google may log requests to their CDN. See" data-es="Carga la tipografía Inter. Google puede registrar solicitudes a su CDN. Ver">Loads the Inter typeface. Google may log requests to their CDN. See</span> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--indigo)">Google's Privacy Policy</a>.</li>
-    <li><strong>Formspree</strong>, <span data-en="Processes contact and waitlist form submissions. See" data-es="Procesa los envíos de formularios de contacto y lista de espera. Ver">Processes contact and waitlist form submissions. See</span> <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--indigo)">Formspree's Privacy Policy</a>.</li>
-    <li><strong>Apple App Store</strong>, <span data-en="Links to download the app. If you click through, Apple's own cookies and policies apply." data-es="Links para descargar la app. Si haces clic, aplican las cookies y políticas de Apple.">Links to download the app. If you click through, Apple's own cookies and policies apply.</span></li>
-  </ul>
-
-  <h2 data-en="How to control cookies" data-es="Cómo controlar las cookies">How to control cookies</h2>
-  <p data-en="You can control and delete cookies through your browser settings. Here are direct links for the most common browsers:" data-es="Puedes controlar y eliminar las cookies a través de la configuración de tu navegador. Aquí hay enlaces directos para los navegadores más comunes:">You can control and delete cookies through your browser settings. Here are direct links for the most common browsers:</p>
-  <ul>
-    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" style="color:var(--indigo)">Google Chrome</a></li>
-    <li><a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" target="_blank" rel="noopener" style="color:var(--indigo)">Mozilla Firefox</a></li>
-    <li><a href="https://support.apple.com/en-us/HT201265" target="_blank" rel="noopener" style="color:var(--indigo)">Safari</a></li>
-    <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener" style="color:var(--indigo)">Microsoft Edge</a></li>
-  </ul>
-  <p data-en="Clearing localStorage will reset your language preference to English. Other than that, there are no functional consequences for refusing non-essential cookies on this site." data-es="Borrar el localStorage restablecerá tu preferencia de idioma al inglés. Aparte de eso, no hay consecuencias funcionales por rechazar cookies no esenciales en este sitio.">Clearing localStorage will reset your language preference to English. Other than that, there are no functional consequences for refusing non-essential cookies on this site.</p>
-
-  <h2 data-en="Your analytics preference" data-es="Tu preferencia de analítica">Your analytics preference</h2>
-  <p data-en="You can change your Google Analytics consent at any time. Click the button below to reset your choice and see the banner again." data-es="Puedes cambiar tu consentimiento de Google Analytics en cualquier momento. Haz clic en el botón de abajo para restablecer tu elección y ver el banner de nuevo.">You can change your Google Analytics consent at any time. Click the button below to reset your choice and see the banner again.</p>
-  <button onclick="window.fvCookiePrefs && window.fvCookiePrefs()" style="margin-top:8px;background:var(--indigo);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer" data-en="Change analytics preference" data-es="Cambiar preferencia de analítica">Change analytics preference</button>
-
-  <h2 data-en="Changes to this policy" data-es="Cambios en esta política">Changes to this policy</h2>
-  <p data-en="If we ever start using new cookies or third-party services, we'll update this page and note the date at the top. We won't add advertising or tracking cookies without being transparent about it." data-es="Si alguna vez empezamos a usar nuevas cookies o servicios de terceros, actualizaremos esta página y anotaremos la fecha en la parte superior. No añadiremos cookies publicitarias o de seguimiento sin ser transparentes al respecto.">If we ever start using new cookies or third-party services, we'll update this page and note the date at the top. We won't add advertising or tracking cookies without being transparent about it.</p>
-
-  <h2 data-en="Contact" data-es="Contacto">Contact</h2>
-  <p data-en="Questions about this policy? Reach us at" data-es="¿Preguntas sobre esta política? Contáctanos en">Questions about this policy? Reach us at</p>
-  <p><a href="mailto:hello@finiverseapp.com" style="color:var(--indigo);font-weight:600">hello@finiverseapp.com</a></p>
-  <p>
-    <a href="privacy.html" style="color:var(--indigo)" data-en="← Privacy Policy" data-es="← Política de Privacidad">← Privacy Policy</a>
-    &nbsp;·&nbsp;
-    <a href="terms.html" style="color:var(--indigo)" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a>
-  </p>
+  <p class="cs-msg" id="csMsg" role="status" aria-live="polite" hidden></p>
+</div>
+<p data-en="You can also open these settings from “Cookie settings” at the bottom of every page." data-es="También puedes abrir estos ajustes desde “Ajustes de cookies” al pie de cada página.">You can also open these settings from “Cookie settings” at the bottom of every page.</p>
+</div>
+<div class="legal-section" id="what">
+  <h2 data-en="2. What cookies are" data-es="2. Qué son las cookies">2. What cookies are</h2>
+<p data-en="Cookies are small text files a website saves in your browser. Browser storage (localStorage and sessionStorage) works in a similar way, but its contents stay in your browser and aren&#x27;t sent to our server. This policy covers both, for finiverseapp.com only." data-es="Las cookies son pequeños archivos de texto que un sitio web guarda en tu navegador. El almacenamiento del navegador (localStorage y sessionStorage) funciona de forma parecida, pero su contenido se queda en tu navegador y no se envía a nuestro servidor. Esta política cubre ambos, solo para finiverseapp.com.">Cookies are small text files a website saves in your browser. Browser storage (localStorage and sessionStorage) works in a similar way, but its contents stay in your browser and aren't sent to our server. This policy covers both, for finiverseapp.com only.</p>
+</div>
+<div class="legal-section" id="list">
+  <h2 data-en="3. What this website stores" data-es="3. Qué guarda este sitio web">3. What this website stores</h2>
+<div class="legal-table-wrap">
+  <table class="legal-table">
+    <thead><tr><th scope="col" data-en="Name" data-es="Nombre">Name</th><th scope="col" data-en="Type" data-es="Tipo">Type</th><th scope="col" data-en="Purpose" data-es="Propósito">Purpose</th><th scope="col" data-en="Lasts" data-es="Duración">Lasts</th><th scope="col" data-en="Needs consent?" data-es="¿Requiere consentimiento?">Needs consent?</th></tr></thead>
+    <tbody>
+    <tr><td><code>fv_analytics</code></td><td data-en="Browser storage" data-es="Almacenamiento del navegador">Browser storage</td><td data-en="Remembers your analytics choice" data-es="Recuerda tu elección de analítica">Remembers your analytics choice</td><td data-en="Until you change it" data-es="Hasta que la cambies">Until you change it</td><td class="no" data-en="No, necessary" data-es="No, necesaria">No, necessary</td></tr>
+    <tr><td><code>finiverse-lang</code></td><td data-en="Browser storage" data-es="Almacenamiento del navegador">Browser storage</td><td data-en="Remembers English or Spanish" data-es="Recuerda inglés o español">Remembers English or Spanish</td><td data-en="Until you clear it" data-es="Hasta que la borres">Until you clear it</td><td class="no" data-en="No, necessary" data-es="No, necesaria">No, necessary</td></tr>
+    <tr><td><code>finiverse-tickets</code></td><td data-en="Browser storage" data-es="Almacenamiento del navegador">Browser storage</td><td data-en="Your contact-form ticket numbers, so you can check their status" data-es="Los números de tus tickets del formulario de contacto, para consultar su estado">Your contact-form ticket numbers, so you can check their status</td><td data-en="Until you clear it" data-es="Hasta que la borres">Until you clear it</td><td class="no" data-en="No, necessary" data-es="No, necesaria">No, necessary</td></tr>
+    <tr><td><code>dlStickyBarDismissed</code>, <code>finiverse-inapp-dismissed</code></td><td data-en="Session storage" data-es="Almacenamiento de sesión">Session storage</td><td data-en="Hide a banner you closed" data-es="Ocultar un aviso que cerraste">Hide a banner you closed</td><td data-en="Until you close the tab" data-es="Hasta que cierres la pestaña">Until you close the tab</td><td class="no" data-en="No, necessary" data-es="No, necesaria">No, necessary</td></tr>
+    <tr><td><code>fv_read_*</code>, <code>fv_seen_*</code></td><td data-en="Browser and session storage" data-es="Almacenamiento del navegador y de sesión">Browser and session storage</td><td data-en="Count a blog article read only once. Anonymous: no ID, no IP, nothing sent about you" data-es="Contar la lectura de un artículo del blog solo una vez. Anónimo: sin ID, sin IP, no se envía nada sobre ti">Count a blog article read only once. Anonymous: no ID, no IP, nothing sent about you</td><td data-en="Session / until cleared" data-es="Sesión / hasta que la borres">Session / until cleared</td><td class="no" data-en="No, anonymous statistics" data-es="No, estadística anónima">No, anonymous statistics</td></tr>
+    <tr><td><code>_ga</code></td><td data-en="Cookie (Google Analytics)" data-es="Cookie (Google Analytics)">Cookie (Google Analytics)</td><td data-en="Tells visits apart so traffic isn&#x27;t double counted" data-es="Distingue visitas para no contar el tráfico dos veces">Tells visits apart so traffic isn't double counted</td><td data-en="2 years" data-es="2 años">2 years</td><td class="yes" data-en="Yes" data-es="Sí">Yes</td></tr>
+    <tr><td><code>_ga_K25B6JP5S6</code></td><td data-en="Cookie (Google Analytics)" data-es="Cookie (Google Analytics)">Cookie (Google Analytics)</td><td data-en="Keeps track of the current visit" data-es="Lleva la cuenta de la visita actual">Keeps track of the current visit</td><td data-en="2 years" data-es="2 años">2 years</td><td class="yes" data-en="Yes" data-es="Sí">Yes</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="legal-section" id="never">
+  <h2 data-en="4. What we never use" data-es="4. Lo que nunca usamos">4. What we never use</h2>
+<ul>
+  <li data-en="Advertising or retargeting cookies." data-es="Cookies publicitarias o de remarketing.">Advertising or retargeting cookies.</li>
+  <li data-en="Social media pixels (Meta, TikTok, X, LinkedIn)." data-es="Píxeles de redes sociales (Meta, TikTok, X, LinkedIn).">Social media pixels (Meta, TikTok, X, LinkedIn).</li>
+  <li data-en="Cookies that follow you across other websites, or data brokers." data-es="Cookies que te siguen por otros sitios web, ni corredores de datos.">Cookies that follow you across other websites, or data brokers.</li>
+  <li data-en="Fingerprinting or any tracking that works around your choice." data-es="Huella digital del navegador ni ningún rastreo que esquive tu elección.">Fingerprinting or any tracking that works around your choice.</li>
+</ul>
+</div>
+<div class="legal-section" id="third">
+  <h2 data-en="5. Third-party services" data-es="5. Servicios de terceros">5. Third-party services</h2>
+<ul>
+  <li data-en="&lt;strong&gt;Google Analytics 4&lt;/strong&gt;: only after you allow it. IP addresses are anonymised, Google signals and ad personalisation are off. See &lt;a href=&#x27;https://policies.google.com/privacy&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Google&#x27;s Privacy Policy&lt;/a&gt;." data-es="&lt;strong&gt;Google Analytics 4&lt;/strong&gt;: solo después de que lo permitas. Las IP se anonimizan y Google Signals y la personalización de anuncios están desactivados. Consulta la &lt;a href=&#x27;https://policies.google.com/privacy&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Política de Privacidad de Google&lt;/a&gt;."><strong>Google Analytics 4</strong>: only after you allow it. IP addresses are anonymised, Google signals and ad personalisation are off. See <a href='https://policies.google.com/privacy' target='_blank' rel='noopener'>Google's Privacy Policy</a>.</li>
+  <li data-en="&lt;strong&gt;Google Fonts&lt;/strong&gt;: loads the Inter typeface. Google receives your IP address to deliver the font file but sets no cookies." data-es="&lt;strong&gt;Google Fonts&lt;/strong&gt;: carga la tipografía Inter. Google recibe tu dirección IP para entregar el archivo de la fuente, pero no crea cookies."><strong>Google Fonts</strong>: loads the Inter typeface. Google receives your IP address to deliver the font file but sets no cookies.</li>
+  <li data-en="&lt;strong&gt;Google Firebase&lt;/strong&gt;: stores contact-form and waitlist messages and the anonymous blog read counter. No cookies." data-es="&lt;strong&gt;Google Firebase&lt;/strong&gt;: guarda los mensajes del formulario de contacto y de la lista de espera, y el contador anónimo de lecturas del blog. Sin cookies."><strong>Google Firebase</strong>: stores contact-form and waitlist messages and the anonymous blog read counter. No cookies.</li>
+  <li data-en="&lt;strong&gt;Apple App Store and Google Play&lt;/strong&gt;: when you follow a download link, their own cookies and policies apply." data-es="&lt;strong&gt;App Store de Apple y Google Play&lt;/strong&gt;: cuando sigues un enlace de descarga, se aplican sus propias cookies y políticas."><strong>Apple App Store and Google Play</strong>: when you follow a download link, their own cookies and policies apply.</li>
+</ul>
+</div>
+<div class="legal-section" id="apps">
+  <h2 data-en="6. The iPhone and Android apps" data-es="6. Las apps de iPhone y Android">6. The iPhone and Android apps</h2>
+<p data-en="The Finiverse apps for iPhone and Android don&#x27;t use browser cookies. How the apps handle data, including app analytics and crash reports, is explained in the &lt;a href=&#x27;privacy.html#collect&#x27;&gt;Privacy Policy&lt;/a&gt;." data-es="Las apps de Finiverse para iPhone y Android no usan cookies del navegador. Cómo tratan los datos las apps, incluida la analítica de la app y los informes de fallos, se explica en la &lt;a href=&#x27;privacy.html#collect&#x27;&gt;Política de Privacidad&lt;/a&gt;.">The Finiverse apps for iPhone and Android don't use browser cookies. How the apps handle data, including app analytics and crash reports, is explained in the <a href='privacy.html#collect'>Privacy Policy</a>.</p>
+</div>
+<div class="legal-section" id="control">
+  <h2 data-en="7. Other ways to control cookies" data-es="7. Otras formas de controlar las cookies">7. Other ways to control cookies</h2>
+<p data-en="You can also block or delete cookies in your browser. Blocking them doesn&#x27;t break anything on this site; you&#x27;ll just see the language reset to English." data-es="También puedes bloquear o borrar cookies en tu navegador. Bloquearlas no rompe nada en este sitio; solo verás que el idioma vuelve al inglés.">You can also block or delete cookies in your browser. Blocking them doesn't break anything on this site; you'll just see the language reset to English.</p>
+<ul>
+  <li data-en="&lt;a href=&#x27;https://support.google.com/chrome/answer/95647&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Google Chrome&lt;/a&gt; (also Chrome on Android)" data-es="&lt;a href=&#x27;https://support.google.com/chrome/answer/95647&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Google Chrome&lt;/a&gt; (también Chrome en Android)"><a href='https://support.google.com/chrome/answer/95647' target='_blank' rel='noopener'>Google Chrome</a> (also Chrome on Android)</li>
+  <li data-en="&lt;a href=&#x27;https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Safari on Mac&lt;/a&gt; · &lt;a href=&#x27;https://support.apple.com/en-gb/105082&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Safari on iPhone&lt;/a&gt;" data-es="&lt;a href=&#x27;https://support.apple.com/es-es/guide/safari/manage-cookies-sfri11471/mac&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Safari en Mac&lt;/a&gt; · &lt;a href=&#x27;https://support.apple.com/es-es/105082&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Safari en iPhone&lt;/a&gt;"><a href='https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac' target='_blank' rel='noopener'>Safari on Mac</a> · <a href='https://support.apple.com/en-gb/105082' target='_blank' rel='noopener'>Safari on iPhone</a></li>
+  <li data-en="&lt;a href=&#x27;https://support.mozilla.org/kb/clear-cookies-and-site-data-firefox&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Mozilla Firefox&lt;/a&gt;" data-es="&lt;a href=&#x27;https://support.mozilla.org/kb/clear-cookies-and-site-data-firefox&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Mozilla Firefox&lt;/a&gt;"><a href='https://support.mozilla.org/kb/clear-cookies-and-site-data-firefox' target='_blank' rel='noopener'>Mozilla Firefox</a></li>
+  <li data-en="&lt;a href=&#x27;https://support.microsoft.com/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Microsoft Edge&lt;/a&gt;" data-es="&lt;a href=&#x27;https://support.microsoft.com/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Microsoft Edge&lt;/a&gt;"><a href='https://support.microsoft.com/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09' target='_blank' rel='noopener'>Microsoft Edge</a></li>
+  <li data-en="To opt out of Google Analytics on every website, use &lt;a href=&#x27;https://tools.google.com/dlpage/gaoptout&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;Google&#x27;s opt-out add-on&lt;/a&gt;." data-es="Para no participar en Google Analytics en ningún sitio web, usa el &lt;a href=&#x27;https://tools.google.com/dlpage/gaoptout&#x27; target=&#x27;_blank&#x27; rel=&#x27;noopener&#x27;&gt;complemento de inhabilitación de Google&lt;/a&gt;.">To opt out of Google Analytics on every website, use <a href='https://tools.google.com/dlpage/gaoptout' target='_blank' rel='noopener'>Google's opt-out add-on</a>.</li>
+</ul>
+</div>
+<div class="legal-section" id="changes">
+  <h2 data-en="8. Changes and contact" data-es="8. Cambios y contacto">8. Changes and contact</h2>
+<p data-en="If we ever add a new cookie or service, we&#x27;ll update this page and the date at the top first, and ask for your consent again where needed." data-es="Si alguna vez añadimos una cookie o un servicio nuevo, actualizaremos primero esta página y la fecha de arriba, y volveremos a pedir tu consentimiento cuando haga falta.">If we ever add a new cookie or service, we'll update this page and the date at the top first, and ask for your consent again where needed.</p>
+<p data-en="Questions? Write to &lt;a href=&#x27;mailto:hello@finiverseapp.com&#x27;&gt;hello@finiverseapp.com&lt;/a&gt;." data-es="¿Preguntas? Escribe a &lt;a href=&#x27;mailto:hello@finiverseapp.com&#x27;&gt;hello@finiverseapp.com&lt;/a&gt;.">Questions? Write to <a href='mailto:hello@finiverseapp.com'>hello@finiverseapp.com</a>.</p>
+<p data-en="Related: &lt;a href=&#x27;privacy.html&#x27;&gt;Privacy Policy&lt;/a&gt; · &lt;a href=&#x27;terms.html&#x27;&gt;Terms of Service&lt;/a&gt;" data-es="Relacionado: &lt;a href=&#x27;privacy.html&#x27;&gt;Política de Privacidad&lt;/a&gt; · &lt;a href=&#x27;terms.html&#x27;&gt;Términos de Servicio&lt;/a&gt;">Related: <a href='privacy.html'>Privacy Policy</a> · <a href='terms.html'>Terms of Service</a></p>
+</div>
 </div>
 
-<footer id="site-footer" class="footer"></footer>
+    </div>
+  </main>
 
-<script src="footer.js?v=20261012c"></script>
+  <footer id="site-footer" class="footer"></footer>
+
+  <script src="footer.js?v=20261012c"></script>
 <script src="i18n.js"></script>
-<script src="nav.js"></script>
+  <script src="nav.js"></script>
 <script src="inapp-notice.js"></script>
 <script>
 /* ── Sticky download bar: show after scrolling, dismissible ── */
@@ -259,5 +207,45 @@
 })();
 </script>
 
+<script>
+/* ── Cookie settings panel: reads and changes the choice through consent.js ── */
+(function () {
+  var panel = document.getElementById('cookie-settings');
+  if (!panel || !window.fvConsent) return;
+  var status = document.getElementById('csStatus');
+  var msg = document.getElementById('csMsg');
+  var MSG = {
+    en: { granted: 'Saved. Analytics is on in this browser.', denied: 'Saved. Analytics is off and its cookies were deleted.' },
+    es: { granted: 'Guardado. La analítica está activada en este navegador.', denied: 'Guardado. La analítica está desactivada y sus cookies se borraron.' }
+  };
+  function lang() { return document.documentElement.getAttribute('data-lang') === 'es' ? 'es' : 'en'; }
+
+  function render() {
+    var s = window.fvConsent.get();
+    panel.querySelectorAll('[data-state]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-state') !== (s || 'none');
+    });
+    status.classList.toggle('is-on', s === 'granted');
+    status.classList.toggle('is-off', s === 'denied');
+    panel.querySelectorAll('[data-consent]').forEach(function (b) {
+      var allow = b.getAttribute('data-consent') === 'allow';
+      b.setAttribute('aria-pressed', String(s === (allow ? 'granted' : 'denied')));
+    });
+  }
+
+  panel.querySelectorAll('[data-consent]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      window.fvConsent.set(b.getAttribute('data-consent') === 'allow');
+    });
+  });
+  document.addEventListener('fv:consent', function (e) {
+    render();
+    msg.textContent = MSG[lang()][e.detail.state];
+    msg.hidden = false;
+  });
+  render();
+  if (location.hash === '#settings' || location.hash === '#cookie-settings') window.fvConsent.open();
+})();
+</script>
 </body>
 </html>
