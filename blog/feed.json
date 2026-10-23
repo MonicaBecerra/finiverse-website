@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "down-syndrome-money",
+      "url": "https://finiverseapp.com/blog-down-syndrome-money.html?utm_source=finiverse_app",
+      "emoji": "🤝",
+      "publishedAt": "2026-10-23",
+      "readTime": "11 min",
+      "category": {
+        "es": "Síndrome de Down",
+        "en": "Down Syndrome"
+      },
+      "title": {
+        "es": "Síndrome de Down y dinero: independencia con apoyo, sin quitar el control",
+        "en": "Down Syndrome and Money: Independence With Support, Not Control"
+      },
+      "excerpt": {
+        "es": "Muchas personas adultas con síndrome de Down pueden tomar sus propias decisiones de dinero con el apoyo adecuado. Qué dicen la investigación y la ley, y cómo puede ayudar la familia sin tomar el control.",
+        "en": "Many adults with Down syndrome can make their own money decisions with the right support. What the research and the law say, and how families can help without taking over."
+      }
+    },
+    {
       "id": "neurodivergent-debt",
       "url": "https://finiverseapp.com/blog-neurodivergent-debt.html?utm_source=finiverse_app",
       "emoji": "📬",
