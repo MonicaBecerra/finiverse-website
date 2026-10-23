@@ -51,6 +51,7 @@
     '          <li><a href="pricing.html" data-en="Pricing" data-es="Planes">Pricing</a></li>',
     '          <li><a href="changelog.html" data-en="What\'s New" data-es="Novedades">What\'s New</a></li>',
     '          <li><a href="waitlist.html" data-en="Waitlist" data-es="Lista de espera">Waitlist</a></li>',
+    '          <li><a href="research.html" data-en="Research" data-es="Investigación">Research</a></li>',
     '        </ul>',
     '      </nav>',
 

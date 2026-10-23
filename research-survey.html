@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-title-en="Research questionnaire · Finiverse" data-title-es="Cuestionario de la investigación · Finiverse">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research questionnaire · Finiverse</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261012b" />
+  <style>
+    .qs-wrap { max-width: 680px; margin: 0 auto; }
+    .qs-card { background: #fff; border: 1.5px solid var(--card-border); border-radius: 24px; padding: 32px; }
+    @media (max-width: 600px) { .qs-card { padding: 22px 18px; } }
+
+    .qs-progress { display: flex; gap: 6px; margin-bottom: 8px; }
+    .qs-progress span { flex: 1; height: 6px; border-radius: 6px; background: var(--card-border); }
+    .qs-progress span.done { background: var(--indigo); }
+    .qs-step-label { font-size: 13px; font-weight: 700; color: var(--text-mid); margin-bottom: 20px; }
+
+    .qs-step h2 { font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px; }
+    .qs-step > p.qs-intro { font-size: 14px; color: var(--text-mid); line-height: 1.6; margin-bottom: 22px; }
+
+    .qs-q { border: 0; padding: 0; margin: 0 0 26px; }
+    .qs-q legend, .qs-q .qs-qtext { font-size: 16px; font-weight: 700; color: var(--text-dark); line-height: 1.45; margin-bottom: 4px; padding: 0; }
+    .qs-q .qs-hint { font-size: 13px; color: var(--text-mid); margin-bottom: 10px; }
+    .qs-q.missing legend, .qs-q.missing .qs-qtext { color: #B42318; }
+
+    .qs-options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .qs-options label {
+      display: flex; align-items: center; gap: 10px; min-height: 48px;
+      border: 2px solid var(--card-border); border-radius: 14px; padding: 10px 14px;
+      font-size: 15px; color: var(--text-dark); cursor: pointer;
+    }
+    .qs-options label:has(input:checked) { border-color: var(--indigo); background: var(--indigo-light); font-weight: 700; }
+    .qs-options input { accent-color: var(--indigo); width: 18px; height: 18px; flex-shrink: 0; }
+
+    .qs-scale { display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; margin-top: 10px; }
+    .qs-scale label {
+      display: flex; align-items: center; justify-content: center; min-height: 44px;
+      border: 2px solid var(--card-border); border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer;
+    }
+    .qs-scale input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .qs-scale label:has(input:checked) { border-color: var(--indigo); background: var(--indigo); color: #fff; }
+    .qs-scale label:has(input:focus-visible) { outline: 3px solid var(--indigo); outline-offset: 2px; }
+    .qs-scale-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-mid); margin-top: 6px; }
+    @media (max-width: 480px) { .qs-scale { grid-template-columns: repeat(6, 1fr); } }
+
+    .qs-text { width: 100%; min-height: 110px; resize: vertical; }
+
+    .qs-help {
+      border-left: 4px solid var(--indigo); background: var(--indigo-light);
+      border-radius: 14px; padding: 16px 18px; margin: 4px 0 22px;
+      font-size: 14px; color: var(--text-mid); line-height: 1.6;
+    }
+    .qs-help strong { color: var(--text-dark); }
+
+    .qs-nav { display: flex; gap: 10px; justify-content: space-between; margin-top: 10px; }
+    .qs-nav .btn { min-height: 48px; }
+    .qs-error { display: none; margin-top: 14px; padding: 10px 14px; background: #FEE2E2; border-radius: 10px; font-size: 13px; color: #991B1B; }
+    #qsDone { display: none; text-align: center; padding: 12px 0; }
+  </style>
+  <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
+  <link rel="icon" type="image/png" href="https://finiverseapp.com/images/app-icon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/app-icon.png" />
+  <script src="consent.js"></script>
+  <script src="track.js"></script>
+</head>
+<body>
+
+<nav class="nav" id="site-nav" data-cta="download-ios"></nav>
+<script src="header.js?v=20261012b"></script>
+
+<section class="page-hero" style="text-align:center;padding-bottom:24px">
+  <div class="container">
+    <div class="section-label" id="qsPhaseLabel"></div>
+    <h1 id="qsTitle"></h1>
+    <p style="max-width:540px;margin:0 auto" data-en="About 5 minutes. There are no right or wrong answers. Answer based on how things are for you right now." data-es="Unos 5 minutos. No hay respuestas correctas ni incorrectas. Responde según cómo están las cosas para ti ahora.">About 5 minutes. There are no right or wrong answers. Answer based on how things are for you right now.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="container">
+    <div class="qs-wrap">
+      <div class="qs-card">
+        <div id="qsForm">
+          <div class="qs-progress" id="qsProgress" aria-hidden="true"></div>
+          <div class="qs-step-label" id="qsStepLabel" aria-live="polite"></div>
+          <div id="qsSteps"></div>
+          <div class="qs-error" id="qsError" role="alert"></div>
+          <div class="qs-nav">
+            <button type="button" class="btn btn-ghost" id="qsBack" data-en="← Back" data-es="← Atrás">← Back</button>
+            <button type="button" class="btn btn-primary" id="qsNext" data-en="Next →" data-es="Siguiente →">Next →</button>
+          </div>
+        </div>
+        <div id="qsDone" role="status">
+          <div style="font-size:52px;margin-bottom:14px" aria-hidden="true">💜</div>
+          <h2 style="font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:8px" data-en="Thank you!" data-es="¡Gracias!">Thank you!</h2>
+          <p id="qsDoneMsg" style="font-size:15px;color:var(--text-mid);line-height:1.65"></p>
+          <a href="/" class="btn btn-ghost btn-sm" style="margin-top:20px" data-en="Back to home" data-es="Volver al inicio">Back to home</a>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-light);text-align:center;margin-top:16px" data-en="Questions about the study: <a href='mailto:hello@finiverseapp.com'>hello@finiverseapp.com</a> · <a href='research.html'>Study information</a> · <a href='privacy.html'>Privacy Policy</a>" data-es="Dudas sobre el estudio: <a href='mailto:hello@finiverseapp.com'>hello@finiverseapp.com</a> · <a href='research.html'>Información del estudio</a> · <a href='privacy.html'>Política de privacidad</a>">Questions about the study: <a href="mailto:hello@finiverseapp.com">hello@finiverseapp.com</a> · <a href="research.html">Study information</a> · <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer" class="footer"></footer>
+
+<script src="footer.js?v=20261012c"></script>
+<script>
+/*
+ * Cuestionario de inicio (?phase=start, por defecto) y de cierre (?phase=end) del estudio
+ * beta-2026-11. Escribe research_surveys/{docId} por la REST API de Firestore (sin login,
+ * como waitlist.html); las reglas validan tipos y tamaños.
+ *
+ * Las 5 preguntas del CFPB, estrés (0–10), confianza (0–10) y el rango de edad son las
+ * mismas que el piloto dentro de la app (PilotEnrollmentView, "cfpb-sf5-v1"): las
+ * respuestas 1–5 van de menos a más, así que se puntúan con el mismo código que
+ * functions/pilot.js y scripts/pilot-report.js.
+ *
+ * A propósito NO hay preguntas de cribado clínico (PHQ, ideación suicida): no hay un
+ * protocolo de seguimiento detrás, así que solo se pregunta por interés en apoyo futuro y
+ * siempre se muestran líneas de ayuda.
+ */
+(function () {
+  const PROJ = 'fintrack-6948a';
+  const KEY  = 'AIzaSyDqeIpLSJ3yc0kA2l9rhDmOvNiAmDPoAks';
+  const BASE = 'https://firestore.googleapis.com/v1/projects/' + PROJ + '/databases/(default)/documents/research_surveys/';
+  const COHORT = 'beta-2026-11';
+  const SURVEY_VERSION = 'fv-research-q-2026-11-v1';
+
+  const params = new URLSearchParams(location.search);
+  const PHASE = params.get('phase') === 'end' ? 'end' : 'start';
+  const isEnd = PHASE === 'end';
+
+  const DESCRIBE = [['Not at all', 'No me describe en lo absoluto'], ['Very little', 'Muy poco'], ['Somewhat', 'En cierta medida'], ['Very well', 'Muy bien'], ['Completely', 'Totalmente']];
+  const FREQ = [['Never', 'Nunca'], ['Rarely', 'Casi nunca'], ['Sometimes', 'A veces'], ['Often', 'A menudo'], ['Always', 'Siempre']];
+  const AGREE = [['Strongly disagree', 'Muy en desacuerdo'], ['Disagree', 'En desacuerdo'], ['Neither agree nor disagree', 'Ni de acuerdo ni en desacuerdo'], ['Agree', 'De acuerdo'], ['Strongly agree', 'Muy de acuerdo']];
+  const EASE = [['Very hard', 'Muy difícil'], ['Hard', 'Difícil'], ['Neither easy nor hard', 'Ni fácil ni difícil'], ['Easy', 'Fácil'], ['Very easy', 'Muy fácil']];
+  const likert = (labels) => labels.map((l, i) => ({ v: i + 1, l }));
+
+  // type: email | radio | multi | scale (0–10) | text. `store` decide dónde va en el doc.
+  const STEPS = [
+    { title: ['About you', 'Sobre ti'], intro: ['So we can match your answers at the start and at the end of the study.', 'Para poder unir tus respuestas del inicio y del final del estudio.'], qs: [
+      { id: 'email', type: 'email', required: true, store: 'top',
+        q: ['Your email', 'Tu correo'], hint: ['The same one you used to sign up, or the one you use in Finiverse.', 'El mismo con el que te inscribiste, o el que usas en Finiverse.'] },
+      { id: 'platform', type: 'radio', required: true, store: 'top', q: ['Which phone do you use Finiverse on?', '¿En qué teléfono usas Finiverse?'],
+        options: [{ v: 'ios', l: ['iPhone', 'iPhone'] }, { v: 'android', l: ['Android', 'Android'] }, { v: 'not_yet', l: ['I haven\'t installed it yet', 'Todavía no la instalo'] }] },
+      { id: 'ageGroup', type: 'radio', required: true, store: 'top', q: ['How old are you?', '¿Cuántos años tienes?'],
+        options: [{ v: '18-61', l: ['18 to 61', 'De 18 a 61 años'] }, { v: '62+', l: ['62 or older', '62 años o más'] }] },
+      { id: 'neuro', type: 'multi', required: false, store: 'top', onlyStart: true,
+        q: ['Do any of these apply to you? (optional)', '¿Alguno de estos aplica en tu caso? (opcional)'],
+        hint: ['Diagnosed or self-identified. It helps us see whether Finiverse works for different minds.', 'Con diagnóstico o sin él. Nos ayuda a ver si Finiverse funciona para distintas mentes.'],
+        options: [
+          { v: 'adhd', l: ['ADHD', 'TDAH'] }, { v: 'autism', l: ['Autism', 'Autismo'] },
+          { v: 'dyslexia', l: ['Dyslexia', 'Dislexia'] }, { v: 'dyscalculia', l: ['Dyscalculia', 'Discalculia'] },
+          { v: 'anxiety', l: ['Anxiety', 'Ansiedad'] }, { v: 'other', l: ['Something else', 'Otra cosa'] },
+          { v: 'prefer_not', l: ['I\'d rather not say', 'Prefiero no decirlo'] }] },
+    ]},
+    { title: ['Your money situation', 'Tu situación con el dinero'], intro: ['Five short statements. How well does each one describe you?', 'Cinco frases cortas. ¿Qué tanto te describe cada una?'], qs: [
+      { id: 'cfpb1', type: 'radio', required: true, store: 'cfpb', q: ['Because of my money situation, I feel like I will never have the things I want in life', 'Debido a mi situación financiera, creo que nunca tendré las cosas que quiero en la vida'], options: likert(DESCRIBE) },
+      { id: 'cfpb2', type: 'radio', required: true, store: 'cfpb', q: ['I am just getting by financially', 'Apenas estoy subsistiendo financieramente'], options: likert(DESCRIBE) },
+      { id: 'cfpb3', type: 'radio', required: true, store: 'cfpb', q: ['I am concerned that the money I have or will save won\'t last', 'Me preocupa que el dinero que tengo o que ahorre no me dure'], options: likert(DESCRIBE) },
+      { id: 'cfpb4', type: 'radio', required: true, store: 'cfpb', q: ['I have money left over at the end of the month', 'Me sobra dinero al final del mes'], hint: ['How often does this apply to you?', '¿Qué tan seguido te pasa?'], options: likert(FREQ) },
+      { id: 'cfpb5', type: 'radio', required: true, store: 'cfpb', q: ['My finances control my life', 'Mis finanzas controlan mi vida'], hint: ['How often does this apply to you?', '¿Qué tan seguido te pasa?'], options: likert(FREQ) },
+    ]},
+    { title: ['Feelings and spending', 'Emociones y gastos'], intro: ['Think about the last month.', 'Piensa en el último mes.'], qs: [
+      { id: 'stress', type: 'scale', required: true, store: 'top', q: ['Right now, how much stress does your money situation cause you?', 'En este momento, ¿cuánto estrés te da tu situación de dinero?'], ends: [['None', 'Nada'], ['A huge amount', 'Muchísimo']] },
+      { id: 'confidence', type: 'scale', required: true, store: 'top', q: ['How confident do you feel about managing your money?', '¿Qué tan seguro/a te sientes de poder manejar tu dinero?'], ends: [['Not confident', 'Nada seguro/a'], ['Very confident', 'Muy seguro/a']] },
+      { id: 'emotionalSpending', type: 'radio', required: true, store: 'answers', q: ['How often did you buy something to make yourself feel better?', '¿Qué tan seguido compraste algo para sentirte mejor?'], options: likert(FREQ) },
+      { id: 'regret', type: 'radio', required: true, store: 'answers', q: ['How often did you regret a purchase afterwards?', '¿Qué tan seguido te arrepentiste de una compra después?'], options: likert(FREQ) },
+    ]},
+    { title: ['Using Finiverse', 'Usar Finiverse'], intro: isEnd ? ['About your experience during the study.', 'Sobre tu experiencia durante el estudio.'] : ['About money apps in general.', 'Sobre las apps de dinero en general.'], qs: [
+      { id: 'readNumbers', type: 'radio', required: true, store: 'answers',
+        q: isEnd ? ['How easy was it to read and understand the amounts and numbers in Finiverse?', '¿Qué tan fácil fue leer y entender los montos y números en Finiverse?']
+                 : ['How easy is it for you to read and understand amounts and numbers in money apps?', '¿Qué tan fácil te resulta leer y entender montos y números en las apps de dinero?'],
+        options: likert(EASE) },
+      { id: 'emojisHelp', type: 'radio', required: true, store: 'answers', onlyEnd: true, q: ['The Finiverse emojis made the app easier to understand.', 'Los emojis de Finiverse hicieron la app más fácil de entender.'], options: likert(AGREE) },
+      { id: 'samHelp', type: 'radio', required: true, store: 'answers', onlyEnd: true, q: ['Sam helped me make better decisions about money.', 'Sam me ayudó a tomar mejores decisiones con el dinero.'], options: likert(AGREE) },
+      { id: 'pauseHelp', type: 'radio', required: true, store: 'answers', onlyEnd: true, q: ['The pauses and warnings before spending were useful to me.', 'Las pausas y avisos antes de gastar me sirvieron.'],
+        options: likert(AGREE).concat([{ v: 0, l: ['I didn\'t see any', 'No vi ninguno'] }]) },
+      { id: 'mhResources', type: 'radio', required: true, store: 'answers', onlyEnd: true, q: ['The mental health support resources in Finiverse were useful to me.', 'Los recursos de apoyo para la salud mental en Finiverse me sirvieron.'],
+        options: likert(AGREE).concat([{ v: 0, l: ['I didn\'t use them', 'No los usé'] }]) },
+      { id: 'recommend', type: 'scale', required: false, store: 'answers', onlyEnd: true, q: ['How likely are you to recommend Finiverse to a friend? (optional)', '¿Qué tan probable es que recomiendes Finiverse a alguien? (opcional)'], ends: [['Not at all likely', 'Nada probable'], ['Extremely likely', 'Muy probable']] },
+      { id: 'improve', type: 'text', required: false, store: 'texts', onlyEnd: true, q: ['What should we improve? (optional)', '¿Qué deberíamos mejorar? (opcional)'] },
+    ]},
+    { title: ['What comes next', 'Lo que viene'], intro: ['We\'re thinking about support for people whose low mood or depression is linked to money difficulties. Your view helps us decide what to build, and how.', 'Estamos pensando en apoyo para personas cuyo ánimo bajo o depresión está relacionado con dificultades de dinero. Tu opinión nos ayuda a decidir qué construir y cómo.'], help: true, qs: [
+      { id: 'futureSupport', type: 'radio', required: true, store: 'top', q: ['Would support like this be useful to you?', '¿Te serviría un apoyo así?'],
+        options: [{ v: 'yes', l: ['Yes', 'Sí'] }, { v: 'maybe', l: ['Maybe', 'Tal vez'] }, { v: 'no', l: ['No', 'No'] }, { v: 'prefer_not', l: ['I\'d rather not say', 'Prefiero no decirlo'] }] },
+      { id: 'supportIdeas', type: 'text', required: false, store: 'texts', q: ['What kind of support would help? (optional)', '¿Qué tipo de apoyo te ayudaría? (opcional)'],
+        hint: ['Ideas only, please. This form is not read in real time, so please don\'t use it to tell us about a crisis.', 'Solo ideas, por favor. Este formulario no se lee en tiempo real, así que no lo uses para contarnos una crisis.'] },
+      { id: 'consent', type: 'consent', required: true, store: 'top',
+        q: ['I agree that Finiverse can use my answers for this research, as described on the study information page. I can ask for them to be deleted at any time.', 'Acepto que Finiverse use mis respuestas para esta investigación, como se explica en la página de información del estudio. Puedo pedir que se borren cuando quiera.'] },
+    ]},
+  ].map(s => ({ ...s, qs: s.qs.filter(q => !(q.onlyEnd && !isEnd) && !(q.onlyStart && isEnd)) }));
+
+  const HELP_HTML = [
+    'If you\'re struggling right now, you don\'t have to wait. In the UK, call <strong>Samaritans on 116 123</strong> (free, 24/7) or text <strong>SHOUT to 85258</strong>. In Spain, call <strong>024</strong>. In immediate danger, call <strong>999</strong> (UK) or <strong>112</strong> (EU).',
+    'Si lo estás pasando mal ahora, no tienes que esperar. En Reino Unido, llama a <strong>Samaritans al 116 123</strong> (gratis, 24 h) o escribe <strong>SHOUT al 85258</strong>. En España, llama al <strong>024</strong>. Si estás en peligro inmediato, llama al <strong>999</strong> (Reino Unido) o al <strong>112</strong> (UE).'
+  ];
+
+  const lang = () => document.documentElement.getAttribute('data-lang') || 'en';
+  const t = (pair) => lang() === 'es' ? pair[1] : pair[0];
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  const bi = (pair) => `data-en="${esc(pair[0])}" data-es="${esc(pair[1])}"`;
+
+  document.getElementById('qsPhaseLabel').setAttribute('data-en', isEnd ? 'Final questionnaire' : 'Starting questionnaire');
+  document.getElementById('qsPhaseLabel').setAttribute('data-es', isEnd ? 'Cuestionario final' : 'Cuestionario inicial');
+  document.getElementById('qsTitle').setAttribute('data-en', isEnd ? 'How did it <span>go</span>?' : 'Let\'s <span>start</span>');
+  document.getElementById('qsTitle').setAttribute('data-es', isEnd ? '¿Cómo te <span>fue</span>?' : '<span>Empecemos</span>');
+  document.getElementById('qsDoneMsg').setAttribute('data-en', isEnd
+    ? 'That\'s the end of the study. Thank you so much for taking part. We\'ll email you about your month of Sam AI Premium.'
+    : 'You\'re all set. Keep using Finiverse as you normally would. We\'ll email you the final questionnaire near the end of the study.');
+  document.getElementById('qsDoneMsg').setAttribute('data-es', isEnd
+    ? 'Con esto termina el estudio. Muchas gracias por participar. Te escribiremos sobre tu mes de Sam IA Premium.'
+    : 'Todo listo. Sigue usando Finiverse como siempre. Te enviaremos el cuestionario final cerca del cierre del estudio.');
+
+  function renderQuestion(q) {
+    const name = 'qs_' + q.id;
+    if (q.type === 'email') {
+      return `<div class="qs-q" data-q="${q.id}"><label class="qs-qtext" for="${name}" ${bi(q.q)}></label>
+        ${q.hint ? `<div class="qs-hint" ${bi(q.hint)}></div>` : ''}
+        <input type="email" id="${name}" class="form-input" maxlength="200" autocomplete="email" value="${esc(params.get('email') || '')}" /></div>`;
+    }
+    if (q.type === 'text') {
+      return `<div class="qs-q" data-q="${q.id}"><label class="qs-qtext" for="${name}" ${bi(q.q)}></label>
+        ${q.hint ? `<div class="qs-hint" ${bi(q.hint)}></div>` : ''}
+        <textarea id="${name}" class="form-input qs-text" maxlength="2000"></textarea></div>`;
+    }
+    if (q.type === 'consent') {
+      return `<div class="qs-q" data-q="${q.id}"><div class="qs-options"><label><input type="checkbox" name="${name}" value="yes" /> <span ${bi(q.q)}></span></label></div></div>`;
+    }
+    if (q.type === 'scale') {
+      const cells = Array.from({ length: 11 }, (_, i) => `<label><input type="radio" name="${name}" value="${i}" />${i}</label>`).join('');
+      return `<fieldset class="qs-q" data-q="${q.id}"><legend ${bi(q.q)}></legend>
+        <div class="qs-scale">${cells}</div>
+        <div class="qs-scale-ends"><span ${bi(['0 = ' + q.ends[0][0], '0 = ' + q.ends[0][1]])}></span><span ${bi(['10 = ' + q.ends[1][0], '10 = ' + q.ends[1][1]])}></span></div></fieldset>`;
+    }
+    const kind = q.type === 'multi' ? 'checkbox' : 'radio';
+    const opts = q.options.map(o => `<label><input type="${kind}" name="${name}" value="${o.v}" /> <span ${bi(o.l)}></span></label>`).join('');
+    return `<fieldset class="qs-q" data-q="${q.id}"><legend ${bi(q.q)}></legend>
+      ${q.hint ? `<div class="qs-hint" ${bi(q.hint)}></div>` : ''}<div class="qs-options">${opts}</div></fieldset>`;
+  }
+
+  document.getElementById('qsSteps').innerHTML = STEPS.map((s, i) => `
+    <div class="qs-step" data-step="${i}" ${i ? 'hidden' : ''}>
+      <h2 ${bi(s.title)}></h2>
+      <p class="qs-intro" ${bi(s.intro)}></p>
+      ${s.help ? `<div class="qs-help" role="note" ${bi(HELP_HTML)}></div>` : ''}
+      ${s.qs.map(renderQuestion).join('')}
+    </div>`).join('');
+  document.getElementById('qsProgress').innerHTML = STEPS.map(() => '<span></span>').join('');
+
+  function value(q) {
+    const name = 'qs_' + q.id;
+    if (q.type === 'email' || q.type === 'text') return document.getElementById(name).value.trim();
+    if (q.type === 'multi') return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
+    if (q.type === 'consent') return !!document.querySelector(`input[name="${name}"]:checked`);
+    const checked = document.querySelector(`input[name="${name}"]:checked`);
+    if (!checked) return null;
+    return (q.type === 'scale' || typeof q.options?.[0]?.v === 'number') ? Number(checked.value) : checked.value;
+  }
+
+  function isAnswered(q) {
+    const v = value(q);
+    if (q.type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if (q.type === 'consent') return v === true;
+    return v !== null && v !== '';
+  }
+
+  let step = 0;
+  function show(i, scroll = true) {
+    step = i;
+    document.querySelectorAll('.qs-step').forEach(el => { el.hidden = Number(el.dataset.step) !== i; });
+    document.querySelectorAll('#qsProgress span').forEach((el, j) => el.classList.toggle('done', j <= i));
+    const label = document.getElementById('qsStepLabel');
+    label.setAttribute('data-en', `Step ${i + 1} of ${STEPS.length}`);
+    label.setAttribute('data-es', `Paso ${i + 1} de ${STEPS.length}`);
+    label.textContent = lang() === 'es' ? `Paso ${i + 1} de ${STEPS.length}` : `Step ${i + 1} of ${STEPS.length}`;
+    document.getElementById('qsBack').style.visibility = i === 0 ? 'hidden' : 'visible';
+    const next = document.getElementById('qsNext');
+    const last = i === STEPS.length - 1;
+    next.setAttribute('data-en', last ? 'Send answers' : 'Next →');
+    next.setAttribute('data-es', last ? 'Enviar respuestas' : 'Siguiente →');
+    next.textContent = lang() === 'es' ? next.getAttribute('data-es') : next.getAttribute('data-en');
+    document.getElementById('qsError').style.display = 'none';
+    if (scroll) window.scrollTo({ top: document.querySelector('.qs-card').offsetTop - 90, behavior: 'smooth' });
+  }
+
+  function validateStep(i) {
+    let firstMissing = null;
+    STEPS[i].qs.forEach(q => {
+      const el = document.querySelector(`[data-q="${q.id}"]`);
+      const missing = q.required && !isAnswered(q);
+      el.classList.toggle('missing', missing);
+      if (missing && !firstMissing) firstMissing = el;
+    });
+    if (firstMissing) {
+      const err = document.getElementById('qsError');
+      err.textContent = lang() === 'es' ? 'Falta responder lo que está en rojo.' : 'Please answer the questions shown in red.';
+      err.style.display = 'block';
+      firstMissing.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    return true;
+  }
+
+  const fsValue = (v) => {
+    if (Array.isArray(v)) return { arrayValue: { values: v.map(fsValue) } };
+    if (typeof v === 'number') return { integerValue: String(v) };
+    if (typeof v === 'boolean') return { booleanValue: v };
+    if (v && typeof v === 'object') return { mapValue: { fields: Object.fromEntries(Object.entries(v).map(([k, x]) => [k, fsValue(x)])) } };
+    return { stringValue: String(v) };
+  };
+
+  async function submit() {
+    const top = {}, answers = {}, texts = {}, cfpb = [];
+    STEPS.forEach(s => s.qs.forEach(q => {
+      const v = value(q);
+      if (q.store === 'cfpb') cfpb.push(v);
+      else if (q.store === 'answers') { if (v !== null && v !== '') answers[q.id] = v; }
+      else if (q.store === 'texts') { if (v) texts[q.id] = v; }
+      else if (!(Array.isArray(v) && !v.length)) top[q.id] = v;
+    }));
+    const doc = Object.assign({}, top, {
+      phase: PHASE, cohort: COHORT, surveyVersion: SURVEY_VERSION, cfpbVersion: 'cfpb-sf5-v1',
+      cfpb, answers, texts, lang: lang(), source: 'website-research'
+    });
+    const fields = Object.fromEntries(Object.entries(doc).map(([k, v]) => [k, fsValue(v)]));
+    fields.submittedAt = { timestampValue: new Date().toISOString() };
+
+    const docId = PHASE + '_' + top.email.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 80) + '_' + Date.now().toString(36);
+    const res = await fetch(BASE + docId + '?key=' + KEY, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields })
+    });
+    if (!res.ok) throw new Error(String(res.status));
+  }
+
+  document.getElementById('qsBack').addEventListener('click', () => { if (step > 0) show(step - 1); });
+  document.getElementById('qsNext').addEventListener('click', async () => {
+    if (!validateStep(step)) return;
+    if (step < STEPS.length - 1) return show(step + 1);
+    const btn = document.getElementById('qsNext');
+    btn.disabled = true;
+    btn.textContent = '…';
+    try {
+      await submit();
+      document.getElementById('qsForm').style.display = 'none';
+      document.getElementById('qsDone').style.display = 'block';
+    } catch (_) {
+      const err = document.getElementById('qsError');
+      err.textContent = lang() === 'es' ? 'No se pudieron enviar tus respuestas. Inténtalo otra vez o escríbenos a hello@finiverseapp.com.' : 'Your answers couldn\'t be sent. Please try again or email hello@finiverseapp.com.';
+      err.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = lang() === 'es' ? 'Enviar respuestas' : 'Send answers';
+    }
+  });
+
+  document.addEventListener('change', (e) => {
+    const box = e.target.closest('[data-q]');
+    if (box) box.classList.remove('missing');
+  });
+
+  show(0, false);
+})();
+</script>
+<script src="i18n.js"></script>
+<script src="nav.js"></script>
+<script src="inapp-notice.js"></script>
+</body>
+</html>
