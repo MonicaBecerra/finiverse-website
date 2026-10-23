@@ -60,6 +60,10 @@
     .rs-check input { accent-color: var(--indigo); margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; }
 
     #rsSuccess { display: none; text-align: center; padding: 12px 0; }
+    .rs-surveys { margin-top: 26px; padding-top: 22px; border-top: 1.5px solid var(--card-border); display: flex; flex-direction: column; gap: 10px; }
+    .rs-surveys h3 { font-size: 16px; font-weight: 800; color: var(--text-dark); }
+    .rs-surveys p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+    .rs-surveys .btn { justify-content: center; min-height: 44px; }
   </style>
   <link rel="shortcut icon" href="https://finiverseapp.com/images/app-icon.png" />
   <link rel="icon" type="image/png" href="https://finiverseapp.com/images/app-icon.png" sizes="32x32" />
@@ -84,7 +88,7 @@
 <body>
 
 <nav class="nav" id="site-nav" data-cta="download-ios"></nav>
-<script src="header.js?v=20261012b"></script>
+<script src="header.js?v=20261023"></script>
 
 <section class="page-hero" style="text-align:center;position:relative;overflow:hidden">
   <div style="position:absolute;right:3%;bottom:-8px;opacity:.1;pointer-events:none">
@@ -194,6 +198,13 @@
             <div id="rsError" role="alert" style="display:none;margin-top:10px;padding:10px 14px;background:#FEE2E2;border-radius:10px;font-size:13px;color:#991B1B"></div>
             <p style="font-size:11px;color:var(--text-light);text-align:center;margin-top:10px" data-en="Signing up isn't a commitment. You can change your mind at any time." data-es="Inscribirte no te compromete a nada. Puedes cambiar de opinión cuando quieras.">Signing up isn't a commitment. You can change your mind at any time.</p>
           </form>
+
+          <div class="rs-surveys">
+            <h3 data-en="📋 Questionnaires" data-es="📋 Cuestionarios">📋 Questionnaires</h3>
+            <p data-en="Already signed up? Fill in the first one when the study starts, and the final one at the end." data-es="¿Ya te inscribiste? Responde el primero cuando empiece el estudio y el final al terminar.">Already signed up? Fill in the first one when the study starts, and the final one at the end.</p>
+            <a href="research-survey.html?phase=start" class="btn btn-primary btn-sm" data-en="Starting questionnaire →" data-es="Cuestionario inicial →">Starting questionnaire →</a>
+            <a href="research-survey.html?phase=end" class="btn btn-ghost btn-sm" data-en="Final questionnaire (end of study)" data-es="Cuestionario final (al terminar)">Final questionnaire (end of study)</a>
+          </div>
         </div>
 
         <div id="rsSuccess" role="status">
@@ -213,7 +224,7 @@
 
 <footer id="site-footer" class="footer"></footer>
 
-<script src="footer.js?v=20261012c"></script>
+<script src="footer.js?v=20261023"></script>
 <script src="i18n.js"></script>
 <script src="nav.js"></script>
 <script src="inapp-notice.js"></script>

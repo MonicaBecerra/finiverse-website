@@ -59,6 +59,7 @@
     '      </div>',
     '    </div>',
 
+    '    <a href="research.html" data-en="🔬 Research" data-es="🔬 Investigación">🔬 Research</a>',
     '    <a href="about.html" data-en="About" data-es="Nosotros">About</a>',
     '  </div>',
 
