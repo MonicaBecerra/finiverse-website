@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "autism-money",
+      "url": "https://finiverseapp.com/blog-autism-money.html?utm_source=finiverse_app",
+      "emoji": "🛒",
+      "publishedAt": "2026-10-26",
+      "readTime": "9 min",
+      "category": {
+        "es": "Autismo y Dinero",
+        "en": "Autism & Money"
+      },
+      "title": {
+        "es": "Autismo y dinero: rutinas, sobrecarga sensorial y lenguaje literal",
+        "en": "Autism and Money: Routines, Sensory Overload and Literal Language"
+      },
+      "excerpt": {
+        "es": "Una caja de autopago que no deja de pitar, un banco que habla en metáforas. Por qué el dinero puede costar más a las personas autistas, qué dice la investigación y qué ayuda de verdad.",
+        "en": "A self-checkout that won't stop beeping, a bank that speaks in metaphors. Why money can be harder for autistic people, what the research shows, and what actually helps."
+      }
+    },
+    {
       "id": "dyscalculia-numbers",
       "url": "https://finiverseapp.com/blog-dyscalculia-numbers.html?utm_source=finiverse_app",
       "emoji": "🧮",
