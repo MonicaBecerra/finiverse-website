@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "dyscalculia-numbers",
+      "url": "https://finiverseapp.com/blog-dyscalculia-numbers.html?utm_source=finiverse_app",
+      "emoji": "🧮",
+      "publishedAt": "2026-10-26",
+      "readTime": "12 min",
+      "category": {
+        "es": "Discalculia",
+        "en": "Dyscalculia"
+      },
+      "title": {
+        "es": "Discalculia: por qué los números pueden convertirse en un desafío",
+        "en": "Dyscalculia: Why Numbers Can Become a Challenge"
+      },
+      "excerpt": {
+        "es": "Relojes, recetas, números de teléfono, el tablero de salidas del tren. Por qué los números se le escapan a algunos cerebros, qué muestra la investigación, cómo se diagnostica la discalculia y qué ayuda de verdad.",
+        "en": "Clocks, recipes, phone numbers, the departures board. Why numbers can feel slippery for some brains, what the research shows, how dyscalculia is diagnosed and what actually helps."
+      }
+    },
+    {
       "id": "down-syndrome-money",
       "url": "https://finiverseapp.com/blog-down-syndrome-money.html?utm_source=finiverse_app",
       "emoji": "🤝",
