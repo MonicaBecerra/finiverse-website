@@ -1,7 +1,9 @@
 /* ── i18n.js — shared language toggle ── */
 (function () {
   const STORAGE_KEY = 'finiverse-lang';
-  let currentLang = localStorage.getItem(STORAGE_KEY) || 'en';
+  // ?lang=es|en (enlaces de los correos) gana sobre lo guardado
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  let currentLang = ['en', 'es'].includes(urlLang) ? urlLang : (localStorage.getItem(STORAGE_KEY) || 'en');
 
   function applyLang(lang) {
     currentLang = lang;
