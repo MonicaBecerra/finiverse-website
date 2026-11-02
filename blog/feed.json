@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "dyscalculia-to-debt",
+      "url": "https://finiverseapp.com/blog-dyscalculia-to-debt.html?utm_source=finiverse_app",
+      "emoji": "🔗",
+      "publishedAt": "2026-11-02",
+      "readTime": "10 min",
+      "category": {
+        "es": "Primeros Pasos",
+        "en": "Getting Started"
+      },
+      "title": {
+        "es": "De la discalculia a la deuda: la cadena que nadie explica (y dónde romperla)",
+        "en": "From Dyscalculia to Debt: The Chain Nobody Explains (and Where to Break It)"
+      },
+      "excerpt": {
+        "es": "Discalculia, TDAH, función ejecutiva, impulsividad y deuda suelen ser eslabones de una misma cadena. Cómo cada eslabón jala al siguiente, y por qué la automatización y las herramientas visuales son los puntos más fáciles para romperla.",
+        "en": "Dyscalculia, ADHD, executive function, impulsivity and debt are often links in one chain. How each link pulls the next, and why automation and visual tools are the easiest places to break it."
+      }
+    },
+    {
       "id": "autism-money",
       "url": "https://finiverseapp.com/blog-autism-money.html?utm_source=finiverse_app",
       "emoji": "🛒",
