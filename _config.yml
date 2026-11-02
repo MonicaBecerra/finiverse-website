@@ -1,0 +1,3 @@
+# Jekyll defaults skip dot-folders; publish security.txt
+include:
+  - .well-known
