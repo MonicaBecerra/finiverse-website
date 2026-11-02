@@ -83,7 +83,7 @@
     .hm-center { text-align: center; }
     .hm-phone { flex: none; border: 7px solid #14122B; background: #14122B; border-radius: 40px; overflow: hidden; box-shadow: 0 28px 56px rgba(42,35,112,.16); max-width: 100%; }
     .hm-phone img { width: 100%; height: auto; display: block; }
-    .hm-sam-bot, .hm-close img.mini, .hm-founder img, .hm-float img { height: auto; }  /* width/height attrs are only for layout reservation */
+    .hm-sam-bot, .hm-close img.mini, .hm-float img { height: auto; }  /* width/height attrs are only for layout reservation */
     .hm-pill { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #FEF3C7; color: #92400E; letter-spacing: 0; text-transform: none; vertical-align: middle; }
 
     /* Hero */
@@ -182,17 +182,12 @@
     .hm-trust-item { display: flex; flex-direction: column; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; color: var(--hm-ink); }
     .hm-trust-item svg { width: 52px; height: 52px; padding: 13px; border-radius: 16px; background: #fff; color: var(--hm-accent); box-shadow: 0 6px 20px rgba(42,35,112,.07); }
 
-    /* Real people: founder + real review */
-    .hm-human-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
-    .hm-founder { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; align-items: center; background: var(--hm-lav); border-radius: 28px; padding: 28px; }
-    .hm-founder img { border-radius: 20px; aspect-ratio: 4/5; object-fit: cover; width: 150px; }
-    .hm-founder h3, .hm-review h3 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--hm-ink); }
-    .hm-founder p { color: var(--text-mid); margin-top: 10px; }
-    .hm-founder .hm-link, .hm-review .hm-link { display: inline-block; margin-top: 14px; }
-    .hm-review { margin: 0; border: 1px solid var(--card-border); border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+    /* Reviews: real App Store reviews */
+    .hm-review-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 44px; }
+    .hm-review { margin: 0; background: var(--hm-lav); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 16px; }
     .hm-stars { color: #F2A60C; letter-spacing: 2px; font-size: 18px; }
     .hm-review blockquote { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.4; color: var(--hm-ink); }
-    .hm-review figcaption { font-size: 14px; color: var(--text-light); }
+    .hm-review figcaption { font-size: 14px; color: var(--text-light); margin-top: auto; }
 
     /* Closing: soft lavender band, one sentence + buttons */
     .hm-close { background: var(--hm-lav); text-align: center; overflow: hidden; }
@@ -207,7 +202,7 @@
       .hm-float-sam { left: auto; right: 12px; }
       .hm-float-mood { right: auto; left: 12px; }
       .hm-pain-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .hm-how-grid, .hm-sam-grid, .hm-human-grid { grid-template-columns: minmax(0, 1fr); }
+      .hm-how-grid, .hm-sam-grid, .hm-review-grid { grid-template-columns: minmax(0, 1fr); }
       .hm-sam-bot { width: 190px; }
       .hm-stage { min-height: 0; }
       .hm-trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
@@ -224,8 +219,6 @@
       .hm-pain-card { min-height: 0; }
       .hm-bento-grid { grid-template-columns: minmax(0, 1fr); }
       .hm-bento-card { height: 360px; }
-      .hm-founder { grid-template-columns: minmax(0, 1fr); }
-      .hm-founder img { width: 120px; }
       .hm-stage .hm-phone { width: 230px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -450,24 +443,23 @@
   </div>
 </section>
 
-<!-- ═══ REAL PEOPLE ═══ -->
+<!-- ═══ REVIEWS ═══ -->
 <section class="hm-section">
-  <div class="container hm-human-grid">
-    <div class="hm-founder">
-      <img src="images/monica-founder.jpg" alt="Monica Becerra, founder of Finiverse" width="640" height="800" loading="lazy">
-      <div>
-        <h3 data-en="Made by Monica." data-es="Hecha por Monica.">Made by Monica.</h3>
-        <p data-en="She taught herself to code to build the app she couldn't find." data-es="Aprendió a programar para crear la app que no encontraba.">She taught herself to code to build the app she couldn't find.</p>
-        <a href="about.html" class="hm-link" data-en="Our story →" data-es="Nuestra historia →">Our story →</a>
-      </div>
+  <div class="container">
+    <h2 class="hm-h2 hm-center" data-en="We're new. Here's what people say." data-es="Somos nuevos. Esto dice la gente.">We're new. Here's what people say.</h2>
+    <div class="hm-review-grid">
+      <figure class="hm-review">
+        <div class="hm-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote data-en="&ldquo;Sometimes we don't realise how our emotions influence our decisions, and I think it's lovely that an app takes that into account too.&rdquo;" data-es="&ldquo;A veces no nos damos cuenta de cómo nuestras emociones influyen en nuestras decisiones, y me parece bonito que una aplicación tenga en cuenta también ese aspecto.&rdquo;">&ldquo;Sometimes we don't realise how our emotions influence our decisions, and I think it's lovely that an app takes that into account too.&rdquo;</blockquote>
+        <figcaption>Marthitago <span data-en="· App Store · translated from Spanish" data-es="· App Store">· App Store · translated from Spanish</span></figcaption>
+      </figure>
+      <figure class="hm-review">
+        <div class="hm-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote data-en="&ldquo;This new app has helped me balance my finances and save.&rdquo;" data-es="&ldquo;Esta app me ha ayudado a balancear mis finanzas y ahorrar.&rdquo;">&ldquo;This new app has helped me balance my finances and save.&rdquo;</blockquote>
+        <figcaption>Alenoemi <span data-en="· App Store" data-es="· App Store · traducida del inglés">· App Store</span></figcaption>
+      </figure>
     </div>
-    <figure class="hm-review">
-      <h3 data-en="We're new." data-es="Somos nuevos.">We're new.</h3>
-      <div class="hm-stars" aria-label="5 stars">★★★★★</div>
-      <blockquote data-en="&ldquo;This new app has helped me balance my finances and save.&rdquo;" data-es="&ldquo;Esta app me ha ayudado a balancear mis finanzas y ahorrar.&rdquo;">&ldquo;This new app has helped me balance my finances and save.&rdquo;</blockquote>
-      <figcaption>Alenoemi <span data-en="· App Store" data-es="· App Store">· App Store</span></figcaption>
-      <a href="https://apps.apple.com/app/finiverse/id6648789225?action=write-review" target="_blank" rel="noopener" class="hm-link" data-en="Using it? Leave a review →" data-es="¿Ya la usas? Deja una reseña →">Using it? Leave a review →</a>
-    </figure>
+    <p class="hm-more hm-center"><a href="https://apps.apple.com/app/finiverse/id6648789225?action=write-review" target="_blank" rel="noopener" class="hm-link" data-en="Using it? Leave a review →" data-es="¿Ya la usas? Deja una reseña →">Using it? Leave a review →</a></p>
   </div>
 </section>
 
