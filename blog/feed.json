@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "adhd-shopping-addiction",
+      "url": "https://finiverseapp.com/blog-adhd-shopping-addiction.html?utm_source=finiverse_app",
+      "emoji": "🛍️",
+      "publishedAt": "2026-11-03",
+      "readTime": "9 min",
+      "category": {
+        "es": "TDAH y Dinero",
+        "en": "ADHD & Money"
+      },
+      "title": {
+        "es": "Adicción a las compras y TDAH: cuando comprar por impulso se vuelve compulsivo",
+        "en": "ADHD Shopping Addiction: When Impulse Buying Becomes Compulsive"
+      },
+      "excerpt": {
+        "es": "La adicción a las compras con TDAH no es lo mismo que una compra impulsiva cualquiera. Cómo se ve la compra compulsiva, por qué el secreto y la vergüenza la sostienen, qué fricción ayuda y cuándo pedir apoyo.",
+        "en": "ADHD shopping addiction is not the same as an ordinary impulse buy. What compulsive buying looks like, why secrecy and shame keep it going, which friction helps, and when to ask for support."
+      }
+    },
+    {
       "id": "dyscalculia-to-debt",
       "url": "https://finiverseapp.com/blog-dyscalculia-to-debt.html?utm_source=finiverse_app",
       "emoji": "🔗",
