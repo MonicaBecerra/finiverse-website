@@ -2,6 +2,25 @@
   "version": 1,
   "articles": [
     {
+      "id": "adhd-diagnosed-at-27",
+      "url": "https://finiverseapp.com/blog-adhd-diagnosed-at-27.html?utm_source=finiverse_app",
+      "emoji": "🧭",
+      "publishedAt": "2026-11-04",
+      "readTime": "7 min",
+      "category": {
+        "es": "TDAH y Dinero",
+        "en": "ADHD & Money"
+      },
+      "title": {
+        "es": "Diagnosticada con TDAH a los 27: mi historia con el dinero (y por qué hice Finiverse)",
+        "en": "Diagnosed with ADHD at 27: My Story With Money (and Why I Built Finiverse)"
+      },
+      "excerpt": {
+        "es": "Viajes, trabajos internacionales, una maestría sola en el extranjero, y un cerebro impulsivo todo el camino. La regla de los 3 meses que salvó mis finanzas, el Excel que se volvió app, y lo que todavía me abruma.",
+        "en": "Travelling, international jobs, a master's abroad on my own, and an impulsive brain the whole way. The 3-month rule that saved my finances, the spreadsheet that became an app, and the overwhelm I'm still working on."
+      }
+    },
+    {
       "id": "dyscalculia-to-debt",
       "url": "https://finiverseapp.com/blog-dyscalculia-to-debt.html?utm_source=finiverse_app",
       "emoji": "🔗",
