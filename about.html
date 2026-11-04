@@ -45,6 +45,15 @@
     .ab-value h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-dark); margin-top: 6px; }
     .ab-value p { font-size: 15px; color: var(--text-mid); line-height: 1.5; }
 
+    /* Story: four short chapters */
+    .ab-story { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+    .ab-chapter { background: #fff; border: 1px solid var(--card-border); border-radius: 24px; padding: 26px 24px; display: flex; flex-direction: column; gap: 8px; }
+    .ab-chapter .emo { font-size: 30px; line-height: 1; }
+    .ab-chapter .num { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--indigo-soft); margin-top: 6px; }
+    .ab-chapter h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-dark); }
+    .ab-chapter p { font-size: 15px; color: var(--text-mid); line-height: 1.55; }
+    .ab-story-more { text-align: center; margin-top: 28px; }
+
     /* Company + tech */
     .ab-facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
     .ab-card { background: #fff; border: 1px solid var(--card-border); border-radius: 24px; padding: 30px; }
@@ -67,11 +76,13 @@
       .ab-founder { grid-template-columns: minmax(0, 1fr); gap: 32px; }
       .ab-founder img { max-width: 320px; }
       .ab-values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ab-story { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .ab-facts { grid-template-columns: minmax(0, 1fr); }
     }
     @media (max-width: 560px) {
       .ab-section { padding: 72px 0; }
       .ab-values { grid-template-columns: minmax(0, 1fr); }
+      .ab-story { grid-template-columns: minmax(0, 1fr); }
       .ab-card { padding: 24px; }
     }
   </style>
@@ -92,7 +103,8 @@
   <meta name="twitter:image" content="https://finiverseapp.com/images/og-icon.png" />
   <meta property="og:url" content="https://finiverseapp.com/about.html" />
   <meta property="og:title" content="About · Finiverse" />
-  <meta property="og:description" content="We're building personal finance tools for every mind, with extra care for the ones other apps forget. No shame. No overwhelm. Just clarity." />
+  <meta name="description" content="Finiverse was built by Monica Becerra, diagnosed with ADHD at 27, who also lives with anxiety. It began as a spreadsheet for her sister and became a money app built the way her brain works: compassionate, but realistic." />
+  <meta property="og:description" content="Finiverse was built by a founder with ADHD and anxiety, for minds that think differently. It began as a spreadsheet for her sister and became an app that is compassionate, but realistic." />
   <meta name="twitter:title" content="About Finiverse" />
   <meta name="twitter:description" content="Finance for every brain. Built with purpose." />
   <!-- Analytics: consent-gated via consent.js -->
@@ -124,7 +136,7 @@
   <div class="container">
     <div class="ab-eyebrow" data-en="Our story" data-es="Nuestra historia">Our story</div>
     <h1 data-en="Built for minds that think differently." data-es="Hecha para mentes que piensan diferente.">Built for minds that think differently.</h1>
-    <p data-en="Money tools that work with your brain, not against it." data-es="Herramientas de dinero que trabajan con tu cerebro, no en su contra.">Money tools that work with your brain, not against it.</p>
+    <p data-en="Made by a founder with ADHD, for every mind the usual money apps forget." data-es="Hecha por una fundadora con TDAH, para cada mente que las apps de dinero de siempre olvidan.">Made by a founder with ADHD, for every mind the usual money apps forget.</p>
   </div>
 </section>
 
@@ -135,14 +147,48 @@
     <div>
       <div class="ab-eyebrow" data-en="Why Finiverse exists" data-es="Por qué existe Finiverse">Why Finiverse exists</div>
       <blockquote
-        data-en="&ldquo;I used to think I was just bad with money. Therapy helped me understand my emotions were driving every financial decision I made, and that my brain works differently, not worse. I built Finiverse because everyone deserves a tool that actually works for them.&rdquo;"
-        data-es="&ldquo;Solía pensar que simplemente era mala con el dinero. La terapia me ayudó a entender que mis emociones manejaban cada decisión financiera, y que mi cerebro funciona diferente, no peor. Construí Finiverse porque todos merecen una herramienta que realmente funcione para ellos.&rdquo;">&ldquo;I used to think I was just bad with money. Therapy helped me understand my emotions were driving every financial decision I made, and that my brain works differently, not worse. I built Finiverse because everyone deserves a tool that actually works for them.&rdquo;</blockquote>
+        data-en="&ldquo;When I was diagnosed with ADHD at 27, my whole life finally had an answer. I also live with anxiety, and money has always been what stresses me most. My brain works differently, not worse. I built Finiverse for the version of me who felt lost. If you feel that way right now, I built it for you too.&rdquo;"
+        data-es="&ldquo;Cuando me diagnosticaron TDAH a los 27, por fin toda mi vida tuvo una respuesta. También vivo con ansiedad, y el dinero siempre ha sido lo que más me estresa. Mi cerebro funciona diferente, no peor. Hice Finiverse para la versión de mí que se sentía perdida. Si tú te sientes así ahora, también la hice para ti.&rdquo;">&ldquo;When I was diagnosed with ADHD at 27, my whole life finally had an answer. I also live with anxiety, and money has always been what stresses me most. My brain works differently, not worse. I built Finiverse for the version of me who felt lost. If you feel that way right now, I built it for you too.&rdquo;</blockquote>
       <div class="who">
         <b>Monica Becerra</b>
         <span data-en="Founder &amp; CEO · Finiverse LTD · London, UK" data-es="Fundadora y CEO · Finiverse LTD · Londres, UK">Founder &amp; CEO · Finiverse LTD · London, UK</span>
       </div>
-      <p class="bio" data-en="Master's in International Business Development (Switzerland). Taught herself iOS to build the app she couldn't find." data-es="Máster en Desarrollo de Negocios Internacionales (Suiza). Aprendió iOS por su cuenta para crear la app que no encontraba.">Master's in International Business Development (Switzerland). Taught herself iOS to build the app she couldn't find.</p>
+      <p class="bio" data-en="Master's in International Business Development (Switzerland). Taught herself Xcode with Google and YouTube to build the app she couldn't find." data-es="Máster en Desarrollo de Negocios Internacionales (Suiza). Aprendió Xcode por su cuenta con Google y YouTube para crear la app que no encontraba.">Master's in International Business Development (Switzerland). Taught herself Xcode with Google and YouTube to build the app she couldn't find.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══ STORY ═══ -->
+<section class="ab-section" style="background:var(--bg-soft)">
+  <div class="container">
+    <h2 class="ab-h2" style="text-align:center" data-en="How Finiverse was born." data-es="Cómo nació Finiverse.">How Finiverse was born.</h2>
+    <div class="ab-story">
+      <div class="ab-chapter">
+        <span class="emo" aria-hidden="true">🧭</span>
+        <span class="num" data-en="Chapter 1" data-es="Capítulo 1">Chapter 1</span>
+        <h3 data-en="A name for my past" data-es="Un nombre para mi pasado">A name for my past</h3>
+        <p data-en="Diagnosed with ADHD at 27, and living with anxiety too. Suddenly my whole life had an answer." data-es="Diagnosticada con TDAH a los 27, y con ansiedad también. De repente toda mi vida tenía una respuesta.">Diagnosed with ADHD at 27, and living with anxiety too. Suddenly my whole life had an answer.</p>
+      </div>
+      <div class="ab-chapter">
+        <span class="emo" aria-hidden="true">✈️</span>
+        <span class="num" data-en="Chapter 2" data-es="Capítulo 2">Chapter 2</span>
+        <h3 data-en="Abroad, on my own" data-es="Sola en el extranjero">Abroad, on my own</h3>
+        <p data-en="Living abroad meant getting strict with money. Since 2020 I use the 3-month rule: I wait three months, and if I still want it, I buy it." data-es="Vivir fuera me obligó a ser estricta con el dinero. Desde 2020 uso la regla de los 3 meses: espero tres meses, y si todavía lo quiero, lo compro.">Living abroad meant getting strict with money. Since 2020 I use the 3-month rule: I wait three months, and if I still want it, I buy it.</p>
+      </div>
+      <div class="ab-chapter">
+        <span class="emo" aria-hidden="true">📊</span>
+        <span class="num" data-en="Chapter 3" data-es="Capítulo 3">Chapter 3</span>
+        <h3 data-en="An Excel for my sister" data-es="Un Excel para mi hermana">An Excel for my sister</h3>
+        <p data-en="My sister asked me for a spreadsheet to organise her money. My ADHD said: what if I make an app instead?" data-es="Mi hermana me pidió un Excel para organizar su dinero. Mi TDAH dijo: ¿y qué tal si mejor hago una app?">My sister asked me for a spreadsheet to organise her money. My ADHD said: what if I make an app instead?</p>
+      </div>
+      <div class="ab-chapter">
+        <span class="emo" aria-hidden="true">💻</span>
+        <span class="num" data-en="Chapter 4" data-es="Capítulo 4">Chapter 4</span>
+        <h3 data-en="Learning as I went" data-es="Aprendiendo en el camino">Learning as I went</h3>
+        <p data-en="I didn't know how to code. Google, YouTube, and later AI as a second pair of eyes. Along the way I realised I was building it the way my brain works." data-es="No sabía programar. Google, YouTube, y después la IA como un segundo par de ojos. En el camino me di cuenta de que la estaba haciendo a la forma en que funciona mi cerebro.">I didn't know how to code. Google, YouTube, and later AI as a second pair of eyes. Along the way I realised I was building it the way my brain works.</p>
+      </div>
+    </div>
+    <p class="ab-story-more"><a href="blog-adhd-diagnosed-at-27.html" class="ab-link" data-en="Read the full story →" data-es="Lee la historia completa →">Read the full story →</a></p>
   </div>
 </section>
 
@@ -150,7 +196,7 @@
 <section class="ab-section ab-mission">
   <div class="container">
     <div class="ab-eyebrow" data-en="Mission" data-es="Misión">Mission</div>
-    <p class="big" data-en="Make financial clarity accessible to every mind, especially the ones the world forgot to design for." data-es="Hacer que la claridad financiera sea accesible para toda mente, sobre todo para las que el mundo olvidó al diseñar.">Make financial clarity accessible to every mind, especially the ones the world forgot to design for.</p>
+    <p class="big" data-en="Help every mind become more independent with money, with compassion, but with realism." data-es="Ayudar a cada mente a ser más independiente con su dinero, con compasión, pero con realismo.">Help every mind become more independent with money, with compassion, but with realism.</p>
   </div>
 </section>
 
@@ -162,12 +208,12 @@
       <div class="ab-value">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M14.5 20a4.5 4.5 0 0 1 7-3.7"/></svg>
         <h3 data-en="Inclusion first" data-es="Inclusión primero">Inclusion first</h3>
-        <p data-en="Designed for neurodivergent minds from day one." data-es="Pensada para mentes neurodivergentes desde el día uno.">Designed for neurodivergent minds from day one.</p>
+        <p data-en="Built by a neurodivergent founder, for neurodivergent minds." data-es="Hecha por una fundadora neurodivergente, para mentes neurodivergentes.">Built by a neurodivergent founder, for neurodivergent minds.</p>
       </div>
       <div class="ab-value">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-        <h3 data-en="No judgment" data-es="Sin juicios">No judgment</h3>
-        <p data-en="Sam never lectures. The app never shames." data-es="Sam nunca sermonea. La app nunca avergüenza.">Sam never lectures. The app never shames.</p>
+        <h3 data-en="Kind, but honest" data-es="Compasiva, pero realista">Kind, but honest</h3>
+        <p data-en="No shame, no lectures. And no pretending things are fine when they aren't." data-es="Sin vergüenza ni sermones. Y sin fingir que todo está bien cuando no lo está.">No shame, no lectures. And no pretending things are fine when they aren't.</p>
       </div>
       <div class="ab-value">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
