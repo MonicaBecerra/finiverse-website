@@ -14,6 +14,26 @@
   var GA  = 'G-K25B6JP5S6';
   var gaLoaded = false;
 
+  /* /index y /index.html son la misma portada que "/": se muestra (y se mide) siempre como "/",
+     para que Google Analytics y el buscador no la cuenten como dos páginas. */
+  try {
+    if (/\/index(\.html)?$/.test(window.location.pathname)) {
+      history.replaceState(null, '', window.location.pathname.replace(/index(\.html)?$/, '') + window.location.search + window.location.hash);
+    }
+  } catch (e) {}
+
+  /* Tus propias visitas no cuentan: abre cualquier página una vez con ?fvowner=1 en cada navegador
+     (?fvowner=0 lo deshace). Es la misma marca que usa el contador del blog (article-views.js). */
+  function isOwner() {
+    try {
+      var q = new URLSearchParams(window.location.search).get('fvowner');
+      if (q === '1') localStorage.setItem('fv_owner', '1');
+      if (q === '0') localStorage.removeItem('fv_owner');
+      return localStorage.getItem('fv_owner') === '1';
+    } catch (e) { return false; }
+  }
+  var OWNER = isOwner();
+
   function read() {
     try { return localStorage.getItem(KEY); } catch (e) { return null; }
   }
@@ -32,6 +52,7 @@
   }
 
   function loadGA() {
+    if (OWNER) { window['ga-disable-' + GA] = true; return; }
     window['ga-disable-' + GA] = false;
     if (gaLoaded) {
       window.gtag('consent', 'update', { analytics_storage: 'granted' });
