@@ -18,7 +18,7 @@
 
     '    <!-- brand: who it is for + where to get it -->',
     '    <div class="footer-brand">',
-    '      <a href="index.html" class="footer-logo-link">',
+    '      <a href="/" class="footer-logo-link">',
     '        <img src="images/app-icon.png" alt="" width="32" height="32" style="border-radius:9px;object-fit:cover">',
     '        <span>Finiverse</span>',
     '      </a>',
