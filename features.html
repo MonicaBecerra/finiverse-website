@@ -13,104 +13,23 @@
   <style>
     /* Phone mockup */
     .feat-phone {
-      width: 220px;
-      margin: 0 auto;
-      background: #1C1C2E;
-      border-radius: 36px;
-      padding: 10px;
-      box-shadow: 0 24px 64px rgba(0,0,0,.18), 0 0 0 1px rgba(255,255,255,.06);
+      --r: 38px; width: 220px; margin: 0 auto; position: relative; padding: 4px; border-radius: var(--r);
+      background: linear-gradient(150deg, #6a6874 0%, #26252e 20%, #44434e 50%, #1d1c24 80%, #5a5965 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.28), 0 1px 0 1px rgba(20,18,43,.5), 0 50px 80px -34px rgba(42,35,112,.5), 0 24px 40px -22px rgba(20,18,43,.4);
     }
+    .feat-phone::before { content: ""; position: absolute; right: -2px; top: 26%; width: 3px; height: 14%; border-radius: 0 3px 3px 0; background: linear-gradient(90deg, #2a2931, #6a6874); }
+    .feat-phone::after { content: ""; position: absolute; inset: 8px; border-radius: calc(var(--r) - 8px); background: linear-gradient(118deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.04) 26%, rgba(255,255,255,0) 40%); pointer-events: none; }
     .feat-phone-screen {
-      border-radius: 28px;
-      overflow: hidden;
-      aspect-ratio: 9/19.5;
-      background: #F0F0FF;
+      border: 4px solid #050508; border-radius: calc(var(--r) - 4px); overflow: hidden; aspect-ratio: 600/1304; background: #050508;
     }
     .feat-phone-screen img, .feat-phone-screen video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
+      width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
     }
-
-    /* Small pill above each panel title */
-    .feat-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--indigo);
-      background: var(--indigo-light);
-      padding: 4px 12px;
-      border-radius: 100px;
-    }
-
-    /* Plan pills: which plan (or higher) a feature needs */
-    .plan-pill {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      line-height: 1;
-      padding: 4px 8px;
-      border-radius: 100px;
-      white-space: nowrap;
-      vertical-align: 1px;
-    }
-    .plan-eb { background: #FEF3C7; color: #92400E; }
-    .plan-pr { background: #EDE9FE; color: #5B21B6; }
-    .plan-sa { background: #E0E7FF; color: #3730A3; }
-    .plan-legend { text-align: center; font-size: 13px; color: var(--text-mid); line-height: 2; margin: 0 auto 40px; max-width: 640px; }
-
-    /* "In real life" steps stack on phones */
-    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr !important; max-width: 340px !important; } }
-
-    /* ── Feature explorer ── */
-    #explore { scroll-margin-top: var(--nav-h); }
-    .fx-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin: 0 auto 16px;
-      max-width: 900px;
-    }
-    .fx-tab {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 16px;
-      border-radius: 100px;
-      border: 1.5px solid var(--card-border);
-      background: #fff;
-      font: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-dark);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background .15s, border-color .15s, color .15s;
-    }
-    .fx-tab:hover { border-color: var(--indigo); }
-    .fx-tab[aria-selected="true"] { background: var(--indigo); border-color: var(--indigo); color: #fff; }
-    .fx-tab:focus-visible { outline: 3px solid var(--indigo-light); outline-offset: 2px; }
-    @media (max-width: 720px) {
-      .fx-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none;
-                 margin: 0 -16px 16px; padding: 2px 16px 6px; scroll-snap-type: x proximity; }
-      .fx-tabs::-webkit-scrollbar { display: none; }
-      .fx-tab { scroll-snap-align: start; }
-    }
-
-    .fx-panel { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; }
     .fx-panel[hidden] { display: none; }
     .fx-panel-more { display: block; }
     @media (max-width: 860px) {
       .fx-panel { grid-template-columns: 1fr; gap: 32px; }
       .fx-visual { order: 2; }
-      .fx-visual .feat-phone { width: 190px; }
+      .fx-visual .feat-phone { --r: 33px; width: 190px; }
     }
     .fx-title { font-size: clamp(26px, 4vw, 38px); font-weight: 900; color: var(--text-dark); line-height: 1.15; margin: 14px 0 8px; }
     .fx-title span { color: var(--indigo); }
@@ -284,7 +203,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <video src="images/videos/checkin-ios.mp4" poster="images/screens/ios-checkin-done.jpg" data-autoplay muted loop playsinline preload="none" aria-label="Video: a daily check-in in a few taps, ending with a kind note from Sam"></video>
+            <video src="images/videos/checkin-ios.mp4?v=1106" poster="images/screens/ios-checkin-done.jpg?v=1106" data-autoplay muted loop playsinline preload="none" aria-label="Video: a daily check-in in a few taps, ending with a kind note from Sam"></video>
           </div>
         </div>
       </div>
@@ -309,7 +228,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-sam-chat.jpg" alt="Sam explains, without judgment, why we spend more when anxious" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/android-sam-chat.jpg?v=1106" alt="Sam explains, without judgment, why we spend more when anxious" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
@@ -337,7 +256,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <video src="images/videos/wishlist-ios.mp4" poster="images/screens/ios-wishlist.jpg" data-autoplay muted loop playsinline preload="none" aria-label="Video: a wish waits, you decide you no longer need it, and the app shows what you saved"></video>
+            <video src="images/videos/wishlist-ios.mp4?v=1106" poster="images/screens/ios-wishlist.jpg?v=1106" data-autoplay muted loop playsinline preload="none" aria-label="Video: a wish waits, you decide you no longer need it, and the app shows what you saved"></video>
           </div>
         </div>
       </div>
@@ -364,7 +283,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-home-sam.jpg" alt="Home: available balance, personal margin and Sam’s plan until payday" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/android-home-sam.jpg?v=1106" alt="Home: available balance, personal margin and Sam’s plan until payday" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
@@ -388,7 +307,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-records.jpg" alt="Records with a colour stripe for how you felt" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/android-records.jpg?v=1106" alt="Records with a colour stripe for how you felt" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
@@ -413,7 +332,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/ios-emotion-insight.jpg" alt="On anxious days you spend quite a lot more, mostly on shopping" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/ios-emotion-insight.jpg?v=1106" alt="On anxious days you spend quite a lot more, mostly on shopping" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
@@ -438,7 +357,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/cards.PNG" alt="Cards screen" loading="lazy" />
+            <img src="images/screens/ios-cards.jpg?v=1106" alt="Cards screen" loading="lazy" />
           </div>
         </div>
       </div>
@@ -462,7 +381,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-goals.jpg" alt="Savings goals as jars that fill up" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/android-goals.jpg?v=1106" alt="Savings goals as jars that fill up" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
@@ -484,7 +403,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-galaxy.jpg" alt="Your galaxy: after 30 days your stars form a galaxy" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/android-galaxy.jpg?v=1106" alt="Your galaxy: after 30 days your stars form a galaxy" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
