@@ -24,6 +24,78 @@
     .feat-phone-screen img, .feat-phone-screen video {
       width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
     }
+
+    /* Small pill above each panel title */
+    .feat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--indigo);
+      background: var(--indigo-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* Plan pills: which plan (or higher) a feature needs */
+    .plan-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 100px;
+      white-space: nowrap;
+      vertical-align: 1px;
+    }
+    .plan-eb { background: #FEF3C7; color: #92400E; }
+    .plan-pr { background: #EDE9FE; color: #5B21B6; }
+    .plan-sa { background: #E0E7FF; color: #3730A3; }
+    .plan-legend { text-align: center; font-size: 13px; color: var(--text-mid); line-height: 2; margin: 0 auto 40px; max-width: 640px; }
+
+    /* "In real life" steps stack on phones */
+    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr !important; max-width: 340px !important; } }
+
+    /* ── Feature explorer ── */
+    #explore { scroll-margin-top: var(--nav-h); }
+    .fx-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 16px;
+      max-width: 900px;
+    }
+    .fx-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 100px;
+      border: 1.5px solid var(--card-border);
+      background: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .fx-tab:hover { border-color: var(--indigo); }
+    .fx-tab[aria-selected="true"] { background: var(--indigo); border-color: var(--indigo); color: #fff; }
+    .fx-tab:focus-visible { outline: 3px solid var(--indigo-light); outline-offset: 2px; }
+    @media (max-width: 720px) {
+      .fx-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none;
+                 margin: 0 -16px 16px; padding: 2px 16px 6px; scroll-snap-type: x proximity; }
+      .fx-tabs::-webkit-scrollbar { display: none; }
+      .fx-tab { scroll-snap-align: start; }
+    }
+
+    .fx-panel { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; }
     .fx-panel[hidden] { display: none; }
     .fx-panel-more { display: block; }
     @media (max-width: 860px) {
