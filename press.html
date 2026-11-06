@@ -54,16 +54,11 @@
     .ss-strip::-webkit-scrollbar { height: 4px; }
     .ss-strip::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 4px; }
     .ss-thumb {
-      flex-shrink: 0;
-      width: 110px;
-      background: #1C1C2E;
-      border-radius: 18px;
-      padding: 6px;
+      --r: 21px; flex-shrink: 0; width: 110px; position: relative; padding: 3px; border-radius: var(--r);
+      background: linear-gradient(150deg, #6a6874 0%, #26252e 20%, #44434e 50%, #1d1c24 80%, #5a5965 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.28), 0 1px 0 1px rgba(20,18,43,.5), 0 26px 40px -18px rgba(42,35,112,.5), 0 12px 20px -10px rgba(20,18,43,.4);
     }
     .ss-thumb-screen {
-      border-radius: 13px;
-      overflow: hidden;
-      aspect-ratio: 9/19.5;
+      border: 2.5px solid #050508; border-radius: calc(var(--r) - 3px); overflow: hidden; aspect-ratio: 600/1304; background: #050508;
     }
     .ss-thumb-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 
@@ -287,14 +282,14 @@
     <div class="press-section">
       <h2 data-en="App screenshots" data-es="Capturas de pantalla">App screenshots</h2>
       <div class="ss-strip">
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-home-sam.jpg" alt="Home" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-sam-chat.jpg" alt="Sam AI" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/ios-checkin-done.jpg" alt="Check-in" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/ios-emotion-insight.jpg" alt="Emotion insight" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/ios-wishlist-saved.jpg" alt="Wishlist" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-envelope-limit.jpg" alt="Envelopes" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-goals.jpg" alt="Goals" /></div></div>
-        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-galaxy.jpg" alt="Your galaxy" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-home-sam.jpg?v=1106" alt="Home" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-sam-chat.jpg?v=1106" alt="Sam AI" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/ios-checkin-done.jpg?v=1106" alt="Check-in" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/ios-emotion-insight.jpg?v=1106" alt="Emotion insight" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/ios-wishlist-saved.jpg?v=1106" alt="Wishlist" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-envelope-limit.jpg?v=1106" alt="Envelopes" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-goals.jpg?v=1106" alt="Goals" /></div></div>
+        <div class="ss-thumb"><div class="ss-thumb-screen"><img src="images/screens/android-galaxy.jpg?v=1106" alt="Your galaxy" /></div></div>
       </div>
       <p style="font-size:13px;color:var(--text-light);margin-top:12px" data-en="Right-click any screenshot above to save it. For higher resolution originals, email us." data-es="Clic derecho en cualquier captura para guardarla. Para originales en alta resolución, escríbenos.">Right-click any screenshot above to save it. For higher resolution originals, email us.</p>
     </div>
