@@ -284,7 +284,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-checkin-done.jpg" alt="Check-in done: mood Good, focus Tunnel, and a kind note from Sam" width="600" height="1304" loading="lazy" />
+            <video src="images/videos/checkin-ios.mp4" poster="images/screens/ios-checkin-done.jpg" data-autoplay muted loop playsinline preload="none" aria-label="Video: a daily check-in in a few taps, ending with a kind note from Sam"></video>
           </div>
         </div>
       </div>
@@ -337,7 +337,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <video src="images/videos/wishlist-android.mp4" poster="images/screens/android-wishlist.jpg" autoplay muted loop playsinline preload="none" aria-label="Video: a wish waits, you decide you no longer need it, and the app shows what you saved"></video>
+            <video src="images/videos/wishlist-ios.mp4" poster="images/screens/ios-wishlist.jpg" data-autoplay muted loop playsinline preload="none" aria-label="Video: a wish waits, you decide you no longer need it, and the app shows what you saved"></video>
           </div>
         </div>
       </div>
@@ -413,7 +413,7 @@
       <div class="fx-visual">
         <div class="feat-phone">
           <div class="feat-phone-screen">
-            <img src="images/screens/android-emotion-insight.jpg" alt="On anxious days you spend quite a lot more, mostly on shopping" width="600" height="1304" loading="lazy" />
+            <img src="images/screens/ios-emotion-insight.jpg" alt="On anxious days you spend quite a lot more, mostly on shopping" width="600" height="1304" loading="lazy" />
           </div>
         </div>
       </div>
@@ -656,5 +656,16 @@
 })();
 </script>
 
+<script>
+/* Videos de la app: solo se reproducen cuando se ven, y nunca con "reducir movimiento". */
+(function(){
+  var vids=document.querySelectorAll('video[data-autoplay]');
+  if(!vids.length||matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.play().catch(function(){});}else{e.target.pause();}
+  });},{threshold:0.35});
+  vids.forEach(function(v){io.observe(v);});
+})();
+</script>
 </body>
 </html>
